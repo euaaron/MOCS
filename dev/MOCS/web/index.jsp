@@ -18,7 +18,7 @@
             <li><a href="PesquisaClienteController">Clientes</a></li>
             <li><a href="PesquisaFuncionarioController">Funcionário</a></li>
             <li><a href="PesquisaPedidosController">Pedidos</a></li>
-            <li><a href="PesquisaPratosController"></a>Pratos</li>
+            <li><a href="PesquisaPratosController">Pratos</a></li>
         </ul>        
     </body>
 </html>
