@@ -13,7 +13,7 @@
     </head>
     <body>
         <h1>Cadastro de Estabelecimento</h1>
-        <form method="POST">
+        <form action="cadastroEstabelecimentoController" method="post">
         <table border="1">
                 <tr>
                     <td><label for="cnpj">CNPJ</label></td> <!-- Número do CNPJ -->
@@ -40,36 +40,37 @@
                     <td><input type="text" id="logradouro"></td>
                 </tr>
                 <tr>
-                    <td><label for="numero">Número</label></td> <!-- Nome da rua, avenida etc. -->
+                    <td><label for="numero">Número</label></td> <!-- Número da edificação -->
                     <td><input type="text" id="numero"></td>
                 </tr>
                 <tr>
-                    <td><label for="bairro">Bairro</label></td> <!-- Nome da rua, avenida etc. -->
+                    <td><label for="bairro">Bairro</label></td> <!-- Bairro correspondente. -->
                     <td><input type="text" id="bairro"></td>
                 </tr>
                 <tr>
-                    <td><label for="logradouro">Logradouro</label></td> <!-- Nome da rua, avenida etc. -->
-                    <td><input type="text" id="logradouro"></td>
+                    <td><label for="estado">Estado</label></td> <!-- Unidade de federação correspondente. -->
+                    <td><input type="text" id="estado"></td>
                 </tr>
                 <tr>
-                    <td><label for="logradouro">Logradouro</label></td> <!-- Nome da rua, avenida etc. -->
-                    <td><input type="text" id="logradouro"></td>
+                    <td><label for="cidade">Cidade</label></td> <!-- Nome do município. -->
+                    <td><input type="text" id="cidade"></td>
                 </tr>
                 <tr>
-                    <td></td> <!-- Nome da rua, avenida etc. -->
-                    <td></td>
+                    <td><label for="cep">CEP</label></td> <!-- Código de endereçamento postal correspondente. -->
+                <a href="cadastroEstabelecimento.jsp"></a>
+                    <td><input type="text" id="cep"></td>
                 </tr>
                 <tr>
-                    <td></td> <!-- Nome da rua, avenida etc. -->
-                    <td></td>
+                    <td><label for="fone">Fone</label></td> <!-- Número de telefone. -->
+                    <td><input type="text" id="fone"></td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td><label for="fax">Fax</label></td> <!-- Número de fax. -->
+                    <td><input type="text" id="fax"></td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td><label for="email">E-mail</label></td> <!-- Endereço eletrônico da pessoa. -->
+                    <td><input type="text" id="email"></td>
                 </tr>
         </table>
         </form>

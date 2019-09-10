@@ -248,10 +248,10 @@
 											},
 											"font": "Arial;13;1",
 											"left": 91.5,
-											"top": 134,
-											"width": 58,
-											"height": 26,
-											"text": "Cadastrar Conta",
+											"top": 127.5,
+											"width": 60,
+											"height": 39,
+											"text": "Cadastrar Perfil de Usuario",
 											"wordWrap": true
 										},
 										{
@@ -284,9 +284,9 @@
 									],
 									"font": "Arial;13;0",
 									"left": 86.5,
-									"top": 127,
+									"top": 120.5,
 									"width": 70.6962890625,
-									"height": 38,
+									"height": 51,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAFszhJrVjb4SSI="
 									},
@@ -385,7 +385,7 @@
 							"containerChangeable": true,
 							"left": 72,
 							"top": 120,
-							"width": 97,
+							"width": 99,
 							"height": 53,
 							"nameCompartment": {
 								"$ref": "AAAAAAFszhJrVjb31lo="
@@ -5374,7 +5374,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 247,
+									"left": 248,
 									"top": 158,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -5395,7 +5395,7 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 251,
+									"left": 252,
 									"top": 144,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -5416,7 +5416,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 240,
+									"left": 241,
 									"top": 187,
 									"height": 13,
 									"alpha": -1.5707963267948966,
@@ -5437,7 +5437,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 197,
+									"left": 199,
 									"top": 145,
 									"height": 13,
 									"alpha": 0.5235987755982988,
@@ -5458,8 +5458,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 203,
-									"top": 132,
+									"left": 205,
+									"top": 133,
 									"height": 13,
 									"alpha": 0.7853981633974483,
 									"distance": 40,
@@ -5479,7 +5479,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 186,
+									"left": 188,
 									"top": 170,
 									"height": 13,
 									"alpha": -0.5235987755982988,
@@ -5520,7 +5520,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 298,
+									"left": 299,
 									"top": 158,
 									"height": 13,
 									"alpha": -0.7853981633974483,
@@ -5590,7 +5590,7 @@
 								"$ref": "AAAAAAFszhJrVDb2/5g="
 							},
 							"lineStyle": 1,
-							"points": "169:159;319:199",
+							"points": "171:159;319:199",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAFszzBOX0unZ8I="
@@ -11940,7 +11940,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Cadastrar Conta",
+					"name": "Cadastrar Perfil de Usuario",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
