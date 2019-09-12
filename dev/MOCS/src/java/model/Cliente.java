@@ -5,10 +5,27 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author euaar
  */
 public class Cliente extends Usuario {
+    private ArrayList<Comanda> historicoPedidos = new ArrayList<Comanda>();
+
+    /**
+     * @return the historicoPedidos
+     */
+    public ArrayList<Comanda> getHistoricoPedidos() {
+        return historicoPedidos;
+    }
+
+    /**
+     * @param historicoPedidos the historicoPedidos to set
+     */
+    public void setHistoricoPedidos(ArrayList<Comanda> historicoPedidos) {
+        this.historicoPedidos = historicoPedidos;
+    }
     
 }

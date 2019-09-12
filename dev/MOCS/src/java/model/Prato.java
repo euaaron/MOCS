@@ -17,6 +17,12 @@ public class Prato {
     private String descricao;
     private Funcionario funcionario;
     private Date dataCriacao;
+    
+    Prato(String nome, String descricao, Funcionario funcionario){
+        this.descricao = descricao;
+        this.funcionario = funcionario;
+        this.nome = nome;
+    }
 
     public int getId() {
         return id;
