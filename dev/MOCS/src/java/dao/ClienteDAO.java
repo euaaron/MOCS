@@ -15,7 +15,7 @@ import java.util.List;
 import model.Cliente;
 /**
  *
- * @author Débora
+ * @author Débora e Aaron
  */
 public class ClienteDAO {
     
