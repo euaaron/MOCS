@@ -14,6 +14,9 @@ import java.util.ArrayList;
 public class Cliente extends Usuario {
     private ArrayList<Comanda> historicoPedidos = new ArrayList<Comanda>();
 
+    Cliente(int idUsuario, String name, String sobrenome, String dataNascimento, String email, String telefone, String cep, String uf, String cidade, String logradouro, String numResidencia, String numComplemento,){
+    this.
+    }
     /**
      * @return the historicoPedidos
      */

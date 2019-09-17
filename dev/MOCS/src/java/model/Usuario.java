@@ -10,7 +10,7 @@ package model;
  * @author euaar
  */
 public abstract class Usuario {
-    private int id;
+    private int idUsuario;
     private String name;
     private String sobrenome;
     private String dataNascimento;
@@ -23,12 +23,12 @@ public abstract class Usuario {
     private String numResidencia;
     private String numComplemento;
 
-    public int getId() {
-        return id;
+    public int getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public String getName() {

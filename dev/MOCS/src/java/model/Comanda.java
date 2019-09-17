@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.sql.SQLException;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
@@ -15,13 +16,18 @@ import java.util.Date;
  */
 public class Comanda {
     private int idComanda;
-    private ArrayList<Prato> listaPedidos = new ArrayList<Prato>();
-    private Date data;
-    private Time hora;
+    private ArrayList<Pedido> listaPedidos;
+    private Date dataComanda;
+    private Time horaComanda;
+    private Cliente cliente;
     
-    Comanda(Date data, Time hora){
-        this.data = data;
-        this.hora = hora;
+    Comanda(int idComanda, Date dataComanda, Time horaComanda, ArrayList<Pedido> listaPedidos, Cliente cliente){
+        this.dataComanda = dataComanda;
+        this.horaComanda = horaComanda;
+        this.idComanda = idComanda;
+        listaPedidos = new ArrayList<Pedido>();
+        this.listaPedidos = listaPedidos;
+        this.cliente = cliente;
     }
     
     /**
@@ -39,17 +45,18 @@ public class Comanda {
     }
 
     /**
-     * @return the listaPedidos
+     * @return the cliente
      */
-    public ArrayList<Prato> getListaPedidos() {
-        return listaPedidos;
+    public Cliente getCliente() throws ClassNotFoundException, SQLException {
+        if((this.))
+        return cliente;
     }
 
     /**
-     * @param listaPedidos the listaPedidos to set
+     * @param cliente the cliente to set
      */
-    public void setListaPedidos(ArrayList<Prato> listaPedidos) {
-        this.listaPedidos = listaPedidos;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
     
 }

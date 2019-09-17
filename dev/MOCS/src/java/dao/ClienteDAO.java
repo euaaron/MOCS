@@ -55,4 +55,10 @@ public class ClienteDAO {
         }
         return clientes;
     }
+    public static Cliente instanciarCliente(ResultSet rs) throws SQLException {
+        Cliente cliente = new Cliente(rs.getInt("idUsuario"),
+        rs.getString("name"),
+        null);
+        return cliente;
+    }
 }
