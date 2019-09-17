@@ -15,13 +15,16 @@ public class Prato {
     private int idPrato;
     private String nome;
     private String descricao;
-    private Funcionario funcionario;
+    private Funcionario funcionario = null;
+    private int idFuncionario;
     private Date dataCriacao;
     
-    Prato(String nome, String descricao, Funcionario funcionario){
+    Prato(int idPrato, String nome, String descricao, Funcionario funcionario, Date dataCriacao){
         this.descricao = descricao;
-        this.funcionario = funcionario;
+        this.idFuncionario = funcionario.getIdUsuario();
         this.nome = nome;
+        this.idPrato = idPrato;
+        this.dataCriacao = dataCriacao;
     }
 
     public int getIdPrato() {
@@ -49,7 +52,10 @@ public class Prato {
     }
 
     public Funcionario getFuncionario() {
-        return funcionario;
+        if((this.idFuncionario !=0) && (this.funcionario == null)){
+        this.funcionario = Funcionario.obterFuncionario(this.idUsuario);
+        }
+        return this.funcionario;
     }
 
     public void setFuncionario(Funcionario funcionario) {

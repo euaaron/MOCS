@@ -52,4 +52,8 @@ public class PratoDAO {
         }
         return pratos;
     }
+    
+    public static Prato instanciarPrato(ResultSet rs) throws SQLException {
+    Prato prato = new Prato(rs.getInt("idPrato"))
+    }
 }

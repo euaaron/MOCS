@@ -21,7 +21,5 @@ public class BD {
 	        conexao = DriverManager.getConnection
 	        ("jdbc:mysql://localhost/mocs", "root", "");
 	        return conexao;
-	    
-	    
 	}
 }

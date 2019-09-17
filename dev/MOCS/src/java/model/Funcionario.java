@@ -5,8 +5,10 @@
  */
 package model;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -20,7 +22,7 @@ public class Funcionario extends Usuario {
     private int idEstabelecimento;
     
     Funcionario(String nome, String sobrenome, Estabelecimento estabelecimento) {
-        super(nome, Sobrenome);
+        super(nome, sobrenome);
         this.idEstabelecimento = estabelecimento.getId();
     }    
     
