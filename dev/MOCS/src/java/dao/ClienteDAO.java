@@ -19,6 +19,23 @@ import model.Cliente;
  */
 public class ClienteDAO {
     
+    public static Cliente obterCliente(int codCliente) throws ClassNotFoundException, SQLException {
+        Connection conexao = null;
+        Statement comando = null;
+        Cliente cliente = null;
+        try {
+            conexao = BD.getConexao();
+            comando = conexao.createStatement();
+            ResultSet rs = comando.executeQuery(
+                "select * from cliente where codCliente = " + codCliente;
+                rs.first();
+                cliente = instanciarCliente(rs);
+            } finally {
+                fecharConexao(conexao, comando);
+            }
+            return curso;
+    }
+    
     public static List<Cliente> obterClientes()
     throws ClassNotFoundException, SQLException{
         Connection conexao = null;
