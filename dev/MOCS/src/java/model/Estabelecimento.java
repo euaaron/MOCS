@@ -13,7 +13,8 @@ import java.util.ArrayList;
  */
 public class Estabelecimento {
     private int id;
-    private Usuario proprietario;
+    private int idProprietario;
+    private Usuario usuario = null;
     private ArrayList<Prato> cardapio = new ArrayList<Prato>();
     private String cnpj;
     private String razaoSocial;
@@ -44,7 +45,7 @@ public class Estabelecimento {
         this.logradouro = logradouro;
         this.nomeFantasia = nomeFantasia;
         this.numeroEd = numeroEd;
-        this.proprietario = proprietario;
+        this.proprietario = proprietario.getId();
         this.razaoSocial = razaoSocial;
     }
     /**
@@ -285,6 +286,11 @@ public class Estabelecimento {
         this.email = email;
     }
     
-    
+    public Usuario getProprietario() throws ClassNotFoundException, SQLException {
+        if ((this.idProprietario != 0) && (this.proprietario == null)) {
+            this.proprietario = Usuario.obterUsuario(this.idProprietario)
+        }
+        return this.proprietario;
+    }
                     
 }
