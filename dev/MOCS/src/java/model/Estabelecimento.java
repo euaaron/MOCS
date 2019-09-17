@@ -292,5 +292,13 @@ public class Estabelecimento {
         }
         return this.proprietario;
     }
+    
+    public static Estabelecimento obterEstabelecimento(int idEstabelecimento) throws ClassNotFoundException, SQLException {
+        return EstabelecimentoDAO.obterEstabelecimento(idEstabelecimento);
+    }
+    
+    public static List<Estabelecimento> obterEstabelecimentos() throws ClassNotFoundException, SQLException {
+        return EstabelecimentoDAO.obterEstabelecimentos();
+    }
                     
 }
