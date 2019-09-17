@@ -33,7 +33,7 @@ public class ClienteDAO {
             } finally {
                 fecharConexao(conexao, comando);
             }
-            return curso;
+            return cliente;
     }
     
     public static List<Cliente> obterClientes()
