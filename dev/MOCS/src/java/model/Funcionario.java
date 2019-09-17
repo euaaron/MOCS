@@ -10,7 +10,7 @@ import java.util.Date;
 
 /**
  *
- * @author euaar
+ * @author Aaron
  */
 public class Funcionario extends Usuario {
     private Date dataAdmissao;
@@ -18,7 +18,12 @@ public class Funcionario extends Usuario {
     private ArrayList<Permissao> Permissoes;
     private Estabelecimento estabelecimento = null;
     private int idEstabelecimento;
-
+    
+    Funcionario(String nome, String sobrenome, Estabelecimento estabelecimento) {
+        super(nome, Sobrenome);
+        this.idEstabelecimento = estabelecimento.getId();
+    }    
+    
     /**
      * @return the dataAdmissao
      */
