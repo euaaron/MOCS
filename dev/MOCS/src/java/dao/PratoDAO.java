@@ -18,6 +18,21 @@ import model.Prato;
  * @author Débora
  */
 public class PratoDAO {
+    public static Prato obterPrato(int idPrato) throws ClassNotFoundException, SQLException{
+        Connection conexao = null;
+        Statement comando = null;
+        Prato prato = null;
+        try{
+        conexao = BD.getConexao();
+        comando = conexao.createStatement();
+        ResultSet rs = comando.executeQuery("select * from prato where idPrato = " + idPrato);
+        rs.first();
+        prato = instanciarPrato(rs);
+        }finally{
+        fecharConexao(conexao, comando);
+        }
+        return prato;
+    }
     public static List<Prato> obterPratos()
     throws ClassNotFoundException, SQLException{
         Connection conexao = null;

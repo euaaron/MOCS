@@ -12,7 +12,7 @@ import java.util.Date;
  * @author euaar
  */
 public class Prato {
-    private int id;
+    private int idPrato;
     private String nome;
     private String descricao;
     private Funcionario funcionario;
@@ -24,12 +24,12 @@ public class Prato {
         this.nome = nome;
     }
 
-    public int getId() {
-        return id;
+    public int getIdPrato() {
+        return idPrato;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdPrato(int idPrato) {
+        this.idPrato = idPrato;
     }
 
     public String getNome() {

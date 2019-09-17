@@ -14,23 +14,28 @@ import java.util.Date;
  * @author Débora
  */
 public class Comanda {
-    private int id;
+    private int idComanda;
     private ArrayList<Prato> listaPedidos = new ArrayList<Prato>();
     private Date data;
     private Time hora;
     
+    Comanda(Date data, Time hora){
+        this.data = data;
+        this.hora = hora;
+    }
+    
     /**
      * @return the id
      */
-    public int getId() {
-        return id;
+    public int getIdComanda() {
+        return idComanda;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(int id) {
-        this.id = id;
+    public void setIdComanda(int idComanda) {
+        this.idComanda = idComanda;
     }
 
     /**

@@ -39,4 +39,28 @@ public class ComandaDAO {
         }
         return comandas;
     }
+    
+    public static Comanda obterComanda(int idComanda) throws ClassNotFoundException, SQLException{
+        Connection conexao = null;
+        Statement comando = null;
+        Comanda comanda = null;
+        try{
+        conexao = BD.getConexao();
+        comando = conexao.createStatement();
+        ResultSet rs = comando.executeQuery("select * from comanda where idComanda = " + idComanda);
+        rs.first();
+        comanda = instanciarComanda(rs);
+        }finally{
+        fecharConexao(conexao, comando);
+        }
+        return comanda;
+    }
+    
+    public static Comanda instanciarComanda(ResultSet rs) throws SQLException {
+        Comanda comanda = new Comanda(rs.getInt("idComanda"),
+        rs.getDate("data"),
+        rs.getTime("hora"),
+        null);
+        return comanda;
+    }
 }
