@@ -16,6 +16,8 @@ public class Funcionario extends Usuario {
     private Date dataAdmissao;
     private Boolean statusConta;
     private ArrayList<Permissao> Permissoes;
+    private Estabelecimento estabelecimento = null;
+    private int idEstabelecimento;
 
     /**
      * @return the dataAdmissao
@@ -57,6 +59,21 @@ public class Funcionario extends Usuario {
      */
     public void setPermissoes(ArrayList<Permissao> Permissoes) {
         this.Permissoes = Permissoes;
+    }
+    
+    public Estabelecimento getEstabelecimento() throws ClassNotFoundException, SQLException {
+        if ((this.idEstabelecimento != 0) && (this.estabelecimento == null)) {
+            this.estabelecimento = Estabelecimento.obterEstabelecimento(this.idEstabelecimento)
+        }
+        return this.estabelecimento;
+    }
+    
+    public static Funcionario obterFuncionario(int idFuncionario) throws ClassNotFoundException, SQLException {
+        return FuncionarioDAO.obterFuncionario(idFuncionario);
+    }
+    
+    public static List<Funcionario> obterFuncionarios() throws ClassNotFoundException, SQLException {
+        return FuncionarioDAO.obterFuncionarios();
     }
     
 }
