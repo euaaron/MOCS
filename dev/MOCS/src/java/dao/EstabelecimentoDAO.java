@@ -19,7 +19,7 @@ import model.Estabelecimento;
  */
 public class EstabelecimentoDAO {
     
-    public static Estabelecimento obterEstabelecimento(int codEstabelecimento) throws ClassNotFoundException, SQLException {
+    public static Estabelecimento obterEstabelecimento(int cnpj) throws ClassNotFoundException, SQLException {
         Connection conexao = null;
         Statement comando = null;
         Estabelecimento estabelecimento = null;
@@ -27,7 +27,7 @@ public class EstabelecimentoDAO {
             conexao = BD.getConexao();
             comando = conexao.createStatement();
             ResultSet rs = comando.executeQuery(
-                "select * from cliente where codEstabelecimento = " + codEstabelecimento;
+                "select * from estabelecimento where cnpj = " + cnpj);
                 rs.first();
                 estabelecimento = instanciarEstabelecimento(rs);
             } finally {
@@ -54,5 +54,26 @@ public class EstabelecimentoDAO {
         fecharConexao(conexao, comando);
         }
         return estabelecimentos;
+    }
+
+    private static Estabelecimento instanciarEstabelecimento(ResultSet rs) throws SQLException {
+        Estabelecimento estabelecimento = new Estabelecimento(
+            null,
+            rs.getString("cnpj"),
+            rs.getString("razaoSocial"),
+            rs.getString("nomeFantasia"),
+            rs.getString("inscEstadual"),
+            rs.getString("contato"),
+            rs.getString("logradouro"),
+            rs.getString("numEd"),
+            rs.getString("bairro"),
+            rs.getString("estado"),
+            rs.getString("cidade"),
+            rs.getString("cep"),
+            rs.getString("fone"),
+            rs.getString("fax"),
+            rs.getString("email")        
+        );
+        return estabelecimento;
     }
 }

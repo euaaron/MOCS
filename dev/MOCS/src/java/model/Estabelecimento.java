@@ -5,16 +5,19 @@
  */
 package model;
 
+import dao.EstabelecimentoDAO;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author euaar
  */
 public class Estabelecimento {
-    private int idEstabelecimento;
+    private int id;
     private int idProprietario;
-    private Usuario usuario = null;
+    private Usuario proprietario = null;
     private ArrayList<Prato> cardapio = new ArrayList<Prato>();
     private String cnpj;
     private String razaoSocial;
@@ -31,7 +34,7 @@ public class Estabelecimento {
     private String fax;
     private String email;
 
-    Estabelecimento (Usuario proprietario, String cnpj, String razaoSocial, String nomeFantasia, String inscEstadual, String contato, String logradouro, String numeroEd, String bairro, String estado, String cidade, String cep, String fone, String fax, String email){
+    public Estabelecimento (Usuario proprietario, String cnpj, String razaoSocial, String nomeFantasia, String inscEstadual, String contato, String logradouro, String numeroEd, String bairro, String estado, String cidade, String cep, String fone, String fax, String email){
         this.bairro = bairro;
         this.cep = cep;
         this.cidade = cidade;
@@ -45,7 +48,7 @@ public class Estabelecimento {
         this.logradouro = logradouro;
         this.nomeFantasia = nomeFantasia;
         this.numeroEd = numeroEd;
-        this.proprietario = proprietario.getId();
+        this.idProprietario = proprietario.getId();
         this.razaoSocial = razaoSocial;
     }
     /**
@@ -60,13 +63,6 @@ public class Estabelecimento {
      */
     public void setId(int id) {
         this.id = id;
-    }
-
-    /**
-     * @return the proprietario
-     */
-    public Usuario getProprietario() {
-        return proprietario;
     }
 
     /**
@@ -288,7 +284,7 @@ public class Estabelecimento {
     
     public Usuario getProprietario() throws ClassNotFoundException, SQLException {
         if ((this.idProprietario != 0) && (this.proprietario == null)) {
-            this.proprietario = Usuario.obterUsuario(this.idProprietario)
+            this.proprietario = Usuario.obterUsuario(this.idProprietario);
         }
         return this.proprietario;
     }

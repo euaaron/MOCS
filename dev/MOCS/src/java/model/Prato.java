@@ -21,7 +21,7 @@ public class Prato {
     
     Prato(int idPrato, String nome, String descricao, Funcionario funcionario, Date dataCriacao){
         this.descricao = descricao;
-        this.idFuncionario = funcionario.getIdUsuario();
+        this.idFuncionario = funcionario.getId();
         this.nome = nome;
         this.idPrato = idPrato;
         this.dataCriacao = dataCriacao;
@@ -53,7 +53,7 @@ public class Prato {
 
     public Funcionario getFuncionario() {
         if((this.idFuncionario !=0) && (this.funcionario == null)){
-        this.funcionario = Funcionario.obterFuncionario(this.idUsuario);
+        this.funcionario = Funcionario.obterFuncionario(this.idFuncionario);
         }
         return this.funcionario;
     }

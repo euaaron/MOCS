@@ -5,13 +5,16 @@
  */
 package model;
 
+import dao.UsuarioDAO;
+import java.sql.SQLException;
+
 /**
  *
- * @author euaar
+ * @author Aaron
  */
-public abstract class Usuario {
-    private int idUsuario;
-    private String name;
+public class Usuario {
+    private int id;
+    private String nome;
     private String sobrenome;
     private String dataNascimento;
     private String email;
@@ -22,21 +25,38 @@ public abstract class Usuario {
     private String logradouro;
     private String numResidencia;
     private String numComplemento;
-
-    public int getIdUsuario() {
-        return idUsuario;
+    
+    public Usuario(int id, String nome, String sobrenome, String dataNascimento, String email, String telefone) {
+        this.id = id;
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.dataNascimento = dataNascimento;
+        this.email = email;
+        this.telefone = telefone;
+    }
+    
+    public void setEndereco(String cep, String uf, String logradouro, String numResidencia, String numComplemento) {
+        setCep(cep);
+        setUf(uf);
+        setLogradouro(logradouro);
+        setNumResidencia(numResidencia);
+        setNumComplemento(numComplemento);
+    }
+    
+    public int getId() {
+        return id;
     }
 
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNome() {
+        return nome;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getSobrenome() {
@@ -117,5 +137,9 @@ public abstract class Usuario {
 
     public void setNumComplemento(String numComplemento) {
         this.numComplemento = numComplemento;
+    }
+    
+    public static Usuario obterUsuario (int idUsuario) throws ClassNotFoundException, SQLException  {
+        return UsuarioDAO.obterUsuario(idUsuario);
     }
 }

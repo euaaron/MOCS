@@ -5,6 +5,7 @@
  */
 package model;
 
+import dao.FuncionarioDAO;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -21,8 +22,8 @@ public class Funcionario extends Usuario {
     private Estabelecimento estabelecimento = null;
     private int idEstabelecimento;
     
-    Funcionario(String nome, String sobrenome, Estabelecimento estabelecimento) {
-        super(nome, sobrenome);
+    public Funcionario(int id, String nome, String sobrenome, String dataNascimento, String email, String telefone, Estabelecimento estabelecimento) {
+        super(id,nome,sobrenome,dataNascimento,email,telefone);
         this.idEstabelecimento = estabelecimento.getId();
     }    
     
@@ -70,7 +71,7 @@ public class Funcionario extends Usuario {
     
     public Estabelecimento getEstabelecimento() throws ClassNotFoundException, SQLException {
         if ((this.idEstabelecimento != 0) && (this.estabelecimento == null)) {
-            this.estabelecimento = Estabelecimento.obterEstabelecimento(this.idEstabelecimento)
+            this.estabelecimento = Estabelecimento.obterEstabelecimento(this.idEstabelecimento);
         }
         return this.estabelecimento;
     }
