@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author euaar
  */
 public class Estabelecimento {
-    private int id;
+    private int idEstabelecimento;
     private int idProprietario;
     private Usuario usuario = null;
     private ArrayList<Prato> cardapio = new ArrayList<Prato>();
