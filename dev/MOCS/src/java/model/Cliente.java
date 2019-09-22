@@ -1,34 +1,44 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Project MOCS
+ * @version 0.19.7a
+ * @authors Débora Lessa & Aaron Stiebler
  */
 package model;
 
+import dao.ClienteDAO;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author euaar
  */
 public class Cliente extends Usuario {
-    private ArrayList<Comanda> historicoPedidos = new ArrayList<Comanda>();
+    
+    private ArrayList<Comanda> historicoPedidos = new ArrayList<>();
 
-    Cliente(int idUsuario, String name, String sobrenome, String dataNascimento, String email, String telefone, String cep, String uf, String cidade, String logradouro, String numResidencia, String numComplemento,){
-    super();
+    public Cliente(String nome, String sobrenome, String dataNascimento, String email, String telefone,String senha){
+        super(nome,sobrenome,dataNascimento,email,telefone,senha);
     }
-    /**
-     * @return the historicoPedidos
-     */
+    
     public ArrayList<Comanda> getHistoricoPedidos() {
         return historicoPedidos;
     }
 
-    /**
-     * @param historicoPedidos the historicoPedidos to set
-     */
     public void setHistoricoPedidos(ArrayList<Comanda> historicoPedidos) {
         this.historicoPedidos = historicoPedidos;
+    }
+    
+    // Métodos de comunicação com a camada DAO (Banco de dados)
+    public static Cliente obterCliente (int idUsuario) 
+    throws ClassNotFoundException, SQLException  
+    {
+        return ClienteDAO.obterCliente(idUsuario);
+    }
+    
+    public static List<Cliente> obterClientes() throws ClassNotFoundException, SQLException {
+        return ClienteDAO.obterClientes();
     }
     
 }

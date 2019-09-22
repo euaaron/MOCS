@@ -1,7 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Project MOCS
+ * @version 0.19.7a
+ * @authors Débora Lessa & Aaron Stiebler
  */
 package controller;
 
@@ -15,10 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Cliente;
 
-/**
- *
- * @author Débora
- */
 public class PesquisaClienteController extends HttpServlet {
 
     /**
@@ -34,14 +30,11 @@ public class PesquisaClienteController extends HttpServlet {
             throws ServletException, IOException {
         try {
             request.setAttribute("clientes", Cliente.obterClientes());
-            RequestDispatcher view = request.getRequestDispatcher("/pesquisaCliente.jsp");
+            RequestDispatcher view = request.getRequestDispatcher("/procurarCliente.jsp");
             view.forward(request, response);
-        } catch (ClassNotFoundException e){
-            throw new ServletException(e);
-        } catch (SQLException e){
+        } catch (ClassNotFoundException | SQLException e){
             throw new ServletException(e);
         }
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -82,5 +75,4 @@ public class PesquisaClienteController extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
 }
