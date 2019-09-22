@@ -27,7 +27,7 @@ public class ClienteDAO {
             conexao = BD.getConexao();
             comando = conexao.createStatement();
             ResultSet rs = comando.executeQuery(
-                "select * from cliente where codCliente = " + codCliente;
+                "select * from cliente where id = " + codCliente);
                 rs.first();
                 cliente = instanciarCliente(rs);
             } finally {
@@ -40,7 +40,7 @@ public class ClienteDAO {
     throws ClassNotFoundException, SQLException{
         Connection conexao = null;
         Statement comando = null;
-        List<Cliente> clientes = new ArrayList<Cliente>();
+        List<Cliente> clientes = new ArrayList<>();
         Cliente cliente = null;
         try{
         conexao = BD.getConexao();
@@ -56,9 +56,22 @@ public class ClienteDAO {
         return clientes;
     }
     public static Cliente instanciarCliente(ResultSet rs) throws SQLException {
-        Cliente cliente = new Cliente(rs.getInt("idUsuario"),
-        rs.getString("name"),
-        null);
+        Cliente cliente = new Cliente(rs.getString("nome"),
+                rs.getString("sobrenome"),
+                rs.getString("nascimento"),
+                rs.getString("email"),
+                rs.getString("telefone"),
+                rs.getString("senha")
+        );
+        cliente.setEndereco(
+            rs.getString("cep"), 
+            rs.getString("uf"),
+            rs.getString("cidade"),
+            rs.getString("logradouro"), 
+            rs.getString("numResidencia"), 
+            rs.getString("numComplemento")
+        );
+        cliente.setId(rs.getInt("id"));
         return cliente;
     }
 }
