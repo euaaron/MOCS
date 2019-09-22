@@ -10,12 +10,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author euaar
- */
 public class Cliente extends Usuario {
-    
+
     private ArrayList<Comanda> historicoPedidos = new ArrayList<>();
 
     public Cliente(String nome, String sobrenome, String dataNascimento, String email, String telefone,String senha){
