@@ -1,72 +1,55 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Project MOCS
+ * @version 0.19.7a
+ * @authors Débora Lessa & Aaron Stiebler
  */
 package model;
 
-import java.util.Date;
+import dao.PratoDAO;
+import java.sql.SQLException;
 
-/**
- *
- * @author euaar
- */
 public class Prato {
-    private int idPrato;
+    private int id;
     private String nome;
     private String descricao;
     private Funcionario funcionario = null;
     private int idFuncionario;
-    private Date dataCriacao;
+    private String dataCriacao;
     
-    Prato(int idPrato, String nome, String descricao, Funcionario funcionario, Date dataCriacao){
+    public Prato(String nome, String descricao, String dataCriacao, Funcionario funcionario){
         this.descricao = descricao;
         this.idFuncionario = funcionario.getId();
         this.nome = nome;
-        this.idPrato = idPrato;
-        this.dataCriacao = dataCriacao;
+        this.dataCriacao = dataCriacao; // Não usar datas ou horas por enquanto! Pedido do Marco A.
     }
-
-    public int getIdPrato() {
-        return idPrato;
-    }
-
-    public void setIdPrato(int idPrato) {
-        this.idPrato = idPrato;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public Funcionario getFuncionario() {
+    
+// Métodos de inserção (Modificação)
+    public void setId(int idPrato) { this.id = idPrato; }
+    public void setNome(String nome) { this.nome = nome; }
+    public void setDescricao(String descricao) { this.descricao = descricao; }
+    public void setFuncionario(Funcionario funcionario) { this.funcionario = funcionario; }    
+    public void setIdFuncionario(int idFuncionario) { this.idFuncionario = idFuncionario; }
+    public void setDataCriacao(String dataCriacao) { this.dataCriacao = dataCriacao; }
+    
+// Métodos de Recuperação (Leitura)
+    public int getId() { return id; }
+    public String getNome() { return nome; }
+    public String getDescricao() { return descricao; }
+    
+    public int getIdFuncionario() { return idFuncionario; }
+    public String getDataCriacao() { return dataCriacao; }
+    
+    public Funcionario getFuncionario() throws ClassNotFoundException, SQLException {
         if((this.idFuncionario !=0) && (this.funcionario == null)){
-        this.funcionario = Funcionario.obterFuncionario(this.idFuncionario);
+        funcionario = Funcionario.obterFuncionario(this.idFuncionario);
         }
-        return this.funcionario;
+        return funcionario;
     }
-
-    public void setFuncionario(Funcionario funcionario) {
-        this.funcionario = funcionario;
-    }
-
-    public Date getDataCriacao() {
-        return dataCriacao;
-    }
-
-    public void setDataCriacao(Date dataCriacao) {
-        this.dataCriacao = dataCriacao;
+    
+// Métodos de comunicação com a camada DAO (Banco de dados)
+    public static Prato obterPrato (int idPrato) 
+    throws ClassNotFoundException, SQLException  
+    {
+        return PratoDAO.obterPrato(idPrato);
     }
 }

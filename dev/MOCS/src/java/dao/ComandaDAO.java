@@ -1,7 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Project MOCS
+ * @version 0.19.7a
+ * @authors Débora Lessa & Aaron Stiebler
  */
 package dao;
 
@@ -12,19 +12,17 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import model.Cliente;
 import model.Comanda;
+import model.Usuario;
 
-/**
- *
- * @author Débora
- */
 public class ComandaDAO {
     
     public static List<Comanda> obterPedido()
     throws ClassNotFoundException, SQLException{
         Connection conexao = null;
         Statement comando = null;
-        List<Comanda> comandas = new ArrayList<Comanda>();
+        List<Comanda> comandas = new ArrayList<>();
         Comanda comanda = null;
         try{
         conexao = BD.getConexao();
@@ -57,10 +55,15 @@ public class ComandaDAO {
     }
     
     public static Comanda instanciarComanda(ResultSet rs) throws SQLException {
-        Comanda comanda = new Comanda(rs.getInt("idComanda"),
-        rs.getDate("dataComanda"),
-        rs.getTime("horaComanda"),
-        null);
+        Comanda comanda = new Comanda(
+            rs.getString("dataComanda"),
+            rs.getString("horaComanda"),
+            null);
+        comanda.setId(rs.getInt("id"));
         return comanda;
+    }
+
+    public static Usuario obterCliente(int idCliente) throws ClassNotFoundException, SQLException {
+        return UsuarioDAO.obterUsuario(idCliente);
     }
 }

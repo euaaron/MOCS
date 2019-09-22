@@ -1,7 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Project MOCS
+ * @version 0.19.7a
+ * @authors Débora Lessa & Aaron Stiebler
  */
 package model;
 
@@ -11,10 +11,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-/**
- *
- * @author Aaron
- */
 public class Funcionario extends Usuario {
     private Date dataAdmissao;
     private Boolean statusConta;
@@ -22,8 +18,8 @@ public class Funcionario extends Usuario {
     private Estabelecimento estabelecimento = null;
     private int idEstabelecimento;
     
-    public Funcionario(int id, String nome, String sobrenome, String dataNascimento, String email, String telefone, Estabelecimento estabelecimento) {
-        super(id,nome,sobrenome,dataNascimento,email,telefone);
+    public Funcionario(String nome, String sobrenome, String dataNascimento, String email, String telefone, String senha, Estabelecimento estabelecimento) {
+        super(nome,sobrenome,dataNascimento,email,telefone, senha);
         this.idEstabelecimento = estabelecimento.getId();
     }    
     

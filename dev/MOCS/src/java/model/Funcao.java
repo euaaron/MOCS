@@ -5,6 +5,8 @@
  */
 package model;
 
-public class Proprietario {
-    
+public enum Funcao {
+    CLIENTE,
+    FUNCIONARIO,
+    PROPRIETARIO  
 }

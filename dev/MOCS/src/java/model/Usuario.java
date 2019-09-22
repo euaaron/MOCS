@@ -1,17 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Project MOCS
+ * @version 0.19.7a
+ * @authors Débora Lessa & Aaron Stiebler
  */
 package model;
 
 import dao.UsuarioDAO;
 import java.sql.SQLException;
 
-/**
- *
- * @author Aaron
- */
 public class Usuario {
     private int id;
     private String nome;
@@ -25,121 +21,59 @@ public class Usuario {
     private String logradouro;
     private String numResidencia;
     private String numComplemento;
+    private String senha;
     
-    public Usuario(int id, String nome, String sobrenome, String dataNascimento, String email, String telefone) {
-        this.id = id;
+    public Usuario(String nome, String sobrenome, String dataNascimento, String email, String telefone, String senha) {
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.dataNascimento = dataNascimento;
         this.email = email;
         this.telefone = telefone;
+        this.senha = senha;
     }
     
-    public void setEndereco(String cep, String uf, String logradouro, String numResidencia, String numComplemento) {
+// Métodos de inserção (Modificação)
+    public void setId(int id) { this.id = id; }
+    public void setNome(String nome) { this.nome = nome; }
+    public void setSobrenome(String sobrenome) { this.sobrenome = sobrenome; }
+    public void setDataNascimento(String dataNascimento) { this.dataNascimento = dataNascimento; }
+    public void setEmail(String email) { this.email = email; }
+    public void setTelefone(String telefone) { this.telefone = telefone; }
+    public void setCep(String cep) { this.cep = cep; }
+    public void setUf(String uf) { this.uf = uf; }
+    public void setCidade(String cidade) { this.cidade = cidade; }
+    public void setLogradouro(String logradouro) { this.logradouro = logradouro; }
+    public void setNumResidencia(String numResidencia) { this.numResidencia = numResidencia; }
+    public void setNumComplemento(String numComplemento) { this.numComplemento = numComplemento; }
+    public void setEndereco(String cep, String uf, String cidade, String logradouro, String numResidencia, String numComplemento) {
         setCep(cep);
         setUf(uf);
+        setCidade(cidade);
         setLogradouro(logradouro);
         setNumResidencia(numResidencia);
         setNumComplemento(numComplemento);
     }
+    public void setSenha(String senha) { this.senha = senha; }
     
-    public int getId() {
-        return id;
-    }
+// Métodos de Recuperação (Leitura)    
+    public int getId() { return id; } 
+    public String getNome() { return nome; }
+    public String getSobrenome() { return sobrenome; }
+    public String getDataNascimento() { return dataNascimento; }
+    public String getEmail() { return email; }
+    public String getTelefone() { return telefone; }
+    public String getCep() { return cep; }
+    public String getUf() { return uf; }
+    public String getCidade() { return cidade; }
+    public String getLogradouro() { return logradouro; }
+    public String getNumResidencia() { return numResidencia; }
+    public String getNumComplemento() { return numComplemento; }
+    public String getSenha() { return senha; }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getSobrenome() {
-        return sobrenome;
-    }
-
-    public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
-    }
-
-    public String getDataNascimento() {
-        return dataNascimento;
-    }
-
-    public void setDataNascimento(String dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public String getCep() {
-        return cep;
-    }
-
-    public void setCep(String cep) {
-        this.cep = cep;
-    }
-
-    public String getUf() {
-        return uf;
-    }
-
-    public void setUf(String uf) {
-        this.uf = uf;
-    }
-
-    public String getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
-
-    public String getLogradouro() {
-        return logradouro;
-    }
-
-    public void setLogradouro(String logradouro) {
-        this.logradouro = logradouro;
-    }
-
-    public String getNumResidencia() {
-        return numResidencia;
-    }
-
-    public void setNumResidencia(String numResidencia) {
-        this.numResidencia = numResidencia;
-    }
-
-    public String getNumComplemento() {
-        return numComplemento;
-    }
-
-    public void setNumComplemento(String numComplemento) {
-        this.numComplemento = numComplemento;
-    }
-    
-    public static Usuario obterUsuario (int idUsuario) throws ClassNotFoundException, SQLException  {
+// Métodos de comunicação com a camada DAO (Banco de dados)
+    public static Usuario obterUsuario (int idUsuario) 
+    throws ClassNotFoundException, SQLException  
+    {
         return UsuarioDAO.obterUsuario(idUsuario);
     }
 }

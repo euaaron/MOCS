@@ -1,62 +1,61 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Project MOCS
+ * @version 0.19.7a
+ * @authors Débora Lessa & Aaron Stiebler
  */
 package model;
 
+import dao.ComandaDAO;
+import dao.UsuarioDAO;
 import java.sql.SQLException;
-import java.sql.Time;
 import java.util.ArrayList;
-import java.util.Date;
 
-/**
- *
- * @author Débora
- */
 public class Comanda {
-    private int idComanda;
+    private int id;
     private ArrayList<Pedido> listaPedidos;
-    private Date dataComanda;
-    private Time horaComanda;
-    private Cliente cliente;
+    private String dataComanda;
+    private String horaComanda;
+    private Usuario cliente = null;
+    private int idCliente;
     
-    Comanda(int idComanda, Date dataComanda, Time horaComanda, ArrayList<Pedido> listaPedidos, Cliente cliente){
-        this.dataComanda = dataComanda;
-        this.horaComanda = horaComanda;
-        this.idComanda = idComanda;
-        listaPedidos = new ArrayList<Pedido>();
-        this.listaPedidos = listaPedidos;
-        this.cliente = cliente;
-    }
+    public Comanda(String dataComanda, String horaComanda, Cliente cliente){
+        this.dataComanda = dataComanda;       // O Marco pediu para não trabalharmos com
+        this.horaComanda = horaComanda;       // data e hora no momento... apenas com
+        this.listaPedidos = new ArrayList<>();// atributos básicos, como int, string e float.
+        this.idCliente = cliente.getId();
+    } 
+
+// Métodos de inserção (Modificação)
+    public void setId(int id) { this.id = id; }
+    public void setPedidos(ArrayList<Pedido> listaPedidos) { this.listaPedidos = listaPedidos; }
+    public void setDataComanda(String dataComanda) { this.dataComanda = dataComanda; }
+    public void setHoraComanda(String horaComanda) { this.horaComanda = horaComanda; }
+    public void setCliente(Cliente cliente) { this.cliente = cliente; }
+    public void setIdCliente(int idCliente) { this.idCliente = idCliente; }
     
-    /**
-     * @return the id
-     */
-    public int getIdComanda() {
-        return idComanda;
+//Manipulação de pedidos
+    public void addPedido(Pedido pedido) {
+        listaPedidos.add(pedido);
     }
-
-    /**
-     * @param id the id to set
-     */
-    public void setIdComanda(int idComanda) {
-        this.idComanda = idComanda;
-    }
-
-    /**
-     * @return the cliente
-     */
-    public Cliente getCliente() throws ClassNotFoundException, SQLException {
-        if((this.))
-        return cliente;
-    }
-
-    /**
-     * @param cliente the cliente to set
-     */
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void removePedido(Pedido pedido) {
+        listaPedidos.remove(pedido);
     }
     
+// Métodos de Recuperação (Leitura)    
+    public int getId() { return id; }
+    public ArrayList<Pedido> getPedidos() { return listaPedidos; }
+    public String getDataComanda() { return dataComanda; }
+    public String getHoraComanda() { return horaComanda; }
+    public int getIdCliente() { return idCliente; }
+    public Usuario getCliente() throws ClassNotFoundException, SQLException {
+        if ((this.idCliente != 0) && (this.cliente == null)) {
+            this.cliente = Cliente.obterUsuario(this.idCliente);
+        }
+        return this.cliente;
+    }
+    
+// Métodos de comunicação com a camada DAO (Banco de dados)
+    public Usuario obterCliente() throws ClassNotFoundException, SQLException {
+        return ComandaDAO.obterCliente(idCliente);
+    }
 }

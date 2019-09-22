@@ -1,7 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Project MOCS
+ * @version 0.19.7a
+ * @authors Débora Lessa & Aaron Stiebler
  */
 package dao;
 
@@ -13,10 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import model.Prato;
-/**
- * curso
- * @author Débora
- */
+
 public class PratoDAO {
     public static Prato obterPrato(int idPrato) throws ClassNotFoundException, SQLException{
         Connection conexao = null;
@@ -54,6 +51,13 @@ public class PratoDAO {
     }
     
     public static Prato instanciarPrato(ResultSet rs) throws SQLException {
-    Prato prato = new Prato(rs.getInt("idPrato"))
+        Prato prato = new Prato(
+                rs.getString("nome"),
+                rs.getString("descricao"),
+                rs.getString("dataCriacao"),
+                null
+        );
+        prato.setId(rs.getInt("id"));
+        return prato;
     }
 }

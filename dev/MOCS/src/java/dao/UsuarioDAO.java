@@ -1,7 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Project MOCS
+ * @version 0.19.7a
+ * @authors Débora Lessa & Aaron Stiebler
  */
 package dao;
 
@@ -13,10 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import model.Usuario;
-/**
- *
- * @author Débora e Aaron
- */
+
 public class UsuarioDAO {
     
     public static Usuario obterUsuario(int idUsuario) throws ClassNotFoundException, SQLException {
@@ -40,7 +37,7 @@ public class UsuarioDAO {
     throws ClassNotFoundException, SQLException{
         Connection conexao = null;
         Statement comando = null;
-        List<Usuario> usuarios = new ArrayList<Usuario>();
+        List<Usuario> usuarios = new ArrayList<>();
         Usuario usuario = null;
         try{
         conexao = BD.getConexao();
@@ -55,14 +52,26 @@ public class UsuarioDAO {
         }
         return usuarios;
     }
-    public static Usuario instanciarUsuario (ResultSet rs) throws SQLException {
-        Usuario usuario = new Usuario(rs.getInt("id"),
-        rs.getString("nome"),
-        rs.getString("sobrenome"), 
-        rs.getString("dataNascimento"),
-        rs.getString("email"),
-        rs.getString("telefone")
+    public static Usuario instanciarUsuario(ResultSet rs) 
+    throws SQLException 
+    {
+        Usuario usuario = new Usuario(
+                rs.getString("nome"),
+                rs.getString("sobrenome"),
+                rs.getString("nascimento"),
+                rs.getString("email"),
+                rs.getString("telefone"),
+                rs.getString("senha")
         );
+        usuario.setEndereco(
+            rs.getString("cep"), 
+            rs.getString("uf"),
+            rs.getString("cidade"),
+            rs.getString("logradouro"), 
+            rs.getString("numResidencia"), 
+            rs.getString("numComplemento")
+        );
+        usuario.setId(rs.getInt("id"));
         return usuario;
     }
 }

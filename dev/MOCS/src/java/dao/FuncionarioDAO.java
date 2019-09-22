@@ -1,7 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Project MOCS
+ * @version 0.19.7a
+ * @authors Débora Lessa & Aaron Stiebler
  */
 package dao;
 
@@ -14,10 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 import model.Funcionario;
 
-/**
- *
- * @author Aaron
- */
 public class FuncionarioDAO {
     
     public static Funcionario obterFuncionario(int idFuncionario) throws ClassNotFoundException, SQLException {
@@ -41,7 +37,7 @@ public class FuncionarioDAO {
     throws ClassNotFoundException, SQLException{
         Connection conexao = null;
         Statement comando = null;
-        List<Funcionario> funcionarios = new ArrayList<Funcionario>();
+        List<Funcionario> funcionarios = new ArrayList<>();
         Funcionario funcionario = null;
         try{
         conexao = BD.getConexao();
@@ -58,14 +54,16 @@ public class FuncionarioDAO {
     }
     
     public static Funcionario instanciarFuncionario (ResultSet rs) throws SQLException {
-        Funcionario funcionario = new Funcionario(rs.getInt("id"),
+        Funcionario funcionario = new Funcionario(
         rs.getString("nome"),
         rs.getString("sobrenome"), 
         rs.getString("dataNascimento"),
         rs.getString("email"),
         rs.getString("telefone"),
+        rs.getString("senha"),
         null
         );
+        funcionario.setId(rs.getInt("id"));
         return funcionario;
     }
 }
