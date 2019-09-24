@@ -55,7 +55,8 @@ public class Comanda {
         }
         return this.cliente;
     }
-    // Métodos de comunicação com a camada DAO (Banco de dados)
+    
+// Métodos de comunicação com a camada DAO (Banco de dados)
     public static Comanda obterComanda (int idComanda) 
     throws ClassNotFoundException, SQLException  
     {
