@@ -31,8 +31,7 @@ CREATE TABLE IF NOT EXISTS `mocs`.`usuario` (
   `telefone` VARCHAR(45) NULL,
   `senha` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE)
-ENGINE = InnoDB;
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC));
 
 
 -- -----------------------------------------------------
@@ -48,14 +47,13 @@ CREATE TABLE IF NOT EXISTS `mocs`.`estabelecimento` (
   `inscEstadual` VARCHAR(45) NULL,
   `telefone` VARCHAR(45) NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
-  INDEX `fk_estabelecimento_usuario1_idx` (`usuario_id` ASC) VISIBLE,
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC),
+  INDEX `fk_estabelecimento_usuario1_idx` (`usuario_id` ASC),
   CONSTRAINT `fk_estabelecimento_usuario1`
     FOREIGN KEY (`usuario_id`)
     REFERENCES `mocs`.`usuario` (`id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    ON UPDATE NO ACTION);
 
 
 -- -----------------------------------------------------
@@ -74,14 +72,13 @@ CREATE TABLE IF NOT EXISTS `mocs`.`endEstabelecimento` (
   `numComplemento` VARCHAR(16) NULL,
   `estabelecimento_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
-  INDEX `fk_endEstabelecimento_estabelecimento1_idx` (`estabelecimento_id` ASC) VISIBLE,
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC),
+  INDEX `fk_endEstabelecimento_estabelecimento1_idx` (`estabelecimento_id` ASC),
   CONSTRAINT `fk_endEstabelecimento_estabelecimento1`
     FOREIGN KEY (`estabelecimento_id`)
     REFERENCES `mocs`.`estabelecimento` (`id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    ON UPDATE NO ACTION);
 
 
 -- -----------------------------------------------------
@@ -95,14 +92,13 @@ CREATE TABLE IF NOT EXISTS `mocs`.`comanda` (
   `hora` VARCHAR(45) NULL,
   `usuario_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
-  INDEX `fk_comanda_usuario1_idx` (`usuario_id` ASC) VISIBLE,
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC),
+  INDEX `fk_comanda_usuario1_idx` (`usuario_id` ASC),
   CONSTRAINT `fk_comanda_usuario1`
     FOREIGN KEY (`usuario_id`)
     REFERENCES `mocs`.`usuario` (`id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    ON UPDATE NO ACTION);
 
 
 -- -----------------------------------------------------
@@ -115,8 +111,7 @@ CREATE TABLE IF NOT EXISTS `mocs`.`funcao` (
   `nome` VARCHAR(45) NULL,
   `descricao` TEXT NULL,
   `nivelPermissao` INT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
+  PRIMARY KEY (`id`));
 
 
 -- -----------------------------------------------------
@@ -131,9 +126,9 @@ CREATE TABLE IF NOT EXISTS `mocs`.`funcionario` (
   `estabelecimento_id` INT NOT NULL,
   `funcao_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
-  INDEX `fk_funcionario_estabelecimento1_idx` (`estabelecimento_id` ASC) VISIBLE,
-  INDEX `fk_funcionario_funcao1_idx` (`funcao_id` ASC) VISIBLE,
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC),
+  INDEX `fk_funcionario_estabelecimento1_idx` (`estabelecimento_id` ASC),
+  INDEX `fk_funcionario_funcao1_idx` (`funcao_id` ASC),
   CONSTRAINT `fk_funcionario_estabelecimento1`
     FOREIGN KEY (`estabelecimento_id`)
     REFERENCES `mocs`.`estabelecimento` (`id`)
@@ -143,8 +138,7 @@ CREATE TABLE IF NOT EXISTS `mocs`.`funcionario` (
     FOREIGN KEY (`funcao_id`)
     REFERENCES `mocs`.`funcao` (`id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    ON UPDATE NO ACTION);
 
 
 -- -----------------------------------------------------
@@ -161,9 +155,9 @@ CREATE TABLE IF NOT EXISTS `mocs`.`prato` (
   `funcionario_id` INT NOT NULL,
   `estabelecimento_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
-  INDEX `fk_prato_funcionario1_idx` (`funcionario_id` ASC) VISIBLE,
-  INDEX `fk_prato_estabelecimento1_idx` (`estabelecimento_id` ASC) VISIBLE,
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC),
+  INDEX `fk_prato_funcionario1_idx` (`funcionario_id` ASC),
+  INDEX `fk_prato_estabelecimento1_idx` (`estabelecimento_id` ASC),
   CONSTRAINT `fk_prato_funcionario1`
     FOREIGN KEY (`funcionario_id`)
     REFERENCES `mocs`.`funcionario` (`id`)
@@ -173,8 +167,7 @@ CREATE TABLE IF NOT EXISTS `mocs`.`prato` (
     FOREIGN KEY (`estabelecimento_id`)
     REFERENCES `mocs`.`estabelecimento` (`id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    ON UPDATE NO ACTION);
 
 
 -- -----------------------------------------------------
@@ -188,9 +181,9 @@ CREATE TABLE IF NOT EXISTS `mocs`.`pedidio` (
   `quantidade` INT NULL,
   `comanda_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_pedidio_prato1_idx` (`prato_id` ASC) VISIBLE,
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
-  INDEX `fk_pedidio_comanda1_idx` (`comanda_id` ASC) VISIBLE,
+  INDEX `fk_pedidio_prato1_idx` (`prato_id` ASC),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC),
+  INDEX `fk_pedidio_comanda1_idx` (`comanda_id` ASC),
   CONSTRAINT `fk_pedidio_prato1`
     FOREIGN KEY (`prato_id`)
     REFERENCES `mocs`.`prato` (`id`)
@@ -200,8 +193,7 @@ CREATE TABLE IF NOT EXISTS `mocs`.`pedidio` (
     FOREIGN KEY (`comanda_id`)
     REFERENCES `mocs`.`comanda` (`id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    ON UPDATE NO ACTION);
 
 
 -- -----------------------------------------------------
@@ -219,14 +211,13 @@ CREATE TABLE IF NOT EXISTS `mocs`.`endUsuario` (
   `numComplemento` VARCHAR(45) NULL,
   `usuario_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
-  INDEX `fk_endUsuario_usuario1_idx` (`usuario_id` ASC) VISIBLE,
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC),
+  INDEX `fk_endUsuario_usuario1_idx` (`usuario_id` ASC),
   CONSTRAINT `fk_endUsuario_usuario1`
     FOREIGN KEY (`usuario_id`)
     REFERENCES `mocs`.`usuario` (`id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    ON UPDATE NO ACTION);
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
