@@ -10,9 +10,13 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>MOCS - Admin</title>
+        <link rel="stylesheet" href="css/main.css"/>
     </head>
     <body>
-        <h1>MOCS - Admin</h1>
+        <h1>MOCS</h1>
+        <ul class="breadcrumb">
+            <li><a href="#">Index Admin</a></li>
+        </ul>         
         <ul>
             <li><a href="PesquisaEstabelecimentoController">Estabelecimentos</a></li>
             <li><a href="PesquisaClienteController">Clientes</a></li>

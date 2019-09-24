@@ -7,6 +7,7 @@ package model;
 
 import dao.UsuarioDAO;
 import java.sql.SQLException;
+import java.util.List;
 
 public class Usuario {
     private int id;
@@ -75,5 +76,9 @@ public class Usuario {
     throws ClassNotFoundException, SQLException  
     {
         return UsuarioDAO.obterUsuario(idUsuario);
+    }
+    
+    public static List<Usuario> obterUsuarios() throws ClassNotFoundException, SQLException {
+        return UsuarioDAO.obterUsuarios();
     }
 }

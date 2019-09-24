@@ -14,8 +14,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Cliente;
+import model.Usuario;
 
-public class PesquisaClienteController extends HttpServlet {
+public class PesquisaUsuarioController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,8 +30,8 @@ public class PesquisaClienteController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            request.setAttribute("clientes", Cliente.obterClientes());
-            RequestDispatcher view = request.getRequestDispatcher("/procurarCliente.jsp");
+            request.setAttribute("usuarios", Usuario.obterUsuarios());
+            RequestDispatcher view = request.getRequestDispatcher("/procurarUsuario.jsp");
             view.forward(request, response);
         } catch (ClassNotFoundException | SQLException e){
             throw new ServletException(e);

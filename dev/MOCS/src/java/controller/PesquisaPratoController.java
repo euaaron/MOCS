@@ -31,7 +31,7 @@ public class PesquisaPratoController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException {
+            throws ServletException, IOException {
         try {
             request.setAttribute("pratos", Prato.obterPratos());
             RequestDispatcher view = request.getRequestDispatcher("/procurarPrato.jsp");

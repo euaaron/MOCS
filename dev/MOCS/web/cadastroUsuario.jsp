@@ -13,10 +13,10 @@
     </head>
     <body>
         <div>
-            <h1>Cadastre-se</h1>
+            <h1>Usuário</h1>
         </div>        
         <div>
-            <form action="cadastroClienteController" method="post">
+            <form action="cadastroUsuarioController" method="post">
                 <table border="1">
                     <tbody>
                         <tr>

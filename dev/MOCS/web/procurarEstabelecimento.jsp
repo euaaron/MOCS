@@ -12,12 +12,17 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Estabelecimentos</title>
+        <title>Estabelecimentos | Buscar</title>
+        <link rel="stylesheet" href="css/main.css"/>
     </head>
     <body>
-        <h1>Hello World!</h1>
-        
-        <c:forEach items="${estabelecimentos}" var="curso">
+        <h1>Estabelecimentos</h1>
+        <ul class="breadcrumb">
+            <li><a href="index.jsp">Index Admin</a></li>
+            <li><a href="#">Estabelecimento</a></li>
+            <li><a href="#">Procurar</a></li>
+        </ul>
+        <c:forEach items="${estabelecimentos}" var="estabelecimento">
         <tr>
             <td><c:out value="${estabelecimento.id}"/></td>
             <td><c:out value="${estabelecimento.nome}"/></td>
