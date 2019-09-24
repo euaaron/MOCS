@@ -37,7 +37,7 @@ public class EstabelecimentoDAO {
     throws ClassNotFoundException, SQLException{
         Connection conexao = null;
         Statement comando = null;
-        List<Estabelecimento> estabelecimentos = new ArrayList<Estabelecimento>();
+        List<Estabelecimento> estabelecimentos = new ArrayList<>();
         Estabelecimento estabelecimento = null;
         try{
         conexao = BD.getConexao();
@@ -57,19 +57,17 @@ public class EstabelecimentoDAO {
         Estabelecimento estabelecimento = new Estabelecimento(
             null,
             rs.getString("cnpj"),
-            rs.getString("razaoSocial"),
             rs.getString("nomeFantasia"),
             rs.getString("inscEstadual"),
-            rs.getString("contato"),
             rs.getString("logradouro"),
-            rs.getString("numEd"),
+            rs.getString("numEdificio"),
             rs.getString("bairro"),
             rs.getString("estado"),
             rs.getString("cidade"),
             rs.getString("cep"),
             rs.getString("fone"),
-            rs.getString("fax"),
-            rs.getString("email")        
+            rs.getString("email")
+                
         );
         return estabelecimento;
     }
