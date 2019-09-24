@@ -12,30 +12,19 @@ import java.util.Date;
 import java.util.List;
 
 public class Funcionario extends Usuario {
-    private Date dataAdmissao;
+    private String cpf;
     private Boolean statusConta;
-    private ArrayList<Permissao> Permissoes;
     private Estabelecimento estabelecimento = null;
+    private Usuario usuario = null;
+    private Funcao funcao = null;
     private int idEstabelecimento;
+    private int idUsuario;
+    private int idFuncao;
     
     public Funcionario(String nome, String sobrenome, String dataNascimento, String email, String telefone, String senha, Estabelecimento estabelecimento) {
         super(nome,sobrenome,dataNascimento,email,telefone, senha);
         this.idEstabelecimento = estabelecimento.getId();
     }    
-    
-    /**
-     * @return the dataAdmissao
-     */
-    public Date getDataAdmissao() {
-        return dataAdmissao;
-    }
-
-    /**
-     * @param dataAdmissao the dataAdmissao to set
-     */
-    public void setDataAdmissao(Date dataAdmissao) {
-        this.dataAdmissao = dataAdmissao;
-    }
 
     /**
      * @return the statusConta
