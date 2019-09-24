@@ -31,7 +31,7 @@ public class PesquisaComandaController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException {
+            throws ServletException, IOException {
         try {
             request.setAttribute("comandas", Comanda.obterComandas());
             RequestDispatcher view = request.getRequestDispatcher("/procurarComanda.jsp");

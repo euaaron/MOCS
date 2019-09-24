@@ -17,7 +17,7 @@ import model.Funcionario;
 
 /**
  *
- * @author Débora
+ * @author Débora & Aaron
  */
 public class PesquisaFuncionarioController extends HttpServlet {
 
@@ -31,7 +31,7 @@ public class PesquisaFuncionarioController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException {
+            throws ServletException, IOException {
         try {
             request.setAttribute("funcionarios", Funcionario.obterFuncionarios());
             RequestDispatcher view = request.getRequestDispatcher("/procurarFuncionario.jsp");
