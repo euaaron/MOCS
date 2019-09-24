@@ -18,7 +18,7 @@ import model.Usuario;
 
 public class ComandaDAO {
     
-    public static List<Comanda> obterPedido()
+    public static List<Comanda> obterComandas()
     throws ClassNotFoundException, SQLException{
         Connection conexao = null;
         Statement comando = null;
@@ -60,10 +60,7 @@ public class ComandaDAO {
             rs.getString("horaComanda"),
             null);
         comanda.setId(rs.getInt("id"));
+        comanda.setId(rs.getInt("idCliente"));
         return comanda;
-    }
-
-    public static Usuario obterCliente(int idCliente) throws ClassNotFoundException, SQLException {
-        return UsuarioDAO.obterUsuario(idCliente);
     }
 }
