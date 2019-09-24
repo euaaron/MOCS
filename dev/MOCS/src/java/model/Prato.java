@@ -7,6 +7,7 @@ package model;
 
 import dao.PratoDAO;
 import java.sql.SQLException;
+import java.util.List;
 
 public class Prato {
     private int id;
@@ -51,5 +52,9 @@ public class Prato {
     throws ClassNotFoundException, SQLException  
     {
         return PratoDAO.obterPrato(idPrato);
+    }
+    
+    public static List<Prato> obterPratos() throws ClassNotFoundException, SQLException {
+        return PratoDAO.obterPratos();
     }
 }

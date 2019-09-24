@@ -5,10 +5,12 @@
  */
 package model;
 
+import dao.ClienteDAO;
 import dao.ComandaDAO;
 import dao.UsuarioDAO;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Comanda {
     private int id;
@@ -53,9 +55,19 @@ public class Comanda {
         }
         return this.cliente;
     }
+    // Métodos de comunicação com a camada DAO (Banco de dados)
+    public static Comanda obterComanda (int idComanda) 
+    throws ClassNotFoundException, SQLException  
+    {
+        return ComandaDAO.obterComanda(idComanda);
+    }
+    
+    public static List<Comanda> obterComandas() throws ClassNotFoundException, SQLException {
+        return ComandaDAO.obterComandas();
+    }
     
 // Métodos de comunicação com a camada DAO (Banco de dados)
     public Usuario obterCliente() throws ClassNotFoundException, SQLException {
-        return ComandaDAO.obterCliente(idCliente);
+        return ClienteDAO.obterCliente(idCliente);
     }
 }

@@ -4,9 +4,33 @@
         <servlet-name>PesquisaClienteController</servlet-name>
         <servlet-class>controller.PesquisaClienteController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PesquisaPratoController</servlet-name>
+        <servlet-class>controller.PesquisaPratoController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PesquisaFuncionarioController</servlet-name>
+        <servlet-class>controller.PesquisaFuncionarioController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PesquisaComandaController</servlet-name>
+        <servlet-class>controller.PesquisaComandaController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>PesquisaClienteController</servlet-name>
         <url-pattern>/PesquisaClienteController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PesquisaPratoController</servlet-name>
+        <url-pattern>/PesquisaPratoController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PesquisaFuncionarioController</servlet-name>
+        <url-pattern>/PesquisaFuncionarioController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PesquisaComandaController</servlet-name>
+        <url-pattern>/PesquisaComandaController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
