@@ -57,6 +57,7 @@ public class Estabelecimento {
     public void setCep(String cep) { this.cep = cep; }
     public void setUf(String uf) { this.uf = uf; }
     public void setCidade(String cidade) { this.cidade = cidade; }
+    public void setBairro(String bairro) { this.bairro = bairro; }
     public void setLogradouro(String logradouro) { this.logradouro = logradouro; }
     public void setNumEdificio(String numEdificio) { this.numEdificio = numEdificio; }
     public void setEndereco(String cep, String uf, String cidade, String logradouro, String numEdificio) {
