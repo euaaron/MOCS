@@ -5,27 +5,27 @@
  */
 package model;
 
-class Pedido {
-    private int idPedido;
+public class Pedido {
+    private int id;
     private Prato prato;
     private int quantidade;
     
-    Pedido(Prato prato, int quantidade){
+    public Pedido(Prato prato, int quantidade){
     this.prato = prato;
     this.quantidade = quantidade;
     }
     /**
      * @return the idPedido
      */
-    public int getIdPedido() {
-        return idPedido;
+    public int getId() {
+        return id;
     }
 
     /**
      * @param idPedido the idPedido to set
      */
-    public void setIdPedido(int idPedido) {
-        this.idPedido = idPedido;
+    public void setId(int idPedido) {
+        this.id = idPedido;
     }
 
     /**
