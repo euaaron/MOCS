@@ -16,6 +16,10 @@
         <servlet-name>PesquisaComandaController</servlet-name>
         <servlet-class>controller.PesquisaComandaController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ManterComandaController</servlet-name>
+        <servlet-class>controller.ManterComandaController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>PesquisaClienteController</servlet-name>
         <url-pattern>/PesquisaClienteController</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>PesquisaComandaController</servlet-name>
         <url-pattern>/PesquisaComandaController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManterComandaController</servlet-name>
+        <url-pattern>/ManterComandaController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
