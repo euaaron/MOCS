@@ -1,7 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Project MOCS
+ * @version 0.19.7a
+ * @authors Débora Lessa & Aaron Stiebler
  */
 package dao;
 
@@ -13,10 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import model.Cliente;
-/**
- *
- * @author Débora e Aaron
- */
+
 public class ClienteDAO {
     
     public static Cliente obterCliente(int codCliente) throws ClassNotFoundException, SQLException {

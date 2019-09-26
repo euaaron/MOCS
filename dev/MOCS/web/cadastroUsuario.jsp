@@ -16,7 +16,7 @@
             <h1>Usuário</h1>
         </div>        
         <div>
-            <form action="cadastroUsuarioController" method="post">
+            <form action="ManterUsuarioController" method="post">
                 <table border="1">
                     <tbody>
                         <tr>
@@ -44,7 +44,9 @@
                         </tr>
                     </tbody>
                 </table>
-
+            </form>
+            <form action="ManterUsuarioController?acao=prepararOperacao&operacao=Incluir" method="POST">
+                <input type="submit" name="btnIncluir" value="Incluir">
             </form>
         </div>
     </body>
