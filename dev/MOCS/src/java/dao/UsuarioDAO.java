@@ -56,6 +56,7 @@ public class UsuarioDAO {
     throws SQLException 
     {
         Usuario usuario = new Usuario(
+                rs.getInt("id"),
                 rs.getString("nome"),
                 rs.getString("sobrenome"),
                 rs.getString("nascimento"),
@@ -63,7 +64,8 @@ public class UsuarioDAO {
                 rs.getString("telefone"),
                 rs.getString("senha")
         );
-        usuario.setEndereco(
+        EnderecoDAO.instanciarEnderecoUsuario(
+            rs.getInt("id"),
             rs.getString("cep"), 
             rs.getString("uf"),
             rs.getString("cidade"),
@@ -71,7 +73,7 @@ public class UsuarioDAO {
             rs.getString("numResidencia"), 
             rs.getString("numComplemento")
         );
-        usuario.setId(rs.getInt("id"));
+        
         return usuario;
     }
 }

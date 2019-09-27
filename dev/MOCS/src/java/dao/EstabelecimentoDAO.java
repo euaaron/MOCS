@@ -16,7 +16,7 @@ import model.Estabelecimento;
 
 public class EstabelecimentoDAO {
     
-    public static Estabelecimento obterEstabelecimento(int cnpj) throws ClassNotFoundException, SQLException {
+    public static Estabelecimento obterEstabelecimento(int id) throws ClassNotFoundException, SQLException {
         Connection conexao = null;
         Statement comando = null;
         Estabelecimento estabelecimento = null;
@@ -24,7 +24,7 @@ public class EstabelecimentoDAO {
             conexao = BD.getConexao();
             comando = conexao.createStatement();
             ResultSet rs = comando.executeQuery(
-                "select * from estabelecimento where cnpj = " + cnpj);
+                "select * from estabelecimento where cnpj = " + id);
                 rs.first();
                 estabelecimento = instanciarEstabelecimento(rs);
             } finally {

@@ -19,7 +19,7 @@
         </ul>         
         <ul>
             <li><a href="PesquisaEstabelecimentoController">Estabelecimentos</a></li>
-            <li><a href="PesquisaClienteController">Clientes</a></li>
+            <li><a href="PesquisaClienteController">Usuarios</a></li>
             <li><a href="PesquisaFuncionarioController">Funcionário</a></li>
             <li><a href="PesquisaPedidosController">Pedidos</a></li>
             <li><a href="PesquisaPratosController">Pratos</a></li>

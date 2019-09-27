@@ -18,14 +18,8 @@ public class Estabelecimento {
     private String cnpj;
     private String nomeFantasia;
     private String inscEstadual;
-    private String logradouro;
-    private String numEdificio;
-    private String bairro;
-    private String uf;
-    private String cidade;
-    private String cep;
-    private String telefone;
-    private String email;
+    private Endereco endereco = null;
+    private int idEndereco;
 
     public Estabelecimento (Usuario proprietario, String cnpj, String nomeFantasia, String inscEstadual, String logradouro, String numEdificio, String bairro, String uf, String cidade, String cep, String fone, String email){
         this.bairro = bairro;
