@@ -39,12 +39,11 @@
                             <td><label for="nome">Repita a senha:</label></td>
                             <td><input type="password" id="confirmaSenha" placeholder="Ex3mpl@"></td>
                         </tr>
-                        <tr>
-                            <td colspan="2"><input type="submit" id="cadastrar" placeholder="Cadastrar"></td>
-                        </tr>
                     </tbody>
                 </table>
-
+                <form action="ManterFuncionarioController?acao=prepararOperacao&operacao=Incluir" method="post">
+                    <input type="submit" name="btnIncluir" value="Incluir">                        
+                </form>
             </form>
         </div>
     </body>
