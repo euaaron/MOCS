@@ -41,7 +41,7 @@ public class PedidoDAO {
         try{
         conexao = BD.getConexao();
         comando = conexao.createStatement();
-        ResultSet rs = comando.executeQuery("select * from cliente");
+        ResultSet rs = comando.executeQuery("select * from pedido");
             while (rs.next()) {
                 pedido = instanciarPedido(rs);
                 pedidos.add(pedido);                
