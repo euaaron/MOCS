@@ -66,7 +66,7 @@ public class Usuario {
     public String getUf() { return endereco.getUf(); }
     public String getCidade() { return endereco.getCidade(); }
     public String getLogradouro() { return endereco.getLogradouro();}
-    public String getNumResidencia() { return endereco.getNumResidencia(); }
+    public String getNumEdificio() { return endereco.getNumEdificio(); }
     public String getNumComplemento() { return endereco.getNumComplemento(); }
 
 // Métodos de comunicação com a camada DAO (Banco de dados)

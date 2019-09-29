@@ -16,24 +16,26 @@ public class Estabelecimento {
     private Usuario proprietario = null;
     private ArrayList<Prato> cardapio = new ArrayList<>();
     private String cnpj;
+    private String telefone;
     private String nomeFantasia;
     private String inscEstadual;
     private Endereco endereco = null;
     private int idEndereco;
 
-    public Estabelecimento (Usuario proprietario, String cnpj, String nomeFantasia, String inscEstadual, String logradouro, String numEdificio, String bairro, String uf, String cidade, String cep, String fone, String email){
-        this.bairro = bairro;
-        this.cep = cep;
-        this.cidade = cidade;
-        this.cnpj = cnpj;
-        this.email = email;
-        this.uf = uf;
-        this.telefone = fone;
-        this.inscEstadual = inscEstadual;
-        this.logradouro = logradouro;
-        this.nomeFantasia = nomeFantasia;
-        this.numEdificio = numEdificio;
+    public Estabelecimento (Usuario proprietario, String cnpj, String nomeFantasia, String inscEstadual, String logradouro, String numEdificio, String bairro, String uf, String cidade, String cep, String telefone, String numComplemento){
         this.idProprietario = proprietario.getId();
+        this.cnpj = cnpj;
+        this.nomeFantasia = nomeFantasia;
+        this.telefone = telefone;
+        this.inscEstadual = inscEstadual;
+        this.endereco.setLogradouro(logradouro);
+        this.endereco.setUf(uf);
+        this.endereco.setNumEdificio(numEdificio);
+        this.endereco.setNumComplemento(numComplemento);
+        this.endereco.setBairro(bairro);
+        this.endereco.setCep(cep);
+        this.endereco.setCidade(cidade);
+        
     }
 
 // Métodos de inserção (Modificação)
@@ -46,14 +48,14 @@ public class Estabelecimento {
     
     public void setCardapio(ArrayList<Prato> cardapio) { this.cardapio = cardapio;}
     
-    public void setEmail(String email) { this.email = email; }
     public void setTelefone(String telefone) { this.telefone = telefone; }
-    public void setCep(String cep) { this.cep = cep; }
-    public void setUf(String uf) { this.uf = uf; }
-    public void setCidade(String cidade) { this.cidade = cidade; }
-    public void setBairro(String bairro) { this.bairro = bairro; }
-    public void setLogradouro(String logradouro) { this.logradouro = logradouro; }
-    public void setNumEdificio(String numEdificio) { this.numEdificio = numEdificio; }
+    public void setCep(String cep) { endereco.setCep(cep); }
+    public void setUf(String uf) { endereco.setUf(uf); }
+    public void setCidade(String cidade) { endereco.setCidade(cidade); }
+    public void setBairro(String bairro) { endereco.setBairro(bairro); }
+    public void setLogradouro(String logradouro) { endereco.setLogradouro(logradouro); }
+    public void setNumEdificio(String numEdificio) { endereco.setNumEdificio(numEdificio); }
+    public void setNumComplemento(String numComplemento) { endereco.setNumComplemento(numComplemento); }
     public void setEndereco(String cep, String uf, String cidade, String logradouro, String numEdificio) {
         setCep(cep);
         setUf(uf);
@@ -69,8 +71,7 @@ public class Estabelecimento {
     public String getNomeFantasia() { return nomeFantasia; }
     public String getInscEstadual() { return inscEstadual; }
     public String getTelefone() { return telefone; }
-
-    public String getEmail() { return email; }
+    public Endereco getEndereco(){ return endereco; }
     public Usuario getProprietario() throws ClassNotFoundException, SQLException {
         if ((this.idProprietario != 0) && (this.proprietario == null)) {
             this.proprietario = Usuario.obterUsuario(this.idProprietario);
