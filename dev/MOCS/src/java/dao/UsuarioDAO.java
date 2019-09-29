@@ -70,7 +70,7 @@ public class UsuarioDAO {
             rs.getString("uf"),
             rs.getString("cidade"),
             rs.getString("logradouro"), 
-            rs.getString("numResidencia"), 
+            rs.getString("numEdificio"), 
             rs.getString("numComplemento")
         );
         
