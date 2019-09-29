@@ -57,11 +57,12 @@ public class EnderecoDAO {
     private static Endereco instanciarEndereco(ResultSet rs) throws SQLException {
         Endereco endereco = new Endereco(
             rs.getInt("id"),
-            rs.getString("cep"), 
+            rs.getString("cep"),
+            rs.getString("bairro"),
             rs.getString("uf"),
             rs.getString("cidade"),
             rs.getString("logradouro"), 
-            rs.getString("numResidencia"), 
+            rs.getString("numEdificio"), 
             rs.getString("numComplemento"),
             rs.getInt("idResidencia"),
             rs.getBoolean("tipo")
@@ -113,11 +114,12 @@ public class EnderecoDAO {
     private static Endereco instanciarEnderecoUsuario(ResultSet rs) throws SQLException {
         Endereco endereco = new Endereco(
             rs.getInt("id"),
-            rs.getString("cep"), 
+            rs.getString("cep"),
+            rs.getString("bairro"),
             rs.getString("uf"),
             rs.getString("cidade"),
             rs.getString("logradouro"), 
-            rs.getString("numResidencia"), 
+            rs.getString("numEdificio"), 
             rs.getString("numComplemento"),
             rs.getInt("idResidencia"),
             rs.getBoolean("tipo")                
