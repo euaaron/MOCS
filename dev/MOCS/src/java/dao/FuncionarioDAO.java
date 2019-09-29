@@ -55,6 +55,7 @@ public class FuncionarioDAO {
     
     public static Funcionario instanciarFuncionario (ResultSet rs) throws SQLException {
         Funcionario funcionario = new Funcionario(
+        rs.getInt("idUsuario"),
         rs.getString("nome"),
         rs.getString("sobrenome"), 
         rs.getString("dataNascimento"),
