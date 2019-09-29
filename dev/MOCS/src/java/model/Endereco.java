@@ -33,7 +33,7 @@ public class Endereco {
         setUf(uf);
         setCidade(cidade);
         setLogradouro(logradouro);
-        setNumEndificio(numEdificio);
+        setNumEdificio(numEdificio);
         setNumComplemento(numComplemento);
         setTipo(tipo);
         if (tipo==true) {
