@@ -20,11 +20,12 @@ public class Comanda {
     private Usuario cliente = null;
     private int idCliente;
     
-    public Comanda(String dataComanda, String horaComanda, Cliente cliente){
+    public Comanda(int id, String dataComanda, String horaComanda, Cliente cliente){
         this.dataComanda = dataComanda;       // O Marco pediu para não trabalharmos com
         this.horaComanda = horaComanda;       // data e hora no momento... apenas com
         this.listaPedidos = new ArrayList<>();// atributos básicos, como int, string e float.
         this.idCliente = cliente.getId();
+        this.id = id;
     } 
 
 // Métodos de inserção (Modificação)

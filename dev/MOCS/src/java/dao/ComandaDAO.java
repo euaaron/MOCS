@@ -56,6 +56,7 @@ public class ComandaDAO {
     
     public static Comanda instanciarComanda(ResultSet rs) throws SQLException {
         Comanda comanda = new Comanda(
+            rs.getInt("id"),
             rs.getString("dataComanda"),
             rs.getString("horaComanda"),
             null);
