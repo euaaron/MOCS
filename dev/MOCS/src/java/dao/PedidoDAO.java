@@ -51,11 +51,34 @@ public class PedidoDAO {
         }
         return pedidos;
     }
+    
+    public static List<Pedido> obterPedidosComanda(int idComanda)
+    throws ClassNotFoundException, SQLException{
+        Connection conexao = null;
+        Statement comando = null;
+        List<Pedido> pedidos = new ArrayList<>();
+        Pedido pedido = null;
+        try{
+        conexao = BD.getConexao();
+        comando = conexao.createStatement();
+        ResultSet rs = comando.executeQuery("select * from pedido where idComanda = " + idComanda);
+            while (rs.next()) {
+                pedido = instanciarPedido(rs);
+                pedidos.add(pedido);                
+            }
+        }finally{
+        fecharConexao(conexao, comando);
+        }
+        return pedidos;
+    }
+    
     public static Pedido instanciarPedido(ResultSet rs) throws SQLException {
-        Pedido pedido = new Pedido(null,
-                rs.getInt("qnt")
+        Pedido pedido = new Pedido(
+                rs.getInt("id"),
+                rs.getInt("idComanda"),
+                rs.getInt("idPrato"),
+                rs.getInt("quantidade")
         );
-        pedido.setId(rs.getInt("id"));
         return pedido;
     }
 }
