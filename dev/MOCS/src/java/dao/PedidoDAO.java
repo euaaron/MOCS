@@ -32,7 +32,7 @@ public class PedidoDAO {
             return pedido;
     }
     
-    public static List<Pedido> obterClientes()
+    public static List<Pedido> obterPedidos()
     throws ClassNotFoundException, SQLException{
         Connection conexao = null;
         Statement comando = null;
@@ -43,7 +43,7 @@ public class PedidoDAO {
         comando = conexao.createStatement();
         ResultSet rs = comando.executeQuery("select * from cliente");
             while (rs.next()) {
-                pedido = instanciarCliente(rs);
+                pedido = instanciarPedido(rs);
                 pedidos.add(pedido);                
             }
         }finally{
@@ -51,7 +51,7 @@ public class PedidoDAO {
         }
         return pedidos;
     }
-    public static Pedido instanciarCliente(ResultSet rs) throws SQLException {
+    public static Pedido instanciarPedido(ResultSet rs) throws SQLException {
         Pedido pedido = new Pedido(null,
                 rs.getInt("qnt")
         );
