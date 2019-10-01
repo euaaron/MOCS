@@ -53,22 +53,15 @@ public class ClienteDAO {
         return clientes;
     }
     public static Cliente instanciarCliente(ResultSet rs) throws SQLException {
-        Cliente cliente = new Cliente(rs.getString("nome"),
+        Cliente cliente = new Cliente(
+                rs.getInt("id"),
+                rs.getString("nome"),
                 rs.getString("sobrenome"),
                 rs.getString("nascimento"),
                 rs.getString("email"),
                 rs.getString("telefone"),
                 rs.getString("senha")
         );
-        cliente.setEndereco(
-            rs.getString("cep"), 
-            rs.getString("uf"),
-            rs.getString("cidade"),
-            rs.getString("logradouro"), 
-            rs.getString("numResidencia"), 
-            rs.getString("numComplemento")
-        );
-        cliente.setId(rs.getInt("id"));
         return cliente;
     }
 }
