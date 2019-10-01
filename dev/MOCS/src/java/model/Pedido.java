@@ -1,7 +1,5 @@
 /**
- * Project MOCS
- *
- * @version 0.19.7a
+ * @title Projeto MOCS
  * @authors Débora Lessa & Aaron Stiebler
  */
 package model;
@@ -19,7 +17,7 @@ public class Pedido {
     private int idPrato;
     private int quantidade;
     private Prato prato;  
-    private Comanda comanda;    
+    private Comanda comanda = null;    
 
     public Pedido(int id, int idComanda, int idPrato, int quantidade) {
         this.id = id;
@@ -34,6 +32,7 @@ public class Pedido {
     public void setQuantidade(int quantidade) { this.quantidade = quantidade; }
     public void setIdComanda(int idComanda) { this.idComanda = idComanda; }
     public void setIdPrato(int idPrato) { this.idPrato = idPrato; }
+    public void setComanda(int idComanda) { this.comanda = obterComanda(int idComanda); }
 
 // Métodos de Recuperação (Leitura)
     public int getId() { return id; }
@@ -41,6 +40,12 @@ public class Pedido {
     public int getIdComanda() { return idComanda; }    
     public Prato getPrato() { return prato; }
     public int getQuantidade() { return quantidade; }
+    public Comanda getComanda() throws ClassNotFoundException, SQLException {
+        if ((this.idComanda != 0) && (this.comanda == null)) {
+            this.comanda = Comanda.obterComanda(this.idComanda);
+        }
+        return this.comanda;
+    }
 
 // Métodos de comunicação com a camada DAO (Banco de dados)
     public static Pedido obterPedido (int id) 
