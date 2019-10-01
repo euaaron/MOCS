@@ -7,12 +7,12 @@ package dao;
 
 import static dao.DAO.fecharConexao;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import model.Cliente;
 import model.Comanda;
 import model.Usuario;
 
@@ -63,5 +63,24 @@ public class ComandaDAO {
         comanda.setId(rs.getInt("id"));
         comanda.setId(rs.getInt("idCliente"));
         return comanda;
+    }
+    
+    public static void gravar(Comanda comanda) throws ClassNotFoundException, SQLException {
+        Connection conexao = null;
+        PreparedStatement comando = null;
+        try {
+            conexao = BD.getConexao();
+            comando = conexao.prepareStatement(
+                    "insert into comanda (id, data, hora, usuario_id)"
+                    + " values (?,?,?,?)"
+            );
+            comando.setInt(1, comanda.getId());
+            comando.setString(2, comanda.getDataComanda());
+            comando.setString(3, comanda.getHoraComanda());
+            comando.setInt(4, comanda.getIdCliente());
+            comando.executeUpdate();
+        } finally {
+        fecharConexao(conexao, comando);
+        }
     }
 }
