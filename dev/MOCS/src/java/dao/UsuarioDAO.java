@@ -52,6 +52,7 @@ public class UsuarioDAO {
         }
         return usuarios;
     }
+    
     public static Usuario instanciarUsuario(ResultSet rs) 
     throws SQLException 
     {
@@ -63,17 +64,7 @@ public class UsuarioDAO {
                 rs.getString("email"),
                 rs.getString("telefone"),
                 rs.getString("senha")
-        );
-        EnderecoDAO.instanciarEnderecoUsuario(
-            rs.getInt("id"),
-            rs.getString("cep"), 
-            rs.getString("uf"),
-            rs.getString("cidade"),
-            rs.getString("logradouro"), 
-            rs.getString("numEdificio"), 
-            rs.getString("numComplemento")
-        );
-        
+        );        
         return usuario;
     }
 }
