@@ -8,11 +8,14 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Usuario;
 
 /**
  *
@@ -30,17 +33,18 @@ public class ManterComandaController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, ClassNotFoundException, SQLException {
         String acao = request.getParameter("acao");
         if (acao.equals("prepararOperacao")) {
             prepararOperacao(request, response);
         }
     }
     public void prepararOperacao(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, ClassNotFoundException, SQLException {
     try {
         String operacao = request.getParameter("operacao");
         request.setAttribute("operacao", operacao);
+        request.setAttribute("cliente", Usuario.obterUsuarios());
         RequestDispatcher view = request.getRequestDispatcher("/manterComanda.jsp");
         view.forward(request, response);
     }catch (ServletException e){
@@ -62,7 +66,13 @@ public class ManterComandaController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ManterComandaController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ManterComandaController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -76,7 +86,13 @@ public class ManterComandaController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ManterComandaController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ManterComandaController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

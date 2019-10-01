@@ -13,10 +13,8 @@ public class Funcionario extends Usuario {
     private String cpf;
     private Boolean statusConta;
     private Estabelecimento estabelecimento = null;
-    private Usuario usuario = null;
     private Funcao funcao = null;
     private int idEstabelecimento;
-    private int idUsuario;
     private int idFuncao;
     
     public Funcionario(int idUsuario, String nome, String sobrenome, String dataNascimento, String email, String telefone, String senha, Estabelecimento estabelecimento) {

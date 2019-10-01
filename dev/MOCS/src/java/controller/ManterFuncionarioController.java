@@ -1,7 +1,7 @@
-/**
- * Project MOCS
- * @version 0.19.7a
- * @authors Débora Lessa & Aaron Stiebler
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package controller;
 
@@ -13,9 +13,14 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Usuario;
+import model.Estabelecimento;
+import model.Funcao;
 
-public class ManterUsuarioController extends HttpServlet {
+/**
+ *
+ * @author Débora
+ */
+public class ManterFuncionarioController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -27,25 +32,26 @@ public class ManterUsuarioController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, ClassNotFoundException, SQLException {
         String acao = request.getParameter("acao");
         if (acao.equals("prepararOperacao")) {
             prepararOperacao(request, response);
         }
     }
-    
     public void prepararOperacao(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        try {
-            String operacao = request.getParameter("operacao");
-            request.setAttribute("operacao", operacao);
-            RequestDispatcher view = request.getRequestDispatcher("/cadastroUsuario.jsp");
-            view.forward(request, response);
-        } catch (ServletException e) {
-            throw e;
-        } catch (IOException e) {
-            throw new ServletException(e);
-        }
+            throws ServletException, IOException, ClassNotFoundException, SQLException {
+    try {
+        String operacao = request.getParameter("operacao");
+        request.setAttribute("operacao", operacao);
+        request.setAttribute("estabelecimento", Estabelecimento.obterEstabelecimentos());
+        request.setAttribute("funcao", Funcao.obterFuncoes());
+        RequestDispatcher view = request.getRequestDispatcher("/manterFuncionario.jsp");
+        view.forward(request, response);
+    }catch (ServletException e){
+        throw e;
+    }catch (IOException e){
+        throw new ServletException(e);
+    }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
