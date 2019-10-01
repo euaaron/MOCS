@@ -1,6 +1,6 @@
 /**
  * Project MOCS
- * @version 0.19.7a
+ * @version 0.19.8a
  * @authors Débora Lessa & Aaron Stiebler
  */
 package dao;
@@ -14,96 +14,83 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import model.Endereco;
+import model.EnderecoUsuario;
 
-public class EnderecoDAO {
-        
-// Tratamento Global de Enderecos
-    public static Endereco obterEndereco(int id) throws ClassNotFoundException, SQLException {
-        Connection conexao = null;
-        Statement comando = null;
-        Endereco endereco = null;
-        try {
-            conexao = BD.getConexao();
-            comando = conexao.createStatement();
-            ResultSet rs = comando.executeQuery(
-                "select * from estabelecimento where id = " + id);
-                rs.first();
-                endereco = instanciarEndereco(rs);
-            } finally {
-                fecharConexao(conexao, comando);
-            }
-            return endereco;
-    }
-    
-    public static List<Endereco> obterEnderecos()
-    throws ClassNotFoundException, SQLException{
-        Connection conexao = null;
-        Statement comando = null;
-        List<Endereco> enderecos = new ArrayList<>();
-        Endereco endereco = null;
-        try{
-        conexao = BD.getConexao();
-        comando = conexao.createStatement();
-        ResultSet rs = comando.executeQuery("select * from endereco");
-            while (rs.next()) {
-                endereco = instanciarEndereco(rs);
-                enderecos.add(endereco);                
-            }
-        }finally{
-        fecharConexao(conexao, comando);
-        }
-        return enderecos;
-    }
-
-    private static Endereco instanciarEndereco(ResultSet rs) throws SQLException {
-        Endereco endereco = new Endereco(
-            rs.getInt("id"),
-            rs.getString("cep"),
-            rs.getString("bairro"),
-            rs.getString("uf"),
-            rs.getString("cidade"),
-            rs.getString("logradouro"), 
-            rs.getString("numEdificio"), 
-            rs.getString("numComplemento"),
-            rs.getInt("idResidencia"),
-            rs.getBoolean("tipo")
-        );
-        return endereco;
-    }
+public class EnderecoUsuarioDAO {
     
 /**
 *   Tratamento de Enderecos de
 *   USUARIO
 */
-    public static Endereco obterEnderecoUsuario(int id) throws ClassNotFoundException, SQLException {
+   
+    public static EnderecoUsuario obterEnderecoPadrao(int idUsuario) throws ClassNotFoundException, SQLException {
         Connection conexao = null;
         Statement comando = null;
-        Endereco endereco = null;
+        EnderecoUsuario endereco = null;
         try {
             conexao = BD.getConexao();
             comando = conexao.createStatement();
             ResultSet rs = comando.executeQuery(
-                "select * from estabelecimento where cnpj = " + id);
+                "select * from endusuario where usuario_id = " 
+                        + idUsuario 
+                        + " AND padrao = 1");
                 rs.first();
-                endereco = instanciarEndereco(rs);
+                endereco = instanciarEnderecoUsuario(rs);
             } finally {
                 fecharConexao(conexao, comando);
             }
             return endereco;
     }
     
-    public static List<Endereco> obterEnderecosUsuario(int idUsuario)
+    public static EnderecoUsuario obterEnderecoUsuario(int idEndereco) throws ClassNotFoundException, SQLException {
+        Connection conexao = null;
+        Statement comando = null;
+        EnderecoUsuario endereco = null;
+        try {
+            conexao = BD.getConexao();
+            comando = conexao.createStatement();
+            ResultSet rs = comando.executeQuery(
+                "select * from endusuario where id = " + idEndereco );
+                rs.first();
+                endereco = instanciarEnderecoUsuario(rs);
+            } finally {
+                fecharConexao(conexao, comando);
+            }
+            return endereco;
+    }
+    
+    public static List<EnderecoUsuario> obterEnderecosUsuario(int idUsuario)
     throws ClassNotFoundException, SQLException{
         Connection conexao = null;
         Statement comando = null;
-        List<Endereco> enderecos = new ArrayList<>();
-        Endereco endereco = null;
+        List<EnderecoUsuario> enderecos = new ArrayList<>();
+        EnderecoUsuario endereco = null;
         try{
         conexao = BD.getConexao();
         comando = conexao.createStatement();
         ResultSet rs = comando.executeQuery("select * from endereco where idUsuario = " + idUsuario);
             while (rs.next()) {
-                endereco = instanciarEndereco(rs);
+                endereco = instanciarEnderecoUsuario(rs);
+                enderecos.add(endereco);                
+            }
+        }finally{
+        fecharConexao(conexao, comando);
+        }
+        return enderecos;
+    }
+    
+    public static List<EnderecoUsuario> obterEnderecosUsuarios()
+    throws ClassNotFoundException, SQLException{
+        Connection conexao = null;
+        Statement comando = null;
+        List<EnderecoUsuario> enderecos = new ArrayList<>();
+        EnderecoUsuario endereco = null;
+        try{
+        conexao = BD.getConexao();
+        comando = conexao.createStatement();
+        ResultSet rs = comando.executeQuery("select * from endereco");
+            while (rs.next()) {
+                endereco = instanciarEnderecoUsuario(rs);
                 enderecos.add(endereco);                
             }
         }finally{
@@ -112,8 +99,8 @@ public class EnderecoDAO {
         return enderecos;
     }
 
-    private static Endereco instanciarEnderecoUsuario(ResultSet rs) throws SQLException {
-        Endereco endereco = new Endereco(
+    private static EnderecoUsuario instanciarEnderecoUsuario(ResultSet rs) throws SQLException {
+        EnderecoUsuario endereco = new EnderecoUsuario(
             rs.getInt("id"),
             rs.getString("cep"),
             rs.getString("bairro"),
@@ -122,8 +109,8 @@ public class EnderecoDAO {
             rs.getString("logradouro"), 
             rs.getString("numEdificio"), 
             rs.getString("numComplemento"),
-            rs.getInt("idResidencia"),
-            rs.getBoolean("tipo")                
+            rs.getInt("usuario_id"),
+            rs.getBoolean("padrao")                
         );
         return endereco;
     }
@@ -134,7 +121,7 @@ public class EnderecoDAO {
         try {
             conexao = BD.getConexao();
             comando = conexao.prepareStatement(
-                    "insert into endereco (id, cep, uf, cidade, logradouro, numResidencia, numComplemento)"
+                    "insert into endereco (id, cep, uf, cidade, logradouro, numEdificio, numComplemento)"
                     + " values (?,?,?,?)"
             );
             comando.setInt(1, endereco.getId());
@@ -142,13 +129,12 @@ public class EnderecoDAO {
             comando.setString(3, endereco.getUf());
             comando.setString(4, endereco.getCidade());
             comando.setString(5, endereco.getLogradouro());
-            comando.setString(6, endereco.getResidencia());
+            comando.setString(6, endereco.getNumEdificio());
             comando.setString(7, endereco.getCidade());
             comando.executeUpdate();
         } finally {
         fecharConexao(conexao, comando);
         }
-    }
-    
+    }    
     
 }

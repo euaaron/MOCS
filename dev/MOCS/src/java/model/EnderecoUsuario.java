@@ -1,14 +1,57 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Project MOCS
+ * @version 0.19.8a
+ * @authors Débora Lessa & Aaron Stiebler
  */
 package model;
 
-/**
- *
- * @author euaar
- */
-public class EnderecoUsuario {
+import dao.EnderecoUsuarioDAO;
+import dao.UsuarioDAO;
+import java.sql.SQLException;
+import java.util.List;
+
+public class EnderecoUsuario extends Endereco {
+    
+    private Usuario usuario;
+    private int idUsuario; // Usuario responsável por este endereço
+    private boolean padrao;
+    
+    public EnderecoUsuario (int id, String cep, String bairro, String uf, String cidade, String logradouro, String numEdificio, String numComplemento, int idUsuario, boolean padrao) {
+        super(id, cep, bairro, uf, cidade, logradouro, numEdificio, numComplemento);
+        this.idUsuario = idUsuario;
+        this.padrao = padrao;
+    }
+    
+    public void setIdUsuario(int idUsuario){ this.idUsuario = idUsuario; }
+    public void setUsuario(Usuario usuario){ this.usuario = usuario; }
+    public void setPadrao(boolean padrao) { this.padrao = padrao; }
+    
+    public int getIdUsuario() { return this.idUsuario; }
+    public boolean getPadrao() { return this.padrao; }
+    public static Usuario getUsuario(int idUsuario) 
+    throws ClassNotFoundException, SQLException  
+    {
+        return UsuarioDAO.obterUsuario(idUsuario);
+    }
+    
+    // Métodos de comunicação com a camada DAO (Banco de dados)
+    public static EnderecoUsuario obterEnderecoPadrao(int idUsuario) 
+    throws ClassNotFoundException, SQLException  
+    {
+        return EnderecoUsuarioDAO.obterEnderecoPadrao(idUsuario);
+    }
+    
+    public static List<EnderecoUsuario> obterEnderecosUsuario(int idUsuario) 
+    throws ClassNotFoundException, SQLException 
+    {
+        return EnderecoUsuarioDAO.obterEnderecosUsuario(idUsuario);
+    }
+    
+    public static List<EnderecoUsuario> obterEnderecosUsuarios() 
+    throws ClassNotFoundException, SQLException 
+    {
+        return EnderecoUsuarioDAO.obterEnderecosUsuarios();
+    }
+    
     
 }

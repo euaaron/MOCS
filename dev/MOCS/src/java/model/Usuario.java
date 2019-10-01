@@ -5,7 +5,7 @@
  */
 package model;
 
-import dao.EnderecoDAO;
+import dao.EnderecoUsuarioDAO;
 import dao.UsuarioDAO;
 import java.sql.SQLException;
 import java.util.List;
@@ -76,16 +76,22 @@ public class Usuario {
         return UsuarioDAO.obterUsuario(idUsuario);
     }
     
-    public static List<Usuario> obterUsuarios() throws ClassNotFoundException, SQLException {
+    public static List<Usuario> obterUsuarios() throws ClassNotFoundException, 
+    SQLException 
+    {
         return UsuarioDAO.obterUsuarios();
     }
     
-    public Endereco obterEndereco(int idEndereco) throws ClassNotFoundException, SQLException  {
-        return EnderecoDAO.obterEnderecoUsuario(idEndereco);
+    public Endereco obterEndereco(int idEndereco) throws ClassNotFoundException, 
+    SQLException  
+    {
+        return EnderecoUsuarioDAO.obterEnderecoUsuario(idEndereco);
     }
     
-    public static List<Endereco> obterEnderecos(int idUsuario) throws ClassNotFoundException, SQLException {
-        return EnderecoDAO.obterEnderecosUsuario(idUsuario);
+    public static List<EnderecoUsuario> obterEnderecosUsuario(int idUsuario) 
+    throws ClassNotFoundException, SQLException 
+    {
+        return EnderecoUsuarioDAO.obterEnderecosUsuario(idUsuario);
     }
 
 }
