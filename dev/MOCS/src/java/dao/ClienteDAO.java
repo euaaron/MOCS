@@ -3,6 +3,7 @@
  * @version 0.19.7a
  * @authors Débora Lessa & Aaron Stiebler
  */
+/*
 package dao;
 
 import static dao.DAO.fecharConexao;
@@ -12,37 +13,37 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import model.Cliente;
+import model.Usuario;
 
 public class ClienteDAO {
     
-    public static Cliente obterCliente(int codCliente) throws ClassNotFoundException, SQLException {
+    public static Usuario obterCliente(int codCliente) throws ClassNotFoundException, SQLException {
         Connection conexao = null;
         Statement comando = null;
-        Cliente cliente = null;
+        Usuario usuario = null;
         try {
             conexao = BD.getConexao();
             comando = conexao.createStatement();
             ResultSet rs = comando.executeQuery(
                 "select * from cliente where id = " + codCliente);
                 rs.first();
-                cliente = instanciarCliente(rs);
+                usuario = instanciarCliente(rs);
             } finally {
                 fecharConexao(conexao, comando);
             }
-            return cliente;
+            return usuario;
     }
     
-    public static List<Cliente> obterClientes()
+    public static List<Usuario> obterClientes()
     throws ClassNotFoundException, SQLException{
         Connection conexao = null;
         Statement comando = null;
-        List<Cliente> clientes = new ArrayList<>();
-        Cliente cliente = null;
+        List<Usuario> clientes = new ArrayList<>();
+        Usuario cliente = null;
         try{
         conexao = BD.getConexao();
         comando = conexao.createStatement();
-        ResultSet rs = comando.executeQuery("select * from cliente");
+        ResultSet rs = comando.executeQuery("select * from usuario");
             while (rs.next()) {
                 cliente = instanciarCliente(rs);
                 clientes.add(cliente);                
@@ -52,8 +53,8 @@ public class ClienteDAO {
         }
         return clientes;
     }
-    public static Cliente instanciarCliente(ResultSet rs) throws SQLException {
-        Cliente cliente = new Cliente(
+    public static Usuario instanciarCliente(ResultSet rs) throws SQLException {
+        Usuario cliente = new Usuario(
                 rs.getInt("id"),
                 rs.getString("nome"),
                 rs.getString("sobrenome"),
@@ -65,3 +66,4 @@ public class ClienteDAO {
         return cliente;
     }
 }
+*/

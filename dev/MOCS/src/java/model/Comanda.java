@@ -5,7 +5,6 @@
  */
 package model;
 
-import dao.ClienteDAO;
 import dao.ComandaDAO;
 import dao.UsuarioDAO;
 import java.sql.SQLException;
@@ -20,7 +19,7 @@ public class Comanda {
     private Usuario cliente = null;
     private int idCliente;
     
-    public Comanda(int id, String dataComanda, String horaComanda, Cliente cliente){
+    public Comanda(int id, String dataComanda, String horaComanda, Usuario cliente){
         this.dataComanda = dataComanda;       // O Marco pediu para não trabalharmos com
         this.horaComanda = horaComanda;       // data e hora no momento... apenas com
         this.listaPedidos = new ArrayList<>();// atributos básicos, como int, string e float.
@@ -33,7 +32,7 @@ public class Comanda {
     public void setPedidos(ArrayList<Pedido> listaPedidos) { this.listaPedidos = listaPedidos; }
     public void setDataComanda(String dataComanda) { this.dataComanda = dataComanda; }
     public void setHoraComanda(String horaComanda) { this.horaComanda = horaComanda; }
-    public void setCliente(Cliente cliente) { this.cliente = cliente; }
+    public void setCliente(Usuario cliente) { this.cliente = cliente; }
     public void setIdCliente(int idCliente) { this.idCliente = idCliente; }
     
 //Manipulação de pedidos
@@ -52,7 +51,7 @@ public class Comanda {
     public int getIdCliente() { return idCliente; }
     public Usuario getCliente() throws ClassNotFoundException, SQLException {
         if ((this.idCliente != 0) && (this.cliente == null)) {
-            this.cliente = Cliente.obterUsuario(this.idCliente);
+            this.cliente = Usuario.obterUsuario(this.idCliente);
         }
         return this.cliente;
     }
@@ -70,6 +69,6 @@ public class Comanda {
     
 // Métodos de comunicação com a camada DAO (Banco de dados)
     public Usuario obterCliente() throws ClassNotFoundException, SQLException {
-        return ClienteDAO.obterCliente(idCliente);
+        return UsuarioDAO.obterUsuario(idCliente);
     }
 }

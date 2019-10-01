@@ -32,7 +32,6 @@ public class Pedido {
     public void setQuantidade(int quantidade) { this.quantidade = quantidade; }
     public void setIdComanda(int idComanda) { this.idComanda = idComanda; }
     public void setIdPrato(int idPrato) { this.idPrato = idPrato; }
-    public void setComanda(int idComanda) { this.comanda = obterComanda(int idComanda); }
 
 // Métodos de Recuperação (Leitura)
     public int getId() { return id; }
