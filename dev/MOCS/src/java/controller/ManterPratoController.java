@@ -15,13 +15,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Usuario;
+import model.Funcionario;
 
 /**
  *
  * @author Débora
  */
-public class ManterEstabelecimentoController extends HttpServlet {
+public class ManterPratoController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -44,8 +44,8 @@ public class ManterEstabelecimentoController extends HttpServlet {
     try {
         String operacao = request.getParameter("operacao");
         request.setAttribute("operacao", operacao);
-        request.setAttribute("proprietario", Usuario.obterUsuarios());
-        RequestDispatcher view = request.getRequestDispatcher("/manterEstabelecimento.jsp");
+        request.setAttribute("funcionario", Funcionario.obterFuncionarios());
+        RequestDispatcher view = request.getRequestDispatcher("/manterPrato.jsp");
         view.forward(request, response);
     }catch (ServletException e){
         throw e;
@@ -69,9 +69,9 @@ public class ManterEstabelecimentoController extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ManterEstabelecimentoController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ManterPratoController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(ManterEstabelecimentoController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ManterPratoController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -89,9 +89,9 @@ public class ManterEstabelecimentoController extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ManterEstabelecimentoController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ManterPratoController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(ManterEstabelecimentoController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ManterPratoController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

@@ -32,6 +32,14 @@
         <servlet-name>ManterEstabelecimentoController</servlet-name>
         <servlet-class>controller.ManterEstabelecimentoController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ManterFuncionarioController</servlet-name>
+        <servlet-class>controller.ManterFuncionarioController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManterPratoController</servlet-name>
+        <servlet-class>controller.ManterPratoController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>PesquisaPratoController</servlet-name>
         <url-pattern>/PesquisaPratoController</url-pattern>
@@ -63,6 +71,14 @@
     <servlet-mapping>
         <servlet-name>ManterEstabelecimentoController</servlet-name>
         <url-pattern>/ManterEstabelecimentoController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManterFuncionarioController</servlet-name>
+        <url-pattern>/ManterFuncionarioController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManterPratoController</servlet-name>
+        <url-pattern>/ManterPratoController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
