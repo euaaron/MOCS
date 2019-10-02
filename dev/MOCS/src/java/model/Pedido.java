@@ -72,4 +72,8 @@ public class Pedido {
     {
         return ComandaDAO.obterComanda(idComanda);
     }
+    
+    public void gravar() throws SQLException, ClassNotFoundException {
+        PedidoDAO.gravar(this);
+    }
 }

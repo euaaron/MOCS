@@ -7,6 +7,7 @@ package dao;
 
 import static dao.DAO.fecharConexao;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -80,5 +81,22 @@ public class PedidoDAO {
                 rs.getInt("quantidade")
         );
         return pedido;
+    }
+    
+    public static void gravar(Pedido pedido) throws SQLException, ClassNotFoundException{
+        Connection conexao = null;
+        PreparedStatement comando = null;
+        try {
+            conexao = BD.getConexao();
+            comando = conexao.prepareStatement("insert into pedido (id, prato_id, quantidade, comanda_id)"
+            + "values(?,?,?,?)");
+            comando.setInt(1, pedido.getId());
+            comando.setInt(2, pedido.getIdPrato());
+            comando.setInt(3, pedido.getQuantidade());
+            comando.setInt(4, pedido.getIdComanda());
+            comando.executeUpdate();
+        } finally {
+            fecharConexao(conexao, comando);
+        }
     }
 }

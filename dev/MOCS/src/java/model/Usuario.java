@@ -97,4 +97,7 @@ public class Usuario {
         return EnderecoUsuario.obterEnderecosUsuario(idUsuario);
     }
 
+    public void gravar() throws SQLException, ClassNotFoundException {
+        UsuarioDAO.gravar(this);
+    }
 }

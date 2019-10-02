@@ -7,6 +7,7 @@ package dao;
 
 import static dao.DAO.fecharConexao;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -55,16 +56,34 @@ public class FuncionarioDAO {
     
     public static Funcionario instanciarFuncionario (ResultSet rs) throws SQLException {
         Funcionario funcionario = new Funcionario(
-        rs.getInt("idUsuario"),
-        rs.getString("nome"),
-        rs.getString("sobrenome"), 
-        rs.getString("dataNascimento"),
-        rs.getString("email"),
-        rs.getString("telefone"),
-        rs.getString("senha"),
-        null
+            rs.getInt("idUsuario"),
+            rs.getString("nome"),
+            rs.getString("sobrenome"), 
+            rs.getString("dataNascimento"),
+            rs.getString("email"),
+            rs.getString("telefone"),
+            rs.getString("senha"),
+            null,
+            rs.getString("cpf")
         );
         funcionario.setId(rs.getInt("id"));
         return funcionario;
+    }
+    public static void gravar(Funcionario funcionario) throws SQLException, ClassNotFoundException{
+        Connection conexao = null;
+        PreparedStatement comando = null;
+        try {
+            conexao = BD.getConexao();
+            comando = conexao.prepareStatement("insert into funcionario (id, cpf, statusConta, estabelecimento_id, funcao_id)"
+            + "values (?,?,?,?,?)");
+            comando.setInt(1, funcionario.getId());
+            comando.setString(2, funcionario.getCpf());
+            comando.setBoolean(3, funcionario.getStatusConta());
+            comando.setInt(4, funcionario.getIdEstabelecimento());
+            comando.setInt(5, funcionario.getIdFuncao());
+            comando.executeUpdate();
+        } finally {
+            fecharConexao(conexao, comando);
+        }
     }
 }

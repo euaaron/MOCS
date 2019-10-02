@@ -35,6 +35,7 @@ public class Estabelecimento {
         this.endereco.setBairro(bairro);
         this.endereco.setCep(cep);
         this.endereco.setCidade(cidade);
+        this.idProprietario = proprietario.getId();
         
     }
 
@@ -42,6 +43,7 @@ public class Estabelecimento {
 
     public void setId(int id) { this.id = id; }
     public void setProprietario(Usuario proprietario) { this.proprietario = proprietario; }
+    public void setIdProprietario(int idProprietario) { this.idProprietario = idProprietario; }
     public void setCnpj(String cnpj) { this.cnpj = cnpj; }
     public void setNomeFantasia(String nomeFantasia) { this.nomeFantasia = nomeFantasia; }
     public void setInscEstadual(String inscEstadual) { this.inscEstadual = inscEstadual; }
@@ -78,6 +80,7 @@ public class Estabelecimento {
         }
         return this.proprietario;
     }
+    public int getIdProprietario() { return idProprietario; }
     
 // Métodos de comunicação com a camada DAO (Banco de dados)
     public static Estabelecimento obterEstabelecimento(int idEstabelecimento) throws ClassNotFoundException, SQLException {
@@ -87,5 +90,8 @@ public class Estabelecimento {
     public static List<Estabelecimento> obterEstabelecimentos() throws ClassNotFoundException, SQLException {
         return EstabelecimentoDAO.obterEstabelecimentos();
     }
-                    
+    
+    public void gravar() throws SQLException, ClassNotFoundException {
+        EstabelecimentoDAO.gravar(this);
+    }
 }

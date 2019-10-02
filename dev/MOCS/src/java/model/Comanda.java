@@ -71,4 +71,8 @@ public class Comanda {
     public Usuario obterCliente() throws ClassNotFoundException, SQLException {
         return UsuarioDAO.obterUsuario(idCliente);
     }
+    
+    public void gravar() throws SQLException, ClassNotFoundException {
+        ComandaDAO.gravar(this);
+    }
 }
