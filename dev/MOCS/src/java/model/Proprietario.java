@@ -5,6 +5,25 @@
  */
 package model;
 
-public class Proprietario {
+import dao.ProprietarioDAO;
+import java.sql.SQLException;
+import java.util.List;
+ 
+public class Proprietario extends Usuario {
+
+    public Proprietario(int id, String nome, String sobrenome, String dataNascimento, String email, String telefone, String senha) {
+        super(id, nome, sobrenome, dataNascimento, email, telefone, senha);
+    }
     
+    public static Proprietario obterProprietario(int idUsuario) throws ClassNotFoundException, SQLException {
+        return ProprietarioDAO.obterProprietario(idUsuario);
+    }
+    
+    public static List<Proprietario> obterProprietarios() throws ClassNotFoundException, SQLException {
+        return ProprietarioDAO.obterProprietarios();
+    }
+    
+    public void gravar() throws SQLException, ClassNotFoundException {
+        ProprietarioDAO.gravar(this);
+    }
 }

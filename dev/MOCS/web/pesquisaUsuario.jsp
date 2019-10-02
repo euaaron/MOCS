@@ -1,5 +1,5 @@
 <%-- 
-    Document   : PesquisaCliente
+    Document   : PesquisaUsuario
     Created on : 19/09/2019, 09:12:57
     Author     : Débora
 --%>
@@ -12,20 +12,22 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Pesquisa Clientes</title>
+        <title>Pesquisa Usuarios</title>
     </head>
     <body>
-        <h1>Pesquisa Clientes</h1>
+        <h1>Pesquisa Usuarios</h1>
         <table border = 1>
             <tr>
-                <th>Código Cliente</th>
-                <th>Nome Cliente</th>
+                <th>Código do Usuário</th>
+                <th>Nome do Usuario</th>
+                <th>Sobrenome do Usuario</th>
             </tr>
             
-            <c:forEach items="${clientes}" var="cliente">
+            <c:forEach items="${usuarios}" var="usuario">
                 <tr>
-                    <td><c:out value="${cliente.codCliente}"/></td>
-                    <td><c:out value="${cliente.nome}"/></td>
+                    <td><c:out value="${usuario.id}"/></td>
+                    <td><c:out value="${usuario.nome}"/></td>
+                    <td><c:out value="${usuario.sobrenome}"/></td>
                 </tr>
             </c:forEach>
         </table>

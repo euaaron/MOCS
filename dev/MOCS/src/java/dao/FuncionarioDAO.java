@@ -17,7 +17,7 @@ import model.Funcionario;
 
 public class FuncionarioDAO {
     
-    public static Funcionario obterFuncionario(int idFuncionario) throws ClassNotFoundException, SQLException {
+    public static Funcionario obterFuncionario(int idUsuario) throws ClassNotFoundException, SQLException {
         Connection conexao = null;
         Statement comando = null;
         Funcionario funcionario = null;
@@ -25,7 +25,7 @@ public class FuncionarioDAO {
             conexao = BD.getConexao();
             comando = conexao.createStatement();
             ResultSet rs = comando.executeQuery(
-                "select * from funcionario where id = " + idFuncionario);
+                "select * from funcionario where id = " + idUsuario);
                 rs.first();
                 funcionario = instanciarFuncionario(rs);
             } finally {
@@ -66,7 +66,6 @@ public class FuncionarioDAO {
             null,
             rs.getString("cpf")
         );
-        funcionario.setId(rs.getInt("id"));
         return funcionario;
     }
     public static void gravar(Funcionario funcionario) throws SQLException, ClassNotFoundException{

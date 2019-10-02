@@ -46,8 +46,8 @@ public class Funcionario extends Usuario {
         return this.estabelecimento;
     }
     
-    public static Funcionario obterFuncionario(int idFuncionario) throws ClassNotFoundException, SQLException {
-        return FuncionarioDAO.obterFuncionario(idFuncionario);
+    public static Funcionario obterFuncionario(int idUsuario) throws ClassNotFoundException, SQLException {
+        return FuncionarioDAO.obterFuncionario(idUsuario);
     }
     
     public static List<Funcionario> obterFuncionarios() throws ClassNotFoundException, SQLException {

@@ -6,7 +6,6 @@
 package model;
 
 import dao.ComandaDAO;
-import dao.UsuarioDAO;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -69,7 +68,7 @@ public class Comanda {
     
 // Métodos de comunicação com a camada DAO (Banco de dados)
     public Usuario obterCliente() throws ClassNotFoundException, SQLException {
-        return UsuarioDAO.obterUsuario(idCliente);
+        return Usuario.obterUsuario(idCliente);
     }
     
     public void gravar() throws SQLException, ClassNotFoundException {
