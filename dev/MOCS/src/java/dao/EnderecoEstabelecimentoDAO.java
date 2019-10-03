@@ -38,22 +38,29 @@ public class EnderecoEstabelecimentoDAO {
         return endereco;
     }
 
-    public static void gravar(EnderecoEstabelecimento comanda) throws ClassNotFoundException, SQLException {
+    public static void gravar(EnderecoEstabelecimento endestabelecimento) 
+            throws ClassNotFoundException, SQLException {
         Connection conexao = null;
         PreparedStatement comando = null;
         try {
             conexao = BD.getConexao();
             comando = conexao.prepareStatement(
-                    "insert into endestabelecimento (id, data, hora, usuario_id)"
-                    + " values (?,?,?,?)"
+                "insert into endestabelecimento (id, cep, uf, cidade,"
+                + " logradouro, bairro, numEdificio, numComplemento, estabelecimento_id)"
+                + " values (?,?,?,?,?,?,?,?,?)"
             );
-            comando.setInt(1, comanda.getId());
-            comando.setString(2, comanda.getDataComanda());
-            comando.setString(3, comanda.getHoraComanda());
-            comando.setInt(4, comanda.getIdCliente());
+            comando.setInt(1, endestabelecimento.getId());
+            comando.setString(2, endestabelecimento.getCep());
+            comando.setString(3, endestabelecimento.getUf());
+            comando.setString(4, endestabelecimento.getCidade());
+            comando.setString(5, endestabelecimento.getLogradouro());
+            comando.setString(6, endestabelecimento.getBairro());
+            comando.setString(7, endestabelecimento.getNumEdificio());
+            comando.setString(8, endestabelecimento.getNumComplemento());
+            comando.setInt(9, endestabelecimento.getIdEstabelecimento());
             comando.executeUpdate();
         } finally {
-        fecharConexao(conexao, comando);
+            fecharConexao(conexao, comando);
         }
     }
     
