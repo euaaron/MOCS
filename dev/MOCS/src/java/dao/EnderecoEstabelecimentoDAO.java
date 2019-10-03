@@ -5,12 +5,13 @@
  */
 package dao;
 
+import static dao.DAO.fecharConexao;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-import model.Endereco;
 import model.EnderecoEstabelecimento;
-import model.EnderecoUsuario;
 
 public class EnderecoEstabelecimentoDAO {
 
@@ -37,6 +38,24 @@ public class EnderecoEstabelecimentoDAO {
         return endereco;
     }
 
+    public static void gravar(EnderecoEstabelecimento comanda) throws ClassNotFoundException, SQLException {
+        Connection conexao = null;
+        PreparedStatement comando = null;
+        try {
+            conexao = BD.getConexao();
+            comando = conexao.prepareStatement(
+                    "insert into endestabelecimento (id, data, hora, usuario_id)"
+                    + " values (?,?,?,?)"
+            );
+            comando.setInt(1, comanda.getId());
+            comando.setString(2, comanda.getDataComanda());
+            comando.setString(3, comanda.getHoraComanda());
+            comando.setInt(4, comanda.getIdCliente());
+            comando.executeUpdate();
+        } finally {
+        fecharConexao(conexao, comando);
+        }
+    }
     
     
 }
