@@ -13,15 +13,19 @@
     </head>
     <body>
         <div>
-            <h1>Cadastre-se</h1>
+            <h1>Funcionario - ${operacao}</h1>
         </div>        
         <div>
-            <form action="cadastroClienteController" method="post">
+            <form action="ManterFuncionarioController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterFuncionario" method="post">
                 <table border="1">
                     <tbody>
                         <tr>
+                            <td><label for="id">Id:</label></td>
+                            <td><input type="text" name="txtId" id="idFuncionario" value="${funcionario.id}"/></td>
+                        </tr>
+                        <tr>
                             <td><label for="nome">Nome:</label></td>
-                            <td><input type="text" id="nome"/></td>
+                            <td><input type="text" name="txtNome" id="nome" value="${funcionario.nome}"/></td>
                         </tr>
                         <tr>
                             <td><label for="nome">Email:</label></td>

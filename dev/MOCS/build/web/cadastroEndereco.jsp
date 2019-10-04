@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>MOCS</title>
+        <title>Cadastro de Endereco</title>
     </head>
     <body>
         <div>
@@ -21,7 +21,7 @@
                     <tbody>
                         <tr>
                             <td><label for="id">Id:</label></td>
-                            <td><input type="text" id="id" name="txtNome" value="${endereco.id}"/></td>
+                            <td><input type="text" id="idEndereco" name="txtId" value="${endereco.id}"/></td>
                         </tr>
                         <tr>
                             <td><label for="cep">CEP:</label></td>
@@ -44,7 +44,7 @@
                             <td><input type="txt" id="logradouro" name="txtLogradouro" value="${usuario.logradouro}"></td>
                         </tr>
                         <tr>
-                            <td><label for="logradouro">Complemento:</label></td>
+                            <td><label for="complemento">Complemento:</label></td>
                             <td><input type="txt" id="complemento" name="txtComplemento:" value="${usuario.complemento}"></td>
                         </tr>
                     </tbody>

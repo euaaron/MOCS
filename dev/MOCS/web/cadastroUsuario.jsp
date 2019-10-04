@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>MOCS</title>
+        <title>Cadastro de Usuario</title>
     </head>
     <body>
         <div>
@@ -21,27 +21,35 @@
                     <tbody>
                         <tr>
                             <td><label for="id">Id:</label></td>
-                            <td><input type="text" name="txtNome" id="id"/></td>
+                            <td><input type="text" name="txtId" id="idUsuario" value="${usuario.id}"/></td>
                         </tr>
                         <tr>
                             <td><label for="nome">Nome:</label></td>
-                            <td><input type="text" name="txtNome" id="nome" value="${usuario.id}"/></td>
+                            <td><input type="text" name="txtNome" id="nome" value="${usuario.nome}"/></td>
                         </tr>
                         <tr>
-                            <td><label for="nome">Email:</label></td>
+                            <td><label for="sobrenome">Sobrenome:</label></td>
+                            <td><input type="text" name="txtSobrenome" id="sobrenome" value="${usuario.sobrenome}"/></td>
+                        </tr>
+                        <tr>
+                            <td><label for="dataNasc">Data de Nascimento:</label></td>
+                            <td><input type="date" name="txtDataNascimento" id="dataNascimento" value="${usuario.dataNascimento}"/></td>
+                        </tr>
+                        <tr>
+                            <td><label for="email">Email:</label></td>
                             <td><input type="email" id="email" placeholder="exemplo@email.com" name="txtEmail" value="${usuario.email}"/></td>
                         </tr>
                         <tr>
-                            <td><label for="nome">Celular:</label></td>
-                            <td><input type="phone" id="tel" placeholder="(xx) x xxxx-xxxx" name="txtCelular" value="${usuario.telefone}"/></td>
+                            <td><label for="telefone">Telefone:</label></td>
+                            <td><input type="phone" id="telefone" placeholder="(xx) x xxxx-xxxx" name="txtTelefone" value="${usuario.telefone}"/></td>
                         </tr>
                         <tr>
-                            <td><label for="nome">Senha:</label></td>
-                            <td><input type="password" id="senha" placeholder="Ex3mpl@" name="txtSenha" value="${usuario.senha}"></td>
+                            <td><label for="senha">Senha:</label></td>
+                            <td><input type="password" id="senha" name="txtSenha" value="${usuario.senha}"></td>
                         </tr>
                         <tr>
-                            <td><label for="nome">Repita a senha:</label></td>
-                            <td><input type="password" id="confirmaSenha" placeholder="Ex3mpl@" name="txtSenha" value="${usuario.senha}"></td>
+                            <td><label for="senha">Repita a senha:</label></td>
+                            <td><input type="password" id="confirmaSenha" name="txtSenha" value="${usuario.senha}"></td>
                         </tr>
                     </tbody>
                 </table>
