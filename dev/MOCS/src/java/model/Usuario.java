@@ -13,6 +13,7 @@ public class Usuario {
     private int id;
     private String nome;
     private String sobrenome;
+    private String cpf;
     private String dataNascimento;
     private String email;
     private String telefone;
@@ -20,7 +21,7 @@ public class Usuario {
     private Endereco endereco = null;
     private int idEndereco;
     
-    public Usuario(int id, String nome, String sobrenome, String dataNascimento, String email, String telefone, String senha) {
+    public Usuario(int id, String nome, String sobrenome, String cpf, String dataNascimento, String email, String telefone, String senha) {
         this.id = id;
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -28,12 +29,14 @@ public class Usuario {
         this.email = email;
         this.telefone = telefone;
         this.senha = senha;
+        this.cpf = cpf;
     }
     
 // Métodos de inserção (Modificação)
     public void setId(int id) { this.id = id; }
     public void setNome(String nome) { this.nome = nome; }
     public void setSobrenome(String sobrenome) { this.sobrenome = sobrenome; }
+    public void setCpf(String cpf) { this.cpf = cpf; }
     public void setDataNascimento(String dataNascimento) { this.dataNascimento = dataNascimento; }
     public void setEmail(String email) { this.email = email; }
     public void setTelefone(String telefone) { this.telefone = telefone; }    
@@ -46,6 +49,7 @@ public class Usuario {
     public int getId() { return id; } 
     public String getNome() { return nome; }
     public String getSobrenome() { return sobrenome; }
+    public String getCpf() { return cpf; }
     public String getDataNascimento() { return dataNascimento; }
     public String getEmail() { return email; }
     public String getTelefone() { return telefone; }

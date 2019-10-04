@@ -32,6 +32,10 @@
                             <td><input type="text" name="txtSobrenome" id="sobrenome" value="${usuario.sobrenome}"/></td>
                         </tr>
                         <tr>
+                            <td><label for="cpf">CPF:</label></td>
+                            <td><input type="text" name="txtCpf" id="cpf" value="${usuario.cpf}"/></td>
+                        </tr>
+                        <tr>
                             <td><label for="dataNasc">Data de Nascimento:</label></td>
                             <td><input type="date" name="txtDataNascimento" id="dataNascimento" value="${usuario.dataNascimento}"/></td>
                         </tr>
