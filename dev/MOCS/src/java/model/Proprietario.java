@@ -11,8 +11,8 @@ import java.util.List;
  
 public class Proprietario extends Usuario {
 
-    public Proprietario(int id, String nome, String sobrenome, String dataNascimento, String email, String telefone, String senha, String cpf) {
-        super(id, nome, sobrenome, dataNascimento, email, telefone, senha, cpf);
+    public Proprietario(int idUsuario, String nome, String sobrenome, String dataNascimento, String email, String telefone, String senha, String cpf) {
+        super(idUsuario, nome, sobrenome, dataNascimento, email, telefone, senha, cpf);
     }
     
     public static Proprietario obterProprietario(int idUsuario) throws ClassNotFoundException, SQLException {

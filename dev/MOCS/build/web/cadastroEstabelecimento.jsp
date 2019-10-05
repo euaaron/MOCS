@@ -13,7 +13,7 @@
     </head>
     <body>
         <h1>Estabelecimento - ${operacao}</h1>
-        <form action="cadastroEstabelecimentoController" method="post">
+        <form action="cadastroEstabelecimentoController" name="frmManterEstabelecimento" method="post">
         <table border="1">
                 <tr>
                     <td><label for="id">Id:</label></td>
