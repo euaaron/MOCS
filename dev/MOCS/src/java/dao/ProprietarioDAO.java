@@ -67,7 +67,8 @@ public class ProprietarioDAO {
             rs.getString("dataNascimento"),
             rs.getString("email"),
             rs.getString("telefone"),
-            rs.getString("senha")
+            rs.getString("senha"),
+            rs.getString("cpf")
         );
         return proprietario;
     }

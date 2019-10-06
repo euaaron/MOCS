@@ -61,6 +61,7 @@ public class UsuarioDAO {
                 rs.getInt("id"),
                 rs.getString("nome"),
                 rs.getString("sobrenome"),
+                rs.getString("cpf"),
                 rs.getString("nascimento"),
                 rs.getString("email"),
                 rs.getString("telefone"),
