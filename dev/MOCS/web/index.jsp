@@ -19,10 +19,10 @@
         </ul>         
         <ul>
             <li><a href="PesquisaEstabelecimentoController">Estabelecimentos</a></li>
-            <li><a href="PesquisaClienteController">Usuarios</a></li>
+            <li><a href="PesquisaUsuarioController">Usuarios</a></li>
             <li><a href="PesquisaFuncionarioController">Funcionário</a></li>
-            <li><a href="PesquisaPedidosController">Pedidos</a></li>
-            <li><a href="PesquisaPratosController">Pratos</a></li>
+            <li><a href="PesquisaPedidoController">Pedidos</a></li>
+            <li><a href="PesquisaPratoController">Pratos</a></li>
         </ul>        
     </body>
 </html>
