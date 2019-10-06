@@ -59,6 +59,9 @@
                     <td>Status da Conta:</td>
                     <td><input type="text" name="txtStatusUsuario" value="${funcionario.statusConta}"></td>
                 </tr>
+                <tr>
+                    <td><input type="submit" name="btnConfirmar" value="Confirmar"></td>
+                </tr>
             </table>
         </form>
     </body>

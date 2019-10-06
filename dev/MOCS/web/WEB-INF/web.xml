@@ -40,6 +40,14 @@
         <servlet-name>ManterPratoController</servlet-name>
         <servlet-class>controller.ManterPratoController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ManterPedidoController</servlet-name>
+        <servlet-class>controller.ManterPedidoController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PesquisaPedidoController</servlet-name>
+        <servlet-class>controller.PesquisaPedidoController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>PesquisaPratoController</servlet-name>
         <url-pattern>/PesquisaPratoController</url-pattern>
@@ -79,6 +87,14 @@
     <servlet-mapping>
         <servlet-name>ManterPratoController</servlet-name>
         <url-pattern>/ManterPratoController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManterPedidoController</servlet-name>
+        <url-pattern>/ManterPedidoController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PesquisaPedidoController</servlet-name>
+        <url-pattern>/PesquisaPedidoController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

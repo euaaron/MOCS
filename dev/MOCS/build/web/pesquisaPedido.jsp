@@ -5,14 +5,16 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Pesquisa Pedido</title>
+        <title>Pesquisa de Pedidos</title>
     </head>
     <body>
-        <h1>Pesquisa Pedido</h1>
+        <h1>Pesquisa de Pedidos</h1>
         <table border = 1>
             <tr>
                 <th>Código do Pedido</th>

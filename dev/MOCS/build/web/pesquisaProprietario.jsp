@@ -5,26 +5,28 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Pesquisa Proprietario</title>
+        <title>Pesquisa de Proprietario</title>
     </head>
     <body>
-        <h1>Pesquisa Proprietario</h1>
+        <h1>Pesquisa de Proprietario</h1>
         <table border = 1>
             <tr>
-                <th>Código do Usuário</th>
-                <th>Nome do Usuario</th>
-                <th>Sobrenome do Usuario</th>
+                <th>Código do Proprietario</th>
+                <th>Nome do Proprietario</th>
+                <th>Sobrenome do Proprietario</th>
             </tr>
             
-            <c:forEach items="${usuarios}" var="usuario">
+            <c:forEach items="${proprietarios}" var="proprietario">
                 <tr>
-                    <td><c:out value="${usuario.id}"/></td>
-                    <td><c:out value="${usuario.nome}"/></td>
-                    <td><c:out value="${usuario.sobrenome}"/></td>
+                    <td><c:out value="${proprietario.id}"/></td>
+                    <td><c:out value="${proprietario.nome}"/></td>
+                    <td><c:out value="${proprietario.sobrenome}"/></td>
                 </tr>
             </c:forEach>
         </table>
