@@ -28,6 +28,10 @@
                     <td><input type="text" name="txtDescricao" value="${prato.descricao}"/></td>
                 </tr>
                 <tr>
+                    <td>Data da Criação:</td>
+                    <td><input type="date" name="txtDataCriacao" value="${prato.dataCriacao}"/></td>
+                </tr>
+                <tr>
                     <td>Id do Funcionário:</td>
                     <td><input type="text" name="txtIdFuncionario" value="${prato.IdFuncionario}"/></td>
                 </tr>

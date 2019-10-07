@@ -29,6 +29,10 @@
                             <td><input type="text" name="txtDescricao" id="decricao" value="${prato.descricao}"/></td>
                         </tr>
                         <tr>
+                            <td><label for="dataCriacao">Data da Criação:</label></td>
+                            <td><input type="date" name="txtDataCriacao" id="dataCriacao" value="${prato.dataCriacao}"/></td>
+                        </tr>
+                        <tr>
                             <td><label for="idFuncionario">Id do Funcionario:</label></td>
                             <td><input type="text" name="txtIdFuncionario" id="idFuncionario" value="${prato.IdFuncionario}"/></td>
                         </tr>
