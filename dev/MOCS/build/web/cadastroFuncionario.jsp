@@ -52,6 +52,10 @@
                             <td><input type="phone" id="telefone" placeholder="(xx) x xxxx-xxxx" name="txtTelefone" value="${funcionario.telefone}"/></td>
                         </tr>
                         <tr>
+                            <td><label for="idFuncao">Id da Função:</label></td>
+                            <td><input type="text" name="txtIdFuncao" id="idFuncao" value="${funcionario.idFuncao}"></td>
+                        </tr>
+                        <tr>
                             <td><label for="senha">Senha:</label></td>
                             <td><input type="password" name="txtSenha" id="senha" value="${funcionario.senha}"></td>
                         </tr>
