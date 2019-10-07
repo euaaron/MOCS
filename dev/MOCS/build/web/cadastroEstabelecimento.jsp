@@ -1,7 +1,7 @@
 <%-- 
     Document   : Estabelecimento
     Created on : 05/09/2019, 09:22:06
-    Author     : Débora
+    Author     : Débora Lessa & Aaron Stiebler
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

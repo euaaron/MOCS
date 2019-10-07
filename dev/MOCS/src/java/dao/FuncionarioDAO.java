@@ -57,8 +57,7 @@ public class FuncionarioDAO {
     public static Funcionario instanciarFuncionario (ResultSet rs) throws SQLException {
         Funcionario funcionario = new Funcionario(
             rs.getInt("idUsuario"),
-            rs.getString("nome"),
-            rs.getString("sobrenome"), 
+            rs.getString("nome"), 
             rs.getString("dataNascimento"),
             rs.getString("email"),
             rs.getString("telefone"),
@@ -73,13 +72,18 @@ public class FuncionarioDAO {
         PreparedStatement comando = null;
         try {
             conexao = BD.getConexao();
-            comando = conexao.prepareStatement("insert into funcionario (id, cpf, statusConta, estabelecimento_id, funcao_id)"
-            + "values (?,?,?,?,?)");
+            comando = conexao.prepareStatement("insert into funcionario (id, nome, dataNascimento, email, telefone, senha, cpf, statusConta, idEstabelecimento, idFuncao)"
+            + "values (?,?,?,?,?,?,?,?,?,?)");
             comando.setInt(1, funcionario.getId());
-            comando.setString(2, funcionario.getCpf());
-            comando.setBoolean(3, funcionario.getStatusConta());
-            comando.setInt(4, funcionario.getIdEstabelecimento());
-            comando.setInt(5, funcionario.getIdFuncao());
+            comando.setString(2, funcionario.getNome());
+            comando.setString(3, funcionario.getDataNascimento());
+            comando.setString(4, funcionario.getEmail());
+            comando.setString(5, funcionario.getTelefone());
+            comando.setString(6, funcionario.getSenha());
+            comando.setString(7, funcionario.getCpf());
+            comando.setBoolean(8, funcionario.getStatusConta());
+            comando.setInt(9, funcionario.getIdEstabelecimento());
+            comando.setInt(10, funcionario.getIdFuncao());
             comando.executeUpdate();
         } finally {
             fecharConexao(conexao, comando);

@@ -17,7 +17,7 @@ import model.Prato;
 
 /**
  *
- * @author Débora
+ * @author Débora Lessa & Aaron Stiebler
  */
 public class PesquisaPratoController extends HttpServlet {
 

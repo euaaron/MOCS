@@ -1,7 +1,7 @@
 <%-- 
     Document   : manterComanda
     Created on : 07/10/2019, 08:42:47
-    Author     : Débora
+    Author     : Débora Lessa & Aaron Stiebler
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

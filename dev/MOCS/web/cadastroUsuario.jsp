@@ -1,7 +1,7 @@
 <%-- 
     Document   : usuario
     Created on : 05/09/2019, 09:21:37
-    Author     : Aaron Stiebler
+    Author     : Aaron Stiebler & Débora Lessa
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -26,10 +26,6 @@
                         <tr>
                             <td><label for="nome">Nome:</label></td>
                             <td><input type="text" name="txtNome" id="nome" value="${usuario.nome}"/></td>
-                        </tr>
-                        <tr>
-                            <td><label for="sobrenome">Sobrenome:</label></td>
-                            <td><input type="text" name="txtSobrenome" id="sobrenome" value="${usuario.sobrenome}"/></td>
                         </tr>
                         <tr>
                             <td><label for="cpf">CPF:</label></td>

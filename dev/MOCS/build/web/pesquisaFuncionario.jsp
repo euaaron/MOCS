@@ -1,7 +1,7 @@
 <%-- 
     Document   : pesquisaFuncionario
     Created on : 02/10/2019, 13:35:24
-    Author     : Débora
+    Author     : Débora Lessa & Aaron Stiebler
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -19,7 +19,6 @@
             <tr>
                 <th>Código do Funcionario</th>
                 <th>Nome do Funcionario</th>
-                <th>Sobrenome do Funcionario</th>
                 <th>CPF do Funcionario</th>
                 <th>Status da Conta do Funcionario</th>
             </tr>
@@ -28,7 +27,6 @@
                 <tr>
                     <td><c:out value="${funcionario.id}"/></td>
                     <td><c:out value="${funcionario.nome}"/></td>
-                    <td><c:out value="${funcionario.sobrenome}"/></td>
                     <td><c:out value="${funcionario.cpf}"/></td>
                     <td><c:out value="${funcionario.statusConta}"/></td>
                 </tr>

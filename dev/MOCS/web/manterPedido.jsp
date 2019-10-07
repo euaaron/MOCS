@@ -1,7 +1,7 @@
 <%-- 
     Document   : manterPedido
     Created on : 07/10/2019, 09:06:52
-    Author     : Débora
+    Author     : Débora Lessa & Aaron Stiebler
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

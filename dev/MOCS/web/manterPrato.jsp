@@ -1,7 +1,7 @@
 <%-- 
     Document   : manterPrato
     Created on : 07/10/2019, 09:17:31
-    Author     : Débora
+    Author     : Débora Lessa & Aaron Stiebler
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

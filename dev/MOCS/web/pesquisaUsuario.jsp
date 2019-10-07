@@ -1,7 +1,7 @@
 <%-- 
     Document   : PesquisaUsuario
     Created on : 19/09/2019, 09:12:57
-    Author     : Débora
+    Author     : Débora Lessa & Aaron Stiebler
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -20,14 +20,12 @@
             <tr>
                 <th>Código do Usuário</th>
                 <th>Nome do Usuario</th>
-                <th>Sobrenome do Usuario</th>
             </tr>
             
             <c:forEach items="${usuarios}" var="usuario">
                 <tr>
                     <td><c:out value="${usuario.id}"/></td>
                     <td><c:out value="${usuario.nome}"/></td>
-                    <td><c:out value="${usuario.sobrenome}"/></td>
                 </tr>
             </c:forEach>
         </table>

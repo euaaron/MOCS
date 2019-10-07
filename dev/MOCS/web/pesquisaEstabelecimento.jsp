@@ -1,7 +1,7 @@
 <%-- 
     Document   : pesquisaEstabelecimento
     Created on : 19/09/2019, 09:13:42
-    Author     : euaar
+    Author     : Débora Lessa & Aaron Stiebler
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

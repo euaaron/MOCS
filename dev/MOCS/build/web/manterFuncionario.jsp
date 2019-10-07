@@ -1,7 +1,7 @@
 <%-- 
     Document   : manterFuncionario
     Created on : 02/10/2019, 11:16:53
-    Author     : Débora
+    Author     : Débora Lessa & Aaron Stiebler
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -26,10 +26,6 @@
                 <tr>
                     <td>Nome do Funcionario:</td>
                     <td><input type="text" name="txtNome" value="${funcionario.nome}"></td>
-                </tr>
-                <tr>
-                    <td>Sobrenome do Funcionario:</td>
-                    <td><input type="text" name="txtSobrenome" value="${funcionario.sobrenome}"></td>
                 </tr>
                 <tr>
                     <td>CPF:</td>

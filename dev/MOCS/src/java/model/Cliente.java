@@ -16,7 +16,7 @@ public class Cliente extends Usuario {
 
     private ArrayList<Comanda> historicoPedidos = new ArrayList<>();
 
-    public Cliente(int id, String nome, String sobrenome, String dataNascimento, String email, String telefone,String senha){
+    public Cliente(int id, String nome, String dataNascimento, String email, String telefone,String senha){
         super(id, nome, sobrenome, dataNascimento, email, telefone, senha);
     }
     

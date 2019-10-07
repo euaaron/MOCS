@@ -20,7 +20,7 @@ import model.Prato;
 
 /**
  *
- * @author Débora
+ * @author Débora Lessa & Aaron Stiebler
  */
 public class ManterPedidoController extends HttpServlet {
 

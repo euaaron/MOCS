@@ -1,7 +1,7 @@
 <%-- 
     Document   : pesquisaPrato
     Created on : 02/10/2019, 13:25:31
-    Author     : Débora
+    Author     : Débora Lessa & Aaron Stiebler
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

@@ -1,7 +1,7 @@
 <%-- 
     Document   : cadastroPedido
     Created on : 04/10/2019, 17:24:39
-    Author     : Débora
+    Author     : Débora Lessa & Aaron Stiebler
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

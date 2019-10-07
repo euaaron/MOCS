@@ -19,7 +19,7 @@ import model.Funcionario;
 
 /**
  *
- * @author Débora
+ * @author Débora Lessa & Aaron Stiebler
  */
 public class ManterPratoController extends HttpServlet {
 

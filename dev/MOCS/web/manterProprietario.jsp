@@ -1,7 +1,7 @@
 <%-- 
     Document   : manterProprietario
     Created on : 07/10/2019, 09:18:05
-    Author     : Débora
+    Author     : Débora Lessa & Aaron Stiebler
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -22,10 +22,6 @@
                 <tr>
                     <td>Nome do Proprietario:</td>
                     <td><input type="text" name="txtNome" value="${proprietario.nome}"/></td>
-                </tr>
-                <tr>
-                    <td>Sobrenome do Proprietario:</td>
-                    <td><input type="text" name="txtsobrenome" value="${proprietario.sobrenome}"/></td>
                 </tr>
                 <tr>
                     <td>CPF:</td>

@@ -19,7 +19,7 @@ import model.Usuario;
 
 /**
  *
- * @author Débora
+ * @author Débora Lessa & Aaron Stiebler
  */
 public class ManterEstabelecimentoController extends HttpServlet {
 

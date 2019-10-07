@@ -1,7 +1,7 @@
 <%-- 
     Document   : cadastroRefeicao
     Created on : 07/09/2019, 18:45:11
-    Author     : Aaron
+    Author     : Aaron Stiebler & Débora Lessa
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

@@ -20,7 +20,7 @@ import model.Funcao;
 
 /**
  *
- * @author Débora
+ * @author Débora Lessa & Aaron Stiebler
  */
 public class ManterFuncionarioController extends HttpServlet {
 

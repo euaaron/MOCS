@@ -17,7 +17,7 @@ import model.Proprietario;
 
 /**
  *
- * @author Débora
+ * @author Débora Lessa & Aaron Stiebler
  */
 public class ProprietarioDAO {
     public static Proprietario obterProprietario(int idUsuario) throws ClassNotFoundException, SQLException {
@@ -62,8 +62,7 @@ public class ProprietarioDAO {
     {
         Proprietario proprietario = new Proprietario(
             rs.getInt("idUsuario"),
-            rs.getString("nome"),
-            rs.getString("sobrenome"), 
+            rs.getString("nome"), 
             rs.getString("dataNascimento"),
             rs.getString("email"),
             rs.getString("telefone"),
@@ -79,15 +78,15 @@ public class ProprietarioDAO {
         try {
             conexao = BD.getConexao();
             comando = conexao.prepareStatement(
-            "insert into usuario (id, nome, sobrenome, nascimento, email, telefone, senha)"
+            "insert into usuario (id, nome, nascimento, email, telefone, senha, cpf)"
             + "values(?,?,?,?,?,?,?)");
             comando.setInt(1, proprietario.getId());
             comando.setString(2, proprietario.getNome());
-            comando.setString(3, proprietario.getSobrenome());
-            comando.setString(4, proprietario.getDataNascimento());
-            comando.setString(5, proprietario.getEmail());
-            comando.setString(6, proprietario.getTelefone());
-            comando.setString(7, proprietario.getSenha());
+            comando.setString(3, proprietario.getDataNascimento());
+            comando.setString(4, proprietario.getEmail());
+            comando.setString(5, proprietario.getTelefone());
+            comando.setString(6, proprietario.getSenha());
+            comando.setString(7, proprietario.getCpf());
             comando.executeUpdate();
         }finally{
             fecharConexao(conexao, comando);

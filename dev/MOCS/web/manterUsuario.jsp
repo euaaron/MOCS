@@ -1,7 +1,7 @@
 <%-- 
     Document   : manterUsuario
     Created on : 07/10/2019, 09:19:13
-    Author     : Débora
+    Author     : Débora Lessa & Aaron Stiebler
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -22,10 +22,6 @@
                 <tr>
                     <td>Nome do Usuario:</td>
                     <td><input type="text" name="txtNome" value="${usuario.nome}"/></td>
-                </tr>
-                <tr>
-                    <td>Sobrenome do Usuario:</td>
-                    <td><input type="text" name="txtSobrenome" value="${usuario.sobrenome}"/></td>
                 </tr>
                 <tr>
                     <td>CPF:</td>

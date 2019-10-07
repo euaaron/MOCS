@@ -16,9 +16,9 @@ public class Funcionario extends Usuario {
     private int idEstabelecimento;
     private int idFuncao;
     
-    public Funcionario(int idUsuario, String nome, String sobrenome, String dataNascimento,
+    public Funcionario(int idUsuario, String nome, String dataNascimento,
            String email, String telefone, String senha, Estabelecimento estabelecimento, String cpf) {
-        super(idUsuario, nome,sobrenome,dataNascimento,email,telefone, senha, cpf);
+        super(idUsuario, nome, dataNascimento,email,telefone, senha, cpf);
         this.idEstabelecimento = estabelecimento.getId();
     }    
 

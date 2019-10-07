@@ -1,7 +1,7 @@
 <%-- 
     Document   : cadastroProprietario
     Created on : 04/10/2019, 17:21:33
-    Author     : Débora
+    Author     : Débora Lessa & Aaron Stiebler
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -24,10 +24,6 @@
                         <tr>
                             <td><label for="nome">Nome:</label></td>
                             <td><input type="text" name="txtNome" id="nome" value="${proprietario.nome}"/></td>
-                        </tr>
-                        <tr>
-                            <td><label for="sobrenome">Sobrenome:</label></td>
-                            <td><input type="text" name="txtsobrenome" id="sobrenome" value="${proprietario.sobrenome}"/></td>
                         </tr>
                         <tr>
                             <td><label for="cpf">CPF:</label></td>

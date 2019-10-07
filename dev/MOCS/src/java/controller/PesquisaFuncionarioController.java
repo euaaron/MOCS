@@ -17,7 +17,7 @@ import model.Funcionario;
 
 /**
  *
- * @author Débora & Aaron
+ * @author Débora Lessa & Aaron Stiebler
  */
 public class PesquisaFuncionarioController extends HttpServlet {
 

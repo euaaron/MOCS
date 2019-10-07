@@ -57,7 +57,6 @@ public class ClienteDAO {
         Usuario cliente = new Usuario(
                 rs.getInt("id"),
                 rs.getString("nome"),
-                rs.getString("sobrenome"),
                 rs.getString("nascimento"),
                 rs.getString("email"),
                 rs.getString("telefone"),

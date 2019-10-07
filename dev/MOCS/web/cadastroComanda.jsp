@@ -1,7 +1,7 @@
 <%-- 
     Document   : cadastroComanda
     Created on : 06/10/2019, 10:19:50
-    Author     : Débora
+    Author     : Débora Lessa & Aaron Stiebler
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

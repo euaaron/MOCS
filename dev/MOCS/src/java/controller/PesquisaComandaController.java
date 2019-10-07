@@ -17,7 +17,7 @@ import model.Comanda;
 
 /**
  *
- * @author Débora
+ * @author Débora Lessa & Aaron Stiebler
  */
 public class PesquisaComandaController extends HttpServlet {
 
