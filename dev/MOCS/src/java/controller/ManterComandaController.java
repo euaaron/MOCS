@@ -15,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Comanda;
 import model.Usuario;
 
 /**
@@ -35,10 +36,37 @@ public class ManterComandaController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ClassNotFoundException, SQLException {
         String acao = request.getParameter("acao");
-        if (acao.equals("prepararOperacao")) {
-            prepararOperacao(request, response);
+        if (acao.equals("confirmarOperacao")) {
+            confirmarOperacao(request, response);
+        }else{
+            if (acao.equals("prepararOperacao")) {
+                prepararOperacao(request, response);
+            }
         }
     }
+    
+    public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException, ServletException{
+        String operacao = request.getParameter("operacao");
+        int idComanda = Integer.parseInt(request.getParameter("txtId"));
+        String dataComanda = request.getParameter("txtDataComanda");
+        String horaComanda = request.getParameter("txtHoraComanda");
+        int idCliente = Integer.parseInt(request.getParameter("txtIdCliente"));
+        try {
+            Usuario cliente = null;
+            if(idCliente != 0){
+                cliente = Usuario.obterUsuario(idCliente);
+            }
+            Comanda comanda = new Comanda(idComanda, dataComanda, horaComanda, cliente);
+            if (operacao.equals("Incluir")){
+                comanda.gravar();
+            }
+            RequestDispatcher view = request.getRequestDispatcher("PesquisaComandaController");
+                    view.forward(request, response);
+        } catch (IOException e){
+            throw new ServletException(e);
+        }
+    }
+    
     public void prepararOperacao(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ClassNotFoundException, SQLException {
     try {
