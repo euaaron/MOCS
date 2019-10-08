@@ -19,24 +19,15 @@ public class Estabelecimento {
     private String telefone;
     private String nomeFantasia;
     private String inscEstadual;
-    private Endereco endereco = null;
-    private int idEndereco;
 
-    public Estabelecimento (Usuario proprietario, String cnpj, String nomeFantasia, String inscEstadual, String logradouro, String numEdificio, String bairro, String uf, String cidade, String cep, String telefone, String numComplemento){
+    public Estabelecimento (Usuario proprietario, String cnpj, String nomeFantasia,
+        String inscEstadual, String telefone){
         this.idProprietario = proprietario.getId();
         this.cnpj = cnpj;
         this.nomeFantasia = nomeFantasia;
         this.telefone = telefone;
         this.inscEstadual = inscEstadual;
-        this.endereco.setLogradouro(logradouro);
-        this.endereco.setUf(uf);
-        this.endereco.setNumEdificio(numEdificio);
-        this.endereco.setNumComplemento(numComplemento);
-        this.endereco.setBairro(bairro);
-        this.endereco.setCep(cep);
-        this.endereco.setCidade(cidade);
         this.idProprietario = proprietario.getId();
-        
     }
 
 // Métodos de inserção (Modificação)
@@ -47,24 +38,10 @@ public class Estabelecimento {
     public void setCnpj(String cnpj) { this.cnpj = cnpj; }
     public void setNomeFantasia(String nomeFantasia) { this.nomeFantasia = nomeFantasia; }
     public void setInscEstadual(String inscEstadual) { this.inscEstadual = inscEstadual; }
-    
+    public void setTelefone(String telefone) { this.telefone = telefone; }
     public void setCardapio(ArrayList<Prato> cardapio) { this.cardapio = cardapio;}
     
-    public void setTelefone(String telefone) { this.telefone = telefone; }
-    public void setCep(String cep) { endereco.setCep(cep); }
-    public void setUf(String uf) { endereco.setUf(uf); }
-    public void setCidade(String cidade) { endereco.setCidade(cidade); }
-    public void setBairro(String bairro) { endereco.setBairro(bairro); }
-    public void setLogradouro(String logradouro) { endereco.setLogradouro(logradouro); }
-    public void setNumEdificio(String numEdificio) { endereco.setNumEdificio(numEdificio); }
-    public void setNumComplemento(String numComplemento) { endereco.setNumComplemento(numComplemento); }
-    public void setEndereco(String cep, String uf, String cidade, String logradouro, String numEdificio) {
-        setCep(cep);
-        setUf(uf);
-        setCidade(cidade);
-        setLogradouro(logradouro);
-        setNumEdificio(numEdificio);
-    }
+    
 
 // Métodos de Recuperação (Leitura)    
     public int getId() { return id; }
@@ -73,7 +50,6 @@ public class Estabelecimento {
     public String getNomeFantasia() { return nomeFantasia; }
     public String getInscEstadual() { return inscEstadual; }
     public String getTelefone() { return telefone; }
-    public Endereco getEndereco(){ return endereco; }
     public Usuario getProprietario() throws ClassNotFoundException, SQLException {
         if ((this.idProprietario != 0) && (this.proprietario == null)) {
             this.proprietario = Usuario.obterUsuario(this.idProprietario);

@@ -41,7 +41,7 @@
                 </tr>
         </table>
         </form>
-        <form action="ManterEstabelecimentoController?acao=prepararOperacao&operacao=Incluir" method="POST">
+        <form action="ManterEstabelecimentoController?acao=ConfirmarOperacao&operacao=Incluir" method="POST">
                 <input type="submit" name="btnIncluir" value="Incluir">
         </form>
     </body>

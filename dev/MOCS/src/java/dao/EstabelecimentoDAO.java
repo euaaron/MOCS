@@ -60,15 +60,7 @@ public class EstabelecimentoDAO {
             rs.getString("cnpj"),
             rs.getString("nomeFantasia"),
             rs.getString("inscEstadual"),
-            rs.getString("logradouro"),
-            rs.getString("numEdificio"),
-            rs.getString("bairro"),
-            rs.getString("estado"),
-            rs.getString("cidade"),
-            rs.getString("cep"),
-            rs.getString("fone"),
-            rs.getString("email")
-                
+            rs.getString("fone")                
         );
         return estabelecimento;
     }
