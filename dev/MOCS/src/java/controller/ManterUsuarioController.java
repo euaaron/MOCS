@@ -8,11 +8,14 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.EnderecoUsuario;
 import model.Usuario;
 
 public class ManterUsuarioController extends HttpServlet {
@@ -27,10 +30,35 @@ public class ManterUsuarioController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, SQLException, ClassNotFoundException {
         String acao = request.getParameter("acao");
-        if (acao.equals("prepararOperacao")) {
-            prepararOperacao(request, response);
+        if (acao.equals("confirmarOperacao")) {
+            confirmarOperacao(request, response);
+        }else{
+            if (acao.equals("prepararOperacao")) {
+                prepararOperacao(request, response);
+            }
+        }
+    }
+    
+    public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException, ServletException{
+        String operacao = request.getParameter("operacao");
+        int idUsuario = Integer.parseInt(request.getParameter("txtId"));
+        String nome = request.getParameter("txtNome");
+        String cpf = request.getParameter("txtCpf");
+        String dataNascimento = request.getParameter("txtDataNascimento");
+        String email = request.getParameter("txtEmail");
+        String telefone = request.getParameter("txtTelefone");
+        String senha = request.getParameter("txtSenha");
+        try {
+            Usuario usuario = new Usuario(idUsuario, nome, cpf, dataNascimento, email, telefone, senha);
+            if (operacao.equals("Incluir")){
+                usuario.gravar();
+            }
+            RequestDispatcher view = request.getRequestDispatcher("PesquisaUsuarioController");
+                    view.forward(request, response);
+        } catch (IOException e){
+            throw new ServletException(e);
         }
     }
     
@@ -60,7 +88,13 @@ public class ManterUsuarioController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(ManterUsuarioController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ManterUsuarioController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -74,7 +108,13 @@ public class ManterUsuarioController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(ManterUsuarioController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ManterUsuarioController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
