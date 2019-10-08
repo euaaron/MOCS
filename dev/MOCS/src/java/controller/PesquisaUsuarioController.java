@@ -30,7 +30,7 @@ public class PesquisaUsuarioController extends HttpServlet {
             throws ServletException, IOException {
         try {
             request.setAttribute("usuarios", Usuario.obterUsuarios());
-            RequestDispatcher view = request.getRequestDispatcher("/procurarUsuario.jsp");
+            RequestDispatcher view = request.getRequestDispatcher("/pesquisaUsuario.jsp");
             view.forward(request, response);
         } catch (ClassNotFoundException | SQLException e){
             throw new ServletException(e);

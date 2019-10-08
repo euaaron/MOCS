@@ -61,7 +61,7 @@ public class UsuarioDAO {
                 rs.getInt("id"),
                 rs.getString("nome"),
                 rs.getString("cpf"),
-                rs.getString("nascimento"),
+                rs.getString("dataNascimento"),
                 rs.getString("email"),
                 rs.getString("telefone"),
                 rs.getString("senha")
@@ -75,7 +75,7 @@ public class UsuarioDAO {
         try {
             conexao = BD.getConexao();
             comando = conexao.prepareStatement(
-            "insert into usuario (id, nome, nascimento, email, telefone, senha)"
+            "insert into usuario (id, nome, dataNascimento, email, telefone, senha)"
             + "values(?,?,?,?,?,?)");
             comando.setInt(1, usuario.getId());
             comando.setString(2, usuario.getNome());

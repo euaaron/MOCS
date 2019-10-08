@@ -34,7 +34,7 @@ public class PesquisaComandaController extends HttpServlet {
             throws ServletException, IOException {
         try {
             request.setAttribute("comandas", Comanda.obterComandas());
-            RequestDispatcher view = request.getRequestDispatcher("/procurarComanda.jsp");
+            RequestDispatcher view = request.getRequestDispatcher("/pesquisaComanda.jsp");
             view.forward(request, response);
         } catch (ClassNotFoundException | SQLException e){
             throw new ServletException(e);

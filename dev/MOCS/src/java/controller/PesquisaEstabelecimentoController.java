@@ -30,7 +30,7 @@ public class PesquisaEstabelecimentoController extends HttpServlet {
             throws ServletException, IOException {
         try {
             request.setAttribute("estabelecimentos", Estabelecimento.obterEstabelecimentos());
-            RequestDispatcher view = request.getRequestDispatcher("/procurarEstabelecimento.jsp");
+            RequestDispatcher view = request.getRequestDispatcher("/pesquisaEstabelecimento.jsp");
             view.forward(request, response);
         } catch (ClassNotFoundException | SQLException e){
             throw new ServletException(e);
