@@ -26,6 +26,7 @@ public class Usuario {
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.email = email;
+        this.cpf = cpf;
         this.telefone = telefone;
         this.senha = senha;
     }
