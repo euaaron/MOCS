@@ -23,6 +23,7 @@ public class Proprietario extends Usuario {
         return ProprietarioDAO.obterProprietarios();
     }
     
+    @Override
     public void gravar() throws SQLException, ClassNotFoundException {
         ProprietarioDAO.gravar(this);
     }

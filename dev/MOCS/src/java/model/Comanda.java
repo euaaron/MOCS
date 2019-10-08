@@ -1,6 +1,6 @@
 /**
- * Project MOCS
- * @version 0.19.7a
+ * 
+ * @project Project MOCS
  * @authors Débora Lessa & Aaron Stiebler
  */
 package model;

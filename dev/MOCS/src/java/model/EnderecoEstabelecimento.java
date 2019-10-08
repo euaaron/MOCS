@@ -49,4 +49,8 @@ public class EnderecoEstabelecimento extends Endereco{
     {
         return EnderecoEstabelecimentoDAO.obterEnderecos();
     }    
+    
+    public void gravar() throws SQLException, ClassNotFoundException {
+        EnderecoEstabelecimentoDAO.gravar(this);
+    }
 }

@@ -33,25 +33,25 @@ public class ManterEstabelecimentoController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ClassNotFoundException, SQLException {
+    throws ServletException, IOException, ClassNotFoundException, SQLException {
         String acao = request.getParameter("acao");
         if (acao.equals("prepararOperacao")) {
             prepararOperacao(request, response);
         }
     }
     public void prepararOperacao(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ClassNotFoundException, SQLException {
-    try {
-        String operacao = request.getParameter("operacao");
-        request.setAttribute("operacao", operacao);
-        request.setAttribute("proprietario", Usuario.obterUsuarios());
-        RequestDispatcher view = request.getRequestDispatcher("/manterEstabelecimento.jsp");
-        view.forward(request, response);
-    }catch (ServletException e){
-        throw e;
-    }catch (IOException e){
-        throw new ServletException(e);
-    }
+    throws ServletException, IOException, ClassNotFoundException, SQLException {
+        try {
+            String operacao = request.getParameter("operacao");
+            request.setAttribute("operacao", operacao);
+            request.setAttribute("proprietario", Usuario.obterUsuarios());
+            RequestDispatcher view = request.getRequestDispatcher("/manterEstabelecimento.jsp");
+            view.forward(request, response);
+        } catch (ServletException e){
+            throw e;
+        } catch (IOException e){
+            throw new ServletException(e);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
