@@ -15,6 +15,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Estabelecimento;
+import model.Proprietario;
 import model.Usuario;
 
 /**
@@ -37,8 +39,13 @@ public class ManterEstabelecimentoController extends HttpServlet {
         String acao = request.getParameter("acao");
         if (acao.equals("prepararOperacao")) {
             prepararOperacao(request, response);
+        } else {
+            if (acao.equals("prepararOperacao")) {
+                prepararOperacao(request, response);
+            }
         }
     }
+    
     public void prepararOperacao(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException, ClassNotFoundException, SQLException {
         try {
@@ -53,6 +60,33 @@ public class ManterEstabelecimentoController extends HttpServlet {
             throw new ServletException(e);
         }
     }
+    
+   public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws ClassNotFoundException, SQLException, ServletException {
+       String operacao = request.getParameter("operacao");
+       int id = Integer.parseInt(request.getParameter("txtId"));
+       int idUsuario = Integer.parseInt(request.getParameter("txtIdUsuario"));
+       String cnpj = request.getParameter("txtCNPJ");
+       String nomeFantasia = request.getParameter("txtNomeFantasia");
+       String inscEstadual = request.getParameter("txtInscEstadual");
+       String telefone = request.getParameter("txtPhone");
+       
+       try {
+           Usuario proprietario = null;
+           if (idUsuario != 0) {
+               proprietario = Usuario.obterUsuario(idUsuario);
+           }
+           Estabelecimento e = new Estabelecimento(proprietario, cnpj,nomeFantasia,
+           inscEstadual, telefone);
+           if (operacao.equals("Incluir")) {
+               e.gravar();
+           }
+           RequestDispatcher view = request.getRequestDispatcher("PesquisaEstabelecimentoController");
+           view.forward(request, response);
+       } catch (IOException e) {
+           throw new ServletException(e);
+       }
+       
+   }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
