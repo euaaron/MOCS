@@ -64,5 +64,8 @@ public class EnderecoUsuario extends Endereco {
         return EnderecoUsuarioDAO.obterEnderecosUsuarios();
     }
     
+    public void gravar() throws SQLException, ClassNotFoundException {
+        EnderecoUsuarioDAO.gravar(this);
+    }
     
 }
