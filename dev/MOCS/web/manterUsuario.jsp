@@ -29,23 +29,23 @@
                 </tr>
                 <tr>
                     <td>Data de Nascimento:</td>
-                    <td><input type="date" name="txtDataNascimento" value="${usuario.dataNascimento}"/></td>
+                    <td><input type="text" name="txtDataNascimento" value="${usuario.dataNascimento}"/></td>
                 </tr>
                 <tr>
                     <td>Email:</td>
-                    <td><input type="email" placeholder="exemplo@email.com" name="txtEmail" value="${usuario.email}"/></td>
+                    <td><input type="text" placeholder="exemplo@email.com" name="txtEmail" value="${usuario.email}"/></td>
                 </tr>
                 <tr>
                     <td>Telefone:</td>
-                    <td><input type="phone" placeholder="(xx) x xxxx-xxxx" name="txtTelefone" value="${usuario.telefone}"/></td>
+                    <td><input type="text" placeholder="(xx) x xxxx-xxxx" name="txtTelefone" value="${usuario.telefone}"/></td>
                 </tr>
                 <tr>
                     <td>Senha:</td>
-                    <td><input type="password" name="txtSenha" value="${usuario.senha}"></td>
+                    <td><input type="text" name="txtSenha" value="${usuario.senha}"></td>
                 </tr>
                 <tr>
                     <td>Repita a senha:</td>
-                    <td><input type="password" name="txtSenha" value="${usuario.senha}"></td>
+                    <td><input type="text" name="txtSenha" value="${usuario.senha}"></td>
                 </tr>
                 <tr>
                     <td><input type="submit" name="btnConfirmar" value="Confirmar"></td>

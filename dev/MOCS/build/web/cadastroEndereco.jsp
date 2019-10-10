@@ -33,19 +33,19 @@
                         </tr>
                         <tr>
                             <td><label for="cidade">Cidade:</label></td>
-                            <td><input type="txt" id="cidade" name="txtCidade" value="${endereco.cidade}"/></td>
+                            <td><input type="text" id="cidade" name="txtCidade" value="${endereco.cidade}"/></td>
                         </tr>
                         <tr>
                             <td><label for="bairro">Bairro:</label></td>
-                            <td><input type="txt" id="bairro" name="txtBairro" value="${usuario.bairro}"></td>
+                            <td><input type="text" id="bairro" name="txtBairro" value="${usuario.bairro}"></td>
                         </tr>
                         <tr>
                             <td><label for="logradouro">Logradouro:</label></td>
-                            <td><input type="txt" id="logradouro" name="txtLogradouro" value="${usuario.logradouro}"></td>
+                            <td><input type="text" id="logradouro" name="txtLogradouro" value="${usuario.logradouro}"></td>
                         </tr>
                         <tr>
                             <td><label for="complemento">Complemento:</label></td>
-                            <td><input type="txt" id="complemento" name="txtComplemento:" value="${usuario.complemento}"></td>
+                            <td><input type="text" id="complemento" name="txtComplemento:" value="${usuario.complemento}"></td>
                         </tr>
                     </tbody>
                 </table>

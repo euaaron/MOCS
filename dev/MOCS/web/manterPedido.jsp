@@ -25,7 +25,7 @@
                 </tr>
                 <tr>
                     <td>Quantidade:</td>
-                    <td><input type="number" min="0" placeholder="1" name="txtQuantidade" value="${pedido.quantidade}"/></td>
+                    <td><input type="text" min="0" placeholder="1" name="txtQuantidade" value="${pedido.quantidade}"/></td>
                 </tr>
                 <tr>
                     <td>Id Comanda:</td>

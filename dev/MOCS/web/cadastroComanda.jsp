@@ -22,11 +22,11 @@
                         </tr>
                         <tr>
                             <td><label for="dataComanda">Data:</label></td>
-                            <td><input type="date" name="txtDataComanda" id="dataComanda" value="${comanda.data}"/></td>
+                            <td><input type="text" name="txtDataComanda" id="dataComanda" value="${comanda.data}"/></td>
                         </tr>
                         <tr>
                             <td><label for="horaComanda">Hora:</label></td>
-                            <td><input type="time" name="txtHoraComanda" id="horaComanda" value="${comanda.hora}"/></td>
+                            <td><input type="text" name="txtHoraComanda" id="horaComanda" value="${comanda.hora}"/></td>
                         </tr>
                         <tr>
                             <td><label for="idCliente">Id do Cliente:</label></td>

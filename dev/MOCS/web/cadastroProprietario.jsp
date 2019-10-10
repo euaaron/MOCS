@@ -31,23 +31,23 @@
                         </tr>
                         <tr>
                             <td><label for="dataNasc">Data de Nascimento:</label></td>
-                            <td><input type="date" name="txtDataNascimento" id="dataNascimento" value="${proprietario.dataNascimento}"/></td>
+                            <td><input type="text" name="txtDataNascimento" id="dataNascimento" value="${proprietario.dataNascimento}"/></td>
                         </tr>
                         <tr>
                             <td><label for="email">Email:</label></td>
-                            <td><input type="email" id="email" placeholder="exemplo@email.com" name="txtEmail" value="${proprietario.email}"/></td>
+                            <td><input type="text" id="email" placeholder="exemplo@email.com" name="txtEmail" value="${proprietario.email}"/></td>
                         </tr>
                         <tr>
                             <td><label for="telefone">Telefone:</label></td>
-                            <td><input type="phone" id="telefone" placeholder="(xx) x xxxx-xxxx" name="txtTelefone" value="${proprietario.telefone}"/></td>
+                            <td><input type="text" id="telefone" placeholder="(xx) x xxxx-xxxx" name="txtTelefone" value="${proprietario.telefone}"/></td>
                         </tr>
                         <tr>
                             <td><label for="senha">Senha:</label></td>
-                            <td><input type="password" id="senha" name="txtSenha" value="${proprietario.senha}"></td>
+                            <td><input type="text" id="senha" name="txtSenha" value="${proprietario.senha}"></td>
                         </tr>
                         <tr>
                             <td><label for="senha">Repita a senha:</label></td>
-                            <td><input type="password" id="confirmaSenha" name="txtSenha" value="${proprietario.senha}"></td>
+                            <td><input type="text" id="confirmaSenha" name="txtSenha" value="${proprietario.senha}"></td>
                         </tr>
                     </tbody>
                 </table>

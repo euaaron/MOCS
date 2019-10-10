@@ -33,15 +33,15 @@
                 </tr>
                 <tr>
                     <td>Data de Nascimento:</td>
-                    <td><input type="date" name="txtDataNascimento" value="${funcionario.dataNascimento}"></td>
+                    <td><input type="text" name="txtDataNascimento" value="${funcionario.dataNascimento}"></td>
                 </tr>
                 <tr>
                     <td>E-mail:</td>
-                    <td><input type="email" name="txtEmail" value="${funcionario.email}"></td>
+                    <td><input type="text" name="txtEmail" value="${funcionario.email}"></td>
                 </tr>
                 <tr>
                     <td>Telefone:</td>
-                    <td><input type="phone" name="txtTelefone" value="${funcionario.telefone}"></td>
+                    <td><input type="text" name="txtTelefone" value="${funcionario.telefone}"></td>
                 </tr>
                 <tr>
                     <td>Id da Função:</td>
@@ -53,11 +53,11 @@
                 </tr>
                 <tr>
                     <td>Senha:</td>
-                    <td><input type="password" name="txtSenha" value="${funcionario.senha}"></td>
+                    <td><input type="text" name="txtSenha" value="${funcionario.senha}"></td>
                 </tr>
                 <tr>
                     <td>Repita a senha:</td>
-                    <td><input type="password" name="txtSenha" id="confirmaSenha" value="${funcionario.senha}"></td>
+                    <td><input type="text" name="txtSenha" id="confirmaSenha" value="${funcionario.senha}"></td>
                 </tr>
                 <tr>
                     <td><input type="submit" name="btnConfirmar" value="Confirmar"></td>

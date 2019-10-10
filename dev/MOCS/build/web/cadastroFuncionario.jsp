@@ -37,15 +37,15 @@
                         </tr>
                         <tr>
                             <td><label for="dataNasc">Data de Nascimento:</label></td>
-                            <td><input type="date" name="txtDataNascimento" id="dataNascimento" value="${funcionario.dataNascimento}"/></td>
+                            <td><input type="text" name="txtDataNascimento" id="dataNascimento" value="${funcionario.dataNascimento}"/></td>
                         </tr>
                         <tr>
                             <td><label for="email">Email:</label></td>
-                            <td><input type="email" id="email" placeholder="exemplo@email.com" value="${funcionario.email}"/></td>
+                            <td><input type="text" id="email" placeholder="exemplo@email.com" value="${funcionario.email}"/></td>
                         </tr>
                         <tr>
                             <td><label for="telefone">Telefone:</label></td>
-                            <td><input type="phone" id="telefone" placeholder="(xx) x xxxx-xxxx" name="txtTelefone" value="${funcionario.telefone}"/></td>
+                            <td><input type="text" id="telefone" placeholder="(xx) x xxxx-xxxx" name="txtTelefone" value="${funcionario.telefone}"/></td>
                         </tr>
                         <tr>
                             <td><label for="idFuncao">Id da Função:</label></td>
@@ -53,11 +53,11 @@
                         </tr>
                         <tr>
                             <td><label for="senha">Senha:</label></td>
-                            <td><input type="password" name="txtSenha" id="senha" value="${funcionario.senha}"></td>
+                            <td><input type="text" name="txtSenha" id="senha" value="${funcionario.senha}"></td>
                         </tr>
                         <tr>
                             <td><label for="senha">Repita a senha:</label></td>
-                            <td><input type="password" name="txtSenha" id="confirmaSenha" value="${funcionario.senha}"></td>
+                            <td><input type="text" name="txtSenha" id="confirmaSenha" value="${funcionario.senha}"></td>
                         </tr>
                     </tbody>
                 </table>

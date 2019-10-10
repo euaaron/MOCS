@@ -29,7 +29,7 @@
                 </tr>
                 <tr>
                     <td>Data da Criação:</td>
-                    <td><input type="date" name="txtDataCriacao" value="${prato.dataCriacao}"/></td>
+                    <td><input type="text" name="txtDataCriacao" value="${prato.dataCriacao}"/></td>
                 </tr>
                 <tr>
                     <td>Id do Funcionário:</td>
