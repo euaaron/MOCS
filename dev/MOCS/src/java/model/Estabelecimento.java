@@ -20,8 +20,9 @@ public class Estabelecimento {
     private String nomeFantasia;
     private String inscEstadual;
 
-    public Estabelecimento (Usuario proprietario, String cnpj, String nomeFantasia,
+    public Estabelecimento (int id, Usuario proprietario, String cnpj, String nomeFantasia,
         String inscEstadual, String telefone){
+        this.id = id;
         this.idProprietario = proprietario.getId();
         this.cnpj = cnpj;
         this.nomeFantasia = nomeFantasia;

@@ -56,6 +56,7 @@ public class EstabelecimentoDAO {
 
     private static Estabelecimento instanciarEstabelecimento(ResultSet rs) throws SQLException {
         Estabelecimento estabelecimento = new Estabelecimento(
+            rs.getInt("id"),
             null,
             rs.getString("cnpj"),
             rs.getString("nomeFantasia"),
