@@ -25,7 +25,7 @@ public class EstabelecimentoDAO {
             conexao = BD.getConexao();
             comando = conexao.createStatement();
             ResultSet rs = comando.executeQuery(
-                "select * from estabelecimento where cnpj = " + id);
+                "select * from estabelecimento where id = " + id);
                 rs.first();
                 estabelecimento = instanciarEstabelecimento(rs);
             } finally {
