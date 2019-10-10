@@ -61,7 +61,7 @@ public class EstabelecimentoDAO {
             rs.getString("cnpj"),
             rs.getString("nomeFantasia"),
             rs.getString("inscEstadual"),
-            rs.getString("fone")                
+            rs.getString("telefone")                
         );
         return estabelecimento;
     }
