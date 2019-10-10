@@ -36,8 +36,6 @@
                         </tr>
                     </tbody>
                 </table>
-            </form>
-            <form action="ManterComandaController?acao=prepararOperacao&operacao=Incluir" method="POST">
                 <input type="submit" name="btnIncluir" value="Incluir">
             </form>
     </body>
