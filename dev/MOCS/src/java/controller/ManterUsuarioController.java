@@ -44,9 +44,10 @@ public class ManterUsuarioController extends HttpServlet {
         }
     }
     
-    public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException, ServletException{
+    public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) 
+    throws SQLException, ClassNotFoundException, ServletException {
         String operacao = request.getParameter("operacao");
-        int idUsuario = Integer.parseInt(request.getParameter("txtId"));
+        int idUsuario = Integer.parseInt(request.getParameter("txtIdUsuario"));
         String nome = request.getParameter("txtNome");
         String cpf = request.getParameter("txtCpf");
         String dataNascimento = request.getParameter("txtDataNascimento");
