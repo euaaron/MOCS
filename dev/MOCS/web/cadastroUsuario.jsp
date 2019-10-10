@@ -21,7 +21,7 @@
                     <tbody>
                         <tr>
                             <td><label for="id">Id:</label></td>
-                            <td><input type="text" name="txtId" id="idUsuario" value="${usuario.id}"/></td>
+                            <td><input type="text" name="txtIdUsuario" id="idUsuario" value="${usuario.id}"/></td>
                         </tr>
                         <tr>
                             <td><label for="nome">Nome:</label></td>

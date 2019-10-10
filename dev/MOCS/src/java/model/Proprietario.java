@@ -2,7 +2,7 @@
  * Project MOCS
  * @version 0.19.7a
  * @authors Débora Lessa & Aaron Stiebler
- */
+ *//*
 package model;
 
 import dao.ProprietarioDAO;
@@ -28,3 +28,4 @@ public class Proprietario extends Usuario {
         ProprietarioDAO.gravar(this);
     }
 }
+*/
