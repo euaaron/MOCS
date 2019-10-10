@@ -33,28 +33,28 @@
                         </tr>
                         <tr>
                             <td><label for="dataNasc">Data de Nascimento:</label></td>
-                            <td><input type="date" name="txtDataNascimento" id="dataNascimento" value="${usuario.dataNascimento}"/></td>
+                            <td><input type="text" name="txtDataNascimento" id="dataNascimento" value="${usuario.dataNascimento}"/></td>
                         </tr>
                         <tr>
                             <td><label for="email">Email:</label></td>
-                            <td><input type="email" id="email" placeholder="exemplo@email.com" name="txtEmail" value="${usuario.email}"/></td>
+                            <td><input type="text" id="email" placeholder="exemplo@email.com" name="txtEmail" value="${usuario.email}"/></td>
                         </tr>
                         <tr>
                             <td><label for="telefone">Telefone:</label></td>
-                            <td><input type="phone" id="telefone" placeholder="(xx) x xxxx-xxxx" name="txtTelefone" value="${usuario.telefone}"/></td>
+                            <td><input type="text" id="telefone" placeholder="(xx) x xxxx-xxxx" name="txtTelefone" value="${usuario.telefone}"/></td>
                         </tr>
                         <tr>
                             <td><label for="senha">Senha:</label></td>
-                            <td><input type="password" id="senha" name="txtSenha" value="${usuario.senha}"></td>
+                            <td><input type="text" id="senha" name="txtSenha" value="${usuario.senha}"></td>
                         </tr>
                         <tr>
                             <td><label for="senha">Repita a senha:</label></td>
-                            <td><input type="password" id="confirmaSenha" name="txtSenha" value="${usuario.senha}"></td>
+                            <td><input type="text" id="confirmaSenha" name="txtSenha" value="${usuario.senha}"></td>
                         </tr>
                     </tbody>
                 </table>
             </form>
-            <form action="ManterUsuarioController?acao=prepararOperacao&operacao=Incluir" method="POST">
+            <form action="ManterUsuarioController?acao=confirmarOperacao&operacao=Incluir" method="POST">
                 <input type="submit" name="btnIncluir" value="Incluir">
             </form>
         </div>
