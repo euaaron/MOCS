@@ -53,11 +53,14 @@
                             <td><label for="senha">Repita a senha:</label></td>
                             <td><input type="text" id="confirmaSenha" name="txtSenha" value="${usuario.senha}"></td>
                         </tr>
+                        <tr>
+                            <td>
+                                <input type="submit" name="btnIncluir" value="Incluir">
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
-            </form>
-            <form action="ManterUsuarioController?acao=confirmarOperacao&operacao=Incluir" method="POST">
-                <input type="submit" name="btnIncluir" value="Incluir">
+                
             </form>
         </div>
     </body>
