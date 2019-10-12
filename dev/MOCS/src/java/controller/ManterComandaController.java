@@ -38,9 +38,10 @@ public class ManterComandaController extends HttpServlet {
         String acao = request.getParameter("acao");
         if (acao.equals("confirmarOperacao")) {
             confirmarOperacao(request, response);
-        }else{
-            if (acao.equals("prepararOperacao")) {
-                prepararOperacao(request, response);
+        } 
+        else {
+                if (acao.equals("prepararOperacao")) {
+                    prepararOperacao(request, response);
             }
         }
     }

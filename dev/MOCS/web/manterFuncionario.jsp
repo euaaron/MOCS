@@ -19,7 +19,7 @@
             <table>
                 <tr>
                     <td>Id do Funcionario:</td>
-                    <td><input type="text" name="txtId" value="${funcionario.id}"></td>
+                    <td><input type="text" name="txtIdFuncionario" value="${funcionario.id}"></td>
                 </tr>
                 <tr>
                     <td>Id do Estabelecimento:</td>

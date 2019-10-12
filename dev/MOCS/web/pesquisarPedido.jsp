@@ -15,7 +15,7 @@
     </head>
     <body>
         <h1>Pesquisa de Pedidos</h1>
-        <table border = 1>
+        <table>
             <tr>
                 <th>Código do Pedido</th>
                 <th>Código da Comanda</th>

@@ -42,11 +42,13 @@
                             <td><label for="idEstabelecimento">Id do Estabelecimento:</label></td>
                             <td><input type="text" name="txtIdEstabelecimento" id="idEstabelecimento" value="${prato.idEstabelecimento}"/></td>
                         </tr>
+                        <tr>
+                            <td>
+                                <input type="submit" name="btnIncluir" value="Incluir">
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
-            </form>
-            <form action="ManterPratoController?acao=prepararOperacao&operacao=Incluir" method="POST">
-                <input type="submit" name="btnIncluir" value="Incluir">
             </form>
     </body>
 </html>

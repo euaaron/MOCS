@@ -32,7 +32,7 @@
         <tr>
             <td><c:out value="${estabelecimento.id}"/></td>
             <td><c:out value="${estabelecimento.nomeFantasia}"/></td>
-            <td><c:out value="${estabelecimento.proprietario}"/></td>
+            <td><c:out value="${estabelecimento.proprietario.getNome()}"/></td>
         </tr>
         </c:forEach>
         </table>

@@ -36,18 +36,14 @@ public class ManterPedidoController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ClassNotFoundException, SQLException {
-    try {
-        String operacao = request.getParameter("operacao");
-        request.setAttribute("operacao", operacao);
-        request.setAttribute("prato", Prato.obterPratos());
-        request.setAttribute("comanda", Comanda.obterComandas());
-        RequestDispatcher view = request.getRequestDispatcher("/manterPedido.jsp");
-        view.forward(request, response);
-    }catch (ServletException e){
-        throw e;
-    }catch (IOException e){
-        throw new ServletException(e);
-    }
+        String acao = request.getParameter("acao");
+        if (acao.equals("confirmarOperacao")) {
+            confirmarOperacao(request, response);
+        }else{
+            if (acao.equals("prepararOperacao")) {
+                prepararOperacao(request, response);
+            }
+        }
     } 
     
     public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) 

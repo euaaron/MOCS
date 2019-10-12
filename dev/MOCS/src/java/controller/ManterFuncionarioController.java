@@ -32,8 +32,12 @@ public class ManterFuncionarioController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ClassNotFoundException, SQLException {
         String acao = request.getParameter("acao");
-        if (acao.equals("prepararOperacao")) {
-            prepararOperacao(request, response);
+        if (acao.equals("confirmarOperacao")) {
+            confirmarOperacao(request, response);
+        }else{
+            if (acao.equals("prepararOperacao")) {
+                prepararOperacao(request, response);
+            }
         }
     }
     
@@ -73,7 +77,7 @@ public class ManterFuncionarioController extends HttpServlet {
     try {
         String operacao = request.getParameter("operacao");
         request.setAttribute("operacao", operacao);
-        request.setAttribute("estabelecimento", Estabelecimento.obterEstabelecimentos());
+        request.setAttribute("estabelecimentos", Estabelecimento.obterEstabelecimentos());
         RequestDispatcher view = request.getRequestDispatcher("/manterFuncionario.jsp");
         view.forward(request, response);
     }catch (ServletException e){

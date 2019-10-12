@@ -15,8 +15,8 @@
     </head>
     <body>
         <h1>Estabelecimento - ${operacao}</h1>
-        <form action="cadastroEstabelecimentoController" name="frmManterEstabelecimento" method="post">
-        <table border="1">
+        <form action="ManterEstabelecimentoController?acao=ConfirmarOperacao&operacao=Incluir" name="frmManterEstabelecimento" method="post">
+        <table>
                 <tr>
                     <td><label for="id">Id:</label></td>
                     <td><input type="text" name="txtIdEstabelecimento" id="idEstabelecimento" value="${estabelecimento.id}"></td>
@@ -41,10 +41,10 @@
                     <td><label for="inscEstadual">Inscrição Estadual:</label></td> <!-- Número da inscrição estadual da empresa -->
                     <td><input type="text" name="txtInscEstadual" id="inscEstadual" value="${estabelecimento.inscEstadual}"></td>
                 </tr>
-        </table>
-        </form>
-        <form action="ManterEstabelecimentoController?acao=ConfirmarOperacao&operacao=Incluir" method="POST">
-                <input type="submit" name="btnIncluir" value="Incluir">
+                <tr>
+                    <td><input type="submit" name="btnIncluir" value="Incluir"></td>
+                </tr>
+            </table>
         </form>
     </body>
 </html>

@@ -34,9 +34,13 @@
                             <td><label for="idCliente">Id do Cliente:</label></td>
                             <td><input type="text" id="idCliente" name="txtIdCliente" value="${comanda.idCliente}"></td>
                         </tr>
+                        <tr>
+                            <td>
+                                <input type="submit" name="btnIncluir" value="Incluir">
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
-                <input type="submit" name="btnIncluir" value="Incluir">
             </form>
     </body>
 </html>

@@ -61,11 +61,13 @@
                             <td><label for="senha">Repita a senha:</label></td>
                             <td><input type="text" name="txtSenha" id="confirmaSenha" value="${funcionario.senha}"></td>
                         </tr>
+                        <tr>
+                            <td>
+                                <input type="submit" name="btnIncluir" value="Incluir">
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
-                <form action="ManterFuncionarioController?acao=prepararOperacao&operacao=Incluir" method="post">
-                    <input type="submit" name="btnIncluir" value="Incluir">                        
-                </form>
             </form>
         </div>
     </body>

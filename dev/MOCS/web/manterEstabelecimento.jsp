@@ -42,7 +42,7 @@
                     <td><input type="text" name="txtInscEstadual" value="${estabelecimento.inscEstadual}"></td>
                 </tr>
                 <tr>
-                    <td><input type="submit" name="btnConfirmar" value="Confirmar"></td>
+                    <td><input type="submit" name="btnIncluir" value="Incluir"></td>
                 </tr>
             </table>
         </form>

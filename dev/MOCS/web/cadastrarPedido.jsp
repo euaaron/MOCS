@@ -35,12 +35,13 @@
                             <td><label for="idComanda">Id Comanda:</label></td>
                             <td><input type="text" id="idComanda" name="txtIdComanda" value="${pedido.idComanda}"/></td>
                         </tr>
+                        <tr>
+                            <td>
+                                <input type="submit" name="btnIncluir" value="Incluir">
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
-            </form>
-            <form action="ManterPedidoController?acao=prepararOperacao&operacao=Incluir" method="POST">
-                <input type="submit" name="btnIncluir" value="Incluir">
-            </form>
         </div>
     </body>
 </html>

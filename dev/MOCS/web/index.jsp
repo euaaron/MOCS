@@ -24,31 +24,31 @@
             <li>Estabelecimentos
                 <ul>
                     <li><a href="PesquisarEstabelecimentoController">Pesquisar</a></li>
-                    <li><a href="ManterEstabelecimentoController">Cadastrar</a></li>
+                    <li><a href="ManterEstabelecimentoController?acao=prepararOperacao">Cadastrar</a></li>
                 </ul>
             </li>
             <li>Usuários
                 <ul>
                     <li><a href="PesquisarUsuarioController">Pesquisar</a></li>
-                    <li><a href="ManterUsuarioController">Cadastrar</a></li>
+                    <li><a href="ManterUsuarioController?acao=prepararOperacao">Cadastrar</a></li>
                 </ul>
             </li>
             <li>Funcionários
                 <ul>
                     <li><a href="PesquisarFuncionarioController">Pesquisar</a></li>
-                    <li><a href="ManterFuncionarioController">Cadastrar</a></li>
+                    <li><a href="ManterFuncionarioController?acao=prepararOperacao">Cadastrar</a></li>
                 </ul>
             </li>
             <li>Pedidos
                 <ul>
                     <li><a href="PesquisarPedidoController">Pesquisar</a></li>
-                    <li><a href="ManterPedidoController">Cadastrar</a></li>
+                    <li><a href="ManterPedidoController?acao=prepararOperacao">Cadastrar</a></li>
                 </ul>
             </li>
             <li>Pratos
                 <ul>
                     <li><a href="PesquisarPratoController">Pesquisar</a></li>
-                    <li><a href="ManterPratoController">Cadastrar</a></li>
+                    <li><a href="ManterPratoController?acao=prepararOperacao">Cadastrar</a></li>
                 </ul>
             </li>
         </ul>        
