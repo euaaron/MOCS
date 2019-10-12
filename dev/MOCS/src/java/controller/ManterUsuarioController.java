@@ -45,8 +45,10 @@ public class ManterUsuarioController extends HttpServlet {
     }
     
     public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) 
-    throws SQLException, ClassNotFoundException, ServletException {
+           throws SQLException, ClassNotFoundException, ServletException {
+        
         String operacao = request.getParameter("operacao");
+        
         int idUsuario = Integer.parseInt(request.getParameter("txtIdUsuario"));
         String nome = request.getParameter("txtNome");
         String cpf = request.getParameter("txtCpf");
@@ -54,12 +56,14 @@ public class ManterUsuarioController extends HttpServlet {
         String email = request.getParameter("txtEmail");
         String telefone = request.getParameter("txtTelefone");
         String senha = request.getParameter("txtSenha");
+        
         try {
-            Usuario usuario = new Usuario(idUsuario, nome, cpf, dataNascimento, email, telefone, senha);
+            Usuario usuario = new Usuario(idUsuario, nome, cpf, dataNascimento, 
+                    email, telefone, senha);
             if (operacao.equals("Incluir")){
                 usuario.gravar();
             }
-            RequestDispatcher view = request.getRequestDispatcher("PesquisaUsuarioController");
+            RequestDispatcher view = request.getRequestDispatcher("PesquisarUsuarioController");
                     view.forward(request, response);
         } catch (IOException e){
             throw new ServletException(e);
@@ -71,7 +75,7 @@ public class ManterUsuarioController extends HttpServlet {
         try {
             String operacao = request.getParameter("operacao");
             request.setAttribute("operacao", operacao);
-            RequestDispatcher view = request.getRequestDispatcher("/cadastroUsuario.jsp");
+            RequestDispatcher view = request.getRequestDispatcher("/cadastrarUsuario.jsp");
             view.forward(request, response);
         } catch (ServletException e) {
             throw e;

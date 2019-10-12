@@ -21,8 +21,6 @@ public class Funcionario extends Usuario {
         super(idUsuario, nome, dataNascimento,email,telefone, senha, cpf);
         this.idEstabelecimento = estabelecimento.getId();
     }    
-
-    
     
 // Métodos de inserção (Modificação)
     public void setStatusConta(Boolean statusConta) { this.statusConta = statusConta; }

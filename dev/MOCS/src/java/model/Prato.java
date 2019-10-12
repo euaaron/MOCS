@@ -17,7 +17,8 @@ public class Prato {
     private String dataCriacao;
     private int idEstabelecimento;
     
-    public Prato(String nome, String descricao, String dataCriacao, int idFuncionario, int idEstabelecimento){
+    public Prato(int id, String nome, String descricao, String dataCriacao, int idFuncionario, int idEstabelecimento){
+        this.id = id;
         this.descricao = descricao;
         this.idFuncionario = idFuncionario;
         this.nome = nome;

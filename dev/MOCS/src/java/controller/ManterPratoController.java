@@ -15,7 +15,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Estabelecimento;
 import model.Funcionario;
+import model.Prato;
 
 /**
  *
@@ -39,6 +41,39 @@ public class ManterPratoController extends HttpServlet {
             prepararOperacao(request, response);
         }
     }
+    
+    public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) 
+           throws SQLException, ClassNotFoundException, ServletException {
+        
+        String operacao = request.getParameter("operacao");
+        
+        int idPrato = Integer.parseInt(request.getParameter("txtIdPrato"));
+        int idFuncionario = Integer.parseInt(request.getParameter("txtIdFuncionario"));
+        int idEstabelecimento = Integer.parseInt(request.getParameter("txtIdEstabelecimento"));
+        String nome = request.getParameter("txtNome");
+        String descricao = request.getParameter("txtDescricao");
+        String dataCriacao = request.getParameter("txtDataCriacao");
+        
+        try {
+            Estabelecimento estabelecimento = null;
+            if(idEstabelecimento != 0){
+                estabelecimento = Estabelecimento.obterEstabelecimento(idEstabelecimento);
+            }
+            Funcionario funcionario = null;
+            if(idFuncionario != 0){
+                funcionario = Funcionario.obterFuncionario(idFuncionario);
+            }
+            Prato comanda = new Prato(idPrato, nome, descricao, dataCriacao, idFuncionario, idEstabelecimento);
+            if (operacao.equals("Incluir")){
+                comanda.gravar();
+            }
+            RequestDispatcher view = request.getRequestDispatcher("PesquisarPratoController");
+                    view.forward(request, response);
+        } catch (IOException e){
+            throw new ServletException(e);
+        }
+    }
+    
     public void prepararOperacao(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ClassNotFoundException, SQLException {
     try {

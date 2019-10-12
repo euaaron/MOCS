@@ -1,7 +1,7 @@
-/**
- * Project MOCS
- * @version 0.19.7a
- * @authors Débora Lessa & Aaron Stiebler
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package controller;
 
@@ -13,9 +13,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Estabelecimento;
+import model.Comanda;
 
-public class PesquisaEstabelecimentoController extends HttpServlet {
+/**
+ *
+ * @author Débora Lessa & Aaron Stiebler
+ */
+public class PesquisarComandaController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,8 +33,8 @@ public class PesquisaEstabelecimentoController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            request.setAttribute("estabelecimentos", Estabelecimento.obterEstabelecimentos());
-            RequestDispatcher view = request.getRequestDispatcher("/pesquisaEstabelecimento.jsp");
+            request.setAttribute("comandas", Comanda.obterComandas());
+            RequestDispatcher view = request.getRequestDispatcher("/pesquisarComanda.jsp");
             view.forward(request, response);
         } catch (ClassNotFoundException | SQLException e){
             throw new ServletException(e);

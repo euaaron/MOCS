@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controller;
 
 import java.io.IOException;
@@ -17,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Estabelecimento;
 import model.Funcao;
+import model.Funcionario;
 
 /**
  *
@@ -40,6 +36,38 @@ public class ManterFuncionarioController extends HttpServlet {
             prepararOperacao(request, response);
         }
     }
+    
+    public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response)
+           throws ClassNotFoundException, SQLException, ServletException {
+        
+        String operacao = request.getParameter("operacao");
+        
+        int idEstabelecimento = Integer.parseInt(request.getParameter("txtIdEstabelecimento"));
+        int idFuncionario = Integer.parseInt(request.getParameter("txtIdFuncionario"));
+        String nome = request.getParameter("txtNome");
+        String cpf = request.getParameter("txtCpf");
+        String dataNascimento = request.getParameter("txtDataNascimento");
+        String email = request.getParameter("txtEmail");
+        String telefone = request.getParameter("txtTelefone");
+        String senha = request.getParameter("txtSenha");
+       
+        try {
+            Estabelecimento estabelecimento = null;
+            if (idEstabelecimento != 0) {
+                estabelecimento = Estabelecimento.obterEstabelecimento(idEstabelecimento);
+            }
+            Funcionario funcionario = new Funcionario(idFuncionario, nome,dataNascimento,
+                    email, telefone, senha, estabelecimento, cpf);
+            if (operacao.equals("Incluir")) {
+                funcionario.gravar();
+            }
+            RequestDispatcher view = request.getRequestDispatcher("PesquisarFuncionarioController");
+            view.forward(request, response);
+        } catch (IOException e) {
+            throw new ServletException(e);
+        }
+   }
+    
     public void prepararOperacao(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ClassNotFoundException, SQLException {
     try {
@@ -54,7 +82,6 @@ public class ManterFuncionarioController extends HttpServlet {
         throw new ServletException(e);
     }
     }
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

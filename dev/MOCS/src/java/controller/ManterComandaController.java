@@ -45,12 +45,16 @@ public class ManterComandaController extends HttpServlet {
         }
     }
     
-    public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException, ServletException{
+    public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) 
+           throws SQLException, ClassNotFoundException, ServletException {
+        
         String operacao = request.getParameter("operacao");
+        
         int idComanda = Integer.parseInt(request.getParameter("txtId"));
         String dataComanda = request.getParameter("txtDataComanda");
         String horaComanda = request.getParameter("txtHoraComanda");
         int idCliente = Integer.parseInt(request.getParameter("txtIdCliente"));
+        
         try {
             Usuario cliente = null;
             if(idCliente != 0){
@@ -60,7 +64,7 @@ public class ManterComandaController extends HttpServlet {
             if (operacao.equals("Incluir")){
                 comanda.gravar();
             }
-            RequestDispatcher view = request.getRequestDispatcher("PesquisaComandaController");
+            RequestDispatcher view = request.getRequestDispatcher("PesquisarComandaController");
                     view.forward(request, response);
         } catch (IOException e){
             throw new ServletException(e);

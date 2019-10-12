@@ -22,12 +22,12 @@
                 <table border="1">
                     <tbody>
                         <tr>
-                            <td><label for="id">Id:</label></td>
-                            <td><input type="text" name="txtId" id="idFuncionario" value="${funcionario.id}"/></td>
-                        </tr>
-                        <tr>
                             <td><label for="idEstabelecimento">Id do Estabelecimento:</label></td>
                             <td><input type="text" name="txtIdEstabelecimento" id="idEstabelecimento" value="${funcionario.idEstabelecimento}"/></td>
+                        </tr>
+                        <tr>
+                            <td><label for="id">Id:</label></td>
+                            <td><input type="text" name="txtIdFuncionario" id="idFuncionario" value="${funcionario.id}"/></td>
                         </tr>
                         <tr>
                             <td><label for="nome">Nome:</label></td>

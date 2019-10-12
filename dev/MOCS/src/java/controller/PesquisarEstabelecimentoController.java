@@ -1,7 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Project MOCS
+ * @version 0.19.7a
+ * @authors Débora Lessa & Aaron Stiebler
  */
 package controller;
 
@@ -13,13 +13,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Prato;
+import model.Estabelecimento;
 
-/**
- *
- * @author Débora Lessa & Aaron Stiebler
- */
-public class PesquisaPratoController extends HttpServlet {
+public class PesquisarEstabelecimentoController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,8 +29,8 @@ public class PesquisaPratoController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            request.setAttribute("pratos", Prato.obterPratos());
-            RequestDispatcher view = request.getRequestDispatcher("/pesquisaPrato.jsp");
+            request.setAttribute("estabelecimentos", Estabelecimento.obterEstabelecimentos());
+            RequestDispatcher view = request.getRequestDispatcher("/pesquisarEstabelecimento.jsp");
             view.forward(request, response);
         } catch (ClassNotFoundException | SQLException e){
             throw new ServletException(e);

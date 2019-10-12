@@ -19,7 +19,7 @@ import model.Pedido;
  *
  * @author Débora Lessa & Aaron Stiebler
  */
-public class PesquisaPedidoController extends HttpServlet {
+public class PesquisarPedidoController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,7 +34,7 @@ public class PesquisaPedidoController extends HttpServlet {
             throws ServletException, IOException {
         try {
             request.setAttribute("pedidos", Pedido.obterPedidos());
-            RequestDispatcher view = request.getRequestDispatcher("/pesquisaPedido.jsp");
+            RequestDispatcher view = request.getRequestDispatcher("/pesquisarPedido.jsp");
             view.forward(request, response);
         } catch (ClassNotFoundException | SQLException e){
             throw new ServletException(e);

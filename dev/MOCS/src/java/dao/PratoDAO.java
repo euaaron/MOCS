@@ -53,13 +53,13 @@ public class PratoDAO {
     
     public static Prato instanciarPrato(ResultSet rs) throws SQLException {
         Prato prato = new Prato(
+                rs.getInt("id"),
                 rs.getString("nome"),
                 rs.getString("descricao"),
                 rs.getString("dataCriacao"),
                 rs.getInt("idFuncionario"),
                 rs.getInt("idEstabelecimento")
         );
-        prato.setId(rs.getInt("id"));
         return prato;
     }
     

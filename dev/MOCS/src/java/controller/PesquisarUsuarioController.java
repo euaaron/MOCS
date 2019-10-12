@@ -1,7 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Project MOCS
+ * @version 0.19.7a
+ * @authors Débora Lessa & Aaron Stiebler
  */
 package controller;
 
@@ -13,13 +13,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Funcionario;
+import model.Usuario;
 
-/**
- *
- * @author Débora Lessa & Aaron Stiebler
- */
-public class PesquisaFuncionarioController extends HttpServlet {
+public class PesquisarUsuarioController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,8 +29,8 @@ public class PesquisaFuncionarioController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            request.setAttribute("funcionarios", Funcionario.obterFuncionarios());
-            RequestDispatcher view = request.getRequestDispatcher("/pesquisaFuncionario.jsp");
+            request.setAttribute("usuarios", Usuario.obterUsuarios());
+            RequestDispatcher view = request.getRequestDispatcher("/pesquisarUsuario.jsp");
             view.forward(request, response);
         } catch (ClassNotFoundException | SQLException e){
             throw new ServletException(e);
@@ -79,5 +75,4 @@ public class PesquisaFuncionarioController extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
 }

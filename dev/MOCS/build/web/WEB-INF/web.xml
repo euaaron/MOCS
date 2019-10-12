@@ -2,23 +2,23 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
         <servlet-name>PesquisaPratoController</servlet-name>
-        <servlet-class>controller.PesquisaPratoController</servlet-class>
+        <servlet-class>controller.PesquisarPratoController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>PesquisaFuncionarioController</servlet-name>
-        <servlet-class>controller.PesquisaFuncionarioController</servlet-class>
+        <servlet-class>controller.PesquisarFuncionarioController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>PesquisaComandaController</servlet-name>
-        <servlet-class>controller.PesquisaComandaController</servlet-class>
+        <servlet-class>controller.PesquisarComandaController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>PesquisaEstabelecimentoController</servlet-name>
-        <servlet-class>controller.PesquisaEstabelecimentoController</servlet-class>
+        <servlet-class>controller.PesquisarEstabelecimentoController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>PesquisaUsuarioController</servlet-name>
-        <servlet-class>controller.PesquisaUsuarioController</servlet-class>
+        <servlet-class>controller.PesquisarUsuarioController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ManterComandaController</servlet-name>
@@ -42,7 +42,7 @@
     </servlet>
     <servlet>
         <servlet-name>PesquisaPedidoController</servlet-name>
-        <servlet-class>controller.PesquisaPedidoController</servlet-class>
+        <servlet-class>controller.PesquisarPedidoController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ManterUsuarioController</servlet-name>

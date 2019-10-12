@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Comanda;
+import model.Pedido;
 import model.Prato;
 
 /**
@@ -48,6 +49,51 @@ public class ManterPedidoController extends HttpServlet {
         throw new ServletException(e);
     }
     } 
+    
+    public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) 
+           throws SQLException, ClassNotFoundException, ServletException {
+        
+        String operacao = request.getParameter("operacao");
+        
+        int idPedido = Integer.parseInt(request.getParameter("txtIdPedido"));
+        int idComanda = Integer.parseInt(request.getParameter("txtIdComanda"));
+        int idPrato = Integer.parseInt(request.getParameter("txtIdPrato"));
+        int quantidade = Integer.parseInt(request.getParameter("txtQuantidade"));
+        
+        try {
+            Comanda comanda = null;
+            if(idComanda != 0){
+                comanda = Comanda.obterComanda(idComanda);
+            }
+            Prato prato = null;
+            if(idPrato != 0){
+                prato = Prato.obterPrato(idPrato);
+            }
+            Pedido pedido = new Pedido(idPedido, idComanda, idPrato, quantidade);
+            if (operacao.equals("Incluir")){
+                comanda.gravar();
+            }
+            RequestDispatcher view = request.getRequestDispatcher("PesquisarPedidoController");
+                    view.forward(request, response);
+        } catch (IOException e){
+            throw new ServletException(e);
+        }
+    }
+    
+    public void prepararOperacao(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, ClassNotFoundException, SQLException {
+    try {
+        String operacao = request.getParameter("operacao");
+        request.setAttribute("operacao", operacao);
+        request.setAttribute("pratos", Prato.obterPratos());
+        RequestDispatcher view = request.getRequestDispatcher("/manterPedido.jsp");
+        view.forward(request, response);
+    }catch (ServletException e){
+        throw e;
+    }catch (IOException e){
+        throw new ServletException(e);
+    }
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
