@@ -31,7 +31,7 @@
             <c:forEach items="${estabelecimentos}" var="estabelecimento">
         <tr>
             <td><c:out value="${estabelecimento.id}"/></td>
-            <td><c:out value="${estabelecimento.nome}"/></td>
+            <td><c:out value="${estabelecimento.nomeFantasia}"/></td>
             <td><c:out value="${estabelecimento.proprietario}"/></td>
         </tr>
         </c:forEach>

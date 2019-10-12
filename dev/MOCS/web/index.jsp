@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,11 +21,36 @@
             <li><a href="#">Index Admin</a></li>
         </ul>         
         <ul>
-            <li><a href="PesquisaEstabelecimentoController">Estabelecimentos</a></li>
-            <li><a href="PesquisaUsuarioController">Usuarios</a></li>
-            <li><a href="PesquisaFuncionarioController">Funcionário</a></li>
-            <li><a href="PesquisaPedidoController">Pedidos</a></li>
-            <li><a href="PesquisaPratoController">Pratos</a></li>
+            <li>Estabelecimentos
+                <ul>
+                    <li><a href="PesquisarEstabelecimentoController">Pesquisar</a></li>
+                    <li><a href="ManterEstabelecimentoController">Cadastrar</a></li>
+                </ul>
+            </li>
+            <li>Usuários
+                <ul>
+                    <li><a href="PesquisarUsuarioController">Pesquisar</a></li>
+                    <li><a href="ManterUsuarioController">Cadastrar</a></li>
+                </ul>
+            </li>
+            <li>Funcionários
+                <ul>
+                    <li><a href="PesquisarFuncionarioController">Pesquisar</a></li>
+                    <li><a href="ManterFuncionarioController">Cadastrar</a></li>
+                </ul>
+            </li>
+            <li>Pedidos
+                <ul>
+                    <li><a href="PesquisarPedidoController">Pesquisar</a></li>
+                    <li><a href="ManterPedidoController">Cadastrar</a></li>
+                </ul>
+            </li>
+            <li>Pratos
+                <ul>
+                    <li><a href="PesquisarPratoController">Pesquisar</a></li>
+                    <li><a href="ManterPratoController">Cadastrar</a></li>
+                </ul>
+            </li>
         </ul>        
     </body>
 </html>

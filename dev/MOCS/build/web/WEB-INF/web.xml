@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
-        <servlet-name>PesquisaPratoController</servlet-name>
+        <servlet-name>PesquisarPratoController</servlet-name>
         <servlet-class>controller.PesquisarPratoController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>PesquisaFuncionarioController</servlet-name>
+        <servlet-name>PesquisarFuncionarioController</servlet-name>
         <servlet-class>controller.PesquisarFuncionarioController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>PesquisaComandaController</servlet-name>
+        <servlet-name>PesquisarComandaController</servlet-name>
         <servlet-class>controller.PesquisarComandaController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>PesquisaEstabelecimentoController</servlet-name>
+        <servlet-name>PesquisarEstabelecimentoController</servlet-name>
         <servlet-class>controller.PesquisarEstabelecimentoController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>PesquisaUsuarioController</servlet-name>
+        <servlet-name>PesquisarUsuarioController</servlet-name>
         <servlet-class>controller.PesquisarUsuarioController</servlet-class>
     </servlet>
     <servlet>
@@ -41,7 +41,7 @@
         <servlet-class>controller.ManterPedidoController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>PesquisaPedidoController</servlet-name>
+        <servlet-name>PesquisarPedidoController</servlet-name>
         <servlet-class>controller.PesquisarPedidoController</servlet-class>
     </servlet>
     <servlet>
@@ -49,24 +49,24 @@
         <servlet-class>controller.ManterUsuarioController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>PesquisaPratoController</servlet-name>
-        <url-pattern>/PesquisaPratoController</url-pattern>
+        <servlet-name>PesquisarPratoController</servlet-name>
+        <url-pattern>/PesquisarPratoController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>PesquisaFuncionarioController</servlet-name>
-        <url-pattern>/PesquisaFuncionarioController</url-pattern>
+        <servlet-name>PesquisarFuncionarioController</servlet-name>
+        <url-pattern>/PesquisarFuncionarioController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>PesquisaComandaController</servlet-name>
-        <url-pattern>/PesquisaComandaController</url-pattern>
+        <servlet-name>PesquisarComandaController</servlet-name>
+        <url-pattern>/PesquisarComandaController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>PesquisaEstabelecimentoController</servlet-name>
-        <url-pattern>/PesquisaEstabelecimentoController</url-pattern>
+        <servlet-name>PesquisarEstabelecimentoController</servlet-name>
+        <url-pattern>/PesquisarEstabelecimentoController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>PesquisaUsuarioController</servlet-name>
-        <url-pattern>/PesquisaUsuarioController</url-pattern>
+        <servlet-name>PesquisarUsuarioController</servlet-name>
+        <url-pattern>/PesquisarUsuarioController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ManterComandaController</servlet-name>
@@ -89,8 +89,8 @@
         <url-pattern>/ManterPedidoController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>PesquisaPedidoController</servlet-name>
-        <url-pattern>/PesquisaPedidoController</url-pattern>
+        <servlet-name>PesquisarPedidoController</servlet-name>
+        <url-pattern>/PesquisarPedidoController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ManterUsuarioController</servlet-name>
