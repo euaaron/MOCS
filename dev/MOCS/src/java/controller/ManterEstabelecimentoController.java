@@ -64,7 +64,7 @@ public class ManterEstabelecimentoController extends HttpServlet {
    public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws ClassNotFoundException, SQLException, ServletException {
        String operacao = request.getParameter("operacao");
        int id = Integer.parseInt(request.getParameter("txtIdEstabelecimento"));
-       int idUsuario = Integer.parseInt(request.getParameter("txtIdProprietario"));
+       int idProprietario = Integer.parseInt(request.getParameter("txtIdProprietario"));
        String cnpj = request.getParameter("txtCnpj");
        String nomeFantasia = request.getParameter("txtNomeFantasia");
        String inscEstadual = request.getParameter("txtInscEstadual");
@@ -72,10 +72,10 @@ public class ManterEstabelecimentoController extends HttpServlet {
        
        try {
            Usuario proprietario = null;
-           if (idUsuario != 0) {
-               proprietario = Usuario.obterUsuario(idUsuario);
+           if (idProprietario != 0) {
+               proprietario = Usuario.obterUsuario(idProprietario);
            }
-           Estabelecimento e = new Estabelecimento(id,proprietario, cnpj,nomeFantasia,
+           Estabelecimento e = new Estabelecimento(id,idProprietario, cnpj,nomeFantasia,
            inscEstadual, telefone);
            if (operacao.equals("Incluir")) {
                e.gravar();

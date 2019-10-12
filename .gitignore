@@ -4,3 +4,4 @@ dev/MOCS/nbproject/private/private.xml
 dev/MOCS/nbproject/private/private.properties
 dev/MOCS/build/web/WEB-INF/classes/controller/ManterEstabelecimentoController.class
 dev/MOCS/build/web/WEB-INF/classes/controller/ManterUsuarioController.class
+/dev/MOCS/dist/

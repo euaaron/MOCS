@@ -57,7 +57,7 @@ public class EstabelecimentoDAO {
     private static Estabelecimento instanciarEstabelecimento(ResultSet rs) throws SQLException {
         Estabelecimento estabelecimento = new Estabelecimento(
             rs.getInt("id"),
-            null,
+            rs.getInt("idProprietario"),
             rs.getString("cnpj"),
             rs.getString("nomeFantasia"),
             rs.getString("inscEstadual"),
@@ -71,7 +71,7 @@ public class EstabelecimentoDAO {
         try {
             conexao = BD.getConexao();
             comando = conexao.prepareStatement (
-            "insert into estabelecimento (id, usuario_id, cnpj, nomeFantasia, inscEstadual, telefone)"
+            "insert into estabelecimento (id, idProprietario, cnpj, nomeFantasia, inscEstadual, telefone)"
                     + "values (?,?,?,?,?,?)"
             );
             comando.setInt(1, estabelecimento.getId());

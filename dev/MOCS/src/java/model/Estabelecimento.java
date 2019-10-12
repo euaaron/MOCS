@@ -20,15 +20,14 @@ public class Estabelecimento {
     private String nomeFantasia;
     private String inscEstadual;
 
-    public Estabelecimento (int id, Usuario proprietario, String cnpj, String nomeFantasia,
+    public Estabelecimento (int id, int idProprietario, String cnpj, String nomeFantasia,
         String inscEstadual, String telefone){
         this.id = id;
-        this.idProprietario = proprietario.getId();
+        this.idProprietario = idProprietario;
         this.cnpj = cnpj;
         this.nomeFantasia = nomeFantasia;
         this.telefone = telefone;
         this.inscEstadual = inscEstadual;
-        this.idProprietario = proprietario.getId();
     }
 
 // Métodos de inserção (Modificação)
