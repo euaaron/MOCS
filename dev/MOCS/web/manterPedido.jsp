@@ -16,7 +16,7 @@
     <body>
         <h1>Manter Pedido - ${operacao}</h1>
         <form action="ManterPedidoController?acao=confirmarOperacao&operacao=${operacao}" method="post" name="frmManterPedido">
-            <table>
+            <table border = 1>
                 <tr>
                     <td>Id do Pedido:</td>
                     <td><input type="text" name="txtId" value="${pedido.id}"/></td>
