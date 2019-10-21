@@ -2,7 +2,7 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
- *//*
+ */
 package dao;
 
 import static dao.DAO.fecharConexao;
@@ -14,11 +14,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import model.Proprietario;
-*/
+
 /**
  *
  * @author Débora Lessa & Aaron Stiebler
- *//*
+ */
 public class ProprietarioDAO {
     public static Proprietario obterProprietario(int idUsuario) throws ClassNotFoundException, SQLException {
         Connection conexao = null;
@@ -78,7 +78,7 @@ public class ProprietarioDAO {
         try {
             conexao = BD.getConexao();
             comando = conexao.prepareStatement(
-            "insert into usuario (id, nome, nascimento, email, telefone, senha, cpf)"
+            "insert into usuario (id, nome, dataNascimento, email, telefone, senha, cpf)"
             + "values(?,?,?,?,?,?,?)");
             comando.setInt(1, proprietario.getId());
             comando.setString(2, proprietario.getNome());
@@ -94,4 +94,3 @@ public class ProprietarioDAO {
     }
     
 }
-*/
