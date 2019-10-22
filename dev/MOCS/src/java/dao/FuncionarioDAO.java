@@ -62,8 +62,11 @@ public class FuncionarioDAO {
             rs.getString("email"),
             rs.getString("telefone"),
             rs.getString("senha"),
-            null,
-            rs.getString("cpf")
+            rs.getString("cpf"),
+            rs.getInt("statusConta"),
+            rs.getInt("idEstabelecimento"),
+            rs.getInt("idFuncao")
+            
         );
         return funcionario;
     }
@@ -81,7 +84,7 @@ public class FuncionarioDAO {
             comando.setString(5, funcionario.getTelefone());
             comando.setString(6, funcionario.getSenha());
             comando.setString(7, funcionario.getCpf());
-            comando.setBoolean(8, funcionario.getStatusConta());
+            comando.setInt(8, funcionario.getStatusConta());
             comando.setInt(9, funcionario.getIdEstabelecimento());
             comando.setInt(10, funcionario.getIdFuncao());
             comando.executeUpdate();

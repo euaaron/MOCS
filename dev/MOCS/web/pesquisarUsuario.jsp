@@ -13,9 +13,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Pesquisa de Usuarios</title>
+        <link rel="stylesheet" href="css/main.css"/>
     </head>
     <body>
         <h1>Pesquisa de Usuarios</h1>
+        <ul class="breadcrumb">
+            <li><a href="index.jsp">Index Admin</a></li>
+            <li>Pesquisar Usuarios</li>
+        </ul>
         <table border = 1>
             <tr>
                 <th>Código do Usuário</th>

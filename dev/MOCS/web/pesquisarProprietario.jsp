@@ -7,14 +7,20 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Pesquisa de Proprietario</title>
+        <title>Pesquisar Proprietarios</title>
+        <link rel="stylesheet" href="css/main.css"/>
     </head>
     <body>
-        <h1>Pesquisa de Proprietario</h1>
+        <h1>Pesquisar Proprietarios</h1>
+        <ul class="breadcrumb">
+            <li><a href="index.jsp">Index Admin</a></li>
+            <li>Pesquisar Proprietarios</li>
+        </ul>
         <table border = 1>
             <tr>
                 <th>Código do Proprietario</th>

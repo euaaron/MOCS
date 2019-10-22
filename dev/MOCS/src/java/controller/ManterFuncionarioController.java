@@ -54,6 +54,8 @@ public class ManterFuncionarioController extends HttpServlet {
         String email = request.getParameter("txtEmail");
         String telefone = request.getParameter("txtTelefone");
         String senha = request.getParameter("txtSenha");
+        int statusConta = Integer.parseInt(request.getParameter("txtStatusConta"));
+        int idFuncao = Integer.parseInt(request.getParameter("txtIdFuncao"));
        
         try {
             Estabelecimento estabelecimento = null;
@@ -61,7 +63,7 @@ public class ManterFuncionarioController extends HttpServlet {
                 estabelecimento = Estabelecimento.obterEstabelecimento(idEstabelecimento);
             }
             Funcionario funcionario = new Funcionario(idFuncionario, nome,dataNascimento,
-                    email, telefone, senha, estabelecimento, cpf);
+                    email, telefone, senha, cpf, statusConta,idEstabelecimento, idFuncao);
             if (operacao.equals("Incluir")) {
                 funcionario.gravar();
             }

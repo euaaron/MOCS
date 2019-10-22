@@ -16,11 +16,10 @@
         <link rel="stylesheet" href="css/main.css"/>
     </head>
     <body>
-        <h1>Pesquisa de Estabelecimentos</h1>
+        <h1>Pesquisar Estabelecimentos</h1>
         <ul class="breadcrumb">
             <li><a href="index.jsp">Index Admin</a></li>
-            <li><a href="#">Estabelecimento</a></li>
-            <li><a href="#">Procurar</a></li>
+            <li>Pesquisar Estabelecimentos</li>
         </ul>
         <table border="1">
             <tr>

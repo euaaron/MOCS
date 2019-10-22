@@ -12,9 +12,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Pesquisa de Pratos</title>
+        <link rel="stylesheet" href="css/main.css"/>
     </head>
     <body>
-        <h1>Pesquisa de Pratos</h1>
+        <h1>Pesquisar Pratos</h1>
+        <ul class="breadcrumb">
+            <li><a href="index.jsp">Index Admin</a></li>
+            <li>Pesquisar Pratos</li>
+        </ul>
         <table border = 1>
             <tr>
                 <th>Código do Prato</th>

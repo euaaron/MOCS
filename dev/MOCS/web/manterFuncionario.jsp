@@ -51,7 +51,7 @@
                 </tr>
                 <tr>
                     <td>Status da Conta:</td>
-                    <td><input type="text" name="txtStatusUsuario" value="${funcionario.statusConta}"></td>
+                    <td><input type="text" name="txtStatusConta" value="${funcionario.statusConta}"></td>
                 </tr>
                 <tr>
                     <td>Senha:</td>

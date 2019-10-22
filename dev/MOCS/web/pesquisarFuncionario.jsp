@@ -12,9 +12,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Pesquisa de Funcionarios</title>
+        <link rel="stylesheet" href="css/main.css"/>
     </head>
     <body>
-        <h1>Pesquisa de Funcionarios</h1>
+        <h1>Pesquisar Funcionarios</h1>
+        <ul class="breadcrumb">
+            <li><a href="index.jsp">Index Admin</a></li>
+            <li>Pesquisar Funcionarios</li>
+        </ul>
         <table border = 1>
             <tr>
                 <th>Código do Funcionario</th>

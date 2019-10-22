@@ -10,27 +10,30 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class Funcionario extends Usuario {
-    private Boolean statusConta;
+    private int statusConta;
     private Estabelecimento estabelecimento = null;
-    private Funcao funcao = null;
     private int idEstabelecimento;
     private int idFuncao;
     
     public Funcionario(int idUsuario, String nome, String dataNascimento,
-           String email, String telefone, String senha, Estabelecimento estabelecimento, String cpf) {
+           String email, String telefone, String senha, String cpf, int statusConta,
+           int idEstabelecimento, int idFuncao)
+    {
         super(idUsuario, nome, dataNascimento,email,telefone, senha, cpf);
-        this.idEstabelecimento = estabelecimento.getId();
+        this.idEstabelecimento = idEstabelecimento;
+        this.statusConta = statusConta;
+        this.idFuncao = idFuncao;
     }    
     
 // Métodos de inserção (Modificação)
-    public void setStatusConta(Boolean statusConta) { this.statusConta = statusConta; }
-    public void setFuncao(Funcao funcao){ this.funcao = funcao; }
+    public void setStatusConta(int statusConta) { this.statusConta = statusConta; }
+    //public void setFuncao(Funcao funcao){ this.funcao = funcao; }
     public void setIdEstabelecimento(int idEstabelecimento){ this.idEstabelecimento = idEstabelecimento; }
     public void setIdFuncao(int idFucao){ this.idFuncao = idFuncao; }
     
 // Métodos de Recuperação (Leitura) 
-    public Boolean getStatusConta() { return statusConta; }
-    public Funcao getFuncao(){ return funcao; }
+    public int getStatusConta() { return statusConta; }
+    //public Funcao getFuncao(){ return funcao; }
     public int getIdEstabelecimento(){ return idEstabelecimento; }
     public int getIdFuncao(){ return idFuncao; }
     public Estabelecimento getEstabelecimento() throws ClassNotFoundException, SQLException {
