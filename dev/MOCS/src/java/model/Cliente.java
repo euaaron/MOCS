@@ -38,6 +38,10 @@ public class Cliente extends Usuario {
     public static List<Cliente> obterClientes() throws ClassNotFoundException, SQLException {
         return ClienteDAO.obterClientes();
     }
+
+    public void excluir() throws ClassNotFoundException, SQLException {
+        ClienteDAO.excluir(this);
+    }
     
 }
 */

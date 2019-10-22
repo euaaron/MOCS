@@ -93,4 +93,21 @@ public class ProprietarioDAO {
         }
     }
     
+    public static void excluir(Proprietario proprietario) 
+            throws SQLException, ClassNotFoundException {
+        Connection conexao = null;
+        Statement comando = null;
+        String stringSQL;
+        
+        try {
+            conexao = BD.getConexao();
+            comando = conexao.createStatement();
+            stringSQL = "delete from proprietario where id = "
+                    + proprietario.getId();
+            comando.execute(stringSQL);
+        } finally {
+            fecharConexao(conexao, comando);
+        }
+    }
+    
 }

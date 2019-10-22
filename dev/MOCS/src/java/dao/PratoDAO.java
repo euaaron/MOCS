@@ -81,4 +81,21 @@ public class PratoDAO {
             fecharConexao(conexao, comando);
         }
     }
+    
+    public static void excluir(Prato prato) 
+            throws SQLException, ClassNotFoundException {
+        Connection conexao = null;
+        Statement comando = null;
+        String stringSQL;
+        
+        try {
+            conexao = BD.getConexao();
+            comando = conexao.createStatement();
+            stringSQL = "delete from prato where id = "
+                    + prato.getId();
+            comando.execute(stringSQL);
+        } finally {
+            fecharConexao(conexao, comando);
+        }
+    }
 }

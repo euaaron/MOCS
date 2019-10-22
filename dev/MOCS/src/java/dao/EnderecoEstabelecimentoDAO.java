@@ -10,13 +10,31 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 import model.EnderecoEstabelecimento;
 
 public class EnderecoEstabelecimentoDAO {
 
-    public static List<EnderecoEstabelecimento> obterEnderecos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public static List<EnderecoEstabelecimento> obterEnderecos()
+        throws ClassNotFoundException, SQLException{
+        Connection conexao = null;
+        Statement comando = null;
+        List<EnderecoEstabelecimento> enderecos = new ArrayList<>();
+        EnderecoEstabelecimento endereco = null;
+        try{
+        conexao = BD.getConexao();
+        comando = conexao.createStatement();
+        ResultSet rs = comando.executeQuery("select * from endereco");
+            while (rs.next()) {
+                endereco = instanciarEnderecoEstabelecimento(rs);
+                enderecos.add(endereco);                
+            }
+        }finally{
+        fecharConexao(conexao, comando);
+        }
+        return enderecos;
     }
 
     public static EnderecoEstabelecimento obterEndereco(int idEstabelecimento) {
@@ -59,6 +77,23 @@ public class EnderecoEstabelecimentoDAO {
             comando.setString(8, endestabelecimento.getNumComplemento());
             comando.setInt(9, endestabelecimento.getIdEstabelecimento());
             comando.executeUpdate();
+        } finally {
+            fecharConexao(conexao, comando);
+        }
+    }
+    
+    public static void excluir(EnderecoEstabelecimento e) 
+            throws SQLException, ClassNotFoundException {
+        Connection conexao = null;
+        Statement comando = null;
+        String stringSQL;
+        
+        try {
+            conexao = BD.getConexao();
+            comando = conexao.createStatement();
+            stringSQL = "delete from endereco where id = "
+                    + e.getId();
+            comando.execute(stringSQL);
         } finally {
             fecharConexao(conexao, comando);
         }
