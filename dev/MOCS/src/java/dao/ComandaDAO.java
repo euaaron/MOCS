@@ -82,4 +82,21 @@ public class ComandaDAO {
         fecharConexao(conexao, comando);
         }
     }
+    
+    public static void excluir(Comanda e) 
+            throws SQLException, ClassNotFoundException {
+        Connection conexao = null;
+        Statement comando = null;
+        String stringSQL;
+        
+        try {
+            conexao = BD.getConexao();
+            comando = conexao.createStatement();
+            stringSQL = "delete from comanda where id = "
+                    + e.getId();
+            comando.execute(stringSQL);
+        } finally {
+            fecharConexao(conexao, comando);
+        }
+    }
 }

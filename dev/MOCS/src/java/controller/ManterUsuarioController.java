@@ -62,7 +62,10 @@ public class ManterUsuarioController extends HttpServlet {
                     email, telefone, senha);
             if (operacao.equals("Incluir")){
                 usuario.gravar();
+            } else if (operacao.equals("Excluir")) {
+                usuario.excluir();
             }
+            
             RequestDispatcher view = request.getRequestDispatcher("PesquisarUsuarioController");
                     view.forward(request, response);
         } catch (IOException e){

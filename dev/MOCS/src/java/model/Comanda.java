@@ -74,4 +74,8 @@ public class Comanda {
     public void gravar() throws SQLException, ClassNotFoundException {
         ComandaDAO.gravar(this);
     }
+    
+    public void excluir() throws ClassNotFoundException, SQLException {
+        ComandaDAO.excluir(this);
+    }
 }

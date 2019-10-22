@@ -85,4 +85,21 @@ public class EstabelecimentoDAO {
             fecharConexao(conexao, comando);
         }
     }
+    
+    public static void excluir(Estabelecimento e) 
+            throws SQLException, ClassNotFoundException {
+        Connection conexao = null;
+        Statement comando = null;
+        String stringSQL;
+        
+        try {
+            conexao = BD.getConexao();
+            comando = conexao.createStatement();
+            stringSQL = "delete from estabelecimento where id = "
+                    + e.getId();
+            comando.execute(stringSQL);
+        } finally {
+            fecharConexao(conexao, comando);
+        }
+    }
 }

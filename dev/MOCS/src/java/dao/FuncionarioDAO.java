@@ -92,4 +92,24 @@ public class FuncionarioDAO {
             fecharConexao(conexao, comando);
         }
     }
+    
+    public static void excluir(Funcionario usuario) 
+            throws SQLException, ClassNotFoundException {
+        Connection conexao = null;
+        Statement comando = null;
+        String stringSQL;
+        
+        try {
+            conexao = BD.getConexao();
+            comando = conexao.createStatement();
+            stringSQL = "delete from funcionario where id = "
+                    + usuario.getId();
+            comando.execute(stringSQL);
+            stringSQL = "delete from usuario where id = "
+                    + usuario.getId();
+            comando.execute(stringSQL);
+        } finally {
+            fecharConexao(conexao, comando);
+        }
+    }
 }

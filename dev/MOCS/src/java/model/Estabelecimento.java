@@ -70,4 +70,8 @@ public class Estabelecimento {
     public void gravar() throws SQLException, ClassNotFoundException {
         EstabelecimentoDAO.gravar(this);
     }
+    
+    public void excluir() throws ClassNotFoundException, SQLException {
+        EstabelecimentoDAO.excluir(this);
+    }
 }
