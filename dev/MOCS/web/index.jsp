@@ -41,7 +41,7 @@
             </li>
             <li>Proprietarios
                 <ul>
-                    <li><a href="PesquisarProprietarioController">Pesquisar</a></li>
+                    <li><a href="PesquisarUsuarioController">Pesquisar</a></li>
                     <li><a href="ManterProprietarioController?acao=prepararOperacao">Cadastrar</a></li>
                 </ul>
             </li>

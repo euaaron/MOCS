@@ -88,6 +88,18 @@ public class ProprietarioDAO {
             comando.setString(6, proprietario.getSenha());
             comando.setString(7, proprietario.getCpf());
             comando.executeUpdate();
+            
+            comando = conexao.prepareStatement(
+            "insert into proprietario (id, nome, dataNascimento, email, telefone, senha, cpf)"
+            + "values(?,?,?,?,?,?,?)");
+            comando.setInt(1, proprietario.getId());
+            comando.setString(2, proprietario.getNome());
+            comando.setString(3, proprietario.getDataNascimento());
+            comando.setString(4, proprietario.getEmail());
+            comando.setString(5, proprietario.getTelefone());
+            comando.setString(6, proprietario.getSenha());
+            comando.setString(7, proprietario.getCpf());
+            comando.executeUpdate();
         }finally{
             fecharConexao(conexao, comando);
         }
