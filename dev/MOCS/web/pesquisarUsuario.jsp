@@ -32,6 +32,9 @@
                     <td><c:out value="${usuario.id}"/></td>
                     <td><c:out value="${usuario.nome}"/></td>
                     <td>
+                        <a href="ManterUsuarioController?acao=prepararOperacao&operacao=Editar&id=<c:out value="${usuario.id}" />" > Editar</a>
+                    </td>
+                    <td>
                         <a href="ManterUsuarioController?acao=prepararOperacao&operacao=Excluir&id=<c:out value="${usuario.id}" />" > Excluir</a>
                     </td>
                 </tr>

@@ -30,7 +30,10 @@
                     <td><c:out value="${comanda.horaComanda}"/></td>
                     <td><c:out value="${comanda.idCliente}"/></td>
                     <td>
-                        <a href="ManterComandaController?acao=prepararOperacao&operacao=Excluir&id=<c:out value="${usuario.id}" />" > Excluir</a>
+                        <a href="ManterComandaController?acao=prepararOperacao&operacao=Editar&id=<c:out value="${comanda.id}" />" > Editar</a>
+                    </td>
+                    <td>
+                        <a href="ManterComandaController?acao=prepararOperacao&operacao=Excluir&id=<c:out value="${comanda.id}" />" > Excluir</a>
                     </td>
                 </tr>
             </c:forEach>

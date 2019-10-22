@@ -33,7 +33,10 @@
             <td><c:out value="${estabelecimento.nomeFantasia}"/></td>
             <td><c:out value="${estabelecimento.proprietario.getNome()}"/></td>
             <td>
-                <a href="ManterEstabelecimentoController?acao=prepararOperacao&operacao=Excluir&id=<c:out value="${usuario.id}" />" > Excluir</a>
+                <a href="ManterEstabelecimentoController?acao=prepararOperacao&operacao=Editar&id=<c:out value="${estabelecimento.id}" />" > Editar</a>
+            </td>
+            <td>
+                <a href="ManterEstabelecimentoController?acao=prepararOperacao&operacao=Excluir&id=<c:out value="${estabelecimento.id}" />" > Excluir</a>
             </td>
         </tr>
         </c:forEach>

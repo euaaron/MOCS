@@ -37,7 +37,10 @@
                     <td><c:out value="${prato.idEstabelecimento}"/></td>
                     <td><c:out value="${prato.dataCriacao}"/></td>
                     <td>
-                        <a href="ManterPratoController?acao=prepararOperacao&operacao=Excluir&id=<c:out value="${usuario.id}" />" > Excluir</a>
+                        <a href="ManterPratoController?acao=prepararOperacao&operacao=Editar&id=<c:out value="${comanda.id}" />" > Editar</a>
+                    </td>
+                    <td>
+                        <a href="ManterPratoController?acao=prepararOperacao&operacao=Excluir&id=<c:out value="${comanda.id}" />" > Excluir</a>
                     </td>
                 </tr>
             </c:forEach>

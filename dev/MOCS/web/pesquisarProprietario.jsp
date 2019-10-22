@@ -32,7 +32,10 @@
                     <td><c:out value="${proprietario.id}"/></td>
                     <td><c:out value="${proprietario.nome}"/></td>
                     <td>
-                        <a href="ManterProprietarioController?acao=prepararOperacao&operacao=Excluir&id=<c:out value="${usuario.id}" />" > Excluir</a>
+                        <a href="ManterProprietarioController?acao=prepararOperacao&operacao=Editar&id=<c:out value="${proprietario.id}" />" > Editar</a>
+                    </td>
+                    <td>
+                        <a href="ManterProprietarioController?acao=prepararOperacao&operacao=Excluir&id=<c:out value="${proprietario.id}" />" > Excluir</a>
                     </td>
                 </tr>
             </c:forEach>
