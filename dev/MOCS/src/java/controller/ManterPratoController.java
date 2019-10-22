@@ -84,7 +84,7 @@ public class ManterPratoController extends HttpServlet {
         String operacao = request.getParameter("operacao");
         request.setAttribute("operacao", operacao);
         request.setAttribute("funcionario", Funcionario.obterFuncionarios());
-        RequestDispatcher view = request.getRequestDispatcher("/manterPrato.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("/cadastrarPrato.jsp");
         view.forward(request, response);
     }catch (ServletException e){
         throw e;

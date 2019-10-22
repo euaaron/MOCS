@@ -75,7 +75,7 @@ public class ManterUsuarioController extends HttpServlet {
         try {
             String operacao = request.getParameter("operacao");
             request.setAttribute("operacao", operacao);
-            RequestDispatcher view = request.getRequestDispatcher("/manterUsuario.jsp");
+            RequestDispatcher view = request.getRequestDispatcher("/cadastrarUsuario.jsp");
             view.forward(request, response);
         } catch (ServletException e) {
             throw e;
