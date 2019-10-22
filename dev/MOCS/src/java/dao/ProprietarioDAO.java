@@ -61,7 +61,7 @@ public class ProprietarioDAO {
     throws SQLException 
     {
         Proprietario proprietario = new Proprietario(
-            rs.getInt("idUsuario"),
+            rs.getInt("id"),
             rs.getString("nome"), 
             rs.getString("dataNascimento"),
             rs.getString("email"),
