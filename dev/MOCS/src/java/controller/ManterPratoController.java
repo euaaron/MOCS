@@ -86,6 +86,11 @@ public class ManterPratoController extends HttpServlet {
         String operacao = request.getParameter("operacao");
         request.setAttribute("operacao", operacao);
         request.setAttribute("funcionario", Funcionario.obterFuncionarios());
+        if (!operacao.equals("Incluir")) {
+                int id = Integer.parseInt(request.getParameter("id"));
+                Prato obj = Prato.obterPrato(id);
+                request.setAttribute("prato", obj);
+            }
         RequestDispatcher view = request.getRequestDispatcher("/cadastrarPrato.jsp");
         view.forward(request, response);
     }catch (ServletException e){

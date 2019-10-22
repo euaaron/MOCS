@@ -52,6 +52,11 @@ public class ManterEstabelecimentoController extends HttpServlet {
             String operacao = request.getParameter("operacao");
             request.setAttribute("operacao", operacao);
             request.setAttribute("proprietario", Usuario.obterUsuarios());
+            if (!operacao.equals("Incluir")) {
+                int id = Integer.parseInt(request.getParameter("id"));
+                Estabelecimento obj = Estabelecimento.obterEstabelecimento(id);
+                request.setAttribute("estabelecimento", obj);
+            }
             RequestDispatcher view = request.getRequestDispatcher("/cadastrarEstabelecimento.jsp");
             view.forward(request, response);
         } catch (ServletException e){

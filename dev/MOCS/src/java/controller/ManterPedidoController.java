@@ -84,6 +84,11 @@ public class ManterPedidoController extends HttpServlet {
         String operacao = request.getParameter("operacao");
         request.setAttribute("operacao", operacao);
         request.setAttribute("pratos", Prato.obterPratos());
+        if (!operacao.equals("Incluir")) {
+                int id = Integer.parseInt(request.getParameter("id"));
+                Pedido obj = Pedido.obterPedido(id);
+                request.setAttribute("pedido", obj);
+            }
         RequestDispatcher view = request.getRequestDispatcher("/cadastrarPedido.jsp");
         view.forward(request, response);
     }catch (ServletException e){

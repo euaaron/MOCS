@@ -91,15 +91,22 @@ public class ManterProprietarioController extends HttpServlet {
     }
     
     public void prepararOperacao(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, SQLException {
         try {
             String operacao = request.getParameter("operacao");
             request.setAttribute("operacao", operacao);
+            if (!operacao.equals("Incluir")) {
+                int id = Integer.parseInt(request.getParameter("id"));
+                Proprietario obj = Proprietario.obterProprietario(id);
+                request.setAttribute("proprietario", obj);
+            }
             RequestDispatcher view = request.getRequestDispatcher("/cadastrarProprietario.jsp");
             view.forward(request, response);
         } catch (ServletException e) {
             throw e;
         } catch (IOException e) {
+            throw new ServletException(e);
+        } catch (ClassNotFoundException e) {
             throw new ServletException(e);
         }
         

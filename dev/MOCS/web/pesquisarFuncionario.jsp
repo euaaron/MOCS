@@ -34,6 +34,9 @@
                     <td><c:out value="${funcionario.nome}"/></td>
                     <td><c:out value="${funcionario.cpf}"/></td>
                     <td><c:out value="${funcionario.statusConta}"/></td>
+                    <td>
+                        <a href="ManterFuncionarioController?acao=prepararOperacao&operacao=Excluir&id=<c:out value="${usuario.id}" />" > Excluir</a>
+                    </td>
                 </tr>
             </c:forEach>
         </table>
