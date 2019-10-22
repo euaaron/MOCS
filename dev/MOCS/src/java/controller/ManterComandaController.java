@@ -80,6 +80,11 @@ public class ManterComandaController extends HttpServlet {
         String operacao = request.getParameter("operacao");
         request.setAttribute("operacao", operacao);
         request.setAttribute("cliente", Usuario.obterUsuarios());
+        if (!operacao.equals("Incluir")) {
+                int idComanda = Integer.parseInt(request.getParameter("id"));
+                Comanda comanda = Comanda.obterComanda(idComanda);
+                request.setAttribute("comanda", comanda);
+            }
         RequestDispatcher view = request.getRequestDispatcher("/cadastrarComanda.jsp");
         view.forward(request, response);
     }catch (ServletException e){
