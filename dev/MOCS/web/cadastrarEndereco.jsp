@@ -51,7 +51,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <input type="submit" name="btnIncluir" value="Incluir">
+                                <input type="submit" name="btnIncluir" value="Confirmar">
                             </td>
                         </tr>
                     </tbody>
