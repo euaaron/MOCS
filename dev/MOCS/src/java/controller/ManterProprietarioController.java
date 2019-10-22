@@ -93,7 +93,7 @@ public class ManterProprietarioController extends HttpServlet {
         try {
             String operacao = request.getParameter("operacao");
             request.setAttribute("operacao", operacao);
-            RequestDispatcher view = request.getRequestDispatcher("/cadastrarUsuario.jsp");
+            RequestDispatcher view = request.getRequestDispatcher("/cadastrarProprietario.jsp");
             view.forward(request, response);
         } catch (ServletException e) {
             throw e;
