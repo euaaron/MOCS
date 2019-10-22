@@ -115,9 +115,9 @@ public class ManterPratoController extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ManterPratoController.class.getName()).log(Level.SEVERE, null, ex);
+            throw new ServletException(ex);
         } catch (SQLException ex) {
-            Logger.getLogger(ManterPratoController.class.getName()).log(Level.SEVERE, null, ex);
+            throw new ServletException(ex);
         }
     }
 
@@ -135,9 +135,9 @@ public class ManterPratoController extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ManterPratoController.class.getName()).log(Level.SEVERE, null, ex);
+            throw new ServletException(ex);
         } catch (SQLException ex) {
-            Logger.getLogger(ManterPratoController.class.getName()).log(Level.SEVERE, null, ex);
+            throw new ServletException(ex);
         }
     }
 

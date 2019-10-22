@@ -91,7 +91,7 @@ public class ManterComandaController extends HttpServlet {
         throw e;
     }catch (IOException e){
         throw new ServletException(e);
-    }
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -109,9 +109,9 @@ public class ManterComandaController extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ManterComandaController.class.getName()).log(Level.SEVERE, null, ex);
+            throw new ServletException(ex);
         } catch (SQLException ex) {
-            Logger.getLogger(ManterComandaController.class.getName()).log(Level.SEVERE, null, ex);
+            throw new ServletException(ex);
         }
     }
 
