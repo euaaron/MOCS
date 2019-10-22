@@ -80,6 +80,8 @@ public class ManterProprietarioController extends HttpServlet {
                     telefone, senha, cpf);
             if (operacao.equals("Incluir")){
                 proprietario.gravar();
+            } else if (operacao.equals("Excluir")) {
+               proprietario.excluir();
             }
             RequestDispatcher view = request.getRequestDispatcher("PesquisarProprietarioController");
                     view.forward(request, response);

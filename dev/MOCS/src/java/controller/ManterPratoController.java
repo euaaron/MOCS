@@ -70,6 +70,8 @@ public class ManterPratoController extends HttpServlet {
             Prato comanda = new Prato(idPrato, nome, descricao, dataCriacao, idFuncionario, idEstabelecimento);
             if (operacao.equals("Incluir")){
                 comanda.gravar();
+            } else if (operacao.equals("Excluir")) {
+               comanda.excluir();
             }
             RequestDispatcher view = request.getRequestDispatcher("PesquisarPratoController");
                     view.forward(request, response);

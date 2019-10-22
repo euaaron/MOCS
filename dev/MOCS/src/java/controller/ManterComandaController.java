@@ -64,6 +64,8 @@ public class ManterComandaController extends HttpServlet {
             Comanda comanda = new Comanda(idComanda, dataComanda, horaComanda, cliente);
             if (operacao.equals("Incluir")){
                 comanda.gravar();
+            } else if (operacao.equals("Excluir")) {
+                comanda.excluir();
             }
             RequestDispatcher view = request.getRequestDispatcher("PesquisarComandaController");
                     view.forward(request, response);

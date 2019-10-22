@@ -66,6 +66,8 @@ public class ManterFuncionarioController extends HttpServlet {
                     email, telefone, senha, cpf, statusConta,idEstabelecimento, idFuncao);
             if (operacao.equals("Incluir")) {
                 funcionario.gravar();
+            } else if (operacao.equals("Excluir")) {
+               funcionario.excluir();
             }
             RequestDispatcher view = request.getRequestDispatcher("PesquisarFuncionarioController");
             view.forward(request, response);

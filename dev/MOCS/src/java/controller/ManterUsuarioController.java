@@ -78,12 +78,21 @@ public class ManterUsuarioController extends HttpServlet {
         try {
             String operacao = request.getParameter("operacao");
             request.setAttribute("operacao", operacao);
+            if (!operacao.equals("Incluir")) {
+                int idUsuario = Integer.parseInt(request.getParameter("id"));
+                Usuario usuario = Usuario.obterUsuario(idUsuario);
+                request.setAttribute("usuario", usuario);
+            }
             RequestDispatcher view = request.getRequestDispatcher("/cadastrarUsuario.jsp");
             view.forward(request, response);
         } catch (ServletException e) {
             throw e;
         } catch (IOException e) {
             throw new ServletException(e);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ManterUsuarioController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ManterUsuarioController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

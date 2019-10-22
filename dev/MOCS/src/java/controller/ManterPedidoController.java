@@ -68,6 +68,8 @@ public class ManterPedidoController extends HttpServlet {
             Pedido pedido = new Pedido(idPedido, idComanda, idPrato, quantidade);
             if (operacao.equals("Incluir")){
                 comanda.gravar();
+            } else if (operacao.equals("Excluir")) {
+               pedido.excluir();
             }
             RequestDispatcher view = request.getRequestDispatcher("PesquisarPedidoController");
                     view.forward(request, response);

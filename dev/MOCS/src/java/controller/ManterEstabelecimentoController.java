@@ -82,7 +82,9 @@ public class ManterEstabelecimentoController extends HttpServlet {
            inscEstadual, telefone);
            if (operacao.equals("Incluir")) {
                e.gravar();
-           }
+           } else if (operacao.equals("Excluir")) {
+               e.excluir();
+            }
            RequestDispatcher view = request.getRequestDispatcher("PesquisarEstabelecimentoController");
            view.forward(request, response);
        } catch (IOException e) {

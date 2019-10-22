@@ -146,7 +146,7 @@ public class EnderecoUsuarioDAO {
         try {
             conexao = BD.getConexao();
             comando = conexao.createStatement();
-            stringSQL = "delete from endereco where id = "
+            stringSQL = "delete from endusuario where id = "
                     + e.getId();
             comando.execute(stringSQL);
         } finally {

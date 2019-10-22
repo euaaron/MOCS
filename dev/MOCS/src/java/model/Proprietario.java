@@ -27,4 +27,8 @@ public class Proprietario extends Usuario {
     public void gravar() throws SQLException, ClassNotFoundException {
         ProprietarioDAO.gravar(this);
     }
+    
+    public void excluir() throws ClassNotFoundException, SQLException {
+        ProprietarioDAO.excluir(this);
+    }
 }
