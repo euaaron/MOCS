@@ -24,8 +24,7 @@ public class EstabelecimentoDAO {
         try {
             conexao = BD.getConexao();
             comando = conexao.createStatement();
-            ResultSet rs = comando.executeQuery(
-                "select * from estabelecimento where id = " + id);
+            ResultSet rs = comando.executeQuery("select * from estabelecimento where id = " + id);
                 rs.first();
                 estabelecimento = instanciarEstabelecimento(rs);
             } finally {
@@ -91,8 +90,8 @@ public class EstabelecimentoDAO {
         try {
             conexao = BD.getConexao();
             comando = conexao.prepareStatement (
-            "insert into estabelecimento (id, idProprietario, cnpj, nomeFantasia, inscEstadual, telefone)"
-                    + "values (?,?,?,?,?,?)"
+            "insert into estabelecimento (id, idProprietario, cnpj, nomeFantasia, inscEstadual, telefone)" 
+            + "values (?,?,?,?,?,?)"
             );
             comando.setInt(1, estabelecimento.getId());
             comando.setInt(2, estabelecimento.getIdProprietario());
@@ -112,9 +111,8 @@ public class EstabelecimentoDAO {
 
         try {
             conexao = BD.getConexao();
-            String sql = "update estabelecimento set idProprietario=?, cnpj=?, "
-                    + "nomeFantasia=?, inscEstadual=?, telefone=?, "
-                    + "where id=?";
+            String sql =  "update estabelecimento (idProprietario, cnpj, nomeFantasia, inscEstadual, telefone)" 
+            + "values (?,?,?,?,?,?) where id=?";
             
             comando = conexao.prepareStatement(sql);
             comando.setInt(1, obj.getIdProprietario());

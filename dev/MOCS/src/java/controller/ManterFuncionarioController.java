@@ -41,6 +41,26 @@ public class ManterFuncionarioController extends HttpServlet {
         }
     }
     
+    public void prepararOperacao(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, ClassNotFoundException, SQLException {
+    try {
+        String operacao = request.getParameter("operacao");
+        request.setAttribute("operacao", operacao);
+        request.setAttribute("estabelecimentos", Estabelecimento.obterEstabelecimentos());
+        if (!operacao.equals("Incluir")) {
+                int id = Integer.parseInt(request.getParameter("id"));
+                Funcionario obj = Funcionario.obterFuncionario(id);
+                request.setAttribute("funcionario", obj);
+            }
+        RequestDispatcher view = request.getRequestDispatcher("/cadastrarFuncionario.jsp");
+        view.forward(request, response);
+    } catch (ServletException e){
+        throw e;
+    } catch (IOException e){
+        throw new ServletException(e);
+        }
+    }
+    
     public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response)
            throws ClassNotFoundException, SQLException, ServletException {
         
@@ -74,28 +94,7 @@ public class ManterFuncionarioController extends HttpServlet {
         } catch (IOException e) {
             throw new ServletException(e);
         }
-   }
-    
-    public void prepararOperacao(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ClassNotFoundException, SQLException {
-    try {
-        String operacao = request.getParameter("operacao");
-        request.setAttribute("operacao", operacao);
-        request.setAttribute("estabelecimentos", Estabelecimento.obterEstabelecimentos());
-        if (!operacao.equals("Incluir")) {
-                int id = Integer.parseInt(request.getParameter("id"));
-                Funcionario obj = Funcionario.obterFuncionario(id);
-                request.setAttribute("funcionario", obj);
-            }
-        RequestDispatcher view = request.getRequestDispatcher("/cadastrarFuncionario.jsp");
-        view.forward(request, response);
-    }catch (ServletException e){
-        throw e;
-    }catch (IOException e){
-        throw new ServletException(e);
-    }
-    }
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+   }    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *

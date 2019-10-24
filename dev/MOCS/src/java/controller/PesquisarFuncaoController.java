@@ -1,8 +1,3 @@
-/**
- * Project MOCS
- * @version 0.19.10a
- * @authors Débora Lessa & Aaron Stiebler
- */
 package controller;
 
 import java.io.IOException;
@@ -13,9 +8,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Estabelecimento;
+import model.Funcao;
 
-public class PesquisarEstabelecimentoController extends HttpServlet {
+/**
+ *
+ * @author euaar
+ */
+public class PesquisarFuncaoController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,8 +28,8 @@ public class PesquisarEstabelecimentoController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            request.setAttribute("estabelecimentos", Estabelecimento.obterEstabelecimentos());
-            RequestDispatcher view = request.getRequestDispatcher("/pesquisarEstabelecimento.jsp");
+            request.setAttribute("funcoes", Funcao.obterFuncoes());
+            RequestDispatcher view = request.getRequestDispatcher("/pesquisarFuncao.jsp");
             view.forward(request, response);
         } catch (ClassNotFoundException | SQLException e){
             throw new ServletException(e);
