@@ -96,11 +96,10 @@ public class UsuarioDAO {
 
         try {
             conexao = BD.getConexao();
-            String sql = "update usuario set nome=?, dataNascimento=?, "
-                    + "email=?, telefone=?, senha=?, cpf=?, "
-                    + "where id=?";
+            comando = conexao.prepareStatement(
+            "update usuario (nome, cpf, dataNascimento, email, telefone, senha)"
+            + "values(?,?,?,?,?,?) where id =?");
             
-            comando = conexao.prepareStatement(sql);
             comando.setString(1, obj.getNome());
             comando.setString(2, obj.getDataNascimento());
             comando.setString(3, obj.getEmail());
