@@ -35,7 +35,7 @@
             </li>
             <li>Funcionários
                 <ul>
-                    <li><a href="PesquisarUsuarioController">Pesquisar</a></li>
+                    <li><a href="PesquisarFuncionarioController">Pesquisar</a></li>
                     <li><a href="ManterFuncionarioController?acao=prepararOperacao&operacao=Incluir">Cadastrar</a></li>
                 </ul>
             </li>

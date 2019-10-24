@@ -44,35 +44,6 @@ public class ManterUsuarioController extends HttpServlet {
         }
     }
     
-    public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) 
-           throws SQLException, ClassNotFoundException, ServletException {
-        
-        String operacao = request.getParameter("operacao");
-        
-        int idUsuario = Integer.parseInt(request.getParameter("txtIdUsuario"));
-        String nome = request.getParameter("txtNome");
-        String cpf = request.getParameter("txtCpf");
-        String dataNascimento = request.getParameter("txtDataNascimento");
-        String email = request.getParameter("txtEmail");
-        String telefone = request.getParameter("txtTelefone");
-        String senha = request.getParameter("txtSenha");
-        
-        try {
-            Usuario usuario = new Usuario(idUsuario, nome, cpf, dataNascimento, 
-                    email, telefone, senha);
-            if (operacao.equals("Incluir")){
-                usuario.gravar();
-            } else if (operacao.equals("Excluir")) {
-                usuario.excluir();
-            }
-            
-            RequestDispatcher view = request.getRequestDispatcher("PesquisarUsuarioController");
-                    view.forward(request, response);
-        } catch (IOException e){
-            throw new ServletException(e);
-        }
-    }
-    
     public void prepararOperacao(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
@@ -92,6 +63,37 @@ public class ManterUsuarioController extends HttpServlet {
         } catch (ClassNotFoundException e) {
             throw new ServletException(e);
         } catch (SQLException e) {
+            throw new ServletException(e);
+        }
+    }
+    
+    public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) 
+           throws SQLException, ClassNotFoundException, ServletException {
+        
+        String operacao = request.getParameter("operacao");
+        
+        int idUsuario = Integer.parseInt(request.getParameter("txtIdUsuario"));
+        String nome = request.getParameter("txtNome");
+        String cpf = request.getParameter("txtCpf");
+        String dataNascimento = request.getParameter("txtDataNascimento");
+        String email = request.getParameter("txtEmail");
+        String telefone = request.getParameter("txtTelefone");
+        String senha = request.getParameter("txtSenha");
+        
+        try {
+            Usuario usuario = new Usuario(idUsuario, nome, cpf, dataNascimento, 
+                    email, telefone, senha);
+            if (operacao.equals("Incluir")){
+                usuario.gravar();
+            } else if (operacao.equals("Editar")) {
+                usuario.editar();
+            } else if (operacao.equals("Excluir")) {
+                usuario.excluir();
+            }
+            
+            RequestDispatcher view = request.getRequestDispatcher("PesquisarUsuarioController");
+                    view.forward(request, response);
+        } catch (IOException e){
             throw new ServletException(e);
         }
     }

@@ -53,6 +53,26 @@ public class EstabelecimentoDAO {
         }
         return estabelecimentos;
     }
+    
+    public static List<Estabelecimento> obterEstabelecimentosProprietario(int idProprietario)
+    throws ClassNotFoundException, SQLException{
+        Connection conexao = null;
+        Statement comando = null;
+        List<Estabelecimento> estabelecimentos = new ArrayList<>();
+        Estabelecimento estabelecimento = null;
+        try{
+        conexao = BD.getConexao();
+        comando = conexao.createStatement();
+        ResultSet rs = comando.executeQuery("select * from estabelecimento where 'idProprietario' = " + idProprietario);
+            while (rs.next()) {
+                estabelecimento = instanciarEstabelecimento(rs);
+                estabelecimentos.add(estabelecimento);                
+            }
+        }finally{
+        fecharConexao(conexao, comando);
+        }
+        return estabelecimentos;
+    }
 
     private static Estabelecimento instanciarEstabelecimento(ResultSet rs) throws SQLException {
         Estabelecimento estabelecimento = new Estabelecimento(
@@ -84,6 +104,31 @@ public class EstabelecimentoDAO {
         }finally{
             fecharConexao(conexao, comando);
         }
+    }
+    
+    public static void editar(Estabelecimento obj) throws ClassNotFoundException, SQLException {
+        Connection conexao = null;
+        PreparedStatement comando = null;
+
+        try {
+            conexao = BD.getConexao();
+            String sql = "update estabelecimento set idProprietario=?, cnpj=?, "
+                    + "nomeFantasia=?, inscEstadual=?, telefone=?, "
+                    + "where id=?";
+            
+            comando = conexao.prepareStatement(sql);
+            comando.setInt(1, obj.getIdProprietario());
+            comando.setString(2, obj.getCnpj());
+            comando.setString(3, obj.getNomeFantasia());
+            comando.setString(4, obj.getInscEstadual());
+            comando.setString(5, obj.getTelefone());
+            comando.setInt(6, obj.getId());
+            
+            comando.execute();
+            DAO.fecharConexao(conexao, comando);
+        } catch (SQLException e) {
+            throw e;
+        }       
     }
     
     public static void excluir(Estabelecimento e) 

@@ -90,6 +90,32 @@ public class UsuarioDAO {
         }
     }
     
+    public static void editar(Usuario obj) throws ClassNotFoundException, SQLException {
+        Connection conexao = null;
+        PreparedStatement comando = null;
+
+        try {
+            conexao = BD.getConexao();
+            String sql = "update usuario set nome=?, dataNascimento=?, "
+                    + "email=?, telefone=?, senha=?, cpf=?, "
+                    + "where id=?";
+            
+            comando = conexao.prepareStatement(sql);
+            comando.setString(1, obj.getNome());
+            comando.setString(2, obj.getDataNascimento());
+            comando.setString(3, obj.getEmail());
+            comando.setString(4, obj.getTelefone());
+            comando.setString(5, obj.getSenha());
+            comando.setString(5, obj.getCpf());
+            comando.setInt(6, obj.getId());
+            
+            comando.execute();
+            DAO.fecharConexao(conexao, comando);
+        } catch (SQLException e) {
+            throw e;
+        }       
+    }
+    
     public static void excluir(Usuario usuario) 
             throws SQLException, ClassNotFoundException {
         Connection conexao = null;

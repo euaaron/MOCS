@@ -89,7 +89,9 @@ public class ManterEstabelecimentoController extends HttpServlet {
                e.gravar();
            } else if (operacao.equals("Excluir")) {
                e.excluir();
-            }
+            } else if (operacao.equals("Editar")) {
+               e.editar();
+           }
            RequestDispatcher view = request.getRequestDispatcher("PesquisarEstabelecimentoController");
            view.forward(request, response);
        } catch (IOException e) {

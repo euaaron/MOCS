@@ -67,11 +67,19 @@ public class Estabelecimento {
         return EstabelecimentoDAO.obterEstabelecimentos();
     }
     
+    public static List<Estabelecimento> obterEstabelecimentosProprietario(int idProprietario) throws ClassNotFoundException, SQLException {
+        return EstabelecimentoDAO.obterEstabelecimentosProprietario(idProprietario);
+    }   
+    
     public void gravar() throws SQLException, ClassNotFoundException {
         EstabelecimentoDAO.gravar(this);
     }
     
     public void excluir() throws ClassNotFoundException, SQLException {
         EstabelecimentoDAO.excluir(this);
+    }
+    
+    public void editar() throws ClassNotFoundException, SQLException {
+        EstabelecimentoDAO.editar(this);
     }
 }

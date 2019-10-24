@@ -102,6 +102,10 @@ public class Usuario {
         UsuarioDAO.gravar(this);
     }
     
+    public void editar() throws SQLException, ClassNotFoundException {
+        UsuarioDAO.editar(this);
+    }
+    
     public void excluir() throws ClassNotFoundException, SQLException {
         UsuarioDAO.excluir(this);
     }
