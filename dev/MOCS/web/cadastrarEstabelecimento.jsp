@@ -15,7 +15,7 @@
     </head>
     <body>
         <h1>Estabelecimento - ${operacao}</h1>
-        <form action="ManterEstabelecimentoController?acao=ConfirmarOperacao&operacao=${operacao}" name="frmManterEstabelecimento" method="post">
+        <form action="ManterEstabelecimentoController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterEstabelecimento" method="post">
         <table>
                 <tr>
                     <td><label for="id">Id:</label></td>
