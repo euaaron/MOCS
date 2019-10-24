@@ -70,7 +70,7 @@ public class ComandaDAO {
         try {
             conexao = BD.getConexao();
             comando = conexao.prepareStatement(
-                    "insert into comanda (id, data, hora, usuario_id)"
+                    "insert into comanda (id, data, hora, idCliente)"
                     + " values (?,?,?,?)"
             );
             comando.setInt(1, comanda.getId());

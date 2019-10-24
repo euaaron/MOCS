@@ -45,10 +45,10 @@
                     <li><a href="ManterProprietarioController?acao=prepararOperacao&operacao=Incluir">Cadastrar</a></li>
                 </ul>
             </li>
-            <li>Pedidos
+            <li>Comandas
                 <ul>
-                    <li><a href="PesquisarPedidoController">Pesquisar</a></li>
-                    <li><a href="ManterPedidoController?acao=prepararOperacao&operacao=Incluir">Cadastrar</a></li>
+                    <li><a href="PesquisarComandaController">Pesquisar</a></li>
+                    <li><a href="ManterComandaController?acao=prepararOperacao&operacao=Incluir">Cadastrar</a></li>
                 </ul>
             </li>
             <li>Pratos

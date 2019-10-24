@@ -35,6 +35,9 @@
                     <td>
                         <a href="ManterComandaController?acao=prepararOperacao&operacao=Excluir&id=<c:out value="${comanda.id}" />" > Excluir</a>
                     </td>
+                    <td>
+                        <a href="ManterPedidoController?acao=prepararOperacao&operacao=Incluir&id=<c:out value="${comanda.id}" />" > Editar</a>
+                    </td>
                 </tr>
             </c:forEach>
         </table>
