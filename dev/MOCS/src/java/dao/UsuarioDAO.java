@@ -97,7 +97,7 @@ public class UsuarioDAO {
         try {
             conexao = BD.getConexao();
             comando = conexao.prepareStatement(
-            "update usuario (nome, cpf, dataNascimento, email, telefone, senha)"
+            "update table usuario (nome, cpf, dataNascimento, email, telefone, senha)"
             + "values(?,?,?,?,?,?) where id =?");
             
             comando.setString(1, obj.getNome());
@@ -108,8 +108,8 @@ public class UsuarioDAO {
             comando.setString(5, obj.getCpf());
             comando.setInt(6, obj.getId());
             
-            comando.execute();
-            DAO.fecharConexao(conexao, comando);
+            comando.executeUpdate();
+            fecharConexao(conexao, comando);
         } catch (SQLException e) {
             throw e;
         }       

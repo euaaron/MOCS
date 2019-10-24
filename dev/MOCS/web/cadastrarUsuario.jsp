@@ -11,7 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastro de Usuario</title>
+        <title>Cadastro de Usuário</title>
     </head>
     <body>
         <div>

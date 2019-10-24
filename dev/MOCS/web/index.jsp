@@ -21,16 +21,22 @@
             <li><a href="#">Index Admin</a></li>
         </ul>         
         <ul>
+            <li>Usuários
+                <ul>
+                    <li><a href="PesquisarUsuarioController">Pesquisar</a></li>
+                    <li><a href="ManterUsuarioController?acao=prepararOperacao&operacao=Incluir">Cadastrar</a></li>
+                </ul>
+            </li>
             <li>Estabelecimentos
                 <ul>
                     <li><a href="PesquisarEstabelecimentoController">Pesquisar</a></li>
                     <li><a href="ManterEstabelecimentoController?acao=prepararOperacao&operacao=Incluir">Cadastrar</a></li>
                 </ul>
             </li>
-            <li>Usuários
+            <li>Funcões
                 <ul>
-                    <li><a href="PesquisarUsuarioController">Pesquisar</a></li>
-                    <li><a href="ManterUsuarioController?acao=prepararOperacao&operacao=Incluir">Cadastrar</a></li>
+                    <li><a href="PesquisarFuncaoController">Pesquisar</a></li>
+                    <li><a href="ManterFuncaoController?acao=prepararOperacao&operacao=Incluir">Cadastrar</a></li>
                 </ul>
             </li>
             <li>Funcionários
@@ -41,7 +47,7 @@
             </li>
             <li>Proprietarios
                 <ul>
-                    <li><a href="PesquisarUsuarioController">Pesquisar</a></li>
+                    <li><a href="PesquisarProprietarioController">Pesquisar</a></li>
                     <li><a href="ManterProprietarioController?acao=prepararOperacao&operacao=Incluir">Cadastrar</a></li>
                 </ul>
             </li>

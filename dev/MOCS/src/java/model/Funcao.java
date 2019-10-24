@@ -7,6 +7,7 @@ package model;
 
 import java.sql.SQLException;
 import java.util.List;
+import dao.FuncaoDAO;
 
 public class Funcao {
     private int id;
@@ -36,10 +37,10 @@ public class Funcao {
     public int getNivelPermissao() { return nivelPermissao; }
     
     // Métodos de comunicação com a camada DAO (Banco de dados)
-    public static Funcao obterFuncao (int idFuncao) 
+    public static Funcao obterFuncao (int id) 
     throws ClassNotFoundException, SQLException  
     {
-        return FuncaoDAO.obterFuncao(idFuncao);
+        return FuncaoDAO.obterFuncao(id);
     }
     
     public static List<Funcao> obterFuncoes() throws ClassNotFoundException, 

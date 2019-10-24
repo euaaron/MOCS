@@ -45,8 +45,8 @@ public class ManterFuncaoController extends HttpServlet {
             String operacao = request.getParameter("operacao");
             request.setAttribute("operacao", operacao);
             if (!operacao.equals("Incluir")) {
-                int idFuncao = Integer.parseInt(request.getParameter("id"));
-                Funcao funcao = Funcao.obterFuncao(idFuncao);
+                int id = Integer.parseInt(request.getParameter("id"));
+                Funcao funcao = Funcao.obterFuncao(id);
                 request.setAttribute("funcao", funcao);
             }
             RequestDispatcher view = request.getRequestDispatcher("/cadastrarFuncao.jsp");
@@ -67,14 +67,14 @@ public class ManterFuncaoController extends HttpServlet {
         
         String operacao = request.getParameter("operacao");
         
-        int idFuncao = Integer.parseInt(request.getParameter("txtIdFuncao"));
+        int id = Integer.parseInt(request.getParameter("txtIdFuncao"));
         int idEstabelecimento = Integer.parseInt(request.getParameter("txtIdEstabelecimento"));
         String nome = request.getParameter("txtNome");
         String descricao = request.getParameter("txtDescricao");
         int nivelPermissao = Integer.parseInt(request.getParameter("txtNivelPermissao"));
         
         try {
-            Funcao funcao = new Funcao(idFuncao, idEstabelecimento, nome, descricao, nivelPermissao);
+            Funcao funcao = new Funcao(id, idEstabelecimento, nome, descricao, nivelPermissao);
             if (operacao.equals("Incluir")){
                 funcao.gravar();
             } else if (operacao.equals("Editar")) {
