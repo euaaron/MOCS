@@ -58,8 +58,8 @@ public class ComandaDAO {
             rs.getInt("id"),
             rs.getString("dataComanda"),
             rs.getString("horaComanda"),
-            null);
-        comanda.setId(rs.getInt("id"));
+            null
+        );
         comanda.setId(rs.getInt("idCliente"));
         return comanda;
     }

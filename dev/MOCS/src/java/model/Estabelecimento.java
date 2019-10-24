@@ -20,10 +20,10 @@ public class Estabelecimento {
     private String nomeFantasia;
     private String inscEstadual;
 
-    public Estabelecimento (int id, int idProprietario, String cnpj, String nomeFantasia,
-        String inscEstadual, String telefone){
+    public Estabelecimento (int id, String cnpj, String nomeFantasia,
+        String inscEstadual, String telefone, Usuario proprietario){
         this.id = id;
-        this.idProprietario = idProprietario;
+        this.proprietario = proprietario;
         this.cnpj = cnpj;
         this.nomeFantasia = nomeFantasia;
         this.telefone = telefone;

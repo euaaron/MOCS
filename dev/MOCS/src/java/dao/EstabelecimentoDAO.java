@@ -77,12 +77,13 @@ public class EstabelecimentoDAO {
     private static Estabelecimento instanciarEstabelecimento(ResultSet rs) throws SQLException {
         Estabelecimento estabelecimento = new Estabelecimento(
             rs.getInt("id"),
-            rs.getInt("idProprietario"),
             rs.getString("cnpj"),
             rs.getString("nomeFantasia"),
             rs.getString("inscEstadual"),
-            rs.getString("telefone")                
+            rs.getString("telefone"),
+            null
         );
+        estabelecimento.setId(rs.getInt("idProprietario"));
         return estabelecimento;
     }
     public static void gravar(Estabelecimento estabelecimento) throws SQLException, ClassNotFoundException{

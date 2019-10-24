@@ -22,7 +22,7 @@ public class Comanda {
         this.dataComanda = dataComanda;       // O Marco pediu para não trabalharmos com
         this.horaComanda = horaComanda;       // data e hora no momento... apenas com
         this.listaPedidos = new ArrayList<>();// atributos básicos, como int, string e float.
-        this.idCliente = cliente.getId();
+        this.cliente = cliente;
         this.id = id;
     } 
 
