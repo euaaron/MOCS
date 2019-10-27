@@ -84,7 +84,7 @@ public class ManterEstabelecimentoController extends HttpServlet {
                proprietario = Usuario.obterUsuario(idProprietario);
            }
            Estabelecimento e = new Estabelecimento(id, cnpj,nomeFantasia,
-           inscEstadual, telefone, proprietario);
+           inscEstadual, telefone, idProprietario);
            if (operacao.equals("Incluir")) {
                e.gravar();
            } else if (operacao.equals("Excluir")) {

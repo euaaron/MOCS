@@ -9,11 +9,13 @@ import dao.EstabelecimentoDAO;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Estabelecimento {
     private int id;
     private int idProprietario;
-    private Usuario proprietario = null;
+    private Usuario proprietario;
     private ArrayList<Prato> cardapio = new ArrayList<>();
     private String cnpj;
     private String telefone;
@@ -21,9 +23,10 @@ public class Estabelecimento {
     private String inscEstadual;
 
     public Estabelecimento (int id, String cnpj, String nomeFantasia,
-        String inscEstadual, String telefone, Usuario proprietario){
+        String inscEstadual, String telefone, int idProprietario) throws ClassNotFoundException, SQLException{
         this.id = id;
-        this.proprietario = proprietario;
+        this.idProprietario = idProprietario;        
+        this.proprietario = getProprietario();
         this.cnpj = cnpj;
         this.nomeFantasia = nomeFantasia;
         this.telefone = telefone;
@@ -31,7 +34,6 @@ public class Estabelecimento {
     }
 
 // Métodos de inserção (Modificação)
-
     public void setId(int id) { this.id = id; }
     public void setProprietario(Usuario proprietario) { this.proprietario = proprietario; }
     public void setIdProprietario(int idProprietario) { this.idProprietario = idProprietario; }
@@ -39,9 +41,7 @@ public class Estabelecimento {
     public void setNomeFantasia(String nomeFantasia) { this.nomeFantasia = nomeFantasia; }
     public void setInscEstadual(String inscEstadual) { this.inscEstadual = inscEstadual; }
     public void setTelefone(String telefone) { this.telefone = telefone; }
-    public void setCardapio(ArrayList<Prato> cardapio) { this.cardapio = cardapio;}
-    
-    
+    public void setCardapio(ArrayList<Prato> cardapio) { this.cardapio = cardapio;}    
 
 // Métodos de Recuperação (Leitura)    
     public int getId() { return id; }
@@ -69,7 +69,7 @@ public class Estabelecimento {
     
     public static List<Estabelecimento> obterEstabelecimentosProprietario(int idProprietario) throws ClassNotFoundException, SQLException {
         return EstabelecimentoDAO.obterEstabelecimentosProprietario(idProprietario);
-    }   
+    }
     
     public void gravar() throws SQLException, ClassNotFoundException {
         EstabelecimentoDAO.gravar(this);

@@ -42,7 +42,9 @@ public class EstabelecimentoDAO {
         try{
         conexao = BD.getConexao();
         comando = conexao.createStatement();
-        ResultSet rs = comando.executeQuery("select * from estabelecimento");
+        ResultSet rs = comando.executeQuery(
+                "select * from estabelecimento ORDER BY id asc"
+        );
             while (rs.next()) {
                 estabelecimento = instanciarEstabelecimento(rs);
                 estabelecimentos.add(estabelecimento);                
@@ -62,7 +64,10 @@ public class EstabelecimentoDAO {
         try{
         conexao = BD.getConexao();
         comando = conexao.createStatement();
-        ResultSet rs = comando.executeQuery("select * from estabelecimento where 'idProprietario' = " + idProprietario);
+        ResultSet rs = comando.executeQuery(
+                "select * from estabelecimento where 'idProprietario' = " 
+                + idProprietario
+        );
             while (rs.next()) {
                 estabelecimento = instanciarEstabelecimento(rs);
                 estabelecimentos.add(estabelecimento);                
@@ -73,16 +78,16 @@ public class EstabelecimentoDAO {
         return estabelecimentos;
     }
 
-    private static Estabelecimento instanciarEstabelecimento(ResultSet rs) throws SQLException {
+    private static Estabelecimento instanciarEstabelecimento(ResultSet rs) 
+            throws SQLException, ClassNotFoundException {
         Estabelecimento estabelecimento = new Estabelecimento(
             rs.getInt("id"),
             rs.getString("cnpj"),
             rs.getString("nomeFantasia"),
             rs.getString("inscEstadual"),
             rs.getString("telefone"),
-            null
+            rs.getInt("idProprietario")
         );
-        estabelecimento.setId(rs.getInt("idProprietario"));
         return estabelecimento;
     }
     public static void gravar(Estabelecimento estabelecimento) throws SQLException, ClassNotFoundException{

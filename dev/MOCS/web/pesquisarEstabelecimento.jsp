@@ -1,4 +1,4 @@
-<%-- 
+ <%-- 
     Document   : pesquisaEstabelecimento
     Created on : 19/09/2019, 09:13:42
     Author     : Débora Lessa & Aaron Stiebler
@@ -31,7 +31,7 @@
         <tr>
             <td><c:out value="${estabelecimento.id}"/></td>
             <td><c:out value="${estabelecimento.nomeFantasia}"/></td>
-            <td><c:out value="${estabelecimento.proprietario.getNome()}"/></td>
+            <td><c:out value="${estabelecimento.getProprietario().getNome()}"/></td>
             <td>
                 <a href="ManterEstabelecimentoController?acao=prepararOperacao&operacao=Editar&id=<c:out value="${estabelecimento.id}" />" > Editar</a>
             </td>
