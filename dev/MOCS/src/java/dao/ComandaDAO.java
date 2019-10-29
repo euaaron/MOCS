@@ -83,6 +83,24 @@ public class ComandaDAO {
         }
     }
     
+    public static void editar(Comanda comanda) throws ClassNotFoundException, SQLException {
+        Connection conexao = null;
+        PreparedStatement comando = null;
+        try {
+            conexao = BD.getConexao();
+            comando = conexao.prepareStatement(
+                    "update comanda set data = ?, hora = ?, idCliente = ? where id = ?)"
+            );
+            comando.setString(1, comanda.getDataComanda());
+            comando.setString(2, comanda.getHoraComanda());
+            comando.setInt(3, comanda.getIdCliente());
+            comando.setInt(4, comanda.getId());
+            comando.executeUpdate();
+        } finally {
+        fecharConexao(conexao, comando);
+        }
+    }
+    
     public static void excluir(Comanda e) 
             throws SQLException, ClassNotFoundException {
         Connection conexao = null;
