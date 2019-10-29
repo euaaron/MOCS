@@ -106,8 +106,8 @@ public class FuncaoDAO {
         try {
             conexao = BD.getConexao();
             comando = conexao.prepareStatement(
-            "update funcao set nome = ?, descricao = ?, nivelPermissao = ?"
-            + "where id =? and idEstabelecimento=?");
+            "UPDATE funcao SET nome = ?, descricao = ?, nivelPermissao = ?"
+            + " WHERE id = ? AND idEstabelecimento = ?");
             
             comando.setString(1, obj.getNome());
             comando.setString(2, obj.getDescricao());

@@ -75,7 +75,7 @@ public class UsuarioDAO {
         try {
             conexao = BD.getConexao();
             comando = conexao.prepareStatement(
-            "insert into usuario (id, nome, cpf, dataNascimento, email, telefone, senha)"
+              "insert into usuario (id, nome, cpf, dataNascimento, email, telefone, senha)"
             + "values(?,?,?,?,?,?,?)");
             comando.setInt(1, usuario.getId());
             comando.setString(2, usuario.getNome());
@@ -97,7 +97,7 @@ public class UsuarioDAO {
         try {
             conexao = BD.getConexao();
             comando = conexao.prepareStatement(
-            "update usuario set nome = ?, dataNascimento = ?, email = ?, telefone = ?, senha = ?, cpf = ?"
+              "update usuario set nome = ?, dataNascimento = ?, email = ?, telefone = ?, senha = ?, cpf = ?"
             + " where id = ?");
             
             comando.setString(1, obj.getNome());

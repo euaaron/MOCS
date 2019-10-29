@@ -111,7 +111,7 @@ public class ProprietarioDAO {
         try {
             conexao = BD.getConexao();
             comando = conexao.prepareStatement(
-            "update usuario set nome = ?, dataNascimento = ?, email = ?, telefone = ?, senha = ?, cpf =?"
+            "update usuario set nome = ?, dataNascimento = ?, email = ?, telefone = ?, senha = ?, cpf = ?"
             + " where id = ?");
             comando.setString(1, proprietario.getNome());
             comando.setString(2, proprietario.getDataNascimento());
@@ -123,7 +123,7 @@ public class ProprietarioDAO {
             comando.executeUpdate();
             
             comando = conexao.prepareStatement(
-            "update proprietario set id = ?, nome = ?, dataNascimento = ?, email = ?, telefone = ?, senha = ?, cpf =?"
+            "update proprietario set id = ?, nome = ?, dataNascimento = ?, email = ?, telefone = ?, senha = ?, cpf = ?"
             + " where id = ?");
             
             comando.setString(1, proprietario.getNome());

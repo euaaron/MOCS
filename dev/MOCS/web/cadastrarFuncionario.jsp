@@ -26,9 +26,13 @@
                             <td><input type="text" name="txtIdEstabelecimento" id="idEstabelecimento" value="${funcionario.idEstabelecimento}"/></td>
                         </tr>
                         <tr>
-                            <td><label for="id">Id:</label></td>
+                            <td><label for="idFuncionario">Id:</label></td>
                             <td><input type="text" name="txtIdFuncionario" id="idFuncionario" value="${funcionario.id}"/></td>
                         </tr>
+                        <tr>
+                            <td><label for="status">Status da Conta:</label></td>
+                            <td><input type="text" name="txtStatusConta" id="statusConta" value="${funcionario.statusConta}"/></td>
+                        </tr>                        
                         <tr>
                             <td><label for="nome">Nome:</label></td>
                             <td><input type="text" name="txtNome" id="nome" value="${funcionario.nome}"/></td>

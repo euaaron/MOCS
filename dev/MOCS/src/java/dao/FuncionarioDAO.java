@@ -56,7 +56,7 @@ public class FuncionarioDAO {
     
     public static Funcionario instanciarFuncionario (ResultSet rs) throws SQLException, ClassNotFoundException {
         Funcionario funcionario = new Funcionario(
-            rs.getInt("idUsuario"),
+            rs.getInt("id"),
             rs.getString("nome"), 
             rs.getString("dataNascimento"),
             rs.getString("email"),
@@ -77,7 +77,7 @@ public class FuncionarioDAO {
             conexao = BD.getConexao();
             comando = conexao.prepareStatement(
               "insert into usuario (id, nome, dataNascimento, email, telefone, senha, cpf)"
-            + "values (?,?,?,?,?,?,?)");
+            + " values (?,?,?,?,?,?,?)");
             comando.setInt(1, funcionario.getId());
             comando.setString(2, funcionario.getNome());
             comando.setString(3, funcionario.getDataNascimento());
@@ -86,10 +86,15 @@ public class FuncionarioDAO {
             comando.setString(6, funcionario.getSenha());
             comando.setString(7, funcionario.getCpf());
             comando.executeUpdate();
-            
+            }finally{
+            fecharConexao(conexao, comando);
+        }
+        try {
+            conexao = BD.getConexao();            
             comando = conexao.prepareStatement(
-              "insert into funcionario (id, nome, dataNascimento, email, telefone, senha, cpf, statusConta, idEstabelecimento, idFuncao)"
-            + "values (?,?,?,?,?,?,?,?,?,?)");
+              "insert into funcionario (id, nome, dataNascimento, email, telefone,"
+            + " senha, cpf, statusConta, idEstabelecimento, idFuncao)"
+            + " values (?,?,?,?,?,?,?,?,?,?)");
             comando.setInt(1, funcionario.getId());
             comando.setString(2, funcionario.getNome());
             comando.setString(3, funcionario.getDataNascimento());

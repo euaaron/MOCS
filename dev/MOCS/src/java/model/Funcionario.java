@@ -32,7 +32,7 @@ public class Funcionario extends Usuario {
     public void setStatusConta(int statusConta) { this.statusConta = statusConta; }
     //public void setFuncao(Funcao funcao){ this.funcao = funcao; }
     public void setIdEstabelecimento(int idEstabelecimento){ this.idEstabelecimento = idEstabelecimento; }
-    public void setIdFuncao(int idFucao){ this.idFuncao = idFuncao; }
+    public void setIdFuncao(int idFuncao){ this.idFuncao = idFuncao; }
     
 // Métodos de Recuperação (Leitura) 
     public int getStatusConta() { return statusConta; }
