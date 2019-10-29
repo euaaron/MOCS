@@ -88,12 +88,31 @@ public class PedidoDAO {
         PreparedStatement comando = null;
         try {
             conexao = BD.getConexao();
-            comando = conexao.prepareStatement("insert into pedido (id, prato_id, quantidade, comanda_id)"
+            comando = conexao.prepareStatement("insert into pedido (id, idPrato, quantidade, idComanda)"
             + "values(?,?,?,?)");
             comando.setInt(1, pedido.getId());
             comando.setInt(2, pedido.getIdPrato());
             comando.setInt(3, pedido.getQuantidade());
             comando.setInt(4, pedido.getIdComanda());
+            comando.executeUpdate();
+        } finally {
+            fecharConexao(conexao, comando);
+        }
+    }
+    
+    public static void editar(Pedido pedido) throws SQLException, ClassNotFoundException{
+        Connection conexao = null;
+        PreparedStatement comando = null;
+        try {
+            conexao = BD.getConexao();
+            comando = conexao.prepareStatement(
+                "update set pedido idPrato = ?, quantidade = ?, idComanda = ?"
+              + " WHERE id = ?");
+            
+            comando.setInt(1, pedido.getIdPrato());
+            comando.setInt(2, pedido.getQuantidade());
+            comando.setInt(3, pedido.getIdComanda());
+            comando.setInt(4, pedido.getId());
             comando.executeUpdate();
         } finally {
             fecharConexao(conexao, comando);
