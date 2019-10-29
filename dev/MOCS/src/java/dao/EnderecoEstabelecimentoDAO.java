@@ -82,6 +82,31 @@ public class EnderecoEstabelecimentoDAO {
         }
     }
     
+    public static void editar(EnderecoEstabelecimento endestabelecimento) 
+            throws ClassNotFoundException, SQLException {
+        Connection conexao = null;
+        PreparedStatement comando = null;
+        try {
+            conexao = BD.getConexao();
+            comando = conexao.prepareStatement(
+                "update endestabelecimento set cep = ?, uf = ?, cidade = ?,"
+                + " logradouro = ?, bairro = ?, numEdificio = ?, numComplemento = ?, idEstabelecimento = ? where id = ?"
+            );
+            comando.setString(1, endestabelecimento.getCep());
+            comando.setString(2, endestabelecimento.getUf());
+            comando.setString(3, endestabelecimento.getCidade());
+            comando.setString(4, endestabelecimento.getLogradouro());
+            comando.setString(5, endestabelecimento.getBairro());
+            comando.setString(6, endestabelecimento.getNumEdificio());
+            comando.setString(7, endestabelecimento.getNumComplemento());
+            comando.setInt(8, endestabelecimento.getIdEstabelecimento());
+            comando.setInt(9, endestabelecimento.getId());
+            comando.executeUpdate();
+        } finally {
+            fecharConexao(conexao, comando);
+        }
+    }
+    
     public static void excluir(EnderecoEstabelecimento e) 
             throws SQLException, ClassNotFoundException {
         Connection conexao = null;
