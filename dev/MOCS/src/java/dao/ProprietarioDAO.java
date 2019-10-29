@@ -113,26 +113,26 @@ public class ProprietarioDAO {
             comando = conexao.prepareStatement(
             "update usuario set id = ?, nome = ?, dataNascimento = ?, email = ?, telefone = ?, senha = ?, cpf =?"
             + " where id = ?");
-            comando.setString(2, proprietario.getNome());
-            comando.setString(3, proprietario.getDataNascimento());
-            comando.setString(4, proprietario.getEmail());
-            comando.setString(5, proprietario.getTelefone());
-            comando.setString(6, proprietario.getSenha());
-            comando.setString(7, proprietario.getCpf());
-            comando.setInt(1, proprietario.getId());
+            comando.setString(1, proprietario.getNome());
+            comando.setString(2, proprietario.getDataNascimento());
+            comando.setString(3, proprietario.getEmail());
+            comando.setString(4, proprietario.getTelefone());
+            comando.setString(5, proprietario.getSenha());
+            comando.setString(6, proprietario.getCpf());
+            comando.setInt(7, proprietario.getId());
             comando.executeUpdate();
             
             comando = conexao.prepareStatement(
             "update proprietario set id = ?, nome = ?, dataNascimento = ?, email = ?, telefone = ?, senha = ?, cpf =?"
             + " where id = ?");
             
-            comando.setString(2, proprietario.getNome());
-            comando.setString(3, proprietario.getDataNascimento());
-            comando.setString(4, proprietario.getEmail());
-            comando.setString(5, proprietario.getTelefone());
-            comando.setString(6, proprietario.getSenha());
-            comando.setString(7, proprietario.getCpf());
-            comando.setInt(1, proprietario.getId());
+            comando.setString(1, proprietario.getNome());
+            comando.setString(2, proprietario.getDataNascimento());
+            comando.setString(3, proprietario.getEmail());
+            comando.setString(4, proprietario.getTelefone());
+            comando.setString(5, proprietario.getSenha());
+            comando.setString(6, proprietario.getCpf());
+            comando.setInt(7, proprietario.getId());
             comando.executeUpdate();
         }finally{
             fecharConexao(conexao, comando);

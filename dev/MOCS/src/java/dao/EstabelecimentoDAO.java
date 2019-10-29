@@ -117,8 +117,9 @@ public class EstabelecimentoDAO {
 
         try {
             conexao = BD.getConexao();
-            String sql =  "update estabelecimento (idProprietario, cnpj, nomeFantasia, inscEstadual, telefone)" 
-            + "values (?,?,?,?,?,?) where id=?";
+            String sql =  
+                    "update estabelecimento set idProprietario = ?, cnpj = ?, nomeFantasia = ?,"
+                  + "inscEstadual = ?, telefone = ? WHERE id = ?";
             
             comando = conexao.prepareStatement(sql);
             comando.setInt(1, obj.getIdProprietario());

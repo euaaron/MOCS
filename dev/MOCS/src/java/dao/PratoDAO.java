@@ -82,6 +82,28 @@ public class PratoDAO {
         }
     }
     
+    public static void editar(Prato prato) throws SQLException, ClassNotFoundException{
+        Connection conexao = null;
+        PreparedStatement comando = null;
+        try {
+            conexao = BD.getConexao();
+            comando = conexao.prepareStatement(
+              "update prato set nome = ?, descricao = ?, dataCriacao = ?, "
+            + "funcionario_id = ?, estabelecimento_id = ? "
+            + "WHERE id = ?");
+            
+            comando.setString(1, prato.getNome());
+            comando.setString(2, prato.getDescricao());
+            comando.setString(3, prato.getDataCriacao());
+            comando.setInt(4, prato.getIdFuncionario());
+            comando.setInt(5, prato.getIdEstabelecimento());
+            comando.setInt(6, prato.getId());
+            comando.executeUpdate();
+        } finally {
+            fecharConexao(conexao, comando);
+        }
+    }
+    
     public static void excluir(Prato prato) 
             throws SQLException, ClassNotFoundException {
         Connection conexao = null;

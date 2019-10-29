@@ -110,8 +110,8 @@ public class FuncionarioDAO {
 
         try {
             comando = conexao.prepareStatement(
-            "update table usuario (nome, dataNascimento, email, telefone, senha, cpf)"
-            + "values (?,?,?,?,?,?) WHERE id = ?");
+              "update usuario set nome = ?, dataNascimento = ?, email = ?,"
+            + " telefone = ?, senha = ?, cpf =? WHERE id = ?");
             
             comando.setString(1, obj.getNome());
             comando.setString(2, obj.getDataNascimento());
@@ -124,9 +124,9 @@ public class FuncionarioDAO {
             
             conexao = BD.getConexao();
             comando = conexao.prepareStatement(
-            "update table funcionario (nome, dataNascimento, email, telefone, "
-            + "senha, cpf, statusConta, idEstabelecimento, idFuncao)"
-            + "values (?,?,?,?,?,?,?,?,?) WHERE id = ?");
+              "update funcionario set nome = ?, dataNascimento = ?, email = ?, telefone = ?, "
+            + "senha = ?, cpf = ?, statusConta = ?, idEstabelecimento = ?, idFuncao = ?"
+            + " WHERE id = ?");
             
             comando.setString(1, obj.getNome());
             comando.setString(2, obj.getDataNascimento());
