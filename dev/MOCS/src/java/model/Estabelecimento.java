@@ -59,15 +59,18 @@ public class Estabelecimento {
     public int getIdProprietario() { return idProprietario; }
     
 // Métodos de comunicação com a camada DAO (Banco de dados)
-    public static Estabelecimento obterEstabelecimento(int idEstabelecimento) throws ClassNotFoundException, SQLException {
+    public static Estabelecimento obterEstabelecimento(int idEstabelecimento) 
+            throws ClassNotFoundException, SQLException {
         return EstabelecimentoDAO.obterEstabelecimento(idEstabelecimento);
     }
     
-    public static List<Estabelecimento> obterEstabelecimentos() throws ClassNotFoundException, SQLException {
+    public static List<Estabelecimento> obterEstabelecimentos() 
+            throws ClassNotFoundException, SQLException {
         return EstabelecimentoDAO.obterEstabelecimentos();
     }
     
-    public static List<Estabelecimento> obterEstabelecimentosProprietario(int idProprietario) throws ClassNotFoundException, SQLException {
+    public static List<Estabelecimento> obterEstabelecimentosProprietario(int idProprietario) 
+            throws ClassNotFoundException, SQLException {
         return EstabelecimentoDAO.obterEstabelecimentosProprietario(idProprietario);
     }
     

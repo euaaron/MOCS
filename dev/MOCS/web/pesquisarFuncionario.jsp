@@ -32,7 +32,7 @@
                 <tr>
                     <td><c:out value="${funcionario.id}"/></td>
                     <td><c:out value="${funcionario.nome}"/></td>
-                    <td><c:out value="${funcionario.cpf}"/></td>
+                    <td><c:out value="${funcionario.getFuncao().getNome()}"/></td>
                     <td><c:out value="${funcionario.statusConta}"/></td>
                     <td>
                         <a href="ManterFuncionarioController?acao=prepararOperacao&operacao=Editar&id=<c:out value="${funcionario.id}" />" > Editar</a>

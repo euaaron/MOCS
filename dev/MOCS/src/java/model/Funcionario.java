@@ -11,18 +11,21 @@ import java.util.List;
 
 public class Funcionario extends Usuario {
     private int statusConta;
-    private Estabelecimento estabelecimento = null;
+    private Estabelecimento estabelecimento;
     private int idEstabelecimento;
+    private Funcao funcao;
     private int idFuncao;
     
     public Funcionario(int idUsuario, String nome, String dataNascimento,
            String email, String telefone, String senha, String cpf, int statusConta,
-           int idEstabelecimento, int idFuncao)
+           int idEstabelecimento, int idFuncao) throws ClassNotFoundException, SQLException
     {
         super(idUsuario, nome, dataNascimento,email,telefone, senha, cpf);
         this.idEstabelecimento = idEstabelecimento;
         this.statusConta = statusConta;
         this.idFuncao = idFuncao;
+        this.estabelecimento = getEstabelecimento();
+        this.funcao = getFuncao();
     }    
     
 // Métodos de inserção (Modificação)
@@ -41,6 +44,12 @@ public class Funcionario extends Usuario {
             this.estabelecimento = Estabelecimento.obterEstabelecimento(this.idEstabelecimento);
         }
         return this.estabelecimento;
+    }
+    public Funcao getFuncao() throws ClassNotFoundException, SQLException {
+        if ((this.idFuncao != 0) && (this.funcao == null)) {
+            this.funcao = Funcao.obterFuncao(this.idFuncao);
+        }
+        return this.funcao;
     }
     
     public static Funcionario obterFuncionario(int idUsuario) throws ClassNotFoundException, SQLException {

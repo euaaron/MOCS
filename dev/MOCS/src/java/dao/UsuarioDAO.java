@@ -60,11 +60,11 @@ public class UsuarioDAO {
         Usuario usuario = new Usuario(
                 rs.getInt("id"),
                 rs.getString("nome"),
-                rs.getString("cpf"),
                 rs.getString("dataNascimento"),
                 rs.getString("email"),
                 rs.getString("telefone"),
-                rs.getString("senha")
+                rs.getString("senha"),
+                rs.getString("cpf")
         );        
         return usuario;
     }
@@ -97,16 +97,16 @@ public class UsuarioDAO {
         try {
             conexao = BD.getConexao();
             comando = conexao.prepareStatement(
-            "update table usuario (nome, cpf, dataNascimento, email, telefone, senha)"
-            + "values(?,?,?,?,?,?) where id =?");
+            "update usuario set nome = ?, dataNascimento = ?, email = ?, telefone = ?, senha = ?, cpf = ?"
+            + " where id = ?");
             
             comando.setString(1, obj.getNome());
             comando.setString(2, obj.getDataNascimento());
             comando.setString(3, obj.getEmail());
             comando.setString(4, obj.getTelefone());
             comando.setString(5, obj.getSenha());
-            comando.setString(5, obj.getCpf());
-            comando.setInt(6, obj.getId());
+            comando.setString(6, obj.getCpf());
+            comando.setInt(7, obj.getId());
             
             comando.executeUpdate();
             fecharConexao(conexao, comando);

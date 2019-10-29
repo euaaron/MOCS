@@ -20,8 +20,8 @@ public class Usuario {
     private Endereco endereco = null;
     private int idEndereco;
     
-    public Usuario(int id, String nome, String cpf, String dataNascimento,
-            String email, String telefone, String senha) {
+    public Usuario(int id, String nome, String dataNascimento,
+            String email, String telefone, String senha, String cpf) {
         this.id = id;
         this.nome = nome;
         this.dataNascimento = dataNascimento;

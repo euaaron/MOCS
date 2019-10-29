@@ -105,6 +105,40 @@ public class ProprietarioDAO {
         }
     }
     
+    public static void editar(Proprietario proprietario) throws SQLException,ClassNotFoundException{
+        Connection conexao = null;
+        PreparedStatement comando = null;
+        try {
+            conexao = BD.getConexao();
+            comando = conexao.prepareStatement(
+            "update usuario set id = ?, nome = ?, dataNascimento = ?, email = ?, telefone = ?, senha = ?, cpf =?"
+            + " where id = ?");
+            comando.setString(2, proprietario.getNome());
+            comando.setString(3, proprietario.getDataNascimento());
+            comando.setString(4, proprietario.getEmail());
+            comando.setString(5, proprietario.getTelefone());
+            comando.setString(6, proprietario.getSenha());
+            comando.setString(7, proprietario.getCpf());
+            comando.setInt(1, proprietario.getId());
+            comando.executeUpdate();
+            
+            comando = conexao.prepareStatement(
+            "update proprietario set id = ?, nome = ?, dataNascimento = ?, email = ?, telefone = ?, senha = ?, cpf =?"
+            + " where id = ?");
+            
+            comando.setString(2, proprietario.getNome());
+            comando.setString(3, proprietario.getDataNascimento());
+            comando.setString(4, proprietario.getEmail());
+            comando.setString(5, proprietario.getTelefone());
+            comando.setString(6, proprietario.getSenha());
+            comando.setString(7, proprietario.getCpf());
+            comando.setInt(1, proprietario.getId());
+            comando.executeUpdate();
+        }finally{
+            fecharConexao(conexao, comando);
+        }
+    }
+    
     public static void excluir(Proprietario proprietario) 
             throws SQLException, ClassNotFoundException {
         Connection conexao = null;
