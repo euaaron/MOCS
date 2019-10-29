@@ -89,7 +89,7 @@ public class PratoDAO {
             conexao = BD.getConexao();
             comando = conexao.prepareStatement(
               "update prato set nome = ?, descricao = ?, dataCriacao = ?, "
-            + "funcionario_id = ?, estabelecimento_id = ? "
+            + "idFuncionario = ?, idEstabelecimento = ? "
             + "WHERE id = ?");
             
             comando.setString(1, prato.getNome());
