@@ -106,13 +106,13 @@ public class FuncaoDAO {
         try {
             conexao = BD.getConexao();
             comando = conexao.prepareStatement(
-            "update table funcao (nome, descricao, nivelPermissao)"
-            + "values(?,?,?,?,?,?) where id =? and idEstabelecimento=?");
+            "update funcao set nome = ?, descricao = ?, nivelPermissao = ?"
+            + "where id =? and idEstabelecimento=?");
             
-            comando.setInt(1, obj.getId());
-            comando.setString(2, obj.getNome());
-            comando.setString(3, obj.getDescricao());
-            comando.setInt(4, obj.getNivelPermissao());
+            comando.setString(1, obj.getNome());
+            comando.setString(2, obj.getDescricao());
+            comando.setInt(3, obj.getNivelPermissao());
+            comando.setInt(4, obj.getId());
             comando.setInt(5, obj.getIdEstabelecimento());
             comando.executeUpdate();
             
