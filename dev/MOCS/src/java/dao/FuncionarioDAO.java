@@ -75,7 +75,8 @@ public class FuncionarioDAO {
         PreparedStatement comando = null;
         try {
             conexao = BD.getConexao();
-            comando = conexao.prepareStatement("insert into usuario (id, nome, dataNascimento, email, telefone, senha, cpf)"
+            comando = conexao.prepareStatement(
+              "insert into usuario (id, nome, dataNascimento, email, telefone, senha, cpf)"
             + "values (?,?,?,?,?,?,?)");
             comando.setInt(1, funcionario.getId());
             comando.setString(2, funcionario.getNome());
@@ -86,7 +87,8 @@ public class FuncionarioDAO {
             comando.setString(7, funcionario.getCpf());
             comando.executeUpdate();
             
-            comando = conexao.prepareStatement("insert into funcionario (id, nome, dataNascimento, email, telefone, senha, cpf, statusConta, idEstabelecimento, idFuncao)"
+            comando = conexao.prepareStatement(
+              "insert into funcionario (id, nome, dataNascimento, email, telefone, senha, cpf, statusConta, idEstabelecimento, idFuncao)"
             + "values (?,?,?,?,?,?,?,?,?,?)");
             comando.setInt(1, funcionario.getId());
             comando.setString(2, funcionario.getNome());
