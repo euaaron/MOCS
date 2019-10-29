@@ -89,7 +89,7 @@ public class ComandaDAO {
         try {
             conexao = BD.getConexao();
             comando = conexao.prepareStatement(
-                    "update comanda set data = ?, hora = ?, idCliente = ? where id = ?)"
+                    "update comanda set data = ?, hora = ?, idCliente = ? where id = ?"
             );
             comando.setString(1, comanda.getDataComanda());
             comando.setString(2, comanda.getHoraComanda());
