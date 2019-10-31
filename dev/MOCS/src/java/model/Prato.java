@@ -60,4 +60,8 @@ public class Prato {
     public void excluir() throws ClassNotFoundException, SQLException {
         PratoDAO.excluir(this);
     }
+    
+    public void editar() throws ClassNotFoundException, SQLException {
+        PratoDAO.editar(this);
+    }
 }

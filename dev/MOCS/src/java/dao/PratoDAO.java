@@ -70,7 +70,7 @@ public class PratoDAO {
             conexao = BD.getConexao();
             comando = conexao.prepareStatement(
               "insert into prato (id, nome, descricao,"
-            + "dataCriacao, funcionario_id, estabelecimento_id) "
+            + "dataCriacao, idFuncionario, idEstabelecimento) "
             + "values (?,?,?,?,?,?)");
             comando.setInt(1, prato.getId());
             comando.setString(2, prato.getNome());

@@ -36,7 +36,7 @@
                         </tr>
                         <tr>
                             <td><label for="idFuncionario">Id do Funcionario:</label></td>
-                            <td><input type="text" name="txtIdFuncionario" id="idFuncionario" value="${prato.IdFuncionario}"/></td>
+                            <td><input type="text" name="txtIdFuncionario" id="idFuncionario" value="${prato.idFuncionario}"/></td>
                         </tr>
                         <tr>
                             <td><label for="idEstabelecimento">Id do Estabelecimento:</label></td>

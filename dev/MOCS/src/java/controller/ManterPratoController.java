@@ -51,7 +51,7 @@ public class ManterPratoController extends HttpServlet {
         
         String operacao = request.getParameter("operacao");
         
-        int idPrato = Integer.parseInt(request.getParameter("txtIdPrato"));
+        int idPrato = Integer.parseInt(request.getParameter("txtId"));
         int idFuncionario = Integer.parseInt(request.getParameter("txtIdFuncionario"));
         int idEstabelecimento = Integer.parseInt(request.getParameter("txtIdEstabelecimento"));
         String nome = request.getParameter("txtNome");
@@ -67,11 +67,13 @@ public class ManterPratoController extends HttpServlet {
             if(idFuncionario != 0){
                 funcionario = Funcionario.obterFuncionario(idFuncionario);
             }
-            Prato comanda = new Prato(idPrato, nome, descricao, dataCriacao, idFuncionario, idEstabelecimento);
+            Prato obj = new Prato(idPrato, nome, descricao, dataCriacao, idFuncionario, idEstabelecimento);
             if (operacao.equals("Incluir")){
-                comanda.gravar();
+                obj.gravar();
             } else if (operacao.equals("Excluir")) {
-               comanda.excluir();
+               obj.excluir();
+            } else if (operacao.equals("Editar")) {
+               obj.editar();
             }
             RequestDispatcher view = request.getRequestDispatcher("PesquisarPratoController");
                     view.forward(request, response);
