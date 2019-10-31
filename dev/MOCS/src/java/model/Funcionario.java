@@ -20,7 +20,7 @@ public class Funcionario extends Usuario {
            String email, String telefone, String senha, String cpf, int statusConta,
            int idEstabelecimento, int idFuncao) throws ClassNotFoundException, SQLException
     {
-        super(idUsuario, nome, dataNascimento,email,telefone, senha, cpf);
+        super(idUsuario, nome, dataNascimento, email, telefone, senha, cpf);
         this.idEstabelecimento = idEstabelecimento;
         this.statusConta = statusConta;
         this.idFuncao = idFuncao;

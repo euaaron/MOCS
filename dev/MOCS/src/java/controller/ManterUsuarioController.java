@@ -81,8 +81,8 @@ public class ManterUsuarioController extends HttpServlet {
         String senha = request.getParameter("txtSenha");
         
         try {
-            Usuario usuario = new Usuario(idUsuario, nome, cpf, dataNascimento, 
-                    email, telefone, senha);
+            Usuario usuario = new Usuario(idUsuario, nome, dataNascimento,
+            email, telefone, senha, cpf);
             if (operacao.equals("Incluir")){
                 usuario.gravar();
             } else if (operacao.equals("Editar")) {

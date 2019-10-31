@@ -22,28 +22,45 @@
                 <table border="1">
                     <tbody>
                         <tr>
-                            <td><label for="idEstabelecimento">Id do Estabelecimento:</label></td>
-                            <td><input type="text" name="txtIdEstabelecimento" id="idEstabelecimento" value="${funcionario.idEstabelecimento}"/></td>
+                            <td>Estabelecimento:</td>
+                            <td>
+                                <select name="txtIdEstabelecimento" <c:if test="${operacao == 'Excluir'}"> disabled</c:if>>
+                                    <option value="0" <c:if test="${funcionario.estabelecimento.id == null}"> selected</c:if>> </option>
+                                    <c:forEach items="${estabelecimentos}" var="estabelecimento">
+                                        <option value="${estabelecimento.id}" <c:if test="${funcionario.estabelecimento.id == estabelecimento.id}"> selected</c:if>${estabelecimento.nomeFantasia}</option>
+                                    </c:forEach>
+                                </select>
+                            </td>
                         </tr>
                         <tr>
                             <td><label for="idFuncionario">Id:</label></td>
-                            <td><input type="text" name="txtIdFuncionario" id="idFuncionario" value="${funcionario.id}"/></td>
+                            <td>
+                                <input type="text" name="txtIdFuncionario" id="idFuncionario" value="${funcionario.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/>
+                            </td>
                         </tr>
                         <tr>
                             <td><label for="status">Status da Conta:</label></td>
-                            <td><input type="text" name="txtStatusConta" id="statusConta" value="${funcionario.statusConta}"/></td>
+                            <td>
+                                <input type="text" name="txtStatusConta" id="statusConta" value="${funcionario.statusConta}"/>
+                            </td>
                         </tr>                        
                         <tr>
                             <td><label for="nome">Nome:</label></td>
-                            <td><input type="text" name="txtNome" id="nome" value="${funcionario.nome}"/></td>
+                            <td>
+                                <input type="text" name="txtNome" id="nome" value="${funcionario.nome}"/>
+                            </td>
                         </tr>
                         <tr>
                             <td><label for="cpf">CPF:</label></td>
-                            <td><input type="text" name="txtCpf" id="cpf" value="${funcionario.cpf}"/></td>
+                            <td>
+                                <input type="text" name="txtCpf" id="cpf" value="${funcionario.cpf}"/>
+                            </td>
                         </tr>
                         <tr>
                             <td><label for="dataNasc">Data de Nascimento:</label></td>
-                            <td><input type="text" name="txtDataNascimento" id="dataNascimento" value="${funcionario.dataNascimento}"/></td>
+                            <td>
+                                <input type="text" name="txtDataNascimento" id="dataNascimento" value="${funcionario.dataNascimento}"/>
+                            </td>
                         </tr>
                         <tr>
                             <td><label for="email">Email:</label></td>
