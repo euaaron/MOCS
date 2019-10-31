@@ -29,11 +29,11 @@
                         </tr>
                         <tr>
                             <td><label for="quantidade">Quantidade:</label></td>
-                            <td><input type="text" id="quantidade" min="0" placeholder="1" name="txtQuantidade" value="${pedido.quantidade}"/></td>
+                            <td><input type="text" name="txtQuantidade" id="quantidade" min="0" placeholder="1"  value="${pedido.quantidade}"/></td>
                         </tr>
                         <tr>
                             <td><label for="idComanda">Id Comanda:</label></td>
-                            <td><input type="text" id="idComanda" name="txtIdComanda" value="${pedido.idComanda}"/></td>
+                            <td><input type="text" name="txtIdComanda" id="idComanda"  value="${pedido.idComanda}"/></td>
                         </tr>
                         <tr>
                             <td>

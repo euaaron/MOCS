@@ -68,7 +68,9 @@ public class PratoDAO {
         PreparedStatement comando = null;
         try {
             conexao = BD.getConexao();
-            comando = conexao.prepareStatement("insert into prato (id, nome, descricao, dataCriacao, funcionario_id, estabelecimento_id)"
+            comando = conexao.prepareStatement(
+              "insert into prato (id, nome, descricao,"
+            + "dataCriacao, funcionario_id, estabelecimento_id) "
             + "values (?,?,?,?,?,?)");
             comando.setInt(1, prato.getId());
             comando.setString(2, prato.getNome());

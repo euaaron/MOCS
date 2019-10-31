@@ -47,7 +47,7 @@
                         </tr>
                         <tr>
                             <td><label for="email">Email:</label></td>
-                            <td><input type="text" id="email" placeholder="exemplo@email.com" value="${funcionario.email}"/></td>
+                            <td><input type="text" name="txtEmail" id="email" placeholder="exemplo@email.com" value="${funcionario.email}"/></td>
                         </tr>
                         <tr>
                             <td><label for="telefone">Telefone:</label></td>
