@@ -52,16 +52,22 @@
                     <li><a href="ManterFuncionarioController?acao=prepararOperacao&operacao=Incluir">Cadastrar</a></li>
                 </ul>
             </li>
+            <li>Pratos
+                <ul>
+                    <li><a href="PesquisarPratoController">Pesquisar</a></li>
+                    <li><a href="ManterPratoController?acao=prepararOperacao&operacao=Incluir">Cadastrar</a></li>
+                </ul>
+            </li>
             <li>Comandas
                 <ul>
                     <li><a href="PesquisarComandaController">Pesquisar</a></li>
                     <li><a href="ManterComandaController?acao=prepararOperacao&operacao=Incluir">Cadastrar</a></li>
                 </ul>
             </li>
-            <li>Pratos
+            <li>Pedidos
                 <ul>
-                    <li><a href="PesquisarPratoController">Pesquisar</a></li>
-                    <li><a href="ManterPratoController?acao=prepararOperacao&operacao=Incluir">Cadastrar</a></li>
+                    <li><a href="PesquisarPedidoController">Pesquisar</a></li>
+                    <li><a href="ManterPedidoController?acao=prepararOperacao&operacao=Incluir">Cadastrar</a></li>
                 </ul>
             </li>
         </ul>        

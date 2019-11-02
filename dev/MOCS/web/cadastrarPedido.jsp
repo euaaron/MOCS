@@ -25,7 +25,14 @@
                         </tr>
                         <tr>
                             <td><label for="idPrato">Id Prato:</label></td>
-                            <td><input type="text" name="txtIdPrato" id="idPrato" value="${pedido.idPrato}"/></td>
+                            <td>
+                                <select name="optPrato" >
+                                    <option value="0" <c:if test="${pedido.idPrato == null}"> selected</c:if>> </option>
+                                    <c:forEach items="${pratos}" var="prato">
+                                        <option value="${prato.id}" <c:if test="${pedido.idPrato == prato.id}"> selected</c:if>>${prato.nome}</option>
+                                    </c:forEach>
+                                </select>
+                            </td>
                         </tr>
                         <tr>
                             <td><label for="quantidade">Quantidade:</label></td>

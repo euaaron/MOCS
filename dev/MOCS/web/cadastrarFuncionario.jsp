@@ -22,14 +22,9 @@
                 <table border="1">
                     <tbody>
                         <tr>
-                            <td>Estabelecimento:</td>
+                            <td><label for="idEstabelecimento">Id do Estabelecimento:</label></td>
                             <td>
-                                <select name="txtIdEstabelecimento" <c:if test="${operacao == 'Excluir'}"> disabled</c:if>>
-                                    <option value="0" <c:if test="${funcionario.estabelecimento.id == null}"> selected</c:if>> </option>
-                                    <c:forEach items="${estabelecimentos}" var="estabelecimento">
-                                        <option value="${estabelecimento.id}" <c:if test="${funcionario.estabelecimento.id == estabelecimento.id}"> selected</c:if>${estabelecimento.nomeFantasia}</option>
-                                    </c:forEach>
-                                </select>
+                                <input type="text" name="txtIdEstabelecimento" id="idEstabelecimento" value="${funcionario.idEstabelecimento}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/>
                             </td>
                         </tr>
                         <tr>
