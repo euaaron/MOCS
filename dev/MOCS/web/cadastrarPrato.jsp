@@ -19,6 +19,30 @@
                 <table border="1">
                     <tbody>
                         <tr>
+                            <td><label>Id do Estabelecimento:</label></td>
+                            <td>
+                                <select name="txtIdEstabelecimento">
+                                    <option value="0" <c:if test="${prato.idEstabelecimento == null}"> selected</c:if>> </option>  
+                                    <c:forEach items="${estabelecimentos}" var="estabelecimento">
+                                    <option value="${estabelecimento.id}" <c:if test="${prato.idEstabelecimento == estabelecimento.id}"> selected</c:if>>${estabelecimento.nomeFantasia}</option>  
+                                    </c:forEach>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>Id do Funcionario:</label></td>
+                            <td>
+                                <select name="txtIdFuncionario">
+                                    <option value="0" <c:if test="${prato.idFuncionario == null}"> selected</c:if>> </option>  
+                                    <c:forEach items="${funcionarios}" var="funcionario">
+                                        <c:if test="${prato.idEstabelecimento == estabelecimento.id}">
+                                    <option value="${funcionario.id}" <c:if test="${prato.idFuncionario == estabelecimento.id}"> selected</c:if>>${funcionario.nome}</option>  
+                                        </c:if>
+                                    </c:forEach>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
                             <td><label for="id">Id:</label></td>
                             <td><input type="text" name="txtId" id="idPrato" value="${prato.id}"/></td>
                         </tr>
@@ -33,15 +57,7 @@
                         <tr>
                             <td><label for="dataCriacao">Data da Criação:</label></td>
                             <td><input type="text" name="txtDataCriacao" id="dataCriacao" value="${prato.dataCriacao}"/></td>
-                        </tr>
-                        <tr>
-                            <td><label for="idFuncionario">Id do Funcionario:</label></td>
-                            <td><input type="text" name="txtIdFuncionario" id="idFuncionario" value="${prato.idFuncionario}"/></td>
-                        </tr>
-                        <tr>
-                            <td><label for="idEstabelecimento">Id do Estabelecimento:</label></td>
-                            <td><input type="text" name="txtIdEstabelecimento" id="idEstabelecimento" value="${prato.idEstabelecimento}"/></td>
-                        </tr>
+                        </tr>                        
                         <tr>
                             <td>
                                 <input type="submit" name="btnIncluir" value="Confirmar">

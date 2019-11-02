@@ -43,7 +43,7 @@ public class UsuarioDAO {
         try{
         conexao = BD.getConexao();
         comando = conexao.createStatement();
-        ResultSet rs = comando.executeQuery("select * from usuario");
+        ResultSet rs = comando.executeQuery("SELECT * FROM usuario ORDER BY id asc");
             while (rs.next()) {
                 usuario = instanciarUsuario(rs);
                 usuarios.add(usuario);                

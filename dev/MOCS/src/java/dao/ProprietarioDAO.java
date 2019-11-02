@@ -22,7 +22,8 @@ import model.Proprietario;
  */
 /*
 public class ProprietarioDAO {
-    public static Proprietario obterProprietario(int idUsuario) throws ClassNotFoundException, SQLException {
+    public static Proprietario obterProprietario(int idUsuario) 
+        throws ClassNotFoundException, SQLException {
         Connection conexao = null;
         Statement comando = null;
         Proprietario proprietario = null;
@@ -48,7 +49,7 @@ public class ProprietarioDAO {
         try{
         conexao = BD.getConexao();
         comando = conexao.createStatement();
-        ResultSet rs = comando.executeQuery("select * from proprietario");
+        ResultSet rs = comando.executeQuery("SELECT * FROM proprietario ORDER BY id desc");
             while (rs.next()) {
                 proprietario = instanciarProprietario(rs);
                 proprietarios.add(proprietario);                
@@ -74,7 +75,8 @@ public class ProprietarioDAO {
         return proprietario;
     }
     
-    public static void gravar(Proprietario proprietario) throws SQLException,ClassNotFoundException{
+    public static void gravar(Proprietario proprietario)
+        throws SQLException,ClassNotFoundException {
         Connection conexao = null;
         PreparedStatement comando = null;
         try {

@@ -40,7 +40,7 @@ public class PratoDAO {
         try{
         conexao = BD.getConexao();
         comando = conexao.createStatement();
-        ResultSet rs = comando.executeQuery("select * from prato");
+        ResultSet rs = comando.executeQuery("select * from prato ORDER BY id asc");
             while (rs.next()) {
                 prato = instanciarPrato(rs);
                 pratos.add(prato);                
