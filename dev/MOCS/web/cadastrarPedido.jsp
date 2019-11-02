@@ -40,7 +40,7 @@
                         </tr>
                         <tr>
                             <td><label for="idComanda">Id Comanda:</label></td>
-                            <td><input type="text" name="txtIdComanda" id="idComanda"  value="${pedido.idComanda}"/></td>
+                            <td><input type="text" name="txtIdComanda" id="idComanda"  value="${pedido.idComanda}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td>

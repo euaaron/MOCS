@@ -23,7 +23,7 @@
                     <tbody>
                         <tr>
                             <td><label for="idEstabelecimento">Id do Estabelecimento:</label></td>
-                            <td><input type="text" name="txtIdEstabelecimento" id="idEstabelecimento" value="${funcao.idEstabelecimento}"/></td>
+                            <td><input type="text" name="txtIdEstabelecimento" id="idEstabelecimento" value="${funcao.idEstabelecimento}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td><label for="id">Id da Funcao:</label></td>

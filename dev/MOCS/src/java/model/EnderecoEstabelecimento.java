@@ -18,9 +18,13 @@ public class EnderecoEstabelecimento extends Endereco{
     }
     
     // Métodos de comunicação com a camada DAO (Banco de dados)   
-    public static EnderecoEstabelecimento obterEndereco(int idEstabelecimento) 
+    public static EnderecoEstabelecimento obterEndereco(int idEndereco) 
     throws ClassNotFoundException, SQLException 
-    { return EnderecoEstabelecimentoDAO.obterEndereco(idEstabelecimento); }
+    { return EnderecoEstabelecimentoDAO.obterEndereco(idEndereco); }
+    
+    public static EnderecoEstabelecimento obterEnderecoEstabelecimento(int idEstabelecimento) 
+    throws ClassNotFoundException, SQLException 
+    { return EnderecoEstabelecimentoDAO.obterEnderecoEstabelecimento(idEstabelecimento); }
     
     public static List<EnderecoEstabelecimento> obterEnderecos() 
     throws ClassNotFoundException, SQLException 

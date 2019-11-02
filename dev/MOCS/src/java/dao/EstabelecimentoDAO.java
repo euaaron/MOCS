@@ -86,7 +86,8 @@ public class EstabelecimentoDAO {
             rs.getString("nomeFantasia"),
             rs.getString("inscEstadual"),
             rs.getString("telefone"),
-            rs.getInt("idProprietario")
+            rs.getInt("idProprietario"),
+            rs.getInt("idEndereco")
         );
         return estabelecimento;
     }

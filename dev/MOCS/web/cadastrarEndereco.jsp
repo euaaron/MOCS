@@ -23,7 +23,7 @@
                     <tbody>
                         <tr>
                             <td><label for="id">Id:</label></td>
-                            <td><input type="text" id="idEndereco" name="txtId" value="${endereco.id}"/></td>
+                            <td><input type="text" id="idEndereco" name="txtId" value="${endereco.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td><label for="cep">CEP:</label></td>

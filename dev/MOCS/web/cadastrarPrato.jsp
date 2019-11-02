@@ -44,7 +44,7 @@
                         </tr>
                         <tr>
                             <td><label for="id">Id:</label></td>
-                            <td><input type="text" name="txtId" id="idPrato" value="${prato.id}"/></td>
+                            <td><input type="text" name="txtId" id="idPrato" value="${prato.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td><label for="nome">Nome:</label></td>

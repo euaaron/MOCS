@@ -15,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.EnderecoEstabelecimento;
 import model.Estabelecimento;
 //import model.Proprietario;
 import model.Usuario;
@@ -54,8 +55,12 @@ public class ManterEstabelecimentoController extends HttpServlet {
             request.setAttribute("proprietario", Usuario.obterUsuarios());
             if (!operacao.equals("Incluir")) {
                 int id = Integer.parseInt(request.getParameter("id"));
-                Estabelecimento obj = Estabelecimento.obterEstabelecimento(id);
-                request.setAttribute("estabelecimento", obj);
+                Estabelecimento est = Estabelecimento.obterEstabelecimento(id);
+                request.setAttribute("estabelecimento", est);
+                
+                int idEndereco = Integer.parseInt(request.getParameter("idEndereco"));
+                EnderecoEstabelecimento end = EnderecoEstabelecimento.obterEnderecoEstabelecimento(est.getIdEndereco());
+                request.setAttribute("endereco", end);
             }
             RequestDispatcher view = request.getRequestDispatcher("/cadastrarEstabelecimento.jsp");
             view.forward(request, response);
@@ -70,27 +75,50 @@ public class ManterEstabelecimentoController extends HttpServlet {
            throws ClassNotFoundException, SQLException, ServletException {
        
        String operacao = request.getParameter("operacao");
-       
+       //Dados de Estabelecimento
        int id = Integer.parseInt(request.getParameter("txtIdEstabelecimento"));
-       int idProprietario = Integer.parseInt(request.getParameter("txtIdProprietario"));
+       int idProprietario = Integer.parseInt(request.getParameter("txtIdProprietario"));//Chave estrangeira
        String cnpj = request.getParameter("txtCnpj");
        String nomeFantasia = request.getParameter("txtNomeFantasia");
        String inscEstadual = request.getParameter("txtInscEstadual");
        String telefone = request.getParameter("txtTelefone");
        
+       //Dados de Endereco
+       int idEndereco = Integer.parseInt(request.getParameter("txtIdEndereco"));//Chave estrangeira
+       String cep = request.getParameter("txtCEP");
+       String uf = request.getParameter("txtUF");
+       String cidade = request.getParameter("txtCidade");
+       String logradouro = request.getParameter("txtLogradouro");
+       String bairro = request.getParameter("txtBairro");
+       String numEdificio = request.getParameter("txtEdificio");
+       String numComplemento = request.getParameter("txtComplemento");
+       
        try {
            Usuario proprietario = null;
-           if (idProprietario != 0) {
-               proprietario = Usuario.obterUsuario(idProprietario);
+           if (idProprietario != 0) 
+           { proprietario = Usuario.obterUsuario(idProprietario); }
+           
+           EnderecoEstabelecimento end = null;
+           if (idEndereco != 0) 
+           { 
+               end = EnderecoEstabelecimento.obterEnderecoEstabelecimento(idProprietario);
+           } else {
+               end = new EnderecoEstabelecimento(id, cep, uf, cidade, 
+                     logradouro, bairro, numEdificio, numComplemento);
            }
-           Estabelecimento e = new Estabelecimento(id, cnpj,nomeFantasia,
-           inscEstadual, telefone, idProprietario);
+           
+           Estabelecimento e = new Estabelecimento(id, cnpj, nomeFantasia, inscEstadual,
+            telefone, idProprietario, idEndereco);
+           
            if (operacao.equals("Incluir")) {
                e.gravar();
+               end.gravar();
            } else if (operacao.equals("Excluir")) {
                e.excluir();
+               end.excluir();
             } else if (operacao.equals("Editar")) {
                e.editar();
+               end.editar();
            }
            RequestDispatcher view = request.getRequestDispatcher("PesquisarEstabelecimentoController");
            view.forward(request, response);
