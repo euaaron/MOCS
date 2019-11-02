@@ -23,7 +23,9 @@ public class Estabelecimento {
     private String inscEstadual;
 
     public Estabelecimento (int id, String cnpj, String nomeFantasia,
-        String inscEstadual, String telefone, int idProprietario) throws ClassNotFoundException, SQLException{
+        String inscEstadual, String telefone, int idProprietario)
+    throws ClassNotFoundException, SQLException
+    {
         this.id = id;
         this.idProprietario = idProprietario;        
         this.proprietario = getProprietario();
@@ -60,29 +62,26 @@ public class Estabelecimento {
     
 // Métodos de comunicação com a camada DAO (Banco de dados)
     public static Estabelecimento obterEstabelecimento(int idEstabelecimento) 
-            throws ClassNotFoundException, SQLException {
-        return EstabelecimentoDAO.obterEstabelecimento(idEstabelecimento);
-    }
+    throws ClassNotFoundException, SQLException 
+    { return EstabelecimentoDAO.obterEstabelecimento(idEstabelecimento); }
     
     public static List<Estabelecimento> obterEstabelecimentos() 
-            throws ClassNotFoundException, SQLException {
-        return EstabelecimentoDAO.obterEstabelecimentos();
-    }
+    throws ClassNotFoundException, SQLException 
+    { return EstabelecimentoDAO.obterEstabelecimentos(); }
     
     public static List<Estabelecimento> obterEstabelecimentosProprietario(int idProprietario) 
-            throws ClassNotFoundException, SQLException {
-        return EstabelecimentoDAO.obterEstabelecimentosProprietario(idProprietario);
-    }
+    throws ClassNotFoundException, SQLException 
+    { return EstabelecimentoDAO.obterEstabelecimentosProprietario(idProprietario); }
     
-    public void gravar() throws SQLException, ClassNotFoundException {
-        EstabelecimentoDAO.gravar(this);
-    }
+    public void gravar() 
+    throws SQLException, ClassNotFoundException 
+    { EstabelecimentoDAO.gravar(this); }
     
-    public void excluir() throws ClassNotFoundException, SQLException {
-        EstabelecimentoDAO.excluir(this);
-    }
+    public void editar() 
+    throws ClassNotFoundException, SQLException 
+    { EstabelecimentoDAO.editar(this); }
     
-    public void editar() throws ClassNotFoundException, SQLException {
-        EstabelecimentoDAO.editar(this);
-    }
+    public void excluir() 
+    throws ClassNotFoundException, SQLException 
+    { EstabelecimentoDAO.excluir(this); } 
 }

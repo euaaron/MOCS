@@ -43,7 +43,7 @@ public class EstabelecimentoDAO {
         conexao = BD.getConexao();
         comando = conexao.createStatement();
         ResultSet rs = comando.executeQuery(
-                "select * from estabelecimento ORDER BY id asc"
+                "select * from estabelecimento ORDER BY id ASC"
         );
             while (rs.next()) {
                 estabelecimento = instanciarEstabelecimento(rs);

@@ -16,7 +16,8 @@ import java.util.List;
 import model.Prato;
 
 public class PratoDAO {
-    public static Prato obterPrato(int idPrato) throws ClassNotFoundException, SQLException{
+    public static Prato obterPrato(int idPrato) 
+        throws ClassNotFoundException, SQLException{
         Connection conexao = null;
         Statement comando = null;
         Prato prato = null;
@@ -51,7 +52,8 @@ public class PratoDAO {
         return pratos;
     }
     
-    public static Prato instanciarPrato(ResultSet rs) throws SQLException {
+    public static Prato instanciarPrato(ResultSet rs) 
+        throws SQLException {
         Prato prato = new Prato(
                 rs.getInt("id"),
                 rs.getString("nome"),
@@ -63,7 +65,8 @@ public class PratoDAO {
         return prato;
     }
     
-    public static void gravar(Prato prato) throws SQLException, ClassNotFoundException{
+    public static void gravar(Prato prato) 
+        throws SQLException, ClassNotFoundException{
         Connection conexao = null;
         PreparedStatement comando = null;
         try {
@@ -84,7 +87,8 @@ public class PratoDAO {
         }
     }
     
-    public static void editar(Prato prato) throws SQLException, ClassNotFoundException{
+    public static void editar(Prato prato) 
+        throws SQLException, ClassNotFoundException{
         Connection conexao = null;
         PreparedStatement comando = null;
         try {
@@ -107,7 +111,7 @@ public class PratoDAO {
     }
     
     public static void excluir(Prato prato) 
-            throws SQLException, ClassNotFoundException {
+        throws SQLException, ClassNotFoundException {
         Connection conexao = null;
         Statement comando = null;
         String stringSQL;

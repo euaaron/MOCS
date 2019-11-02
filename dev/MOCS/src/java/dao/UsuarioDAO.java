@@ -17,7 +17,8 @@ import model.Usuario;
 
 public class UsuarioDAO {
     
-    public static Usuario obterUsuario(int idUsuario) throws ClassNotFoundException, SQLException {
+    public static Usuario obterUsuario(int idUsuario) 
+    throws ClassNotFoundException, SQLException {
         Connection conexao = null;
         Statement comando = null;
         Usuario usuario = null;
@@ -69,7 +70,8 @@ public class UsuarioDAO {
         return usuario;
     }
     
-    public static void gravar(Usuario usuario) throws SQLException,ClassNotFoundException{
+    public static void gravar(Usuario usuario) 
+    throws SQLException,ClassNotFoundException{
         Connection conexao = null;
         PreparedStatement comando = null;
         try {
@@ -90,7 +92,8 @@ public class UsuarioDAO {
         }
     }
     
-    public static void editar(Usuario obj) throws ClassNotFoundException, SQLException {
+    public static void editar(Usuario obj) 
+    throws ClassNotFoundException, SQLException {
         Connection conexao = null;
         PreparedStatement comando = null;
 
@@ -116,7 +119,7 @@ public class UsuarioDAO {
     }
     
     public static void excluir(Usuario usuario) 
-            throws SQLException, ClassNotFoundException {
+    throws SQLException, ClassNotFoundException {
         Connection conexao = null;
         Statement comando = null;
         String stringSQL;

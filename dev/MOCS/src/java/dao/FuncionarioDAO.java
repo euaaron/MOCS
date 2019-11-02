@@ -17,7 +17,8 @@ import model.Funcionario;
 
 public class FuncionarioDAO {
     
-    public static Funcionario obterFuncionario(int idUsuario) throws ClassNotFoundException, SQLException {
+    public static Funcionario obterFuncionario(int idUsuario)
+    throws ClassNotFoundException, SQLException {
         Connection conexao = null;
         Statement comando = null;
         Funcionario funcionario = null;
@@ -43,7 +44,7 @@ public class FuncionarioDAO {
         try{
         conexao = BD.getConexao();
         comando = conexao.createStatement();
-        ResultSet rs = comando.executeQuery("select * from funcionario");
+        ResultSet rs = comando.executeQuery("select * from funcionario ORDER BY id ASC");
             while (rs.next()) {
                 funcionario = instanciarFuncionario(rs);
                 funcionarios.add(funcionario);                
@@ -54,7 +55,8 @@ public class FuncionarioDAO {
         return funcionarios;
     }
     
-    public static Funcionario instanciarFuncionario (ResultSet rs) throws SQLException, ClassNotFoundException {
+    public static Funcionario instanciarFuncionario (ResultSet rs) 
+    throws SQLException, ClassNotFoundException {
         Funcionario funcionario = new Funcionario(
             rs.getInt("id"),
             rs.getString("nome"), 
@@ -70,7 +72,8 @@ public class FuncionarioDAO {
         );
         return funcionario;
     }
-    public static void gravar(Funcionario funcionario) throws SQLException, ClassNotFoundException{
+    public static void gravar(Funcionario funcionario) 
+    throws SQLException, ClassNotFoundException{
         Connection conexao = null;
         PreparedStatement comando = null;
         try {
@@ -111,7 +114,8 @@ public class FuncionarioDAO {
         }
     }
     
-    public static void editar(Funcionario obj) throws ClassNotFoundException, SQLException {
+    public static void editar(Funcionario obj) 
+    throws ClassNotFoundException, SQLException {
         Connection conexao = null;
         PreparedStatement comando = null;
 
@@ -154,7 +158,7 @@ public class FuncionarioDAO {
     }
     
     public static void excluir(Funcionario usuario) 
-            throws SQLException, ClassNotFoundException {
+    throws SQLException, ClassNotFoundException {
         Connection conexao = null;
         Statement comando = null;
         String stringSQL;

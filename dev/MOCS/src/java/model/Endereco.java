@@ -20,7 +20,9 @@ public abstract class Endereco {
     private String numEdificio;
     private String numComplemento;
     
-    public Endereco (int id, String cep, String bairro, String uf, String cidade, String logradouro, String numEdificio, String numComplemento) {
+    public Endereco (int id, String cep, String bairro, String uf, String cidade,
+    String logradouro, String numEdificio, String numComplemento) 
+    {
         setBairro(bairro);
         setId(id);
         setCep(cep);

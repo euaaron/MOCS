@@ -16,7 +16,8 @@ public class EnderecoUsuario extends Endereco {
     private boolean padrao;
     
     public EnderecoUsuario (int id, String cep, String bairro, String uf, String cidade,
-    String logradouro, String numEdificio, String numComplemento, int idUsuario, boolean padrao) {
+    String logradouro, String numEdificio, String numComplemento, int idUsuario, boolean padrao)
+    {
         super(id, cep, bairro, uf, cidade, logradouro, numEdificio, numComplemento);
         this.idUsuario = idUsuario;
         this.padrao = padrao;
@@ -33,44 +34,36 @@ public class EnderecoUsuario extends Endereco {
     public Usuario getUsuario(int idUsuario) 
     throws ClassNotFoundException, SQLException  
     { 
-        if (usuario != null) {
-            return this.usuario;
-        }
+        if (usuario != null) { return this.usuario; }
         return Usuario.obterUsuario(idUsuario); 
     }
     
     // Métodos de comunicação com a camada DAO (Banco de dados)    
     public static EnderecoUsuario obterEnderecoPadrao(int idUsuario) 
     throws ClassNotFoundException, SQLException  
-    {
-        return EnderecoUsuarioDAO.obterEnderecoPadrao(idUsuario);
-    }
+    { return EnderecoUsuarioDAO.obterEnderecoPadrao(idUsuario); }
     
     public static EnderecoUsuario obterEnderecoUsuario(int idEndereco) 
     throws ClassNotFoundException, SQLException  
-    {
-        return EnderecoUsuarioDAO.obterEnderecoUsuario(idEndereco);
-    }
+    { return EnderecoUsuarioDAO.obterEnderecoUsuario(idEndereco); }
     
     public static List<EnderecoUsuario> obterEnderecosUsuario(int idUsuario) 
     throws ClassNotFoundException, SQLException 
-    {
-        return EnderecoUsuarioDAO.obterEnderecosUsuario(idUsuario);
-    }
+    { return EnderecoUsuarioDAO.obterEnderecosUsuario(idUsuario); }
     
     public static List<EnderecoUsuario> obterEnderecosUsuarios() 
     throws ClassNotFoundException, SQLException 
-    {
-        return EnderecoUsuarioDAO.obterEnderecosUsuarios();
-    }
+    { return EnderecoUsuarioDAO.obterEnderecosUsuarios(); }
     
-    public void gravar() throws SQLException, ClassNotFoundException {
-        EnderecoUsuarioDAO.gravar(this);
-    }
+    public void gravar()
+    throws SQLException, ClassNotFoundException 
+    { EnderecoUsuarioDAO.gravar(this); }
+    
+    public void editar() 
+    throws SQLException, ClassNotFoundException 
+    { EnderecoUsuarioDAO.editar(this); }
 
-    public void excluir() throws ClassNotFoundException, SQLException {
-        EnderecoUsuarioDAO.excluir(this);
-    }
-    
-    
+    public void excluir()
+    throws ClassNotFoundException, SQLException 
+    { EnderecoUsuarioDAO.excluir(this); }    
 }

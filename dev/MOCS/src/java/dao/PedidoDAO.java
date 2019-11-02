@@ -16,7 +16,8 @@ import java.util.List;
 import model.Pedido;
 
 public class PedidoDAO {
-    public static Pedido obterPedido(int codPedido) throws ClassNotFoundException, SQLException {
+    public static Pedido obterPedido(int codPedido)
+    throws ClassNotFoundException, SQLException {
         Connection conexao = null;
         Statement comando = null;
         Pedido pedido = null;
@@ -42,7 +43,7 @@ public class PedidoDAO {
         try{
         conexao = BD.getConexao();
         comando = conexao.createStatement();
-        ResultSet rs = comando.executeQuery("select * from pedido");
+        ResultSet rs = comando.executeQuery("select * from pedido ORDER BY id ASC");
             while (rs.next()) {
                 pedido = instanciarPedido(rs);
                 pedidos.add(pedido);                
@@ -73,7 +74,8 @@ public class PedidoDAO {
         return pedidos;
     }
     
-    public static Pedido instanciarPedido(ResultSet rs) throws SQLException {
+    public static Pedido instanciarPedido(ResultSet rs) 
+    throws SQLException {
         Pedido pedido = new Pedido(
                 rs.getInt("id"),
                 rs.getInt("idComanda"),
@@ -83,7 +85,8 @@ public class PedidoDAO {
         return pedido;
     }
     
-    public static void gravar(Pedido pedido) throws SQLException, ClassNotFoundException{
+    public static void gravar(Pedido pedido) 
+    throws SQLException, ClassNotFoundException{
         Connection conexao = null;
         PreparedStatement comando = null;
         try {
@@ -100,7 +103,8 @@ public class PedidoDAO {
         }
     }
     
-    public static void editar(Pedido pedido) throws SQLException, ClassNotFoundException{
+    public static void editar(Pedido pedido) 
+    throws SQLException, ClassNotFoundException{
         Connection conexao = null;
         PreparedStatement comando = null;
         try {
@@ -120,7 +124,7 @@ public class PedidoDAO {
     }
     
     public static void excluir(Pedido pedido) 
-            throws SQLException, ClassNotFoundException {
+    throws SQLException, ClassNotFoundException {
         Connection conexao = null;
         Statement comando = null;
         String stringSQL;
