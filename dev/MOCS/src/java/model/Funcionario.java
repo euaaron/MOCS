@@ -64,6 +64,10 @@ public class Funcionario extends Usuario {
         FuncionarioDAO.gravar(this);
     }
     
+    public void editar() throws SQLException, ClassNotFoundException {
+        FuncionarioDAO.editar(this);
+    }
+    
     public void excluir() throws ClassNotFoundException, SQLException {
         FuncionarioDAO.excluir(this);
     }
