@@ -27,6 +27,13 @@
                     <li><a href="ManterUsuarioController?acao=prepararOperacao&operacao=Incluir">Cadastrar</a></li>
                 </ul>
             </li>
+        <%--<li>Proprietarios
+                <ul>
+                    <li><a href="PesquisarProprietarioController">Pesquisar</a></li>
+                    <li><a href="ManterProprietarioController?acao=prepararOperacao&operacao=Incluir">Cadastrar</a></li>
+                </ul>
+            </li>
+        --%>
             <li>Estabelecimentos
                 <ul>
                     <li><a href="PesquisarEstabelecimentoController">Pesquisar</a></li>
@@ -43,12 +50,6 @@
                 <ul>
                     <li><a href="PesquisarFuncionarioController">Pesquisar</a></li>
                     <li><a href="ManterFuncionarioController?acao=prepararOperacao&operacao=Incluir">Cadastrar</a></li>
-                </ul>
-            </li>
-            <li>Proprietarios
-                <ul>
-                    <li><a href="PesquisarProprietarioController">Pesquisar</a></li>
-                    <li><a href="ManterProprietarioController?acao=prepararOperacao&operacao=Incluir">Cadastrar</a></li>
                 </ul>
             </li>
             <li>Comandas

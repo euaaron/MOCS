@@ -1,9 +1,9 @@
 <%-- 
     Document   : cadastroProprietario
     Created on : 04/10/2019, 17:21:33
-    Author     : DÃ©bora Lessa & Aaron Stiebler
+    Author     : Débora Lessa & Aaron Stiebler
 --%>
-
+<%--
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
@@ -62,3 +62,4 @@
         </div>
     </body>
 </html>
+--%>

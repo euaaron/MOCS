@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+/*
 package dao;
 
 import static dao.DAO.fecharConexao;
@@ -14,11 +15,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import model.Proprietario;
-
+*/
 /**
  *
  * @author Débora Lessa & Aaron Stiebler
  */
+/*
 public class ProprietarioDAO {
     public static Proprietario obterProprietario(int idUsuario) throws ClassNotFoundException, SQLException {
         Connection conexao = null;
@@ -157,3 +159,4 @@ public class ProprietarioDAO {
     }
     
 }
+*/

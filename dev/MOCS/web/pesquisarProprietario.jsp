@@ -1,9 +1,9 @@
 <%-- 
     Document   : pesquisaProprietario
     Created on : 03/10/2019, 16:16:01
-    Author     : DÃ©bora Lessa & Aaron Stiebler
+    Author     : Débora Lessa & Aaron Stiebler
 --%>
-
+<%--
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
@@ -23,7 +23,7 @@
         </ul>
         <table border = 1>
             <tr>
-                <th>CÃ³digo do Proprietario</th>
+                <th>Código do Proprietario</th>
                 <th>Nome do Proprietario</th>
             </tr>
             
@@ -45,3 +45,4 @@
         </form>
     </body>
 </html>
+--%>

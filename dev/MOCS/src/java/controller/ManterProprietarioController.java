@@ -1,4 +1,4 @@
-package controller;
+/*package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,6 +16,7 @@ import model.Proprietario;
  *
  * @author Débora
  */
+/*
 public class ManterProprietarioController extends HttpServlet {
 
     /**
@@ -27,6 +28,7 @@ public class ManterProprietarioController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+/*
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException, ClassNotFoundException {
         String acao = request.getParameter("acao");
@@ -98,6 +100,7 @@ public class ManterProprietarioController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+/*
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -118,6 +121,7 @@ public class ManterProprietarioController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+/*
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -135,9 +139,11 @@ public class ManterProprietarioController extends HttpServlet {
      *
      * @return a String containing servlet description
      */
+/*
     @Override
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
 
 }
+*/
