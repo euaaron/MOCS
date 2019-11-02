@@ -49,7 +49,7 @@ public class ProprietarioDAO {
         try{
         conexao = BD.getConexao();
         comando = conexao.createStatement();
-        ResultSet rs = comando.executeQuery("SELECT * FROM proprietario ORDER BY id desc");
+        ResultSet rs = comando.executeQuery("SELECT * FROM proprietario ORDER BY id ASC");
             while (rs.next()) {
                 proprietario = instanciarProprietario(rs);
                 proprietarios.add(proprietario);                

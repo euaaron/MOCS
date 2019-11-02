@@ -75,6 +75,10 @@ public class Comanda {
         ComandaDAO.gravar(this);
     }
     
+    public void editar() throws SQLException, ClassNotFoundException {
+        ComandaDAO.editar(this);
+    }
+    
     public void excluir() throws ClassNotFoundException, SQLException {
         ComandaDAO.excluir(this);
     }

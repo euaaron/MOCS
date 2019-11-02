@@ -50,7 +50,7 @@ public class FuncaoDAO {
         try{
         conexao = BD.getConexao();
         comando = conexao.createStatement();
-        ResultSet rs = comando.executeQuery("select * from funcao");
+        ResultSet rs = comando.executeQuery("select * from funcao ORDER BY id ASC");
             while (rs.next()) {
                 obj = instanciarFuncao(rs);
                 lista.add(obj);                

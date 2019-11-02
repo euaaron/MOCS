@@ -57,11 +57,12 @@ public class Prato {
         PratoDAO.gravar(this);
     }
     
-    public void excluir() throws ClassNotFoundException, SQLException {
-        PratoDAO.excluir(this);
-    }
-    
     public void editar() throws ClassNotFoundException, SQLException {
         PratoDAO.editar(this);
     }
+    
+    public void excluir() throws ClassNotFoundException, SQLException {
+        PratoDAO.excluir(this);
+    }  
+    
 }

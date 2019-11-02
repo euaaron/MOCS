@@ -23,7 +23,8 @@ public class EnderecoUsuarioDAO {
 *   USUARIO
 */
    
-    public static EnderecoUsuario obterEnderecoPadrao(int idUsuario) throws ClassNotFoundException, SQLException {
+    public static EnderecoUsuario obterEnderecoPadrao(int idUsuario) 
+            throws ClassNotFoundException, SQLException {
         Connection conexao = null;
         Statement comando = null;
         EnderecoUsuario endereco = null;
@@ -88,7 +89,7 @@ public class EnderecoUsuarioDAO {
         try{
         conexao = BD.getConexao();
         comando = conexao.createStatement();
-        ResultSet rs = comando.executeQuery("select * from endereco");
+        ResultSet rs = comando.executeQuery("select * from endereco ORDER BY id ASC");
             while (rs.next()) {
                 endereco = instanciarEnderecoUsuario(rs);
                 enderecos.add(endereco);                

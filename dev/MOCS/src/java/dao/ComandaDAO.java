@@ -26,7 +26,7 @@ public class ComandaDAO {
         try{
         conexao = BD.getConexao();
         comando = conexao.createStatement();
-        ResultSet rs = comando.executeQuery("select * from comanda");
+        ResultSet rs = comando.executeQuery("select * from comanda ORDER BY id ASC");
             while (rs.next()) {
                 comanda = instanciarComanda(rs);
                 comandas.add(comanda);                

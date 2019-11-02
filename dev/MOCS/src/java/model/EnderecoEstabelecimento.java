@@ -10,31 +10,11 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class EnderecoEstabelecimento extends Endereco{
-    
-    private Estabelecimento estabelecimento;
-    private int idEstabelecimento;
-    
+        
     public EnderecoEstabelecimento (int id, String cep, String uf, String cidade, 
-    String logradouro, String bairro, String numEdificio, String numComplemento, 
-    int idEstabelecimento) 
+    String logradouro, String bairro, String numEdificio, String numComplemento) 
     {
         super(id, cep, bairro, uf, cidade, logradouro, numEdificio, numComplemento);
-        this.idEstabelecimento = idEstabelecimento;
-    }
-    
-    // Métodos de inserção (Modificação)
-    public void setEstabelecimento(Estabelecimento e) { this.estabelecimento = e;}
-    public void setIdEstabelecimento(int idEstabelecimento) {this.idEstabelecimento = idEstabelecimento;}  
-    
-    // Métodos de Recuperação (Leitura)   
-    public int getIdEstabelecimento() { return this.idEstabelecimento; }
-    public Estabelecimento getEstabelecimento(int idEstabelecimento) 
-    throws ClassNotFoundException, SQLException  
-    { 
-        if (estabelecimento != null) {
-            return this.estabelecimento;
-        }
-        return Estabelecimento.obterEstabelecimento(idEstabelecimento); 
     }
     
     // Métodos de comunicação com a camada DAO (Banco de dados)   
@@ -52,6 +32,10 @@ public class EnderecoEstabelecimento extends Endereco{
     
     public void gravar() throws SQLException, ClassNotFoundException {
         EnderecoEstabelecimentoDAO.gravar(this);
+    }
+    
+    public void editar() throws SQLException, ClassNotFoundException {
+        EnderecoEstabelecimentoDAO.editar(this);
     }
     
     public void excluir() throws ClassNotFoundException, SQLException {

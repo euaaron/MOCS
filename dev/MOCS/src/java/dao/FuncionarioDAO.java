@@ -43,7 +43,7 @@ public class FuncionarioDAO {
         try{
         conexao = BD.getConexao();
         comando = conexao.createStatement();
-        ResultSet rs = comando.executeQuery("select * from funcionario");
+        ResultSet rs = comando.executeQuery("select * from funcionario ORDER BY id ASC");
             while (rs.next()) {
                 funcionario = instanciarFuncionario(rs);
                 funcionarios.add(funcionario);                

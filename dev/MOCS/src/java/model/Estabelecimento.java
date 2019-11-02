@@ -78,11 +78,12 @@ public class Estabelecimento {
         EstabelecimentoDAO.gravar(this);
     }
     
-    public void excluir() throws ClassNotFoundException, SQLException {
-        EstabelecimentoDAO.excluir(this);
-    }
-    
     public void editar() throws ClassNotFoundException, SQLException {
         EstabelecimentoDAO.editar(this);
     }
+    
+    public void excluir() throws ClassNotFoundException, SQLException {
+        EstabelecimentoDAO.excluir(this);
+    } 
+    
 }

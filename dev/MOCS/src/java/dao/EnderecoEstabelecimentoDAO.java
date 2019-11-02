@@ -50,8 +50,7 @@ public class EnderecoEstabelecimentoDAO {
             rs.getString("logradouro"),
             rs.getString("bairro"),
             rs.getString("numEdificio"), 
-            rs.getString("numComplemento"),
-            rs.getInt("estabelecimento_id")             
+            rs.getString("numComplemento")
         );
         return endereco;
     }
@@ -64,7 +63,7 @@ public class EnderecoEstabelecimentoDAO {
             conexao = BD.getConexao();
             comando = conexao.prepareStatement(
                 "insert into endestabelecimento (id, cep, uf, cidade,"
-                + " logradouro, bairro, numEdificio, numComplemento, estabelecimento_id)"
+                + " logradouro, bairro, numEdificio, numComplemento)"
                 + " values (?,?,?,?,?,?,?,?,?)"
             );
             comando.setInt(1, endestabelecimento.getId());
@@ -75,7 +74,6 @@ public class EnderecoEstabelecimentoDAO {
             comando.setString(6, endestabelecimento.getBairro());
             comando.setString(7, endestabelecimento.getNumEdificio());
             comando.setString(8, endestabelecimento.getNumComplemento());
-            comando.setInt(9, endestabelecimento.getIdEstabelecimento());
             comando.executeUpdate();
         } finally {
             fecharConexao(conexao, comando);
@@ -89,8 +87,8 @@ public class EnderecoEstabelecimentoDAO {
         try {
             conexao = BD.getConexao();
             comando = conexao.prepareStatement(
-                "update endestabelecimento set cep = ?, uf = ?, cidade = ?,"
-                + " logradouro = ?, bairro = ?, numEdificio = ?, numComplemento = ?, idEstabelecimento = ? where id = ?"
+                "UPDATE endestabelecimento set cep = ?, uf = ?, cidade = ?,"
+                + " logradouro = ?, bairro = ?, numEdificio = ?, numComplemento = ? WHERE id = ?"
             );
             comando.setString(1, endestabelecimento.getCep());
             comando.setString(2, endestabelecimento.getUf());
@@ -99,8 +97,7 @@ public class EnderecoEstabelecimentoDAO {
             comando.setString(5, endestabelecimento.getBairro());
             comando.setString(6, endestabelecimento.getNumEdificio());
             comando.setString(7, endestabelecimento.getNumComplemento());
-            comando.setInt(8, endestabelecimento.getIdEstabelecimento());
-            comando.setInt(9, endestabelecimento.getId());
+            comando.setInt(8, endestabelecimento.getId());
             comando.executeUpdate();
         } finally {
             fecharConexao(conexao, comando);

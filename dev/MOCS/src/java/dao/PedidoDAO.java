@@ -42,7 +42,7 @@ public class PedidoDAO {
         try{
         conexao = BD.getConexao();
         comando = conexao.createStatement();
-        ResultSet rs = comando.executeQuery("select * from pedido");
+        ResultSet rs = comando.executeQuery("select * from pedido ORDER BY id ASC");
             while (rs.next()) {
                 pedido = instanciarPedido(rs);
                 pedidos.add(pedido);                

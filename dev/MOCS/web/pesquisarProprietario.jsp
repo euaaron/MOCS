@@ -1,10 +1,11 @@
 <%-- 
     Document   : pesquisaProprietario
     Created on : 03/10/2019, 16:16:01
-    Author     : Débora Lessa & Aaron Stiebler
+    Author     : DÃ©bora Lessa & Aaron Stiebler
 --%>
-<%--
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%--
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
@@ -23,7 +24,7 @@
         </ul>
         <table border = 1>
             <tr>
-                <th>Código do Proprietario</th>
+                <th>Cï¿½digo do Proprietario</th>
                 <th>Nome do Proprietario</th>
             </tr>
             

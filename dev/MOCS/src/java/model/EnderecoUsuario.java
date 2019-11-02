@@ -67,6 +67,10 @@ public class EnderecoUsuario extends Endereco {
     public void gravar() throws SQLException, ClassNotFoundException {
         EnderecoUsuarioDAO.gravar(this);
     }
+    
+    public void editar() throws SQLException, ClassNotFoundException {
+        EnderecoUsuarioDAO.editar(this);
+    }
 
     public void excluir() throws ClassNotFoundException, SQLException {
         EnderecoUsuarioDAO.excluir(this);

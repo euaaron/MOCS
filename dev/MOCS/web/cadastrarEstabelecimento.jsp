@@ -42,6 +42,26 @@
                     <td><input type="text" name="txtInscEstadual" id="inscEstadual" value="${estabelecimento.inscEstadual}"></td>
                 </tr>
                 <tr>
+                    <td><label for="idEndereco">Id do Endereco</label></td>
+                    <td><input type="text" name="txtIdEndereco" id="idEndereco" value="${estabelecimento.idEndereco}"></td>
+                </tr>
+                <tr>
+                    <td><label for="cnpj">CNPJ:</label></td> <!-- Número do CNPJ -->
+                    <td><input type="text" name="txtCnpj" id="cnpj" value="${estabelecimento.cnpj}"></td>
+                </tr>
+                <tr>
+                    <td><label for="telefone">Telefone:</label></td> <!-- Número de telefone. -->
+                    <td><input type="text" name="txtTelefone" id="telefone" value="${estabelecimento.telefone}"></td>
+                </tr>
+                <tr>
+                    <td><label for="nomeFantasia">Nome Fantasia:</label></td> <!-- Nome Fantasia Completo da Empresa -->
+                    <td><input type="text" name="txtNomeFantasia" id="nomeFantasia" value="${estabelecimento.nomeFantasia}"></td>
+                </tr>
+                <tr>
+                    <td><label for="inscEstadual">Inscrição Estadual:</label></td> <!-- Número da inscrição estadual da empresa -->
+                    <td><input type="text" name="txtInscEstadual" id="inscEstadual" value="${estabelecimento.inscEstadual}"></td>
+                </tr>
+                <tr>
                     <td><input type="submit" name="btnIncluir" value="Confirmar"></td>
                 </tr>
             </table>

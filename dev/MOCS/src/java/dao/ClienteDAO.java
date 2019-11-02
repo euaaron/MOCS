@@ -43,7 +43,7 @@ public class ClienteDAO {
         try{
         conexao = BD.getConexao();
         comando = conexao.createStatement();
-        ResultSet rs = comando.executeQuery("select * from usuario");
+        ResultSet rs = comando.executeQuery("select * from usuario ORDER BY id ASC");
             while (rs.next()) {
                 cliente = instanciarCliente(rs);
                 clientes.add(cliente);                

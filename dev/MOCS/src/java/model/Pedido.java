@@ -77,6 +77,10 @@ public class Pedido {
         PedidoDAO.gravar(this);
     }
     
+    public void editar() throws SQLException, ClassNotFoundException {
+        PedidoDAO.editar(this);
+    }
+    
     public void excluir() throws ClassNotFoundException, SQLException {
         PedidoDAO.excluir(this);
     }
