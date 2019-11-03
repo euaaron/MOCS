@@ -54,28 +54,7 @@ public class EnderecoEstabelecimentoDAO {
         }
         return obj;
     }
-    
-    public static EnderecoEstabelecimento obterEnderecoEstabelecimento(int idEstabelecimento) 
-        throws ClassNotFoundException, SQLException {
-        Connection conexao = null;
-        Statement comando = null;
-        EnderecoEstabelecimento obj = null;
-        try {
-            conexao = BD.getConexao();
-            comando = conexao.createStatement();
-            ResultSet rs = comando.executeQuery(
-                "SELECT id, cep, uf, cidade, bairro, logradouro, numEdificio, numComplemento" + 
-                " FROM endestabelecimento en" +
-                " JOIN estabelecimento es ON en.id = " + idEstabelecimento +
-                " AND es.id = " + idEstabelecimento);
-                rs.first();
-                obj = instanciarEnderecoEstabelecimento(rs);
-        } finally {
-            fecharConexao(conexao, comando);
-        }
-        return obj;
-    }
-    
+        
     private static EnderecoEstabelecimento instanciarEnderecoEstabelecimento(ResultSet rs) 
         throws SQLException {
         EnderecoEstabelecimento endereco = new EnderecoEstabelecimento(

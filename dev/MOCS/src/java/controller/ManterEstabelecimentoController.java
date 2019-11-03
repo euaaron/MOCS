@@ -102,7 +102,7 @@ public class ManterEstabelecimentoController extends HttpServlet {
            EnderecoEstabelecimento end = null;
            if (idEndereco != 0) 
            { 
-               end = EnderecoEstabelecimento.obterEnderecoEstabelecimento(idProprietario);
+               end = EnderecoEstabelecimento.obterEndereco(idEndereco);
            } else {
                end = new EnderecoEstabelecimento(id, cep, uf, cidade, 
                      logradouro, bairro, numEdificio, numComplemento);
