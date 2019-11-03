@@ -15,6 +15,10 @@
     </head>
     <body>
         <h1>Pesquisa de Comandas</h1>
+        <ul class="breadcrumb">
+            <li><a href="index.jsp">Index Admin</a></li>
+            <li>Pesquisar Comandas</li>
+        </ul>
         <table border = 1>
             <tr>
                 <th>Código da Comanda</th>
