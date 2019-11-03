@@ -112,8 +112,8 @@ public class ManterEstabelecimentoController extends HttpServlet {
             telefone, idProprietario, idEndereco);
            
            if (operacao.equals("Incluir")) {
-               e.gravar();
                end.gravar();
+               e.gravar();
            } else if (operacao.equals("Excluir")) {
                e.excluir();
                end.excluir();

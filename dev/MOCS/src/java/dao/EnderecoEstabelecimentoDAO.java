@@ -79,7 +79,7 @@ public class EnderecoEstabelecimentoDAO {
             comando = conexao.prepareStatement(
                   "insert into endestabelecimento (id, cep, uf, cidade,"
                 + " logradouro, bairro, numEdificio, numComplemento)"
-                + " values (?,?,?,?,?,?,?,?,?)"
+                + " values (?,?,?,?,?,?,?,?)"
             );
             comando.setInt(1, endestabelecimento.getId());
             comando.setString(2, endestabelecimento.getCep());

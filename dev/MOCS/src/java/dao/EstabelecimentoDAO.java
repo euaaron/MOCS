@@ -97,8 +97,8 @@ public class EstabelecimentoDAO {
         try {
             conexao = BD.getConexao();
             comando = conexao.prepareStatement (
-            "insert into estabelecimento (id, idProprietario, cnpj, nomeFantasia, inscEstadual, telefone)" 
-            + "values (?,?,?,?,?,?)"
+            "insert into estabelecimento (id, idProprietario, cnpj, nomeFantasia, inscEstadual, telefone, idEndereco)" 
+            + "values (?,?,?,?,?,?,?)"
             );
             comando.setInt(1, estabelecimento.getId());
             comando.setInt(2, estabelecimento.getIdProprietario());
@@ -106,6 +106,7 @@ public class EstabelecimentoDAO {
             comando.setString(4, estabelecimento.getNomeFantasia());
             comando.setString(5, estabelecimento.getInscEstadual());
             comando.setString(6, estabelecimento.getTelefone());
+            comando.setInt(7, estabelecimento.getIdEndereco());
             comando.executeUpdate();
         }finally{
             fecharConexao(conexao, comando);
