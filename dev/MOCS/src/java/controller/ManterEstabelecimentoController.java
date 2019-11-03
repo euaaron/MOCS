@@ -97,16 +97,17 @@ public class ManterEstabelecimentoController extends HttpServlet {
            Usuario proprietario = null;
            if (idProprietario != 0) 
            { 
-               proprietario = Usuario.obterUsuario(idProprietario); }
+               proprietario = Usuario.obterUsuario(idProprietario); 
+           }
            
            EnderecoEstabelecimento end = null;
            if (idEndereco != 0) 
-           { 
-               end = EnderecoEstabelecimento.obterEndereco(idEndereco);
-           } else {
-               end = new EnderecoEstabelecimento(id, cep, uf, cidade, 
+           {                
+                //end = EnderecoEstabelecimento.obterEndereco(idEndereco);
+               
+                end = new EnderecoEstabelecimento(id, cep, uf, cidade, 
                      logradouro, bairro, numEdificio, numComplemento);
-           }
+           } 
            
            Estabelecimento e = new Estabelecimento(id, cnpj, nomeFantasia, inscEstadual,
             telefone, idProprietario, idEndereco);
