@@ -24,7 +24,7 @@ public class EnderecoEstabelecimento extends Endereco{
     
     public static EnderecoEstabelecimento obterEnderecoEstabelecimento(int idEstabelecimento) 
     throws ClassNotFoundException, SQLException 
-    { return EnderecoEstabelecimentoDAO.obterEnderecoEstabelecimento(idEstabelecimento); }
+    { return EnderecoEstabelecimentoDAO.obterEndereco(idEstabelecimento); }
     
     public static List<EnderecoEstabelecimento> obterEnderecos() 
     throws ClassNotFoundException, SQLException 
