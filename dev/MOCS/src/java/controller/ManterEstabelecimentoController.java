@@ -96,7 +96,8 @@ public class ManterEstabelecimentoController extends HttpServlet {
        try {
            Usuario proprietario = null;
            if (idProprietario != 0) 
-           { proprietario = Usuario.obterUsuario(idProprietario); }
+           { 
+               proprietario = Usuario.obterUsuario(idProprietario); }
            
            EnderecoEstabelecimento end = null;
            if (idEndereco != 0) 

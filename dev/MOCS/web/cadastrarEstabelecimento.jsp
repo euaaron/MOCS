@@ -43,31 +43,35 @@
                 </tr>
                 <tr>
                     <td><label for="idEndereco">Id do Endereco</label></td>
-                    <td><input type="text" name="txtIdEndereco" id="idEndereco" value="${estabelecimento.idEndereco}"></td>
+                    <td><input type="text" name="txtIdEndereco" id="idEndereco" value="${endestabelecimento.id}"></td>
                 </tr>
                 <tr>
                     <td><label for="cep">CEP:</label></td>
-                    <td><input type="text" id="cep" name="txtCEP" value="${endereco.cep}"/></td>
+                    <td><input type="text" id="cep" name="txtCEP" value="${endestabelecimento.cep}"/></td>
                 </tr>
                 <tr>
                     <td><label for="uf">UF:</label></td>
-                    <td><input type="text" id="uf" name="txtUF" value="${endereco.UF}"/></td>
+                    <td><input type="text" id="uf" name="txtUF" value="${endestabelecimento.uf}"/></td>
                 </tr>
                 <tr>
                     <td><label for="cidade">Cidade:</label></td>
-                    <td><input type="text" id="cidade" name="txtCidade" value="${endereco.cidade}"/></td>
+                    <td><input type="text" id="cidade" name="txtCidade" value="${endestabelecimento.cidade}"/></td>
                 </tr>
                 <tr>
                     <td><label for="bairro">Bairro:</label></td>
-                    <td><input type="text" id="bairro" name="txtBairro" value="${usuario.bairro}"></td>
+                    <td><input type="text" id="bairro" name="txtBairro" value="${endestabelecimento.bairro}"></td>
                 </tr>
                 <tr>
                     <td><label for="logradouro">Logradouro:</label></td>
-                    <td><input type="text" id="logradouro" name="txtLogradouro" value="${usuario.logradouro}"></td>
+                    <td><input type="text" id="logradouro" name="txtLogradouro" value="${endestabelecimento.logradouro}"></td>
+                </tr>
+                <tr>
+                    <td><label for="edificio">Numero do Edificio:</label></td>
+                    <td><input type="text" id="edificio" name="txtEdificio" value="${endestabelecimento.numEdificio}"></td>
                 </tr>
                 <tr>
                     <td><label for="complemento">Complemento:</label></td>
-                    <td><input type="text" id="complemento" name="txtComplemento:" value="${usuario.complemento}"></td>
+                    <td><input type="text" id="complemento" name="txtComplemento" value="${endestabelecimento.numComplemento}"></td>
                 </tr>
                 <tr>
                     <td><input type="submit" name="btnIncluir" value="Confirmar"></td>
