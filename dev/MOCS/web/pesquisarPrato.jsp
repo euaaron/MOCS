@@ -22,10 +22,10 @@
         </ul>
         <table border = 1>
             <tr>
-                <th>Código do Prato</th>
-                <th>Nome do Prato</th>
-                <th>Codigo do Funcionario</th>
-                <th>Codigo do Estabelecimento</th>
+                <th>Cod. Prato</th>
+                <th>Nome</th>
+                <th>Cod. Funcionario</th>
+                <th>Cod. Estabelecimento</th>
                 <th>Data da criação</th>
             </tr>
             

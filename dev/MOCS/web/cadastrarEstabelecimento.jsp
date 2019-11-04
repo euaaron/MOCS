@@ -20,10 +20,17 @@
                 <tr>
                     <td><label for="id">Id:</label></td>
                     <td><input type="text" name="txtIdEstabelecimento" id="idEstabelecimento" value="${estabelecimento.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>></td>
-                    </tr>
-                    <tr>
-                        <td><label for="idProprietario">Id do Proprietario:</label></td>
-                        <td><input type="text" name="txtIdProprietario" id="idProprietario" value="${estabelecimento.idProprietario}"></td>
+                </tr>
+                <tr>
+                    <td><label for="idProprietario">Proprietario:</label></td>
+                    <td>
+                        <select name="txtIdProprietario" <c:if test="${operacao == 'Excluir'}"> disabled</c:if>>
+                            <option value="0" <c:if test="${estabelecimento.proprietario.id == null}"> selected</c:if>> </option>  
+                            <c:forEach items="${proprietarios}" var="proprietario">
+                                <option value="${proprietario.id}" <c:if test="${proprietario.id == estabelecimento.proprietario.id}"> selected</c:if>>${proprietario.nome}</option>  
+                            </c:forEach>
+                        </select>
+                    </td>
                 </tr>
                 <tr>
                     <td><label for="cnpj">CNPJ:</label></td> <!-- Número do CNPJ -->
@@ -43,7 +50,7 @@
                 </tr>
                 <tr>
                     <td><label for="idEndereco">Id do Endereco</label></td>
-                    <td><input type="text" name="txtIdEndereco" id="idEndereco" value="${endestabelecimento.id}"></td>
+                    <td><input type="text" name="txtIdEndereco" id="idEndereco" value="${endestabelecimento.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>></td>
                 </tr>
                 <tr>
                     <td><label for="cep">CEP:</label></td>

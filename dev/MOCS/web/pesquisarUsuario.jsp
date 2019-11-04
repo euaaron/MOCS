@@ -23,8 +23,8 @@
         </ul>
         <table border = 1>
             <tr>
-                <th>Código do Usuário</th>
-                <th>Nome do Usuario</th>
+                <th>Cod.</th>
+                <th>Nome</th>
             </tr>
             
             <c:forEach items="${usuarios}" var="usuario">

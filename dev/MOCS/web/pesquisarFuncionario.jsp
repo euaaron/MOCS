@@ -22,10 +22,10 @@
         </ul>
         <table border = 1>
             <tr>
-                <th>Código do Funcionario</th>
-                <th>Nome do Funcionario</th>
-                <th>CPF do Funcionario</th>
-                <th>Status da Conta do Funcionario</th>
+                <th>Cod. Funcionario</th>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>Status da Conta</th>
             </tr>
             
             <c:forEach items="${funcionarios}" var="funcionario">

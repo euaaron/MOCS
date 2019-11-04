@@ -77,7 +77,7 @@ public class Estabelecimento {
     {
         if ((this.idEndereco != 0) && (this.endereco == null)) 
         {
-            endereco = EnderecoEstabelecimento.obterEnderecoEstabelecimento(idEndereco);
+            endereco = EnderecoEstabelecimento.obterEndereco(idEndereco);
         }
         return this.endereco;
     }

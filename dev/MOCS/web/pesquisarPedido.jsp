@@ -22,10 +22,10 @@
         </ul>
         <table border = 1>
             <tr>
-                <th>Código do Pedido</th>
-                <th>Código da Comanda</th>
-                <th>Código do Prato</th>
-                <th>Quantidade do Prato</th>
+                <th>Cod. Pedido</th>
+                <th>Cód. Comanda</th>
+                <th>Cód. Prato</th>
+                <th>Num. Pratos</th>
             </tr>
             
             <c:forEach items="${pratos}" var="prato">

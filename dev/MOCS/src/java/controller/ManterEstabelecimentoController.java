@@ -1,7 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ *
+ * @author Débora Lessa & Aaron Stiebler
  */
 package controller;
 
@@ -20,10 +19,6 @@ import model.Estabelecimento;
 //import model.Proprietario;
 import model.Usuario;
 
-/**
- *
- * @author Débora Lessa & Aaron Stiebler
- */
 public class ManterEstabelecimentoController extends HttpServlet {
 
     /**
@@ -52,15 +47,15 @@ public class ManterEstabelecimentoController extends HttpServlet {
         try {
             String operacao = request.getParameter("operacao");
             request.setAttribute("operacao", operacao);
-            request.setAttribute("proprietario", Usuario.obterUsuarios());
+            request.setAttribute("proprietarios", Usuario.obterUsuarios());
             if (!operacao.equals("Incluir")) {
                 int id = Integer.parseInt(request.getParameter("id"));
                 Estabelecimento est = Estabelecimento.obterEstabelecimento(id);
                 request.setAttribute("estabelecimento", est);
                 
-                int idEndereco = Integer.parseInt(request.getParameter("idEndereco"));
-                EnderecoEstabelecimento end = EnderecoEstabelecimento.obterEnderecoEstabelecimento(est.getIdEndereco());
-                request.setAttribute("endereco", end);
+                int idEndereco = Integer.parseInt(request.getParameter("id"));
+                EnderecoEstabelecimento end = EnderecoEstabelecimento.obterEndereco(est.getIdEndereco());
+                request.setAttribute("endestabelecimento", end);
             }
             RequestDispatcher view = request.getRequestDispatcher("/cadastrarEstabelecimento.jsp");
             view.forward(request, response);
@@ -105,7 +100,7 @@ public class ManterEstabelecimentoController extends HttpServlet {
            {                
                 //end = EnderecoEstabelecimento.obterEndereco(idEndereco);
                
-                end = new EnderecoEstabelecimento(id, cep, uf, cidade, 
+                end = new EnderecoEstabelecimento(idEndereco, cep, uf, cidade, 
                      logradouro, bairro, numEdificio, numComplemento);
            } 
            

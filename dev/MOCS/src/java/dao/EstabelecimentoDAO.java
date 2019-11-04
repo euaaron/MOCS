@@ -79,7 +79,7 @@ public class EstabelecimentoDAO {
     }
 
     private static Estabelecimento instanciarEstabelecimento(ResultSet rs) 
-            throws SQLException, ClassNotFoundException {
+    throws SQLException, ClassNotFoundException {
         Estabelecimento estabelecimento = new Estabelecimento(
             rs.getInt("id"),
             rs.getString("cnpj"),
@@ -91,7 +91,8 @@ public class EstabelecimentoDAO {
         );
         return estabelecimento;
     }
-    public static void gravar(Estabelecimento estabelecimento) throws SQLException, ClassNotFoundException{
+    public static void gravar(Estabelecimento estabelecimento) 
+    throws SQLException, ClassNotFoundException{
         Connection conexao = null;
         PreparedStatement comando = null;
         try {

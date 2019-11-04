@@ -21,10 +21,10 @@
         </ul>
         <table border = 1>
             <tr>
-                <th>Código da Comanda</th>
-                <th>Data da Comanda</th>
-                <th>Hora da Comanda</th>
-                <th>Codigo do Cliente</th>
+                <th>Cod.</th>
+                <th>Data</th>
+                <th>Hora</th>
+                <th>Cod. Cliente</th>
             </tr>
             
             <c:forEach items="${comandas}" var="comanda">

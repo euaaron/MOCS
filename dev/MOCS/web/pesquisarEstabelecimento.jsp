@@ -23,23 +23,38 @@
         </ul>
         <table border="1">
             <tr>
-                <th>Codigo do Estabelecimento</th>
-                <th>Nome do Estabelecimento</th>
-                <th>Proprietario do Estabelecimento</th>
+                <th>Cod.</th>
+                <th>Nome</th>
+                <th>Proprietario</th>
+                <th>Cod. Endedereço</th>
+                <th>UF</th>
+                <th>Cidade</th>
+                <th>Bairro</th>
+                <th>Logradouro</th>
+                <th>Edifício</th>
+                <th>Complemento</th>
+                <th colspan="2">Opções</th>
             </tr>
             <c:forEach items="${estabelecimentos}" var="estabelecimento">
-        <tr>
-            <td><c:out value="${estabelecimento.id}"/></td>
-            <td><c:out value="${estabelecimento.nomeFantasia}"/></td>
-            <td><c:out value="${estabelecimento.getProprietario().getNome()}"/></td>
-            <td>
-                <a href="ManterEstabelecimentoController?acao=prepararOperacao&operacao=Editar&id=<c:out value="${estabelecimento.id}" />" > Editar</a>
-            </td>
-            <td>
-                <a href="ManterEstabelecimentoController?acao=prepararOperacao&operacao=Excluir&id=<c:out value="${estabelecimento.id}" />" > Excluir</a>
-            </td>
-        </tr>
-        </c:forEach>
+            <tr>
+                <td><c:out value="${estabelecimento.id}"/></td>
+                <td><c:out value="${estabelecimento.nomeFantasia}"/></td>
+                <td><c:out value="${estabelecimento.getProprietario().getNome()}"/></td>
+                <td><c:out value="${estabelecimento.getEndereco().getId()}"/></td>
+                <td><c:out value="${estabelecimento.getEndereco().getUf()}"/></td>
+                <td><c:out value="${estabelecimento.getEndereco().getCidade()}"/></td>
+                <td><c:out value="${estabelecimento.getEndereco().getBairro()}"/></td>
+                <td><c:out value="${estabelecimento.getEndereco().getLogradouro()}"/></td>
+                <td><c:out value="${estabelecimento.getEndereco().getNumEdificio()}"/></td>
+                <td><c:out value="${estabelecimento.getEndereco().getNumComplemento()}"/></td>
+                <td>
+                    <a href="ManterEstabelecimentoController?acao=prepararOperacao&operacao=Editar&id=<c:out value="${estabelecimento.id}" />" > Editar</a>
+                </td>
+                <td>
+                    <a href="ManterEstabelecimentoController?acao=prepararOperacao&operacao=Excluir&id=<c:out value="${estabelecimento.id}" />" > Excluir</a>
+                </td>
+            </tr>
+            </c:forEach>
         </table>
         <form action="ManterEstabelecimentoController?acao=prepararOperacao&operacao=Incluir" method="post">
             <input type="submit" name="btnIncluir" value="Incluir">
