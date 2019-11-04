@@ -12,6 +12,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Pesquisa de Comandas</title>
+        <link rel="stylesheet" href="css/main.css"/>
     </head>
     <body>
         <h1>Pesquisa de Comandas</h1>

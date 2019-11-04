@@ -87,7 +87,8 @@ public class ManterPratoController extends HttpServlet {
     try {
         String operacao = request.getParameter("operacao");
         request.setAttribute("operacao", operacao);
-        request.setAttribute("funcionario", Funcionario.obterFuncionarios());
+        request.setAttribute("funcionarios", Funcionario.obterFuncionarios());
+        request.setAttribute("estabelecimentos", Estabelecimento.obterEstabelecimentos());
         if (!operacao.equals("Incluir")) {
                 int id = Integer.parseInt(request.getParameter("id"));
                 Prato obj = Prato.obterPrato(id);
