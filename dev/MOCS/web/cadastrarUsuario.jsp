@@ -11,19 +11,25 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastro de Usuário</title>
+        <title>${operacao} Usuário</title>
+        <link rel="stylesheet" href="css/main.css"/>
     </head>
     <body>
         <div>
-            <h1>Usuário - ${operacao}</h1>
-        </div>        
+            <h1>${operacao} Usuário</h1>
+        </div>
+        <ul class="breadcrumb">
+            <li><a href="index.jsp">Index Admin</a></li>
+            <li><a href="PesquisarUsuarioController">Pesquisar</a></li>
+            <li>${operacao}</li>
+        </ul>
         <div>
             <form action="ManterUsuarioController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterUsuario" method="post">
                 <table border="1">
                     <tbody>
                         <tr>
                             <td><label for="id">Id:</label></td>
-                            <td><input type="text" name="txtIdUsuario" id="idUsuario" value="${usuario.id}"/></td>
+                            <td><input type="text" name="txtIdUsuario" id="idUsuario" value="${usuario.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td><label for="nome">Nome:</label></td>

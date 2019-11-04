@@ -11,11 +11,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastrar Funcao</title>
+        <title>${operacao} Funcao</title>
     </head>
     <body>
         <div>
-            <h1>Funcao - ${operacao}</h1>
+            <h1>${operacao} Funcao</h1>
+            <ul class="breadcrumb">
+                <li><a href="index.jsp">Index Admin</a></li>
+                <li><a href="PesquisarFuncaoController">Pesquisar</a></li>
+                <li>${operacao}</li>
+            </ul>
         </div>        
         <div>
             <form action="ManterFuncaoController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterFuncao" method="post">
@@ -23,7 +28,7 @@
                     <tbody>
                         <tr>
                             <td><label for="idEstabelecimento">Id do Estabelecimento:</label></td>
-                            <td><input type="text" name="txtIdEstabelecimento" id="idEstabelecimento" value="${funcao.idEstabelecimento}"/></td>
+                            <td><input type="text" name="txtIdEstabelecimento" id="idEstabelecimento" value="${funcao.idEstabelecimento}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td><label for="id">Id da Funcao:</label></td>

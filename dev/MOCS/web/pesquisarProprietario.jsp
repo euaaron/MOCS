@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%--
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
@@ -23,7 +24,7 @@
         </ul>
         <table border = 1>
             <tr>
-                <th>Código do Proprietario</th>
+                <th>C�digo do Proprietario</th>
                 <th>Nome do Proprietario</th>
             </tr>
             
@@ -45,3 +46,4 @@
         </form>
     </body>
 </html>
+--%>

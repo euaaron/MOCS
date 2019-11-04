@@ -17,7 +17,9 @@ public class Prato {
     private String dataCriacao;
     private int idEstabelecimento;
     
-    public Prato(int id, String nome, String descricao, String dataCriacao, int idFuncionario, int idEstabelecimento){
+    public Prato(int id, String nome, String descricao, String dataCriacao,
+    int idFuncionario, int idEstabelecimento)
+    {
         this.id = id;
         this.descricao = descricao;
         this.idFuncionario = idFuncionario;
@@ -45,19 +47,22 @@ public class Prato {
 // Métodos de comunicação com a camada DAO (Banco de dados)
     public static Prato obterPrato (int idPrato) 
     throws ClassNotFoundException, SQLException  
-    {
-        return PratoDAO.obterPrato(idPrato);
-    }
+    { return PratoDAO.obterPrato(idPrato); }
     
-    public static List<Prato> obterPratos() throws ClassNotFoundException, SQLException {
-        return PratoDAO.obterPratos();
-    }
+    public static List<Prato> obterPratos() 
+    throws ClassNotFoundException, SQLException 
+    { return PratoDAO.obterPratos(); }
     
-    public void gravar() throws SQLException, ClassNotFoundException {
-        PratoDAO.gravar(this);
-    }
+    public void gravar() 
+    throws SQLException, ClassNotFoundException 
+    { PratoDAO.gravar(this); }
     
-    public void excluir() throws ClassNotFoundException, SQLException {
-        PratoDAO.excluir(this);
-    }
+    public void editar()
+    throws ClassNotFoundException, SQLException 
+    { PratoDAO.editar(this); }
+    
+    public void excluir()
+    throws ClassNotFoundException, SQLException 
+    { PratoDAO.excluir(this); }  
+    
 }

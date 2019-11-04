@@ -37,11 +37,26 @@ public class EnderecoEstabelecimentoDAO {
         return enderecos;
     }
 
-    public static EnderecoEstabelecimento obterEndereco(int idEstabelecimento) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public static EnderecoEstabelecimento obterEndereco(int idEndereco) 
+        throws ClassNotFoundException, SQLException {
+        Connection conexao = null;
+        Statement comando = null;
+        EnderecoEstabelecimento obj = null;
+        try {
+            conexao = BD.getConexao();
+            comando = conexao.createStatement();
+            ResultSet rs = comando.executeQuery(
+                "SELECT * FROM endestabelecimento WHERE id = " + idEndereco);
+                rs.first();
+                obj = instanciarEnderecoEstabelecimento(rs);
+        } finally {
+            fecharConexao(conexao, comando);
+        }
+        return obj;
     }
-    
-    private static EnderecoEstabelecimento instanciarEnderecoEstabelecimento(ResultSet rs) throws SQLException {
+        
+    private static EnderecoEstabelecimento instanciarEnderecoEstabelecimento(ResultSet rs) 
+        throws SQLException {
         EnderecoEstabelecimento endereco = new EnderecoEstabelecimento(
             rs.getInt("id"),
             rs.getString("cep"),
@@ -50,22 +65,21 @@ public class EnderecoEstabelecimentoDAO {
             rs.getString("logradouro"),
             rs.getString("bairro"),
             rs.getString("numEdificio"), 
-            rs.getString("numComplemento"),
-            rs.getInt("estabelecimento_id")             
+            rs.getString("numComplemento")
         );
         return endereco;
     }
 
     public static void gravar(EnderecoEstabelecimento endestabelecimento) 
-            throws ClassNotFoundException, SQLException {
+        throws ClassNotFoundException, SQLException {
         Connection conexao = null;
         PreparedStatement comando = null;
         try {
             conexao = BD.getConexao();
             comando = conexao.prepareStatement(
-                "insert into endestabelecimento (id, cep, uf, cidade,"
-                + " logradouro, bairro, numEdificio, numComplemento, estabelecimento_id)"
-                + " values (?,?,?,?,?,?,?,?,?)"
+                  "insert into endestabelecimento (id, cep, uf, cidade,"
+                + " logradouro, bairro, numEdificio, numComplemento)"
+                + " values (?,?,?,?,?,?,?,?)"
             );
             comando.setInt(1, endestabelecimento.getId());
             comando.setString(2, endestabelecimento.getCep());
@@ -75,7 +89,30 @@ public class EnderecoEstabelecimentoDAO {
             comando.setString(6, endestabelecimento.getBairro());
             comando.setString(7, endestabelecimento.getNumEdificio());
             comando.setString(8, endestabelecimento.getNumComplemento());
-            comando.setInt(9, endestabelecimento.getIdEstabelecimento());
+            comando.executeUpdate();
+        } finally {
+            fecharConexao(conexao, comando);
+        }
+    }
+    
+    public static void editar(EnderecoEstabelecimento endestabelecimento) 
+        throws ClassNotFoundException, SQLException {
+        Connection conexao = null;
+        PreparedStatement comando = null;
+        try {
+            conexao = BD.getConexao();
+            comando = conexao.prepareStatement(
+                "UPDATE endestabelecimento set cep = ?, uf = ?, cidade = ?,"
+                + " logradouro = ?, bairro = ?, numEdificio = ?, numComplemento = ? WHERE id = ?"
+            );
+            comando.setString(1, endestabelecimento.getCep());
+            comando.setString(2, endestabelecimento.getUf());
+            comando.setString(3, endestabelecimento.getCidade());
+            comando.setString(4, endestabelecimento.getLogradouro());
+            comando.setString(5, endestabelecimento.getBairro());
+            comando.setString(6, endestabelecimento.getNumEdificio());
+            comando.setString(7, endestabelecimento.getNumComplemento());
+            comando.setInt(8, endestabelecimento.getId());
             comando.executeUpdate();
         } finally {
             fecharConexao(conexao, comando);
@@ -83,7 +120,7 @@ public class EnderecoEstabelecimentoDAO {
     }
     
     public static void excluir(EnderecoEstabelecimento e) 
-            throws SQLException, ClassNotFoundException {
+        throws SQLException, ClassNotFoundException {
         Connection conexao = null;
         Statement comando = null;
         String stringSQL;

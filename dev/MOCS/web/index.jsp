@@ -18,7 +18,7 @@
     <body>
         <h1>MOCS</h1>
         <ul class="breadcrumb">
-            <li><a href="#">Index Admin</a></li>
+            <li>Index Admin</li>
         </ul>         
         <ul>
             <li>Usuários
@@ -27,6 +27,13 @@
                     <li><a href="ManterUsuarioController?acao=prepararOperacao&operacao=Incluir">Cadastrar</a></li>
                 </ul>
             </li>
+        <%--<li>Proprietarios
+                <ul>
+                    <li><a href="PesquisarProprietarioController">Pesquisar</a></li>
+                    <li><a href="ManterProprietarioController?acao=prepararOperacao&operacao=Incluir">Cadastrar</a></li>
+                </ul>
+            </li>
+        --%>
             <li>Estabelecimentos
                 <ul>
                     <li><a href="PesquisarEstabelecimentoController">Pesquisar</a></li>
@@ -45,10 +52,10 @@
                     <li><a href="ManterFuncionarioController?acao=prepararOperacao&operacao=Incluir">Cadastrar</a></li>
                 </ul>
             </li>
-            <li>Proprietarios
+            <li>Pratos
                 <ul>
-                    <li><a href="PesquisarProprietarioController">Pesquisar</a></li>
-                    <li><a href="ManterProprietarioController?acao=prepararOperacao&operacao=Incluir">Cadastrar</a></li>
+                    <li><a href="PesquisarPratoController">Pesquisar</a></li>
+                    <li><a href="ManterPratoController?acao=prepararOperacao&operacao=Incluir">Cadastrar</a></li>
                 </ul>
             </li>
             <li>Comandas
@@ -57,10 +64,10 @@
                     <li><a href="ManterComandaController?acao=prepararOperacao&operacao=Incluir">Cadastrar</a></li>
                 </ul>
             </li>
-            <li>Pratos
+            <li>Pedidos
                 <ul>
-                    <li><a href="PesquisarPratoController">Pesquisar</a></li>
-                    <li><a href="ManterPratoController?acao=prepararOperacao&operacao=Incluir">Cadastrar</a></li>
+                    <li><a href="PesquisarPedidoController">Pesquisar</a></li>
+                    <li><a href="ManterPedidoController?acao=prepararOperacao&operacao=Incluir">Cadastrar</a></li>
                 </ul>
             </li>
         </ul>        

@@ -19,12 +19,12 @@
         <h1>Pesquisar Usuarios</h1>
         <ul class="breadcrumb">
             <li><a href="index.jsp">Index Admin</a></li>
-            <li>Pesquisar Usuarios</li>
+            <li>Pesquisar</li>
         </ul>
         <table border = 1>
             <tr>
-                <th>Código do Usuário</th>
-                <th>Nome do Usuario</th>
+                <th>Cod.</th>
+                <th>Nome</th>
             </tr>
             
             <c:forEach items="${usuarios}" var="usuario">

@@ -11,10 +11,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>MOCS</title>
+        <title>${operacao} Pedido</title>
     </head>
     <body>
-        <h1>Pedido - ${operacao}</h1>
+        <h1>${operacao} Pedido</h1>
+        <ul class="breadcrumb">
+            <li><a href="index.jsp">Index Admin</a></li>
+            <li><a href="PesquisarPedidoController">Pesquisar</a></li>
+            <li>${operacao}</li>
+        </ul>
         <div>
             <form action="ManterPedidoController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterPedido" method="post">
                 <table border="1">
@@ -25,15 +30,22 @@
                         </tr>
                         <tr>
                             <td><label for="idPrato">Id Prato:</label></td>
-                            <td><input type="text" name="txtIdPrato" id="idPrato" value="${pedido.idPrato}"/></td>
+                            <td>
+                                <select name="optPrato" >
+                                    <option value="0" <c:if test="${pedido.idPrato == null}"> selected</c:if>> </option>
+                                    <c:forEach items="${pratos}" var="prato">
+                                        <option value="${prato.id}" <c:if test="${pedido.idPrato == prato.id}"> selected</c:if>>${prato.nome}</option>
+                                    </c:forEach>
+                                </select>
+                            </td>
                         </tr>
                         <tr>
                             <td><label for="quantidade">Quantidade:</label></td>
-                            <td><input type="text" id="quantidade" min="0" placeholder="1" name="txtQuantidade" value="${pedido.quantidade}"/></td>
+                            <td><input type="text" name="txtQuantidade" id="quantidade" min="0" placeholder="1"  value="${pedido.quantidade}"/></td>
                         </tr>
                         <tr>
                             <td><label for="idComanda">Id Comanda:</label></td>
-                            <td><input type="text" id="idComanda" name="txtIdComanda" value="${pedido.idComanda}"/></td>
+                            <td><input type="text" name="txtIdComanda" id="idComanda"  value="${pedido.idComanda}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td>

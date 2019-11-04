@@ -11,16 +11,21 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Pesquisa de Comandas</title>
+        <title>Pesquisar Comandas</title>
+        <link rel="stylesheet" href="css/main.css"/>
     </head>
     <body>
-        <h1>Pesquisa de Comandas</h1>
+        <h1>Pesquisar Comandas</h1>
+        <ul class="breadcrumb">
+            <li><a href="index.jsp">Index Admin</a></li>
+            <li>Pesquisar</li>
+        </ul>
         <table border = 1>
             <tr>
-                <th>Código da Comanda</th>
-                <th>Data da Comanda</th>
-                <th>Hora da Comanda</th>
-                <th>Codigo do Cliente</th>
+                <th>Cod.</th>
+                <th>Data</th>
+                <th>Hora</th>
+                <th>Cod. Cliente</th>
             </tr>
             
             <c:forEach items="${comandas}" var="comanda">

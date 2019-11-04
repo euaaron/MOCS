@@ -23,7 +23,8 @@ public class EnderecoUsuarioDAO {
 *   USUARIO
 */
    
-    public static EnderecoUsuario obterEnderecoPadrao(int idUsuario) throws ClassNotFoundException, SQLException {
+    public static EnderecoUsuario obterEnderecoPadrao(int idUsuario) 
+    throws ClassNotFoundException, SQLException {
         Connection conexao = null;
         Statement comando = null;
         EnderecoUsuario endereco = null;
@@ -42,7 +43,8 @@ public class EnderecoUsuarioDAO {
             return endereco;
     }
     
-    public static EnderecoUsuario obterEnderecoUsuario(int idEndereco) throws ClassNotFoundException, SQLException {
+    public static EnderecoUsuario obterEnderecoUsuario(int idEndereco) 
+    throws ClassNotFoundException, SQLException {
         Connection conexao = null;
         Statement comando = null;
         EnderecoUsuario endereco = null;
@@ -88,7 +90,7 @@ public class EnderecoUsuarioDAO {
         try{
         conexao = BD.getConexao();
         comando = conexao.createStatement();
-        ResultSet rs = comando.executeQuery("select * from endereco");
+        ResultSet rs = comando.executeQuery("select * from endereco ORDER BY id ASC");
             while (rs.next()) {
                 endereco = instanciarEnderecoUsuario(rs);
                 enderecos.add(endereco);                
@@ -99,7 +101,8 @@ public class EnderecoUsuarioDAO {
         return enderecos;
     }
 
-    private static EnderecoUsuario instanciarEnderecoUsuario(ResultSet rs) throws SQLException {
+    private static EnderecoUsuario instanciarEnderecoUsuario(ResultSet rs) 
+    throws SQLException {
         EnderecoUsuario endereco = new EnderecoUsuario(
             rs.getInt("id"),
             rs.getString("cep"),
@@ -109,13 +112,14 @@ public class EnderecoUsuarioDAO {
             rs.getString("logradouro"), 
             rs.getString("numEdificio"), 
             rs.getString("numComplemento"),
-            rs.getInt("usuario_id"),
+            rs.getInt("idUsuario"),
             rs.getBoolean("padrao")                
         );
         return endereco;
     }
     
-    public static void gravar(Endereco endereco) throws ClassNotFoundException, SQLException {
+    public static void gravar(Endereco endereco) 
+    throws ClassNotFoundException, SQLException {
         Connection conexao = null;
         PreparedStatement comando = null;
         try {
@@ -137,8 +141,31 @@ public class EnderecoUsuarioDAO {
         }
     }
     
+    public static void editar(Endereco endereco) 
+    throws ClassNotFoundException, SQLException {
+        Connection conexao = null;
+        PreparedStatement comando = null;
+        try {
+            conexao = BD.getConexao();
+            comando = conexao.prepareStatement(
+                    "update endereco set cep = ?, uf = ?, cidade = ?, logradouro = ?, numEdificio = ?, numComplemento = ?"
+            );
+            
+            comando.setString(1, endereco.getCep());
+            comando.setString(2, endereco.getUf());
+            comando.setString(3, endereco.getCidade());
+            comando.setString(4, endereco.getLogradouro());
+            comando.setString(5, endereco.getNumEdificio());
+            comando.setString(6, endereco.getCidade());
+            comando.setInt(7, endereco.getId());
+            comando.executeUpdate();
+        } finally {
+        fecharConexao(conexao, comando);
+        }
+    }
+    
     public static void excluir(EnderecoUsuario e) 
-            throws SQLException, ClassNotFoundException {
+    throws SQLException, ClassNotFoundException {
         Connection conexao = null;
         Statement comando = null;
         String stringSQL;

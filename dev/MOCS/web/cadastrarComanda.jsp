@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" content="text/html" charset=UTF-8">
         <title>Cadastro de Comanda</title>
     </head>
     <body>
@@ -20,7 +20,7 @@
                     <tbody>
                         <tr>
                             <td><label for="id">Id:</label></td>
-                            <td><input type="text" name="txtId" id="idComanda" value="${comanda.id}"/></td>
+                            <td><input type="text" name="txtId" id="idComanda" value="${comanda.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td><label for="dataComanda">Data:</label></td>

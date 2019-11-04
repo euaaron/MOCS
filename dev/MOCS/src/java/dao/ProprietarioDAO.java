@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+/*
 package dao;
 
 import static dao.DAO.fecharConexao;
@@ -14,13 +15,15 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import model.Proprietario;
-
+*/
 /**
  *
  * @author Débora Lessa & Aaron Stiebler
  */
+/*
 public class ProprietarioDAO {
-    public static Proprietario obterProprietario(int idUsuario) throws ClassNotFoundException, SQLException {
+    public static Proprietario obterProprietario(int idUsuario) 
+        throws ClassNotFoundException, SQLException {
         Connection conexao = null;
         Statement comando = null;
         Proprietario proprietario = null;
@@ -46,7 +49,7 @@ public class ProprietarioDAO {
         try{
         conexao = BD.getConexao();
         comando = conexao.createStatement();
-        ResultSet rs = comando.executeQuery("select * from proprietario");
+        ResultSet rs = comando.executeQuery("SELECT * FROM proprietario ORDER BY id ASC");
             while (rs.next()) {
                 proprietario = instanciarProprietario(rs);
                 proprietarios.add(proprietario);                
@@ -72,7 +75,8 @@ public class ProprietarioDAO {
         return proprietario;
     }
     
-    public static void gravar(Proprietario proprietario) throws SQLException,ClassNotFoundException{
+    public static void gravar(Proprietario proprietario)
+        throws SQLException,ClassNotFoundException {
         Connection conexao = null;
         PreparedStatement comando = null;
         try {
@@ -105,6 +109,40 @@ public class ProprietarioDAO {
         }
     }
     
+    public static void editar(Proprietario proprietario) throws SQLException,ClassNotFoundException{
+        Connection conexao = null;
+        PreparedStatement comando = null;
+        try {
+            conexao = BD.getConexao();
+            comando = conexao.prepareStatement(
+            "update usuario set nome = ?, dataNascimento = ?, email = ?, telefone = ?, senha = ?, cpf = ?"
+            + " where id = ?");
+            comando.setString(1, proprietario.getNome());
+            comando.setString(2, proprietario.getDataNascimento());
+            comando.setString(3, proprietario.getEmail());
+            comando.setString(4, proprietario.getTelefone());
+            comando.setString(5, proprietario.getSenha());
+            comando.setString(6, proprietario.getCpf());
+            comando.setInt(7, proprietario.getId());
+            comando.executeUpdate();
+            
+            comando = conexao.prepareStatement(
+            "update proprietario set id = ?, nome = ?, dataNascimento = ?, email = ?, telefone = ?, senha = ?, cpf = ?"
+            + " where id = ?");
+            
+            comando.setString(1, proprietario.getNome());
+            comando.setString(2, proprietario.getDataNascimento());
+            comando.setString(3, proprietario.getEmail());
+            comando.setString(4, proprietario.getTelefone());
+            comando.setString(5, proprietario.getSenha());
+            comando.setString(6, proprietario.getCpf());
+            comando.setInt(7, proprietario.getId());
+            comando.executeUpdate();
+        }finally{
+            fecharConexao(conexao, comando);
+        }
+    }
+    
     public static void excluir(Proprietario proprietario) 
             throws SQLException, ClassNotFoundException {
         Connection conexao = null;
@@ -123,3 +161,4 @@ public class ProprietarioDAO {
     }
     
 }
+*/

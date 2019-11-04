@@ -11,19 +11,32 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastro de Estabelecimento</title>
+        <title>${operacao} Estabelecimento</title>
+        <link rel="stylesheet" href="css/main.css"/>
     </head>
     <body>
-        <h1>Estabelecimento - ${operacao}</h1>
+        <h1>${operacao} Estabelecimento</h1>
+        <ul class="breadcrumb">
+            <li><a href="index.jsp">Index Admin</a></li>
+            <li><a href="PesquisarEstabelecimentoController">Pesquisar</a></li>
+            <li>${operacao}</li>
+        </ul>
         <form action="ManterEstabelecimentoController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterEstabelecimento" method="post">
-        <table>
+            <table>
                 <tr>
                     <td><label for="id">Id:</label></td>
-                    <td><input type="text" name="txtIdEstabelecimento" id="idEstabelecimento" value="${estabelecimento.id}"></td>
+                    <td><input type="text" name="txtIdEstabelecimento" id="idEstabelecimento" value="${estabelecimento.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>></td>
                 </tr>
                 <tr>
-                    <td><label for="idProprietario">Id do Proprietario:</label></td>
-                    <td><input type="text" name="txtIdProprietario" id="idProprietario" value="${estabelecimento.idProprietario}"></td>
+                    <td><label for="idProprietario">Proprietario:</label></td>
+                    <td>
+                        <select name="txtIdProprietario" <c:if test="${operacao == 'Excluir'}"> disabled</c:if>>
+                            <option value="0" <c:if test="${estabelecimento.proprietario.id == null}"> selected</c:if>> </option>  
+                            <c:forEach items="${proprietarios}" var="proprietario">
+                                <option value="${proprietario.id}" <c:if test="${proprietario.id == estabelecimento.proprietario.id}"> selected</c:if>>${proprietario.nome}</option>  
+                            </c:forEach>
+                        </select>
+                    </td>
                 </tr>
                 <tr>
                     <td><label for="cnpj">CNPJ:</label></td> <!-- Número do CNPJ -->
@@ -40,6 +53,38 @@
                 <tr>
                     <td><label for="inscEstadual">Inscrição Estadual:</label></td> <!-- Número da inscrição estadual da empresa -->
                     <td><input type="text" name="txtInscEstadual" id="inscEstadual" value="${estabelecimento.inscEstadual}"></td>
+                </tr>
+                <tr>
+                    <td><label for="idEndereco">Id do Endereco</label></td>
+                    <td><input type="text" name="txtIdEndereco" id="idEndereco" value="${endestabelecimento.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>></td>
+                </tr>
+                <tr>
+                    <td><label for="cep">CEP:</label></td>
+                    <td><input type="text" id="cep" name="txtCEP" value="${endestabelecimento.cep}"/></td>
+                </tr>
+                <tr>
+                    <td><label for="uf">UF:</label></td>
+                    <td><input type="text" id="uf" name="txtUF" value="${endestabelecimento.uf}"/></td>
+                </tr>
+                <tr>
+                    <td><label for="cidade">Cidade:</label></td>
+                    <td><input type="text" id="cidade" name="txtCidade" value="${endestabelecimento.cidade}"/></td>
+                </tr>
+                <tr>
+                    <td><label for="bairro">Bairro:</label></td>
+                    <td><input type="text" id="bairro" name="txtBairro" value="${endestabelecimento.bairro}"></td>
+                </tr>
+                <tr>
+                    <td><label for="logradouro">Logradouro:</label></td>
+                    <td><input type="text" id="logradouro" name="txtLogradouro" value="${endestabelecimento.logradouro}"></td>
+                </tr>
+                <tr>
+                    <td><label for="edificio">Numero do Edificio:</label></td>
+                    <td><input type="text" id="edificio" name="txtEdificio" value="${endestabelecimento.numEdificio}"></td>
+                </tr>
+                <tr>
+                    <td><label for="complemento">Complemento:</label></td>
+                    <td><input type="text" id="complemento" name="txtComplemento" value="${endestabelecimento.numComplemento}"></td>
                 </tr>
                 <tr>
                     <td><input type="submit" name="btnIncluir" value="Confirmar"></td>

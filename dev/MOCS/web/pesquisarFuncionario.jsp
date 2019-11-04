@@ -11,28 +11,28 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Pesquisa de Funcionarios</title>
+        <title>Pesquisar Funcionarios</title>
         <link rel="stylesheet" href="css/main.css"/>
     </head>
     <body>
         <h1>Pesquisar Funcionarios</h1>
         <ul class="breadcrumb">
             <li><a href="index.jsp">Index Admin</a></li>
-            <li>Pesquisar Funcionarios</li>
+            <li>Pesquisar</li>
         </ul>
         <table border = 1>
             <tr>
-                <th>Código do Funcionario</th>
-                <th>Nome do Funcionario</th>
-                <th>CPF do Funcionario</th>
-                <th>Status da Conta do Funcionario</th>
+                <th>Cod. Funcionario</th>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>Status da Conta</th>
             </tr>
             
             <c:forEach items="${funcionarios}" var="funcionario">
                 <tr>
                     <td><c:out value="${funcionario.id}"/></td>
                     <td><c:out value="${funcionario.nome}"/></td>
-                    <td><c:out value="${funcionario.cpf}"/></td>
+                    <td><c:out value="${funcionario.getFuncao().getNome()}"/></td>
                     <td><c:out value="${funcionario.statusConta}"/></td>
                     <td>
                         <a href="ManterFuncionarioController?acao=prepararOperacao&operacao=Editar&id=<c:out value="${funcionario.id}" />" > Editar</a>

@@ -42,7 +42,9 @@ public class EstabelecimentoDAO {
         try{
         conexao = BD.getConexao();
         comando = conexao.createStatement();
-        ResultSet rs = comando.executeQuery("select * from estabelecimento");
+        ResultSet rs = comando.executeQuery(
+                "select * from estabelecimento ORDER BY id ASC"
+        );
             while (rs.next()) {
                 estabelecimento = instanciarEstabelecimento(rs);
                 estabelecimentos.add(estabelecimento);                
@@ -62,7 +64,10 @@ public class EstabelecimentoDAO {
         try{
         conexao = BD.getConexao();
         comando = conexao.createStatement();
-        ResultSet rs = comando.executeQuery("select * from estabelecimento where 'idProprietario' = " + idProprietario);
+        ResultSet rs = comando.executeQuery(
+                "select * from estabelecimento where 'idProprietario' = " 
+                + idProprietario
+        );
             while (rs.next()) {
                 estabelecimento = instanciarEstabelecimento(rs);
                 estabelecimentos.add(estabelecimento);                
@@ -73,26 +78,28 @@ public class EstabelecimentoDAO {
         return estabelecimentos;
     }
 
-    private static Estabelecimento instanciarEstabelecimento(ResultSet rs) throws SQLException {
+    private static Estabelecimento instanciarEstabelecimento(ResultSet rs) 
+    throws SQLException, ClassNotFoundException {
         Estabelecimento estabelecimento = new Estabelecimento(
             rs.getInt("id"),
             rs.getString("cnpj"),
             rs.getString("nomeFantasia"),
             rs.getString("inscEstadual"),
             rs.getString("telefone"),
-            null
+            rs.getInt("idProprietario"),
+            rs.getInt("idEndereco")
         );
-        estabelecimento.setId(rs.getInt("idProprietario"));
         return estabelecimento;
     }
-    public static void gravar(Estabelecimento estabelecimento) throws SQLException, ClassNotFoundException{
+    public static void gravar(Estabelecimento estabelecimento) 
+    throws SQLException, ClassNotFoundException{
         Connection conexao = null;
         PreparedStatement comando = null;
         try {
             conexao = BD.getConexao();
             comando = conexao.prepareStatement (
-            "insert into estabelecimento (id, idProprietario, cnpj, nomeFantasia, inscEstadual, telefone)" 
-            + "values (?,?,?,?,?,?)"
+            "insert into estabelecimento (id, idProprietario, cnpj, nomeFantasia, inscEstadual, telefone, idEndereco)" 
+            + "values (?,?,?,?,?,?,?)"
             );
             comando.setInt(1, estabelecimento.getId());
             comando.setInt(2, estabelecimento.getIdProprietario());
@@ -100,6 +107,7 @@ public class EstabelecimentoDAO {
             comando.setString(4, estabelecimento.getNomeFantasia());
             comando.setString(5, estabelecimento.getInscEstadual());
             comando.setString(6, estabelecimento.getTelefone());
+            comando.setInt(7, estabelecimento.getIdEndereco());
             comando.executeUpdate();
         }finally{
             fecharConexao(conexao, comando);
@@ -112,8 +120,9 @@ public class EstabelecimentoDAO {
 
         try {
             conexao = BD.getConexao();
-            String sql =  "update estabelecimento (idProprietario, cnpj, nomeFantasia, inscEstadual, telefone)" 
-            + "values (?,?,?,?,?,?) where id=?";
+            String sql =  
+                    "update estabelecimento set idProprietario = ?, cnpj = ?, nomeFantasia = ?,"
+                  + "inscEstadual = ?, telefone = ? WHERE id = ?";
             
             comando = conexao.prepareStatement(sql);
             comando.setInt(1, obj.getIdProprietario());

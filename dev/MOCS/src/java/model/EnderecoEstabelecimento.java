@@ -10,51 +10,31 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class EnderecoEstabelecimento extends Endereco{
-    
-    private Estabelecimento estabelecimento;
-    private int idEstabelecimento;
-    
+        
     public EnderecoEstabelecimento (int id, String cep, String uf, String cidade, 
-    String logradouro, String bairro, String numEdificio, String numComplemento, 
-    int idEstabelecimento) 
+    String logradouro, String bairro, String numEdificio, String numComplemento) 
     {
         super(id, cep, bairro, uf, cidade, logradouro, numEdificio, numComplemento);
-        this.idEstabelecimento = idEstabelecimento;
-    }
-    
-    // Métodos de inserção (Modificação)
-    public void setEstabelecimento(Estabelecimento e) { this.estabelecimento = e;}
-    public void setIdEstabelecimento(int idEstabelecimento) {this.idEstabelecimento = idEstabelecimento;}  
-    
-    // Métodos de Recuperação (Leitura)   
-    public int getIdEstabelecimento() { return this.idEstabelecimento; }
-    public Estabelecimento getEstabelecimento(int idEstabelecimento) 
-    throws ClassNotFoundException, SQLException  
-    { 
-        if (estabelecimento != null) {
-            return this.estabelecimento;
-        }
-        return Estabelecimento.obterEstabelecimento(idEstabelecimento); 
     }
     
     // Métodos de comunicação com a camada DAO (Banco de dados)   
-    public static EnderecoEstabelecimento obterEndereco(int idEstabelecimento) 
+    public static EnderecoEstabelecimento obterEndereco(int idEndereco) 
     throws ClassNotFoundException, SQLException 
-    {
-        return EnderecoEstabelecimentoDAO.obterEndereco(idEstabelecimento);
-    }
+    { return EnderecoEstabelecimentoDAO.obterEndereco(idEndereco); }
     
     public static List<EnderecoEstabelecimento> obterEnderecos() 
     throws ClassNotFoundException, SQLException 
-    {
-        return EnderecoEstabelecimentoDAO.obterEnderecos();
-    }    
+    { return EnderecoEstabelecimentoDAO.obterEnderecos(); }    
     
-    public void gravar() throws SQLException, ClassNotFoundException {
-        EnderecoEstabelecimentoDAO.gravar(this);
-    }
+    public void gravar() 
+    throws SQLException, ClassNotFoundException 
+    { EnderecoEstabelecimentoDAO.gravar(this); }
     
-    public void excluir() throws ClassNotFoundException, SQLException {
-        EnderecoEstabelecimentoDAO.excluir(this);
-    }
+    public void editar()
+    throws SQLException, ClassNotFoundException 
+    { EnderecoEstabelecimentoDAO.editar(this); }
+    
+    public void excluir() 
+    throws ClassNotFoundException, SQLException 
+    { EnderecoEstabelecimentoDAO.excluir(this); }
 }

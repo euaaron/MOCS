@@ -17,7 +17,8 @@ import model.Funcionario;
 
 public class FuncionarioDAO {
     
-    public static Funcionario obterFuncionario(int idUsuario) throws ClassNotFoundException, SQLException {
+    public static Funcionario obterFuncionario(int idUsuario)
+    throws ClassNotFoundException, SQLException {
         Connection conexao = null;
         Statement comando = null;
         Funcionario funcionario = null;
@@ -43,7 +44,7 @@ public class FuncionarioDAO {
         try{
         conexao = BD.getConexao();
         comando = conexao.createStatement();
-        ResultSet rs = comando.executeQuery("select * from funcionario");
+        ResultSet rs = comando.executeQuery("select * from funcionario ORDER BY id ASC");
             while (rs.next()) {
                 funcionario = instanciarFuncionario(rs);
                 funcionarios.add(funcionario);                
@@ -54,9 +55,10 @@ public class FuncionarioDAO {
         return funcionarios;
     }
     
-    public static Funcionario instanciarFuncionario (ResultSet rs) throws SQLException {
+    public static Funcionario instanciarFuncionario (ResultSet rs) 
+    throws SQLException, ClassNotFoundException {
         Funcionario funcionario = new Funcionario(
-            rs.getInt("idUsuario"),
+            rs.getInt("id"),
             rs.getString("nome"), 
             rs.getString("dataNascimento"),
             rs.getString("email"),
@@ -70,13 +72,15 @@ public class FuncionarioDAO {
         );
         return funcionario;
     }
-    public static void gravar(Funcionario funcionario) throws SQLException, ClassNotFoundException{
+    public static void gravar(Funcionario funcionario) 
+    throws SQLException, ClassNotFoundException{
         Connection conexao = null;
         PreparedStatement comando = null;
         try {
             conexao = BD.getConexao();
-            comando = conexao.prepareStatement("insert into usuario (id, nome, dataNascimento, email, telefone, senha, cpf)"
-            + "values (?,?,?,?,?,?,?)");
+            comando = conexao.prepareStatement(
+              "insert into usuario (id, nome, dataNascimento, email, telefone, senha, cpf)"
+            + " values (?,?,?,?,?,?,?)");
             comando.setInt(1, funcionario.getId());
             comando.setString(2, funcionario.getNome());
             comando.setString(3, funcionario.getDataNascimento());
@@ -85,9 +89,15 @@ public class FuncionarioDAO {
             comando.setString(6, funcionario.getSenha());
             comando.setString(7, funcionario.getCpf());
             comando.executeUpdate();
-            
-            comando = conexao.prepareStatement("insert into funcionario (id, nome, dataNascimento, email, telefone, senha, cpf, statusConta, idEstabelecimento, idFuncao)"
-            + "values (?,?,?,?,?,?,?,?,?,?)");
+            }finally{
+            fecharConexao(conexao, comando);
+        }
+        try {
+            conexao = BD.getConexao();            
+            comando = conexao.prepareStatement(
+              "insert into funcionario (id, nome, dataNascimento, email, telefone,"
+            + " senha, cpf, statusConta, idEstabelecimento, idFuncao)"
+            + " values (?,?,?,?,?,?,?,?,?,?)");
             comando.setInt(1, funcionario.getId());
             comando.setString(2, funcionario.getNome());
             comando.setString(3, funcionario.getDataNascimento());
@@ -104,8 +114,51 @@ public class FuncionarioDAO {
         }
     }
     
+    public static void editar(Funcionario obj) 
+    throws ClassNotFoundException, SQLException {
+        Connection conexao = null;
+        PreparedStatement comando = null;
+
+        try {
+            comando = conexao.prepareStatement(
+              "update usuario set nome = ?, dataNascimento = ?, email = ?,"
+            + " telefone = ?, senha = ?, cpf =? WHERE id = ?");
+            
+            comando.setString(1, obj.getNome());
+            comando.setString(2, obj.getDataNascimento());
+            comando.setString(3, obj.getEmail());
+            comando.setString(4, obj.getTelefone());
+            comando.setString(5, obj.getSenha());
+            comando.setString(6, obj.getCpf());
+            comando.setInt(7, obj.getId());            
+            comando.executeUpdate();
+            
+            conexao = BD.getConexao();
+            comando = conexao.prepareStatement(
+              "update funcionario set nome = ?, dataNascimento = ?, email = ?, telefone = ?, "
+            + "senha = ?, cpf = ?, statusConta = ?, idEstabelecimento = ?, idFuncao = ?"
+            + " WHERE id = ?");
+            
+            comando.setString(1, obj.getNome());
+            comando.setString(2, obj.getDataNascimento());
+            comando.setString(3, obj.getEmail());
+            comando.setString(4, obj.getTelefone());
+            comando.setString(5, obj.getSenha());
+            comando.setString(6, obj.getCpf());
+            comando.setInt(7, obj.getStatusConta());
+            comando.setInt(8, obj.getIdEstabelecimento());
+            comando.setInt(9, obj.getIdFuncao());
+            comando.setInt(10, obj.getId());            
+            comando.executeUpdate();
+            
+            fecharConexao(conexao, comando);
+        } catch (SQLException e) {
+            throw e;
+        }       
+    }
+    
     public static void excluir(Funcionario usuario) 
-            throws SQLException, ClassNotFoundException {
+    throws SQLException, ClassNotFoundException {
         Connection conexao = null;
         Statement comando = null;
         String stringSQL;

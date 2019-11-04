@@ -12,7 +12,8 @@ import model.Funcao;
 
 public class FuncaoDAO {
 
-    public static Funcao obterFuncao(int id) throws ClassNotFoundException, SQLException {
+    public static Funcao obterFuncao(int id) 
+    throws ClassNotFoundException, SQLException {
         Connection conexao = null;
         Statement comando = null;
         Funcao funcao = null;
@@ -42,7 +43,8 @@ public class FuncaoDAO {
         return funcao;
     }
 
-    public static List<Funcao> obterFuncoes() throws SQLException, ClassNotFoundException {
+    public static List<Funcao> obterFuncoes() 
+    throws SQLException, ClassNotFoundException {
         Connection conexao = null;
         Statement comando = null;
         List<Funcao> lista = new ArrayList<>();
@@ -50,7 +52,7 @@ public class FuncaoDAO {
         try{
         conexao = BD.getConexao();
         comando = conexao.createStatement();
-        ResultSet rs = comando.executeQuery("select * from funcao");
+        ResultSet rs = comando.executeQuery("select * from funcao ORDER BY id ASC");
             while (rs.next()) {
                 obj = instanciarFuncao(rs);
                 lista.add(obj);                
@@ -61,7 +63,8 @@ public class FuncaoDAO {
         return lista;
     }
     
-    public static List<Funcao> obterFuncoesEstabelecimento(int idEstabelecimento) throws SQLException, ClassNotFoundException {
+    public static List<Funcao> obterFuncoesEstabelecimento(int idEstabelecimento) 
+    throws SQLException, ClassNotFoundException {
         Connection conexao = null;
         Statement comando = null;
         List<Funcao> lista = new ArrayList<>();
@@ -80,7 +83,8 @@ public class FuncaoDAO {
         return lista;
     }
 
-    public static void gravar(Funcao obj) throws ClassNotFoundException, SQLException {
+    public static void gravar(Funcao obj) 
+    throws ClassNotFoundException, SQLException {
         Connection conexao = null;
         PreparedStatement comando = null;
         try {
@@ -99,20 +103,21 @@ public class FuncaoDAO {
         }
     }
 
-    public static void editar(Funcao obj) throws ClassNotFoundException, SQLException {
+    public static void editar(Funcao obj) 
+    throws ClassNotFoundException, SQLException {
         Connection conexao = null;
         PreparedStatement comando = null;
 
         try {
             conexao = BD.getConexao();
             comando = conexao.prepareStatement(
-            "update table funcao (nome, descricao, nivelPermissao)"
-            + "values(?,?,?,?,?,?) where id =? and idEstabelecimento=?");
+            "UPDATE funcao SET nome = ?, descricao = ?, nivelPermissao = ?"
+            + " WHERE id = ? AND idEstabelecimento = ?");
             
-            comando.setInt(1, obj.getId());
-            comando.setString(2, obj.getNome());
-            comando.setString(3, obj.getDescricao());
-            comando.setInt(4, obj.getNivelPermissao());
+            comando.setString(1, obj.getNome());
+            comando.setString(2, obj.getDescricao());
+            comando.setInt(3, obj.getNivelPermissao());
+            comando.setInt(4, obj.getId());
             comando.setInt(5, obj.getIdEstabelecimento());
             comando.executeUpdate();
             
@@ -122,7 +127,8 @@ public class FuncaoDAO {
         }       
     }
 
-    public static void excluir(Funcao obj) throws SQLException, ClassNotFoundException {
+    public static void excluir(Funcao obj)
+    throws SQLException, ClassNotFoundException {
         Connection conexao = null;
         Statement comando = null;
         String stringSQL;

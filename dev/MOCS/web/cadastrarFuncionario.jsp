@@ -11,11 +11,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastrar Funcionários</title>
+        <title>${operacao} Funcionario</title>
     </head>
     <body>
         <div>
-            <h1>Funcionario - ${operacao}</h1>
+            <h1>${operacao} Funcionario</h1>
+            <ul class="breadcrumb">
+                <li><a href="index.jsp">Index Admin</a></li>
+                <li><a href="PesquisarFuncionarioController">Pesquisar</a></li>
+                <li>${operacao}</li>
+            </ul>
         </div>        
         <div>
             <form action="ManterFuncionarioController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterFuncionario" method="post">
@@ -23,27 +28,43 @@
                     <tbody>
                         <tr>
                             <td><label for="idEstabelecimento">Id do Estabelecimento:</label></td>
-                            <td><input type="text" name="txtIdEstabelecimento" id="idEstabelecimento" value="${funcionario.idEstabelecimento}"/></td>
+                            <td>
+                                <input type="text" name="txtIdEstabelecimento" id="idEstabelecimento" value="${funcionario.idEstabelecimento}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/>
+                            </td>
                         </tr>
                         <tr>
-                            <td><label for="id">Id:</label></td>
-                            <td><input type="text" name="txtIdFuncionario" id="idFuncionario" value="${funcionario.id}"/></td>
+                            <td><label for="idFuncionario">Id:</label></td>
+                            <td>
+                                <input type="text" name="txtIdFuncionario" id="idFuncionario" value="${funcionario.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/>
+                            </td>
                         </tr>
+                        <tr>
+                            <td><label for="status">Status da Conta:</label></td>
+                            <td>
+                                <input type="text" name="txtStatusConta" id="statusConta" value="${funcionario.statusConta}"/>
+                            </td>
+                        </tr>                        
                         <tr>
                             <td><label for="nome">Nome:</label></td>
-                            <td><input type="text" name="txtNome" id="nome" value="${funcionario.nome}"/></td>
+                            <td>
+                                <input type="text" name="txtNome" id="nome" value="${funcionario.nome}"/>
+                            </td>
                         </tr>
                         <tr>
                             <td><label for="cpf">CPF:</label></td>
-                            <td><input type="text" name="txtCpf" id="cpf" value="${funcionario.cpf}"/></td>
+                            <td>
+                                <input type="text" name="txtCpf" id="cpf" value="${funcionario.cpf}"/>
+                            </td>
                         </tr>
                         <tr>
                             <td><label for="dataNasc">Data de Nascimento:</label></td>
-                            <td><input type="text" name="txtDataNascimento" id="dataNascimento" value="${funcionario.dataNascimento}"/></td>
+                            <td>
+                                <input type="text" name="txtDataNascimento" id="dataNascimento" value="${funcionario.dataNascimento}"/>
+                            </td>
                         </tr>
                         <tr>
                             <td><label for="email">Email:</label></td>
-                            <td><input type="text" id="email" placeholder="exemplo@email.com" value="${funcionario.email}"/></td>
+                            <td><input type="text" name="txtEmail" id="email" placeholder="exemplo@email.com" value="${funcionario.email}"/></td>
                         </tr>
                         <tr>
                             <td><label for="telefone">Telefone:</label></td>

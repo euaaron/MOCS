@@ -26,7 +26,7 @@ public class ComandaDAO {
         try{
         conexao = BD.getConexao();
         comando = conexao.createStatement();
-        ResultSet rs = comando.executeQuery("select * from comanda");
+        ResultSet rs = comando.executeQuery("select * from comanda ORDER BY id ASC");
             while (rs.next()) {
                 comanda = instanciarComanda(rs);
                 comandas.add(comanda);                
@@ -77,6 +77,24 @@ public class ComandaDAO {
             comando.setString(2, comanda.getDataComanda());
             comando.setString(3, comanda.getHoraComanda());
             comando.setInt(4, comanda.getIdCliente());
+            comando.executeUpdate();
+        } finally {
+        fecharConexao(conexao, comando);
+        }
+    }
+    
+    public static void editar(Comanda comanda) throws ClassNotFoundException, SQLException {
+        Connection conexao = null;
+        PreparedStatement comando = null;
+        try {
+            conexao = BD.getConexao();
+            comando = conexao.prepareStatement(
+                    "update comanda set data = ?, hora = ?, idCliente = ? where id = ?"
+            );
+            comando.setString(1, comanda.getDataComanda());
+            comando.setString(2, comanda.getHoraComanda());
+            comando.setInt(3, comanda.getIdCliente());
+            comando.setInt(4, comanda.getId());
             comando.executeUpdate();
         } finally {
         fecharConexao(conexao, comando);
