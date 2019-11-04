@@ -28,7 +28,7 @@
                         </tr>
                         <tr>
                             <td><label for="descricao">Descricao:</label></td>
-                            <td><input type="text" name="txtDescricao" id="decricao" value="${prato.descricao}"/></td>
+                            <td><input type="text" name="txtDescricao" id="descricao" value="${prato.descricao}"/></td>
                         </tr>
                         <tr>
                             <td><label for="dataCriacao">Data da Criação:</label></td>
