@@ -19,7 +19,7 @@
         <h1>Pesquisar Funcões</h1>
         <ul class="breadcrumb">
             <li><a href="index.jsp">Index Admin</a></li>
-            <li>Pesquisar Funcões</li>
+            <li>Pesquisar</li>
         </ul>
         <table border = 1>
             <tr>

@@ -11,11 +11,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastro de Estabelecimento</title>
+        <title>${operacao} Estabelecimento</title>
         <link rel="stylesheet" href="css/main.css"/>
     </head>
     <body>
-        <h1>Estabelecimento - ${operacao}</h1>
+        <h1>${operacao} Estabelecimento</h1>
+        <ul class="breadcrumb">
+            <li><a href="index.jsp">Index Admin</a></li>
+            <li><a href="PesquisarEstabelecimentoController">Pesquisar</a></li>
+            <li>${operacao}</li>
+        </ul>
         <form action="ManterEstabelecimentoController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterEstabelecimento" method="post">
             <table>
                 <tr>

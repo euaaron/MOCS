@@ -11,10 +11,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>MOCS</title>
+        <title>${operacao} Pedido</title>
     </head>
     <body>
-        <h1>Pedido - ${operacao}</h1>
+        <h1>${operacao} Pedido</h1>
+        <ul class="breadcrumb">
+            <li><a href="index.jsp">Index Admin</a></li>
+            <li><a href="PesquisarPedidoController">Pesquisar</a></li>
+            <li>${operacao}</li>
+        </ul>
         <div>
             <form action="ManterPedidoController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterPedido" method="post">
                 <table border="1">

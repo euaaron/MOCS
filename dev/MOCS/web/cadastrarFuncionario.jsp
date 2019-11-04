@@ -11,11 +11,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastrar Funcionários</title>
+        <title>${operacao} Funcionario</title>
     </head>
     <body>
         <div>
-            <h1>Funcionario - ${operacao}</h1>
+            <h1>${operacao} Funcionario</h1>
+            <ul class="breadcrumb">
+                <li><a href="index.jsp">Index Admin</a></li>
+                <li><a href="PesquisarFuncionarioController">Pesquisar</a></li>
+                <li>${operacao}</li>
+            </ul>
         </div>        
         <div>
             <form action="ManterFuncionarioController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterFuncionario" method="post">

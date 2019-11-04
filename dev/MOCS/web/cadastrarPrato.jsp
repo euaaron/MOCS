@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@page import= "java.util.*"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,30 +26,29 @@
             <table border="1">
                 <tbody>
                     <tr>
-                        <td><label>Estabelecimento:</label></td>
+                        <td><label>Funcionario:</label></td>
                         <td>
-                            <select name="txtIdEstabelecimento">
-                                <option value="0" <c:if test="${prato.idEstabelecimento == null}"> selected</c:if>> </option>  
-                                <c:forEach items="${estabelecimentos}" var="estabelecimento">
-                                    <option value="${estabelecimento.id}" <c:if test="${prato.idEstabelecimento == estabelecimento.id}"> selected</c:if>>${estabelecimento.nomeFantasia}</option>  
+                            <select name="txtIdFuncionario">
+                                <option value="0" <c:if test="${prato.idFuncionario == null}"> selected</c:if>> </option>  
+                                <c:forEach items="${funcionarios}" var="funcionario">                                    
+                                <option value="${funcionario.id}" <c:if test="${prato.idFuncionario== funcionario.id}"> selected</c:if>>${funcionario.nome}</option>
                                 </c:forEach>
                             </select>
                         </td>
                     </tr>
                     <tr>
-                        <td><label>Funcionario:</label></td>
+                        <td><label>Estabelecimento:</label></td>
                         <td>
-                            <select name="txtIdFuncionario">
-                                <option value="0" <c:if test="${prato.idFuncionario == null}"> selected</c:if>> </option>  
-                                <c:forEach items="${funcionarios}" var="funcionario">
-                                    <c:if test="${prato.idEstabelecimento == estabelecimento.id}">
-                                        <option value="${funcionario.id}" <c:if test="${funcionario.idEstabelecimento == estabelecimento.id}"> selected</c:if>>${funcionario.nome}</option>  
-                                    </c:if>
+                            <select name="txtIdEstabelecimento">
+                                <option value="0" <c:if test="${prato.idEstabelecimento == null}"> selected</c:if>> </option>  
+                                <c:forEach items="${estabelecimentos}" var="estabelecimento">
+                                <c:if test="${estabelecimento.id == funcionario.estabelecimento.id}">
+                                <option value="${estabelecimento.id}" <c:if test="${prato.idEstabelecimento == estabelecimento.id}"> selected</c:if>>${estabelecimento.nomeFantasia}</option>
+                                </c:if>
                                 </c:forEach>
                             </select>
                         </td>
-                    </tr>
-                    
+                    </tr>                    
                     <tr>
                         <td><label for="id">Id:</label></td>
                         <td><input type="text" name="txtId" id="idPrato" value="${prato.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/></td>

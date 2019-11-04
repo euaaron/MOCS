@@ -19,7 +19,7 @@
         <h1>Pesquisar Usuarios</h1>
         <ul class="breadcrumb">
             <li><a href="index.jsp">Index Admin</a></li>
-            <li>Pesquisar Usuarios</li>
+            <li>Pesquisar</li>
         </ul>
         <table border = 1>
             <tr>

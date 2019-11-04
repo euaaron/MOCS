@@ -11,14 +11,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Pesquisa de Funcionarios</title>
+        <title>Pesquisar Funcionarios</title>
         <link rel="stylesheet" href="css/main.css"/>
     </head>
     <body>
         <h1>Pesquisar Funcionarios</h1>
         <ul class="breadcrumb">
             <li><a href="index.jsp">Index Admin</a></li>
-            <li>Pesquisar Funcionarios</li>
+            <li>Pesquisar</li>
         </ul>
         <table border = 1>
             <tr>
