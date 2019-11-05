@@ -23,24 +23,24 @@
         </ul>
         <table border="1">
             <tr>
-                <th>Cod.</th>
-                <th>Nome</th>
-                <th>Proprietario</th>
-                <th>Cod. Endedereço</th>
+                <th>COD</th>
+                <th>NOME</th>
+                <th>PROPRIETÁRIO</th>
+                <th>CEP</th>
                 <th>UF</th>
-                <th>Cidade</th>
-                <th>Bairro</th>
-                <th>Logradouro</th>
-                <th>Edifício</th>
-                <th>Complemento</th>
-                <th colspan="2">Opções</th>
+                <th>CIDADE</th>
+                <th>BAIRRO</th>
+                <th>LOGRADOURO</th>
+                <th>EDIFÍCIO</th>
+                <th>COMPLEMENTO</th>
+                <th colspan="2">OPÇÕES</th>
             </tr>
             <c:forEach items="${estabelecimentos}" var="estabelecimento">
             <tr>
                 <td><c:out value="${estabelecimento.id}"/></td>
                 <td><c:out value="${estabelecimento.nomeFantasia}"/></td>
                 <td><c:out value="${estabelecimento.getProprietario().getNome()}"/></td>
-                <td><c:out value="${estabelecimento.getEndereco().getId()}"/></td>
+                <td><c:out value="${estabelecimento.getEndereco().getCep()}"/></td>
                 <td><c:out value="${estabelecimento.getEndereco().getUf()}"/></td>
                 <td><c:out value="${estabelecimento.getEndereco().getCidade()}"/></td>
                 <td><c:out value="${estabelecimento.getEndereco().getBairro()}"/></td>

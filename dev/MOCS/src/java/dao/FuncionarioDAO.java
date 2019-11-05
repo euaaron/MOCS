@@ -5,6 +5,7 @@
  */
 package dao;
 
+import static dao.BD.getConexao;
 import static dao.DAO.fecharConexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -120,18 +121,22 @@ public class FuncionarioDAO {
         PreparedStatement comando = null;
 
         try {
-            comando = conexao.prepareStatement(
+            conexao = getConexao();
+            String sql =
               "update usuario set nome = ?, dataNascimento = ?, email = ?,"
-            + " telefone = ?, senha = ?, cpf =? WHERE id = ?");
+            + " telefone = ?, senha = ?, cpf =? WHERE id = ?";
             
+            comando = conexao.prepareStatement(sql);
             comando.setString(1, obj.getNome());
             comando.setString(2, obj.getDataNascimento());
             comando.setString(3, obj.getEmail());
             comando.setString(4, obj.getTelefone());
             comando.setString(5, obj.getSenha());
             comando.setString(6, obj.getCpf());
-            comando.setInt(7, obj.getId());            
-            comando.executeUpdate();
+            comando.setInt(7, obj.getId());
+            
+            comando.execute();
+            fecharConexao(conexao, comando);
             
             conexao = BD.getConexao();
             comando = conexao.prepareStatement(
@@ -148,9 +153,9 @@ public class FuncionarioDAO {
             comando.setInt(7, obj.getStatusConta());
             comando.setInt(8, obj.getIdEstabelecimento());
             comando.setInt(9, obj.getIdFuncao());
-            comando.setInt(10, obj.getId());            
-            comando.executeUpdate();
+            comando.setInt(10, obj.getId());
             
+            comando.execute();
             fecharConexao(conexao, comando);
         } catch (SQLException e) {
             throw e;

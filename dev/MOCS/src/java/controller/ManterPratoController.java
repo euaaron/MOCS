@@ -1,7 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ *
+ * @author Débora Lessa & Aaron Stiebler
  */
 package controller;
 
@@ -19,10 +18,6 @@ import model.Estabelecimento;
 import model.Funcionario;
 import model.Prato;
 
-/**
- *
- * @author Débora Lessa & Aaron Stiebler
- */
 public class ManterPratoController extends HttpServlet {
 
     /**
@@ -51,7 +46,7 @@ public class ManterPratoController extends HttpServlet {
         
         String operacao = request.getParameter("operacao");
         
-        int idPrato = Integer.parseInt(request.getParameter("txtId"));
+        int id = Integer.parseInt(request.getParameter("txtId"));
         int idFuncionario = Integer.parseInt(request.getParameter("txtIdFuncionario"));
         int idEstabelecimento = Integer.parseInt(request.getParameter("txtIdEstabelecimento"));
         String nome = request.getParameter("txtNome");
@@ -74,7 +69,7 @@ public class ManterPratoController extends HttpServlet {
             if(idFuncionario != 0){
                 funcionario = Funcionario.obterFuncionario(idFuncionario);
             }
-            Prato obj = new Prato(idPrato, nome, descricao, preco, imagemUrl, dataCriacao, idFuncionario, idEstabelecimento, exibir);
+            Prato obj = new Prato(id, nome, descricao, preco, imagemUrl, dataCriacao, idFuncionario, idEstabelecimento, exibir);
             if (operacao.equals("Incluir")){
                 obj.gravar();
             } else if (operacao.equals("Excluir")) {

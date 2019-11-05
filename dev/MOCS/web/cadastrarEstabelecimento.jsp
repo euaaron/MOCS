@@ -13,6 +13,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>${operacao} Estabelecimento</title>
         <link rel="stylesheet" href="css/main.css"/>
+        <script src="js/filtros.js"></script>
     </head>
     <body>
         <h1>${operacao} Estabelecimento</h1>
@@ -60,7 +61,7 @@
                 </tr>
                 <tr>
                     <td><label for="cep">CEP:</label></td>
-                    <td><input type="text" id="cep" name="txtCEP" value="${endestabelecimento.cep}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                    <td><input type="text" id="cep" name="txtCEP" value="${endestabelecimento.cep}" onkeyup="filtraCEP()"<c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                 </tr>
                 <tr>
                     <td><label for="uf">UF:</label></td>

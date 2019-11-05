@@ -22,11 +22,11 @@
         </ul>
         <table border = 1>
             <tr>
-                <th>Cod.</th>
-                <th>Data</th>
-                <th>Hora</th>
-                <th>Cod. Cliente</th>
-                <th colspan="2">Opções</th>
+                <th>COD</th>
+                <th>DATA</th>
+                <th>HORA</th>
+                <th>CLIENTE</th>
+                <th colspan="2">OPÇÕES</th>
             </tr>
             
             <c:forEach items="${comandas}" var="comanda">
@@ -34,7 +34,7 @@
                     <td><c:out value="${comanda.id}"/></td>
                     <td><c:out value="${comanda.dataComanda}"/></td>
                     <td><c:out value="${comanda.horaComanda}"/></td>
-                    <td><c:out value="${comanda.idCliente}"/></td>
+                    <td><c:out value="${comanda.cliente.nome}"/></td>
                     <td>
                         <a href="ManterComandaController?acao=prepararOperacao&operacao=Editar&id=<c:out value="${comanda.id}" />" > Editar</a>
                     </td>

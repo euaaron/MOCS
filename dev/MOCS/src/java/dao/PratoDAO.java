@@ -24,7 +24,7 @@ public class PratoDAO {
         try{
         conexao = BD.getConexao();
         comando = conexao.createStatement();
-        ResultSet rs = comando.executeQuery("select * from prato where idPrato = " + idPrato);
+        ResultSet rs = comando.executeQuery("select * from prato where id = " + idPrato);
         rs.first();
         prato = instanciarPrato(rs);
         }finally{
@@ -53,7 +53,7 @@ public class PratoDAO {
     }
     
     public static Prato instanciarPrato(ResultSet rs) 
-        throws SQLException {
+        throws SQLException, ClassNotFoundException {
         Prato prato = new Prato(
                 rs.getInt("id"),
                 rs.getString("nome"),
@@ -76,7 +76,7 @@ public class PratoDAO {
             conexao = BD.getConexao();
             comando = conexao.prepareStatement(
               "insert into prato (id, nome, descricao, preco, imagemUrl, "
-            + "dataCriacao, idFuncionario, idEstabelecimento) "
+            + "dataCriacao, idFuncionario, idEstabelecimento, exibir) "
             + "values (?,?,?,?,?,?,?,?,?)");
             comando.setInt(1, prato.getId());
             comando.setString(2, prato.getNome());

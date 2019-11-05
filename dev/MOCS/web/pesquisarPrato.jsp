@@ -24,8 +24,8 @@
             <tr>
                 <th>Cod. Prato</th>
                 <th>Nome</th>
-                <th>Cod. Funcionario</th>
-                <th>Cod. Estabelecimento</th>
+                <th>Funcionario</th>
+                <th>Estabelecimento</th>
                 <th>Data da criação</th>
                 <th>Preco</th>
                 <th>Imagem Ilustrativa</th>
@@ -37,8 +37,8 @@
                 <tr>
                     <td><c:out value="${prato.id}"/></td>
                     <td><c:out value="${prato.nome}"/></td>
-                    <td><c:out value="${prato.idFuncionario}"/></td>
-                    <td><c:out value="${prato.idEstabelecimento}"/></td>
+                    <td><c:out value="${prato.getFuncionario().nome}"/></td>
+                    <td><c:out value="${prato.getEstabelecimento().nomeFantasia}"/></td>
                     <td><c:out value="${prato.dataCriacao}"/></td>
                     <td><c:out value="${prato.preco}"/></td>
                     <td><image src="<c:out value="${prato.imagemUrl}"/>" width="160px" heigth="90px"></td>
@@ -51,10 +51,10 @@
                         </c:if>
                     </td>
                     <td>
-                        <a href="ManterPratoController?acao=prepararOperacao&operacao=Editar&id=<c:out value="${comanda.id}" />" > Editar</a>
+                        <a href="ManterPratoController?acao=prepararOperacao&operacao=Editar&id=<c:out value="${prato.id}" />" > Editar</a>
                     </td>
                     <td>
-                        <a href="ManterPratoController?acao=prepararOperacao&operacao=Excluir&id=<c:out value="${comanda.id}" />" > Excluir</a>
+                        <a href="ManterPratoController?acao=prepararOperacao&operacao=Excluir&id=<c:out value="${prato.id}" />" > Excluir</a>
                     </td>
                 </tr>
             </c:forEach>

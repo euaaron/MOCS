@@ -22,19 +22,21 @@
         </ul>
         <table border = 1>
             <tr>
-                <th>Cod. Pedido</th>
-                <th>Cód. Comanda</th>
-                <th>Cód. Prato</th>
-                <th>Num. Pratos</th>
-                <th colspan="2">Opções</th>
+                <th>COD</th>
+                <th>DIA</th>
+                <th>CLIENTE</th>
+                <th>PRATO</th>
+                <th>QUANTIDADE</th>
+                <th colspan="2">OPÇÕES</th>
             </tr>
             
-            <c:forEach items="${pratos}" var="prato">
+            <c:forEach items="${pedidos}" var="pedido">
                 <tr>
-                    <td><c:out value="${prato.id}"/></td>
-                    <td><c:out value="${prato.idComanda}"/></td>
-                    <td><c:out value="${prato.idPrato}"/></td>
-                    <td><c:out value="${prato.quantidade}"/></td>
+                    <td><c:out value="${pedido.id}"/>/<c:out value="${pedido.comanda.id}"/></td>
+                    <td><c:out value="${pedido.comanda.data}"/></td>
+                    <td><c:out value="${pedido.comanda.cliente.nome}"/></td>
+                    <td><c:out value="${pedido.prato.nome}"/></td>
+                    <td><c:out value="${pedido.quantidade}"/></td>
                     <td>
                         <a href="ManterPedidoController?acao=prepararOperacao&operacao=Editar&id=<c:out value="${pedido.id}" />" > Editar</a>
                     </td>

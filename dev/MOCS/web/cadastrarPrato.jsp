@@ -75,8 +75,8 @@
                         <td><label>Exibir:</label></td>
                         <td>
                             <select name="txtExibir">
-                                <option value="0" selected>Não</option>
-                                <option value="1">Sim</option>
+                                <option value="0" <c:if test="${prato.exibir == 0}"> selected</c:if>>Não</option>
+                                <option value="1" <c:if test="${prato.exibir == 1}"> selected</c:if>>Sim</option>
                             </select>
                         </td>
                     </tr>

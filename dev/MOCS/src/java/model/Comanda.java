@@ -12,7 +12,6 @@ import java.util.List;
 
 public class Comanda {
     private int id;
-    private ArrayList<Pedido> listaPedidos;
     private String dataComanda;
     private String horaComanda;
     private Usuario cliente = null;
@@ -22,35 +21,28 @@ public class Comanda {
     {
         this.dataComanda = dataComanda;       // O Marco pediu para não trabalharmos com
         this.horaComanda = horaComanda;       // data e hora no momento... apenas com
-        this.listaPedidos = new ArrayList<>();// atributos básicos, como int, string e float.
-        this.idCliente = idCliente;
+        this.idCliente = idCliente;           // atributos básicos, como int, string e float.
         this.id = id;
     } 
 
 // Métodos de inserção (Modificação)
     public void setId(int id) { this.id = id; }
-    public void setPedidos(ArrayList<Pedido> listaPedidos) { this.listaPedidos = listaPedidos; }
     public void setDataComanda(String dataComanda) { this.dataComanda = dataComanda; }
     public void setHoraComanda(String horaComanda) { this.horaComanda = horaComanda; }
     public void setCliente(Usuario cliente) { this.cliente = cliente; }
     public void setIdCliente(int idCliente) { this.idCliente = idCliente; }
     
-//Manipulação de pedidos
-    public void addPedido(Pedido pedido) { listaPedidos.add(pedido); }
-    public void removePedido(Pedido pedido) { listaPedidos.remove(pedido); }
-    
 // Métodos de Recuperação (Leitura)    
     public int getId() { return id; }
-    public ArrayList<Pedido> getPedidos() { return listaPedidos; }
     public String getDataComanda() { return dataComanda; }
     public String getHoraComanda() { return horaComanda; }
     public int getIdCliente() { return idCliente; }
     public Usuario getCliente() 
     throws ClassNotFoundException, SQLException 
     {
-        if ((this.idCliente != 0) && (this.cliente == null)) 
-        { this.cliente = Usuario.obterUsuario(this.idCliente); }
-        return this.cliente;
+        if ((idCliente != 0) && (cliente == null)) 
+        { cliente = Usuario.obterUsuario(idCliente); }
+        return cliente;
     }
     
 // Métodos de comunicação com a camada DAO (Banco de dados)

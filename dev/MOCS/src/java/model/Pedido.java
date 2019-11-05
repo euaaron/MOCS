@@ -16,7 +16,7 @@ public class Pedido {
     private int idComanda;
     private int idPrato;
     private int quantidade;
-    private Prato prato;  
+    private Prato prato = null;  
     private Comanda comanda = null;    
 
     public Pedido(int id, int idComanda, int idPrato, int quantidade)
@@ -30,6 +30,7 @@ public class Pedido {
 //Métodos de inserção (Modificação)
     public void setId(int idPedido) { this.id = idPedido; }
     public void setPrato(Prato prato) { this.prato = prato; }
+    public void setComanda(Comanda comanda) { this.comanda = comanda; }
     public void setQuantidade(int quantidade) { this.quantidade = quantidade; }
     public void setIdComanda(int idComanda) { this.idComanda = idComanda; }
     public void setIdPrato(int idPrato) { this.idPrato = idPrato; }
@@ -38,14 +39,20 @@ public class Pedido {
     public int getId() { return id; }
     public int getIdPrato() { return idPrato; }
     public int getIdComanda() { return idComanda; }    
-    public Prato getPrato() { return prato; }
     public int getQuantidade() { return quantidade; }
     public Comanda getComanda() 
     throws ClassNotFoundException, SQLException 
     {
-        if ((this.idComanda != 0) && (this.comanda == null)) 
-        { this.comanda = Comanda.obterComanda(this.idComanda); }
+        if ((idComanda != 0) && (comanda == null)) 
+        { comanda = Comanda.obterComanda(idComanda); }
         return this.comanda;
+    }
+    public Prato getPrato() 
+    throws ClassNotFoundException, SQLException 
+    {
+        if ((idPrato != 0) && (prato == null)) 
+        { prato = Prato.obterPrato(idPrato); }
+        return this.prato;
     }
 
 // Métodos de comunicação com a camada DAO (Banco de dados)

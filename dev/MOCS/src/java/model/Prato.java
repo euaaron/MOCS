@@ -14,14 +14,16 @@ public class Prato {
     private String nome;
     private String descricao;
     private int idFuncionario;
+    private Funcionario funcionario;
     private String dataCriacao;
+    private Estabelecimento estabelecimento;
     private int idEstabelecimento;
     private float preco;
     private String imagemUrl;
     private int exibir;
     
     public Prato(int id, String nome, String descricao, float preco, String imagemUrl, String dataCriacao,
-    int idFuncionario, int idEstabelecimento, int exibir)
+    int idFuncionario, int idEstabelecimento, int exibir) throws ClassNotFoundException, SQLException
     {
         this.id = id;
         this.descricao = descricao;
@@ -31,7 +33,7 @@ public class Prato {
         this.idEstabelecimento = idEstabelecimento;
         this.preco = preco;
         this.imagemUrl = imagemUrl;
-        this.exibir = exibir;
+        this.exibir = exibir;        
     }
     
 // Métodos de inserção (Modificação)
@@ -45,7 +47,6 @@ public class Prato {
     public void setIdEstabelecimento(int idEstabelecimento) { this.idEstabelecimento = idEstabelecimento; }
     public void setExibir(int exibir) { this.exibir = exibir; }
     
-    
 // Métodos de Recuperação (Leitura)
     public int getId() { return id; }
     public String getNome() { return nome; }
@@ -56,6 +57,22 @@ public class Prato {
     public int getIdFuncionario() { return idFuncionario; }
     public int getIdEstabelecimento() { return idEstabelecimento; }
     public int getExibir() { return exibir; }
+    public Estabelecimento getEstabelecimento() 
+    throws ClassNotFoundException, SQLException 
+    {
+        if ((this.idEstabelecimento != 0) && (this.estabelecimento == null)) {
+            estabelecimento = Estabelecimento.obterEstabelecimento(this.idEstabelecimento);
+        }
+        return this.estabelecimento;
+    }
+    public Funcionario getFuncionario() 
+    throws ClassNotFoundException, SQLException 
+    {
+        if ((this.idFuncionario != 0) && (this.funcionario == null)) {
+            funcionario = Funcionario.obterFuncionario(this.idFuncionario);
+        }
+        return this.funcionario;
+    }
     
 // Métodos de comunicação com a camada DAO (Banco de dados)
     public static Prato obterPrato (int idPrato) 

@@ -5,6 +5,7 @@
  */
 package dao;
 
+import static dao.BD.getConexao;
 import static dao.DAO.fecharConexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -119,7 +120,7 @@ public class EstabelecimentoDAO {
         PreparedStatement comando = null;
 
         try {
-            conexao = BD.getConexao();
+            conexao = getConexao();
             String sql =  
                     "update estabelecimento set idProprietario = ?, cnpj = ?, nomeFantasia = ?,"
                   + "inscEstadual = ?, telefone = ? WHERE id = ?";
@@ -133,7 +134,7 @@ public class EstabelecimentoDAO {
             comando.setInt(6, obj.getId());
             
             comando.execute();
-            DAO.fecharConexao(conexao, comando);
+            fecharConexao(conexao, comando);
         } catch (SQLException e) {
             throw e;
         }       

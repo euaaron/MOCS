@@ -23,9 +23,9 @@
         </ul>
         <table border = 1>
             <tr>
-                <th>Cod.</th>
-                <th>Nome</th>
-                <th colspan="2">Opções</th>
+                <th>COD</th>
+                <th>NOME</th>
+                <th colspan="2">OPÇÕES</th>
             </tr>
             
             <c:forEach items="${usuarios}" var="usuario">

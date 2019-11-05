@@ -1,3 +1,7 @@
+/**
+ *
+ * @author Débora Lessa & Aaron Stiebler
+ */
 package controller;
 
 import java.io.IOException;
@@ -14,10 +18,6 @@ import model.Estabelecimento;
 import model.Funcao;
 import model.Funcionario;
 
-/**
- *
- * @author Débora Lessa & Aaron Stiebler
- */
 public class ManterFuncionarioController extends HttpServlet {
 
     /**
