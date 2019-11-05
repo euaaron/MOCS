@@ -56,7 +56,14 @@ public class ManterPratoController extends HttpServlet {
         int idEstabelecimento = Integer.parseInt(request.getParameter("txtIdEstabelecimento"));
         String nome = request.getParameter("txtNome");
         String descricao = request.getParameter("txtDescricao");
+        float preco = Float.parseFloat(request.getParameter("txtPreco"));
+        String imagemUrl = request.getParameter("txtImagemUrl");
         String dataCriacao = request.getParameter("txtDataCriacao");
+        int exibir = Integer.parseInt(request.getParameter("txtExibir"));
+        
+        if (imagemUrl == null) {
+            imagemUrl = "https://via.placeholder.com/160x90";
+        }        
         
         try {
             Estabelecimento estabelecimento = null;
@@ -67,7 +74,7 @@ public class ManterPratoController extends HttpServlet {
             if(idFuncionario != 0){
                 funcionario = Funcionario.obterFuncionario(idFuncionario);
             }
-            Prato obj = new Prato(idPrato, nome, descricao, dataCriacao, idFuncionario, idEstabelecimento);
+            Prato obj = new Prato(idPrato, nome, descricao, preco, imagemUrl, dataCriacao, idFuncionario, idEstabelecimento, exibir);
             if (operacao.equals("Incluir")){
                 obj.gravar();
             } else if (operacao.equals("Excluir")) {

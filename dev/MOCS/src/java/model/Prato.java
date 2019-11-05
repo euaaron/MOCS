@@ -16,9 +16,12 @@ public class Prato {
     private int idFuncionario;
     private String dataCriacao;
     private int idEstabelecimento;
+    private float preco;
+    private String imagemUrl;
+    private int exibir;
     
-    public Prato(int id, String nome, String descricao, String dataCriacao,
-    int idFuncionario, int idEstabelecimento)
+    public Prato(int id, String nome, String descricao, float preco, String imagemUrl, String dataCriacao,
+    int idFuncionario, int idEstabelecimento, int exibir)
     {
         this.id = id;
         this.descricao = descricao;
@@ -26,24 +29,34 @@ public class Prato {
         this.nome = nome;
         this.dataCriacao = dataCriacao; // Não usar datas ou horas por enquanto! Pedido do Marco A.
         this.idEstabelecimento = idEstabelecimento;
+        this.preco = preco;
+        this.imagemUrl = imagemUrl;
+        this.exibir = exibir;
     }
     
 // Métodos de inserção (Modificação)
     public void setId(int idPrato) { this.id = idPrato; }
     public void setNome(String nome) { this.nome = nome; }
     public void setDescricao(String descricao) { this.descricao = descricao; }
+    public void setPreco(float preco) { this.preco = preco; }
+    public void setImagemUrl(String imagemUrl) { this.imagemUrl = imagemUrl; }
+    public void setDataCriacao(String dataCriacao) { this.dataCriacao = dataCriacao; }
     public void setIdFuncionario(int idFuncionario) { this.idFuncionario = idFuncionario; }
     public void setIdEstabelecimento(int idEstabelecimento) { this.idEstabelecimento = idEstabelecimento; }
-    public void setDataCriacao(String dataCriacao) { this.dataCriacao = dataCriacao; }
+    public void setExibir(int exibir) { this.exibir = exibir; }
+    
     
 // Métodos de Recuperação (Leitura)
     public int getId() { return id; }
     public String getNome() { return nome; }
     public String getDescricao() { return descricao; }
-    public int getIdEstabelecimento() { return idEstabelecimento; }
-    public int getIdFuncionario() { return idFuncionario; }
+    public float getPreco() { return preco; }
+    public String getImagemUrl() { return imagemUrl; }    
     public String getDataCriacao() { return dataCriacao; }
-        
+    public int getIdFuncionario() { return idFuncionario; }
+    public int getIdEstabelecimento() { return idEstabelecimento; }
+    public int getExibir() { return exibir; }
+    
 // Métodos de comunicação com a camada DAO (Banco de dados)
     public static Prato obterPrato (int idPrato) 
     throws ClassNotFoundException, SQLException  

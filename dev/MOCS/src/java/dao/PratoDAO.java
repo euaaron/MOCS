@@ -58,9 +58,12 @@ public class PratoDAO {
                 rs.getInt("id"),
                 rs.getString("nome"),
                 rs.getString("descricao"),
+                rs.getFloat("preco"),
+                rs.getString("imagemUrl"),
                 rs.getString("dataCriacao"),
                 rs.getInt("idFuncionario"),
-                rs.getInt("idEstabelecimento")
+                rs.getInt("idEstabelecimento"),
+                rs.getInt("exibir")
         );
         return prato;
     }
@@ -72,15 +75,18 @@ public class PratoDAO {
         try {
             conexao = BD.getConexao();
             comando = conexao.prepareStatement(
-              "insert into prato (id, nome, descricao,"
+              "insert into prato (id, nome, descricao, preco, imagemUrl, "
             + "dataCriacao, idFuncionario, idEstabelecimento) "
-            + "values (?,?,?,?,?,?)");
+            + "values (?,?,?,?,?,?,?,?,?)");
             comando.setInt(1, prato.getId());
             comando.setString(2, prato.getNome());
             comando.setString(3, prato.getDescricao());
-            comando.setString(4, prato.getDataCriacao());
-            comando.setInt(5, prato.getIdFuncionario());
-            comando.setInt(6, prato.getIdEstabelecimento());
+            comando.setFloat(4, prato.getPreco());
+            comando.setString(5, prato.getImagemUrl());
+            comando.setString(6, prato.getDataCriacao());
+            comando.setInt(7, prato.getIdFuncionario());
+            comando.setInt(8, prato.getIdEstabelecimento());
+            comando.setInt(9, prato.getExibir());
             comando.executeUpdate();
         } finally {
             fecharConexao(conexao, comando);
@@ -94,16 +100,20 @@ public class PratoDAO {
         try {
             conexao = BD.getConexao();
             comando = conexao.prepareStatement(
-              "update prato set nome = ?, descricao = ?, dataCriacao = ?, "
-            + "idFuncionario = ?, idEstabelecimento = ? "
+              "update prato set nome = ?, descricao = ?, "
+            + "preco = ?, imagemUrl = ?, dataCriacao = ?, "
+            + "idFuncionario = ?, idEstabelecimento = ?, exibir = ? "
             + "WHERE id = ?");
             
             comando.setString(1, prato.getNome());
             comando.setString(2, prato.getDescricao());
-            comando.setString(3, prato.getDataCriacao());
-            comando.setInt(4, prato.getIdFuncionario());
-            comando.setInt(5, prato.getIdEstabelecimento());
-            comando.setInt(6, prato.getId());
+            comando.setFloat(3, prato.getPreco());
+            comando.setString(4, prato.getImagemUrl());
+            comando.setString(5, prato.getDataCriacao());
+            comando.setInt(6, prato.getIdFuncionario());
+            comando.setInt(7, prato.getIdEstabelecimento());
+            comando.setInt(8, prato.getExibir());
+            comando.setInt(9, prato.getId());
             comando.executeUpdate();
         } finally {
             fecharConexao(conexao, comando);
@@ -119,7 +129,7 @@ public class PratoDAO {
         try {
             conexao = BD.getConexao();
             comando = conexao.createStatement();
-            stringSQL = "delete from prato where id = "
+            stringSQL = "DELETE FROM prato WHERE id = "
                     + prato.getId();
             comando.execute(stringSQL);
         } finally {

@@ -27,6 +27,9 @@
                 <th>Cod. Funcionario</th>
                 <th>Cod. Estabelecimento</th>
                 <th>Data da criação</th>
+                <th>Preco</th>
+                <th>Imagem Ilustrativa</th>
+                <th>No cardápio?</th>
                 <th colspan="2">Opções</th>
             </tr>
             
@@ -37,6 +40,16 @@
                     <td><c:out value="${prato.idFuncionario}"/></td>
                     <td><c:out value="${prato.idEstabelecimento}"/></td>
                     <td><c:out value="${prato.dataCriacao}"/></td>
+                    <td><c:out value="${prato.preco}"/></td>
+                    <td><image src="<c:out value="${prato.imagemUrl}"/>" width="160px" heigth="90px"></td>
+                    <td>
+                        <c:if test="${prato.exibir == 0}">
+                            <c:out value="Não"/>
+                        </c:if>
+                        <c:if test="${prato.exibir == 1}">
+                            <c:out value="Sim"/>
+                        </c:if>
+                    </td>
                     <td>
                         <a href="ManterPratoController?acao=prepararOperacao&operacao=Editar&id=<c:out value="${comanda.id}" />" > Editar</a>
                     </td>

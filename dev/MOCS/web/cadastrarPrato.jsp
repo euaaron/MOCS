@@ -60,11 +60,28 @@
                         <td><input type="text" name="txtDescricao" id="descricao" value="${prato.descricao}"/></td>
                     </tr>
                     <tr>
+                        <td><label for="imagem">Url da Imagem:</label></td>
+                        <td><input type="text" name="txtImagemUrl" id="imagem" value="${prato.imagemUrl}"/></td>
+                    </tr>
+                    <tr>
+                        <td><label for="preco">Preco</label></td>
+                        <td><input type="text" name="txtPreco" id="preco" value="${prato.preco}"/></td>
+                    </tr>
+                    <tr>
                         <td><label for="dataCriacao">Data da Criação:</label></td>
                         <td><input type="text" name="txtDataCriacao" id="dataCriacao" value="${prato.dataCriacao}"/></td>
-                    </tr>                        
+                    </tr>
                     <tr>
+                        <td><label>Exibir:</label></td>
                         <td>
+                            <select name="txtExibir">
+                                <option value="0" selected>Não</option>
+                                <option value="1">Sim</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
                             <input type="submit" name="btnIncluir" value="Confirmar">
                         </td>
                     </tr>
