@@ -42,9 +42,7 @@
                             <select name="txtIdEstabelecimento">
                                 <option value="0" <c:if test="${prato.idEstabelecimento == null}"> selected</c:if>> </option>  
                                 <c:forEach items="${estabelecimentos}" var="estabelecimento">
-                                <c:if test="${estabelecimento.id == funcionario.estabelecimento.id}">
                                 <option value="${estabelecimento.id}" <c:if test="${prato.idEstabelecimento == estabelecimento.id}"> selected</c:if>>${estabelecimento.nomeFantasia}</option>
-                                </c:if>
                                 </c:forEach>
                             </select>
                         </td>

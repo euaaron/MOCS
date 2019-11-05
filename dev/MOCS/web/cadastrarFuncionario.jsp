@@ -12,6 +12,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>${operacao} Funcionario</title>
+        <link rel="stylesheet" href="css/main.css"/>
     </head>
     <body>
         <div>
@@ -41,7 +42,10 @@
                         <tr>
                             <td><label for="status">Status da Conta:</label></td>
                             <td>
-                                <input type="text" name="txtStatusConta" id="statusConta" value="${funcionario.statusConta}"/>
+                            <select name="txtStatusConta">
+                                <option value="0">Desativada</option>
+                                <option value="1">Ativada</option>  
+                            </select>
                             </td>
                         </tr>                        
                         <tr>
@@ -71,8 +75,15 @@
                             <td><input type="text" id="telefone" placeholder="(xx) x xxxx-xxxx" name="txtTelefone" value="${funcionario.telefone}"/></td>
                         </tr>
                         <tr>
-                            <td><label for="idFuncao">Id da Função:</label></td>
-                            <td><input type="text" name="txtIdFuncao" id="idFuncao" value="${funcionario.idFuncao}"></td>
+                            <td><label for="idFuncao">Função:</label></td>
+                            <td>
+                            <select name="txtIdFuncao">
+                                <option value="0" <c:if test="${funcionario.idFuncao== null}"> selected</c:if>> </option>  
+                                <c:forEach items="${funcoes}" var="funcao">                                    
+                                <option value="${funcao.id}" <c:if test="${funcionario.idFuncao == funcao.id}"> selected</c:if>>${funcao.nome}</option>
+                                </c:forEach>
+                            </select>
+                            </td>
                         </tr>
                         <tr>
                             <td><label for="senha">Senha:</label></td>
@@ -84,7 +95,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <input type="submit" name="btnIncluir" value="Confirmar">
+                                <input type="submit" name="btnIncluir" value="Confirmar"/>
                             </td>
                         </tr>
                     </tbody>

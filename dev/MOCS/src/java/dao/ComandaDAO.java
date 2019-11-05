@@ -44,7 +44,7 @@ public class ComandaDAO {
         try{
         conexao = BD.getConexao();
         comando = conexao.createStatement();
-        ResultSet rs = comando.executeQuery("select * from comanda where idComanda = " + idComanda);
+        ResultSet rs = comando.executeQuery("select * from comanda where id = " + idComanda);
         rs.first();
         comanda = instanciarComanda(rs);
         }finally{
@@ -56,11 +56,10 @@ public class ComandaDAO {
     public static Comanda instanciarComanda(ResultSet rs) throws SQLException {
         Comanda comanda = new Comanda(
             rs.getInt("id"),
-            rs.getString("dataComanda"),
-            rs.getString("horaComanda"),
-            null
+            rs.getString("data"),
+            rs.getString("hora"),
+            rs.getInt("idCliente")
         );
-        comanda.setId(rs.getInt("idCliente"));
         return comanda;
     }
     

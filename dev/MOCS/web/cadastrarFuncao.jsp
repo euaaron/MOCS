@@ -12,6 +12,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>${operacao} Funcao</title>
+        <link rel="stylesheet" href="css/main.css"/>
     </head>
     <body>
         <div>
@@ -32,19 +33,19 @@
                         </tr>
                         <tr>
                             <td><label for="id">Id da Funcao:</label></td>
-                            <td><input type="text" name="txtIdFuncao" id="id" value="${funcao.id}"/></td>
+                            <td><input type="text" name="txtIdFuncao" id="id" value="${funcao.id}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td><label for="nome">Nome:</label></td>
-                            <td><input type="text" name="txtNome" id="nome" value="${funcao.nome}"/></td>
+                            <td><input type="text" name="txtNome" id="nome" value="${funcao.nome}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td><label for="descricao">Descrição:</label></td>
-                            <td><input type="text" name="txtDescricao" id="decricao" value="${funcao.descricao}"/></td>
+                            <td><input type="text" name="txtDescricao" id="decricao" value="${funcao.descricao}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td><label for="nivelPermissao">Nível de Permissão:</label></td>
-                            <td><input type="text" name="txtNivelPermissao" id="nivelPermissao" value="${funcao.nivelPermissao}"/></td>
+                            <td><input type="text" name="txtNivelPermissao" id="nivelPermissao" value="${funcao.nivelPermissao}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td>

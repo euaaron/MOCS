@@ -26,6 +26,7 @@
                 <th>Data</th>
                 <th>Hora</th>
                 <th>Cod. Cliente</th>
+                <th colspan="2">Opções</th>
             </tr>
             
             <c:forEach items="${comandas}" var="comanda">
@@ -41,7 +42,7 @@
                         <a href="ManterComandaController?acao=prepararOperacao&operacao=Excluir&id=<c:out value="${comanda.id}" />" > Excluir</a>
                     </td>
                     <td>
-                        <a href="ManterPedidoController?acao=prepararOperacao&operacao=Incluir&id=<c:out value="${comanda.id}" />" > Editar</a>
+                        <a href="ManterPedidoController?acao=prepararOperacao&operacao=Incluir&id=<c:out value="${comanda.id}" />" > Incluir Pedido</a>
                     </td>
                 </tr>
             </c:forEach>

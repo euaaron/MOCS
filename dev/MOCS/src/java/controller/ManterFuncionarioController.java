@@ -47,6 +47,7 @@ public class ManterFuncionarioController extends HttpServlet {
         String operacao = request.getParameter("operacao");
         request.setAttribute("operacao", operacao);
         request.setAttribute("estabelecimentos", Estabelecimento.obterEstabelecimentos());
+        request.setAttribute("funcoes", Funcao.obterFuncoes());
         if (!operacao.equals("Incluir")) {
                 int id = Integer.parseInt(request.getParameter("id"));
                 Funcionario obj = Funcionario.obterFuncionario(id);

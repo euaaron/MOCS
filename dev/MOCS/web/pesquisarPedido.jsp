@@ -26,6 +26,7 @@
                 <th>Cód. Comanda</th>
                 <th>Cód. Prato</th>
                 <th>Num. Pratos</th>
+                <th colspan="2">Opções</th>
             </tr>
             
             <c:forEach items="${pratos}" var="prato">

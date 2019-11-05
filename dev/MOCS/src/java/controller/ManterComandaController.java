@@ -1,7 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ *
+ * @author Débora Lessa & Aaron Stiebler
  */
 package controller;
 
@@ -18,10 +17,6 @@ import javax.servlet.http.HttpServletResponse;
 import model.Comanda;
 import model.Usuario;
 
-/**
- *
- * @author Débora Lessa & Aaron Stiebler
- */
 public class ManterComandaController extends HttpServlet {
 
     /**
@@ -61,9 +56,11 @@ public class ManterComandaController extends HttpServlet {
             if(idCliente != 0){
                 cliente = Usuario.obterUsuario(idCliente);
             }
-            Comanda comanda = new Comanda(idComanda, dataComanda, horaComanda, cliente);
+            Comanda comanda = new Comanda(idComanda, dataComanda, horaComanda, cliente.getId());
             if (operacao.equals("Incluir")){
                 comanda.gravar();
+            } else if (operacao.equals("Editar")) {
+                comanda.editar();
             } else if (operacao.equals("Excluir")) {
                 comanda.excluir();
             }
@@ -79,7 +76,7 @@ public class ManterComandaController extends HttpServlet {
     try {
         String operacao = request.getParameter("operacao");
         request.setAttribute("operacao", operacao);
-        request.setAttribute("cliente", Usuario.obterUsuarios());
+        request.setAttribute("clientes", Usuario.obterUsuarios());
         if (!operacao.equals("Incluir")) {
                 int idComanda = Integer.parseInt(request.getParameter("id"));
                 Comanda comanda = Comanda.obterComanda(idComanda);

@@ -27,6 +27,7 @@
                 <th>Cod. Funcionario</th>
                 <th>Cod. Estabelecimento</th>
                 <th>Data da criação</th>
+                <th colspan="2">Opções</th>
             </tr>
             
             <c:forEach items="${pratos}" var="prato">

@@ -11,11 +11,17 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html" charset=UTF-8">
-        <title>Cadastro de Comanda</title>
+        <title>${operacao} Comanda</title>
+        <link rel="stylesheet" href="css/main.css"/>
     </head>
     <body>
-        <h1>Comanda - ${operacao}</h1>
-        <form action="ManterUsuarioController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterUsuario" method="post">
+        <h1>${operacao} Comanda</h1>
+        <ul class="breadcrumb">
+                <li><a href="index.jsp">Index Admin</a></li>
+                <li><a href="PesquisarComandaController">Pesquisar</a></li>
+                <li>${operacao}</li>
+            </ul>
+        <form action="ManterComandaController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterUsuario" method="post">
                 <table border="1">
                     <tbody>
                         <tr>
@@ -24,18 +30,18 @@
                         </tr>
                         <tr>
                             <td><label for="dataComanda">Data:</label></td>
-                            <td><input type="text" name="txtDataComanda" id="dataComanda" value="${comanda.data}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                            <td><input type="text" name="txtDataComanda" id="dataComanda" value="${comanda.dataComanda}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td><label for="horaComanda">Hora:</label></td>
-                            <td><input type="text" name="txtHoraComanda" id="horaComanda" value="${comanda.hora}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                            <td><input type="text" name="txtHoraComanda" id="horaComanda" value="${comanda.horaComanda}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td><label for="idCliente">Id do Cliente:</label></td>
                             <td><input type="text" id="idCliente" name="txtIdCliente" value="${comanda.idCliente}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>></td>
                         </tr>
                         <tr>
-                            <td>
+                            <td colspan="2">
                                 <input type="submit" name="btnIncluir" value="Confirmar">
                             </td>
                         </tr>

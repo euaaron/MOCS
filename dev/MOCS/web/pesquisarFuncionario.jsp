@@ -24,8 +24,9 @@
             <tr>
                 <th>Cod. Funcionario</th>
                 <th>Nome</th>
-                <th>CPF</th>
+                <th>Função</th>
                 <th>Status da Conta</th>
+                <th colspan="2">Opções</th>
             </tr>
             
             <c:forEach items="${funcionarios}" var="funcionario">
@@ -33,7 +34,14 @@
                     <td><c:out value="${funcionario.id}"/></td>
                     <td><c:out value="${funcionario.nome}"/></td>
                     <td><c:out value="${funcionario.getFuncao().getNome()}"/></td>
-                    <td><c:out value="${funcionario.statusConta}"/></td>
+                    <td>
+                        <c:if test="${funcionario.statusConta == 0}">
+                            <c:out value="Desativada"/>
+                        </c:if>
+                        <c:if test="${funcionario.statusConta == 1}">
+                            <c:out value="Ativada"/>
+                        </c:if>                        
+                    </td>
                     <td>
                         <a href="ManterFuncionarioController?acao=prepararOperacao&operacao=Editar&id=<c:out value="${funcionario.id}" />" > Editar</a>
                     </td>

@@ -25,6 +25,7 @@
             <tr>
                 <th>Cod.</th>
                 <th>Nome</th>
+                <th colspan="2">Opções</th>
             </tr>
             
             <c:forEach items="${usuarios}" var="usuario">
