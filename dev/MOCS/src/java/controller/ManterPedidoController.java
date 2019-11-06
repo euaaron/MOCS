@@ -1,7 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ *
+ * @author Débora Lessa & Aaron Stiebler
  */
 package controller;
 
@@ -19,10 +18,6 @@ import model.Comanda;
 import model.Pedido;
 import model.Prato;
 
-/**
- *
- * @author Débora Lessa & Aaron Stiebler
- */
 public class ManterPedidoController extends HttpServlet {
 
     /**
@@ -51,7 +46,7 @@ public class ManterPedidoController extends HttpServlet {
         
         String operacao = request.getParameter("operacao");
         
-        int idPedido = Integer.parseInt(request.getParameter("txtIdPedido"));
+        int idPedido = Integer.parseInt(request.getParameter("txtId"));
         int idComanda = Integer.parseInt(request.getParameter("txtIdComanda"));
         int idPrato = Integer.parseInt(request.getParameter("txtIdPrato"));
         int quantidade = Integer.parseInt(request.getParameter("txtQuantidade"));

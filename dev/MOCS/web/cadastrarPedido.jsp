@@ -26,13 +26,13 @@
                 <table border="1">
                     <tbody>
                         <tr>
-                            <td><label for="id">Id:</label></td>
+                            <td><label for="idPedido">Id:</label></td>
                             <td><input type="text" name="txtId" id="idPedido" value="${pedido.id}"/></td>
                         </tr>
                         <tr>
-                            <td><label for="idPrato">Id Prato:</label></td>
+                            <td><label for="idPrato">Prato:</label></td>
                             <td>
-                                <select name="optPrato" >
+                                <select name="txtIdPrato" >
                                     <option value="0" <c:if test="${pedido.idPrato == null}"> selected</c:if>> </option>
                                     <c:forEach items="${pratos}" var="prato">
                                         <option value="${prato.id}" <c:if test="${pedido.idPrato == prato.id}"> selected</c:if>>${prato.nome}</option>
@@ -42,7 +42,7 @@
                         </tr>
                         <tr>
                             <td><label for="quantidade">Quantidade:</label></td>
-                            <td><input type="text" name="txtQuantidade" id="quantidade" min="0" placeholder="1"  value="${pedido.quantidade}"/></td>
+                            <td><input type="text" name="txtQuantidade" id="quantidade" min="0" value="${pedido.quantidade}"/></td>
                         </tr>
                         <tr>
                             <td><label for="idComanda">Id Comanda:</label></td>
