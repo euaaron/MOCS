@@ -127,7 +127,7 @@ public class PedidoDAO {
         try {
             conexao = BD.getConexao();
             comando = conexao.prepareStatement(
-                "update set pedido idPrato = ?, quantidade = ?, idComanda = ?"
+                "update pedido set idPrato = ?, quantidade = ?, idComanda = ?"
               + " WHERE id = ?");
             
             comando.setInt(1, pedido.getIdPrato());
