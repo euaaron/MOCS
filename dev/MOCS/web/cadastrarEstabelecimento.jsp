@@ -44,16 +44,16 @@
                     <td><input type="text" name="txtCnpj" id="cnpj" value="${estabelecimento.cnpj}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                 </tr>
                 <tr>
-                    <td><label for="telefone">Telefone:</label></td> <!-- Número de telefone. -->
-                    <td><input type="text" name="txtTelefone" id="telefone" value="${estabelecimento.telefone}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                    <td><label for="inscEstadual">Inscrição Estadual:</label></td> <!-- Número da inscrição estadual da empresa -->
+                    <td><input type="text" name="txtInscEstadual" id="inscEstadual" value="${estabelecimento.inscEstadual}"  <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                 </tr>
                 <tr>
                     <td><label for="nomeFantasia">Nome Fantasia:</label></td> <!-- Nome Fantasia Completo da Empresa -->
                     <td><input type="text" name="txtNomeFantasia" id="nomeFantasia" value="${estabelecimento.nomeFantasia}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                 </tr>
                 <tr>
-                    <td><label for="inscEstadual">Inscrição Estadual:</label></td> <!-- Número da inscrição estadual da empresa -->
-                    <td><input type="text" name="txtInscEstadual" id="inscEstadual" value="${estabelecimento.inscEstadual}"  <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                    <td><label for="telefone">Telefone:</label></td> <!-- Número de telefone. -->
+                    <td><input type="text" name="txtTelefone" id="telefone" value="${estabelecimento.telefone}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                 </tr>
                 <tr>
                     <td><label for="idEndereco">Id do Endereco</label></td>

@@ -22,15 +22,15 @@
         </ul>
         <table border = 1>
             <tr>
-                <th>Cod. Prato</th>
-                <th>Nome</th>
-                <th>Funcionario</th>
-                <th>Estabelecimento</th>
-                <th>Data da criação</th>
-                <th>Preco</th>
-                <th>Imagem Ilustrativa</th>
-                <th>No cardápio?</th>
-                <th colspan="2">Opções</th>
+                <th>COD</th>
+                <th>NOME</th>
+                <th>FUNCIONARIO</th>
+                <th>ESTABELECIMENTO</th>
+                <th>CRIAÇÃO</th>
+                <th>VALOR</th>
+                <th>IMAGEM</th>
+                <th>EXIBIR</th>
+                <th colspan="2">OPÇÕES</th>
             </tr>
             
             <c:forEach items="${pratos}" var="prato">
@@ -40,7 +40,7 @@
                     <td><c:out value="${prato.getFuncionario().nome}"/></td>
                     <td><c:out value="${prato.getEstabelecimento().nomeFantasia}"/></td>
                     <td><c:out value="${prato.dataCriacao}"/></td>
-                    <td><c:out value="${prato.preco}"/></td>
+                    <td><c:out value="R$ ${prato.preco}"/></td>
                     <td><image src="<c:out value="${prato.imagemUrl}"/>" width="160px" heigth="90px"></td>
                     <td>
                         <c:if test="${prato.exibir == 0}">

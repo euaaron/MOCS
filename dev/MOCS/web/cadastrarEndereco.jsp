@@ -28,27 +28,27 @@
                         </tr>
                         <tr>
                             <td><label for="cep">CEP:</label></td>
-                            <td><input type="text" id="cep" name="txtCEP" value="${endereco.cep}"/></td>
+                            <td><input type="text" id="cep" name="txtCEP" value="${endereco.cep}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td><label for="uf">UF:</label></td>
-                            <td><input type="text" id="uf" name="txtUF" value="${endereco.UF}"/></td>
+                            <td><input type="text" id="uf" name="txtUF" value="${endereco.UF}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td><label for="cidade">Cidade:</label></td>
-                            <td><input type="text" id="cidade" name="txtCidade" value="${endereco.cidade}"/></td>
+                            <td><input type="text" id="cidade" name="txtCidade" value="${endereco.cidade}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td><label for="bairro">Bairro:</label></td>
-                            <td><input type="text" id="bairro" name="txtBairro" value="${usuario.bairro}"></td>
+                            <td><input type="text" id="bairro" name="txtBairro" value="${usuario.bairro}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td><label for="logradouro">Logradouro:</label></td>
-                            <td><input type="text" id="logradouro" name="txtLogradouro" value="${usuario.logradouro}"></td>
+                            <td><input type="text" id="logradouro" name="txtLogradouro" value="${usuario.logradouro}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td><label for="complemento">Complemento:</label></td>
-                            <td><input type="text" id="complemento" name="txtComplemento:" value="${usuario.complemento}"></td>
+                            <td><input type="text" id="complemento" name="txtComplemento:" value="${usuario.complemento}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td>

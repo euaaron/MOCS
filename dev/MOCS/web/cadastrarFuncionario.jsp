@@ -42,9 +42,9 @@
                         <tr>
                             <td><label for="status">Status da Conta:</label></td>
                             <td>
-                            <select name="txtStatusConta">
-                                <option value="0">Desativada</option>
-                                <option value="1">Ativada</option>  
+                            <select name="txtStatusConta" <c:if test="${operacao == 'Excluir'}"> disabled</c:if>>
+                                <option value="0" <c:if test="${prato.exibir == 0}"> selected</c:if>/>Desativada</option>
+                                <option value="1" <c:if test="${prato.exibir == 1}"> selected</c:if>/>Ativada</option>  
                             </select>
                             </td>
                         </tr>                        
@@ -77,7 +77,7 @@
                         <tr>
                             <td><label for="idFuncao">Função:</label></td>
                             <td>
-                            <select name="txtIdFuncao">
+                            <select name="txtIdFuncao" <c:if test="${operacao == 'Excluir'}"> disabled</c:if>>
                                 <option value="0" <c:if test="${funcionario.idFuncao== null}"> selected</c:if>> </option>  
                                 <c:forEach items="${funcoes}" var="funcao">                                    
                                 <option value="${funcao.id}" <c:if test="${funcionario.idFuncao == funcao.id}"> selected</c:if>>${funcao.nome}</option>

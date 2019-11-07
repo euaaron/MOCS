@@ -28,7 +28,7 @@
                     <tr>
                         <td><label>Funcionario:</label></td>
                         <td>
-                            <select name="txtIdFuncionario">
+                            <select name="txtIdFuncionario" <c:if test="${operacao == 'Excluir'}"> disabled</c:if>>
                                 <option value="0" <c:if test="${prato.idFuncionario == null}"> selected</c:if>> </option>  
                                 <c:forEach items="${funcionarios}" var="funcionario">                                    
                                 <option value="${funcionario.id}" <c:if test="${prato.idFuncionario == funcionario.id}"> selected</c:if>>${funcionario.nome}</option>
@@ -69,12 +69,12 @@
                     </tr>
                     <tr>
                         <td><label for="dataCriacao">Data da Criação:</label></td>
-                        <td><input type="text" name="txtDataCriacao" id="dataCriacao" value="${prato.dataCriacao}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                        <td><input type="date" name="txtDataCriacao" id="dataCriacao" value="${prato.dataCriacao}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                     </tr>
                     <tr>
                         <td><label>Exibir:</label></td>
                         <td>
-                            <select name="txtExibir">
+                            <select name="txtExibir" <c:if test="${operacao == 'Excluir'}"> disabled</c:if>>
                                 <option value="0" <c:if test="${prato.exibir == 0}"> selected</c:if>>Não</option>
                                 <option value="1" <c:if test="${prato.exibir == 1}"> selected</c:if>>Sim</option>
                             </select>

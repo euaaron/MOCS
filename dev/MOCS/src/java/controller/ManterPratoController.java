@@ -53,7 +53,7 @@ public class ManterPratoController extends HttpServlet {
         String descricao = request.getParameter("txtDescricao");
         float preco = Float.parseFloat(request.getParameter("txtPreco"));
         String imagemUrl = request.getParameter("txtImagemUrl");
-        String dataCriacao = request.getParameter("txtDataCriacao");
+        String dataCriacao = (String) request.getParameter("txtDataCriacao");
         int exibir = Integer.parseInt(request.getParameter("txtExibir"));
         
         if (imagemUrl == null) {

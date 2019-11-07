@@ -32,7 +32,7 @@
                         <tr>
                             <td><label for="idPrato">Prato:</label></td>
                             <td>
-                                <select name="txtIdPrato" >
+                                <select name="txtIdPrato" <c:if test="${operacao == 'Excluir'}"> disabled</c:if>>
                                     <option value="0" <c:if test="${pedido.idPrato == null}"> selected</c:if>> </option>
                                     <c:forEach items="${pratos}" var="prato">
                                         <option value="${prato.id}" <c:if test="${pedido.idPrato == prato.id}"> selected</c:if>>${prato.nome}</option>
