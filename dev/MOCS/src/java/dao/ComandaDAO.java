@@ -73,8 +73,8 @@ public class ComandaDAO {
                     + " values (?,?,?,?)"
             );
             comando.setInt(1, comanda.getId());
-            comando.setString(2, comanda.getDataComanda());
-            comando.setString(3, comanda.getHoraComanda());
+            comando.setString(2, comanda.getData());
+            comando.setString(3, comanda.getHora());
             comando.setInt(4, comanda.getIdCliente());
             comando.executeUpdate();
         } finally {
@@ -90,8 +90,8 @@ public class ComandaDAO {
             comando = conexao.prepareStatement(
                     "update comanda set data = ?, hora = ?, idCliente = ? where id = ?"
             );
-            comando.setString(1, comanda.getDataComanda());
-            comando.setString(2, comanda.getHoraComanda());
+            comando.setString(1, comanda.getData());
+            comando.setString(2, comanda.getHora());
             comando.setInt(3, comanda.getIdCliente());
             comando.setInt(4, comanda.getId());
             comando.executeUpdate();

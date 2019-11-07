@@ -43,7 +43,7 @@ public class PedidoDAO {
         try{
         conexao = BD.getConexao();
         comando = conexao.createStatement();
-        ResultSet rs = comando.executeQuery("select * from pedido ORDER BY id ASC");
+        ResultSet rs = comando.executeQuery("select * from pedido ORDER BY idComanda ASC");
             while (rs.next()) {
                 pedido = instanciarPedido(rs);
                 pedidos.add(pedido);                
@@ -73,14 +73,31 @@ public class PedidoDAO {
         }
         return pedidos;
     }
+    /*
+    public static float valorPedidosComanda(int idComanda)
+    throws ClassNotFoundException, SQLException{
+        Connection conexao = null;
+        Statement comando = null;
+        float total = 0;
+        try{
+        conexao = BD.getConexao();
+        comando = conexao.createStatement();
+        ResultSet rs = comando.executeQuery(
+            "SELECT SUM(pe.quantidade * pa.preco) total FROM pedido pe JOIN comanda c ON pe.idComanda = c.id AND c.id = " + idComanda +" JOIN prato pa ON pa.id = pe.idPrato GROUP BY c.id");
+        total = rs.getFloat("total");         
+        }finally{
+        fecharConexao(conexao, comando);
+        }
+        return total;
+    }*/
     
     public static Pedido instanciarPedido(ResultSet rs) 
     throws SQLException {
         Pedido pedido = new Pedido(
                 rs.getInt("id"),
-                rs.getInt("idComanda"),
                 rs.getInt("idPrato"),
-                rs.getInt("quantidade")
+                rs.getInt("quantidade"),
+                rs.getInt("idComanda")
         );
         return pedido;
     }
@@ -91,7 +108,7 @@ public class PedidoDAO {
         PreparedStatement comando = null;
         try {
             conexao = BD.getConexao();
-            comando = conexao.prepareStatement("insert into pedido (id, idPrato, quantidade, idComanda)"
+            comando = conexao.prepareStatement("insert into pedido (id, idPrato, quantidade, idComanda) "
             + "values(?,?,?,?)");
             comando.setInt(1, pedido.getId());
             comando.setInt(2, pedido.getIdPrato());

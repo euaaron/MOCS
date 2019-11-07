@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Comanda;
+import model.Pedido;
 
 /**
  *
@@ -34,6 +35,7 @@ public class PesquisarComandaController extends HttpServlet {
             throws ServletException, IOException {
         try {
             request.setAttribute("comandas", Comanda.obterComandas());
+            request.setAttribute("pedidos", Pedido.obterPedidos());
             RequestDispatcher view = request.getRequestDispatcher("/pesquisarComanda.jsp");
             view.forward(request, response);
         } catch (ClassNotFoundException | SQLException e){

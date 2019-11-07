@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Comanda;
+import model.Pedido;
 import model.Usuario;
 
 public class ManterComandaController extends HttpServlet {
@@ -50,7 +51,7 @@ public class ManterComandaController extends HttpServlet {
         String dataComanda = request.getParameter("txtDataComanda");
         String horaComanda = request.getParameter("txtHoraComanda");
         int idCliente = Integer.parseInt(request.getParameter("txtIdCliente"));
-        
+
         try {
             Usuario cliente = null;
             if(idCliente != 0){

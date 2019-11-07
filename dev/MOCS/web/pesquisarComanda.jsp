@@ -22,25 +22,33 @@
         </ul>
         <table border = 1>
             <tr>
+                <th colspan="2">OPÇÕES</th>
                 <th>COD</th>
                 <th>DATA</th>
                 <th>HORA</th>
                 <th>CLIENTE</th>
-                <th colspan="2">OPÇÕES</th>
+                <th>TOTAL</th>
+                <th colspan="2">PEDIDOS</th>
             </tr>
             
             <c:forEach items="${comandas}" var="comanda">
                 <tr>
-                    <td><c:out value="${comanda.id}"/></td>
-                    <td><c:out value="${comanda.dataComanda}"/></td>
-                    <td><c:out value="${comanda.horaComanda}"/></td>
-                    <td><c:out value="${comanda.cliente.nome}"/></td>
                     <td>
                         <a href="ManterComandaController?acao=prepararOperacao&operacao=Editar&id=<c:out value="${comanda.id}" />" > Editar</a>
                     </td>
                     <td>
                         <a href="ManterComandaController?acao=prepararOperacao&operacao=Excluir&id=<c:out value="${comanda.id}" />" > Excluir</a>
                     </td>
+                    <td><c:out value="${comanda.id}"/></td>
+                    <td><c:out value="${comanda.data}"/></td>
+                    <td><c:out value="${comanda.hora}"/></td>
+                    <td><c:out value="${comanda.cliente.nome}"/></td>
+                    <td>R$ <fmt:formatNumber type="number" minFractionDigits="2" value="${comanda.obterTotal()}"/></td>
+                    <c:forEach items="${pedidos}" var="pedido">                                    
+                    <td>
+                        <c:if test="${pedido.comanda.id == comanda.id}">[${pedido.quantidade} unid.] ${pedido.prato.nome} [R$ <fmt:formatNumber type="number" minFractionDigits="2" value="${pedido.prato.preco * pedido.quantidade}"/>] </c:if>
+                    </td>
+                    </c:forEach>
                     <td>
                         <a href="ManterPedidoController?acao=prepararOperacao&operacao=Incluir&id=<c:out value="${comanda.id}" />" > Incluir Pedido</a>
                     </td>

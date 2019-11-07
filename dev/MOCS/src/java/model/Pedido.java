@@ -19,7 +19,7 @@ public class Pedido {
     private Prato prato = null;  
     private Comanda comanda = null;    
 
-    public Pedido(int id, int idComanda, int idPrato, int quantidade)
+    public Pedido(int id, int idPrato, int quantidade, int idComanda)
     {
         this.id = id;
         this.idPrato = idPrato;
@@ -82,7 +82,9 @@ public class Pedido {
     
     public void editar() 
     throws SQLException, ClassNotFoundException 
-    { PedidoDAO.editar(this); }
+    { 
+        PedidoDAO.editar(this); 
+    }
     
     public void excluir() 
     throws ClassNotFoundException, SQLException 

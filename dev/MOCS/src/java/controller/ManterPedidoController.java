@@ -41,6 +41,26 @@ public class ManterPedidoController extends HttpServlet {
         }
     } 
     
+    public void prepararOperacao(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, ClassNotFoundException, SQLException {
+    try {
+        String operacao = request.getParameter("operacao");
+        request.setAttribute("operacao", operacao);
+        request.setAttribute("pratos", Prato.obterPratos());
+        if (!operacao.equals("Incluir")) {
+                int id = Integer.parseInt(request.getParameter("id"));
+                Pedido obj = Pedido.obterPedido(id);
+                request.setAttribute("pedido", obj);
+            }
+        RequestDispatcher view = request.getRequestDispatcher("/cadastrarPedido.jsp");
+        view.forward(request, response);
+    }catch (ServletException e){
+        throw e;
+    }catch (IOException e){
+        throw new ServletException(e);
+    }
+    }
+    
     public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) 
            throws SQLException, ClassNotFoundException, ServletException {
         
@@ -60,37 +80,19 @@ public class ManterPedidoController extends HttpServlet {
             if(idPrato != 0){
                 prato = Prato.obterPrato(idPrato);
             }
-            Pedido pedido = new Pedido(idPedido, idComanda, idPrato, quantidade);
+            Pedido pedido = new Pedido(idPedido, idPrato, quantidade, idComanda);
             if (operacao.equals("Incluir")){
-                comanda.gravar();
+                pedido.gravar();
             } else if (operacao.equals("Excluir")) {
                pedido.excluir();
+            } else if (operacao.equals("Editar")) {
+               pedido.editar();
             }
             RequestDispatcher view = request.getRequestDispatcher("PesquisarPedidoController");
                     view.forward(request, response);
         } catch (IOException e){
             throw new ServletException(e);
         }
-    }
-    
-    public void prepararOperacao(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ClassNotFoundException, SQLException {
-    try {
-        String operacao = request.getParameter("operacao");
-        request.setAttribute("operacao", operacao);
-        request.setAttribute("pratos", Prato.obterPratos());
-        if (!operacao.equals("Incluir")) {
-                int id = Integer.parseInt(request.getParameter("id"));
-                Pedido obj = Pedido.obterPedido(id);
-                request.setAttribute("pedido", obj);
-            }
-        RequestDispatcher view = request.getRequestDispatcher("/cadastrarPedido.jsp");
-        view.forward(request, response);
-    }catch (ServletException e){
-        throw e;
-    }catch (IOException e){
-        throw new ServletException(e);
-    }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

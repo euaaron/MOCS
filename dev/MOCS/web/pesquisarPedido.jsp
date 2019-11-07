@@ -32,7 +32,7 @@
             
             <c:forEach items="${pedidos}" var="pedido">
                 <tr>
-                    <td><c:out value="${pedido.id}"/>/<c:out value="${pedido.comanda.id}"/></td>
+                    <td>P<c:out value="${pedido.id}"/>/C<c:out value="${pedido.comanda.id}"/></td>
                     <td><c:out value="${pedido.comanda.data}"/></td>
                     <td><c:out value="${pedido.comanda.cliente.nome}"/></td>
                     <td><c:out value="${pedido.prato.nome}"/></td>
