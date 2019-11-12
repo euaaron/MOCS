@@ -23,9 +23,9 @@
         <table border = 1>
             <tr>
                 <th>COD</th>
-                <th>NOME</th>
                 <th>FUNCIONARIO</th>
-                <th>ESTABELECIMENTO</th>
+                <th>NOME</th>
+                <th>DESCRIÇÃO</th>
                 <th>CRIAÇÃO</th>
                 <th>VALOR</th>
                 <th>IMAGEM</th>
@@ -36,9 +36,9 @@
             <c:forEach items="${pratos}" var="prato">
                 <tr>
                     <td><c:out value="${prato.id}"/></td>
-                    <td><c:out value="${prato.nome}"/></td>
                     <td><c:out value="${prato.getFuncionario().nome}"/></td>
-                    <td><c:out value="${prato.getEstabelecimento().nomeFantasia}"/></td>
+                    <td><c:out value="${prato.nome}"/></td>
+                    <td><c:out value="${prato.descricao}"/></td>
                     <td><c:out value="${prato.dataCriacao}"/></td>
                     <td><c:out value="R$ ${prato.preco}"/></td>
                     <td><image src="<c:out value="${prato.imagemUrl}"/>" width="160px" heigth="90px"></td>
