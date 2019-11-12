@@ -30,6 +30,10 @@
                             <td><input type="text" name="txtId" id="idPedido" value="${pedido.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
+                            <td><label for="idComanda">Id Comanda:</label></td>
+                            <td><input type="text" name="txtIdComanda" id="idComanda"  value="${pedido.idComanda}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                        </tr>
+                        <tr>
                             <td><label for="idPrato">Prato:</label></td>
                             <td>
                                 <select name="txtIdPrato" <c:if test="${operacao == 'Excluir'}"> disabled</c:if>>
@@ -43,10 +47,6 @@
                         <tr>
                             <td><label for="quantidade">Quantidade:</label></td>
                             <td><input type="text" name="txtQuantidade" id="quantidade" value="${pedido.quantidade}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
-                        </tr>
-                        <tr>
-                            <td><label for="idComanda">Id Comanda:</label></td>
-                            <td><input type="text" name="txtIdComanda" id="idComanda"  value="${pedido.idComanda}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td>

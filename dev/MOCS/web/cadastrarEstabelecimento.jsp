@@ -56,10 +56,6 @@
                     <td><input type="text" name="txtTelefone" id="telefone" value="${estabelecimento.telefone}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                 </tr>
                 <tr>
-                    <td><label for="idEndereco">Id do Endereco</label></td>
-                    <td><input type="text" name="txtIdEndereco" id="idEndereco" value="${endestabelecimento.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/></td>
-                </tr>
-                <tr>
                     <td><label for="cep">CEP:</label></td>
                     <td><input type="text" id="cep" name="txtCEP" value="${endestabelecimento.cep}" onkeyup="filtraCEP()"<c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                 </tr>

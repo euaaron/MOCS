@@ -33,7 +33,7 @@
                         </tr>
                         <tr>
                             <td><label for="id">Id da Funcao:</label></td>
-                            <td><input type="text" name="txtIdFuncao" id="id" value="${funcao.id}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                            <td><input type="text" name="txtIdFuncao" id="id" value="${funcao.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td><label for="nome">Nome:</label></td>
