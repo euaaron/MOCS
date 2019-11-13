@@ -26,6 +26,10 @@
             <table border="1">
                 <tbody>
                     <tr>
+                        <td><label for="id">Id:</label></td>
+                        <td><input type="text" name="txtId" id="idPrato" value="${prato.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/></td>
+                    </tr>
+                    <tr>
                         <td><label>Funcionario:</label></td>
                         <td>
                             <select name="txtIdFuncionario" <c:if test="${operacao == 'Excluir'}"> disabled</c:if>>
@@ -47,10 +51,6 @@
                             </select>
                         </td>
                     </tr>                    
-                    <tr>
-                        <td><label for="id">Id:</label></td>
-                        <td><input type="text" name="txtId" id="idPrato" value="${prato.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/></td>
-                    </tr>
                     <tr>
                         <td><label for="nome">Nome:</label></td>
                         <td><input type="text" name="txtNome" id="nome" value="${prato.nome}"/></td>
