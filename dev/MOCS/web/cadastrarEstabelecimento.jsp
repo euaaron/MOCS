@@ -31,10 +31,10 @@
                 <tr>
                     <td><label for="idProprietario">Proprietario:</label></td>
                     <td>
-                        <select name="txtIdProprietario" <c:if test="${operacao == 'Excluir'}"> disabled</c:if>>
+                        <select name="txtIdProprietario" <c:if test="${operacao == 'Excluir'}"> </c:if>>
                             <option value="0" <c:if test="${estabelecimento.proprietario.id == null}"> selected</c:if>> </option>  
                             <c:forEach items="${proprietarios}" var="proprietario">
-                                <option value="${proprietario.id}" <c:if test="${proprietario.id == estabelecimento.proprietario.id}"> selected</c:if>>${proprietario.nome}</option>  
+                                <option value="${proprietario.id}" <c:if test="${proprietario.id == estabelecimento.proprietario.id}"> selected</c:if> >${proprietario.nome}</option>  
                             </c:forEach>
                         </select>
                     </td>

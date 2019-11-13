@@ -53,6 +53,10 @@ public class ManterEstabelecimentoController extends HttpServlet {
                 Estabelecimento est = Estabelecimento.obterEstabelecimento(id);
                 request.setAttribute("estabelecimento", est);
                 
+                int idProprietario = Integer.parseInt(request.getParameter("id"));
+                Usuario proprietario = Usuario.obterUsuario(est.getProprietario().getId());
+                request.setAttribute("proprietario", proprietario);
+                
                 int idEndereco = Integer.parseInt(request.getParameter("id"));
                 EnderecoEstabelecimento end = EnderecoEstabelecimento.obterEndereco(est.getIdEndereco());
                 request.setAttribute("endestabelecimento", end);
