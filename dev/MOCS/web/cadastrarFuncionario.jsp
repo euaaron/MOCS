@@ -54,8 +54,8 @@
                             <td><label for="status">Status da Conta:</label></td>
                             <td>
                             <select name="txtStatusConta" <c:if test="${operacao == 'Excluir'}"> disabled</c:if>>
-                                <option value="0" <c:if test="${prato.exibir == 0}"> selected</c:if>/>Desativada</option>
-                                <option value="1" <c:if test="${prato.exibir == 1}"> selected</c:if>/>Ativada</option>  
+                                <option value="0" <c:if test="${funcionario.statusConta == 0}"> selected</c:if>/>Desativada</option>
+                                <option value="1" <c:if test="${funcionario.statusConta == 1}"> selected</c:if>/>Ativada</option>  
                             </select>
                             </td>
                         </tr>                        
