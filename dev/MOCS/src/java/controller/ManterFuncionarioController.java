@@ -83,6 +83,10 @@ public class ManterFuncionarioController extends HttpServlet {
             if (idEstabelecimento != 0) {
                 estabelecimento = Estabelecimento.obterEstabelecimento(idEstabelecimento);
             }
+            Funcao funcao = null;
+            if (idFuncao != 0) {
+                funcao = Funcao.obterFuncao(idFuncao);
+            }
             Funcionario funcionario = new Funcionario(idFuncionario, nome,dataNascimento,
                     email, telefone, senha, cpf, statusConta,idEstabelecimento, idFuncao);
             if (operacao.equals("Incluir")) {

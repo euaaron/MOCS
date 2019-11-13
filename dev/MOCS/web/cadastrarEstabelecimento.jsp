@@ -40,6 +40,10 @@
                     </td>
                 </tr>
                 <tr>
+                    <td><label for="idEndereco">Id do Endereço:</label></td>
+                    <td><input type="text" name="txtIdEndereco" id="idEndereco" value="${endestabelecimento.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>></td>
+                </tr>
+                <tr>
                     <td><label for="cnpj">CNPJ:</label></td> <!-- Número do CNPJ -->
                     <td><input type="text" name="txtCnpj" id="cnpj" value="${estabelecimento.cnpj}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                 </tr>
