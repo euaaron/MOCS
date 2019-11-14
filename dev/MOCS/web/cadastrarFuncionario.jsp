@@ -30,13 +30,13 @@
                         <tr>
                             <td><label for="idEstabelecimento">Id do Estabelecimento:</label></td>
                             <td>
-                                <input type="text" name="txtIdEstabelecimento" id="idEstabelecimento" value="${funcionario.idEstabelecimento}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/>
+                                <input type="text" name="txtIdEstabelecimento" maxlength="10" id="idEstabelecimento" value="${funcionario.idEstabelecimento}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/>
                             </td>
                         </tr>
                         <tr>
                             <td><label for="idFuncionario">Id:</label></td>
                             <td>
-                                <input type="text" name="txtIdFuncionario" id="idFuncionario" value="${funcionario.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/>
+                                <input type="text" name="txtIdFuncionario" maxlength="10" id="idFuncionario" value="${funcionario.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/>
                             </td>
                         </tr>
                         <tr>
@@ -62,36 +62,36 @@
                         <tr>
                             <td><label for="nome">Nome:</label></td>
                             <td>
-                                <input type="text" name="txtNome" id="nome" value="${funcionario.nome}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
+                                <input type="text" name="txtNome" maxlength="45" id="nome" value="${funcionario.nome}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
                             </td>
                         </tr>
                         <tr>
                             <td><label for="cpf">CPF:</label></td>
                             <td>
-                                <input type="text" name="txtCpf" id="cpf" value="${funcionario.cpf}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
+                                <input type="text" name="txtCpf" maxlength="14" id="cpf" value="${funcionario.cpf}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
                             </td>
                         </tr>
                         <tr>
                             <td><label for="dataNasc">Data de Nascimento:</label></td>
                             <td>
-                                <input type="text" name="txtDataNascimento" id="dataNascimento" value="${funcionario.dataNascimento}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
+                                <input type="text" name="txtDataNascimento" maxlength="10" id="dataNascimento" value="${funcionario.dataNascimento}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
                             </td>
                         </tr>
                         <tr>
                             <td><label for="email">Email:</label></td>
-                            <td><input type="text" name="txtEmail" id="email" placeholder="exemplo@email.com" value="${funcionario.email}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                            <td><input type="text" name="txtEmail" maxlength="45" id="email" placeholder="exemplo@email.com" value="${funcionario.email}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td><label for="telefone">Telefone:</label></td>
-                            <td><input type="text" id="telefone" placeholder="(xx) x xxxx-xxxx" name="txtTelefone" value="${funcionario.telefone}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                            <td><input type="text" maxlength="30" id="telefone" placeholder="(xx) x xxxx-xxxx" name="txtTelefone" value="${funcionario.telefone}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td><label for="senha">Senha:</label></td>
-                            <td><input type="text" name="txtSenha" id="senha" value="${funcionario.senha}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                            <td><input type="text" name="txtSenha" maxlength="45" id="senha" value="${funcionario.senha}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td><label for="senha">Repita a senha:</label></td>
-                            <td><input type="text" name="txtSenha" id="confirmaSenha" value="${funcionario.senha}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                            <td><input type="text" name="txtSenha" maxlength="45" id="confirmaSenha" value="${funcionario.senha}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td colspan="2">

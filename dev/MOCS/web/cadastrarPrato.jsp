@@ -27,7 +27,7 @@
                 <tbody>
                     <tr>
                         <td><label for="id">Id:</label></td>
-                        <td><input type="text" name="txtId" id="idPrato" value="${prato.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/></td>
+                        <td><input type="text" name="txtId" maxlength="10" id="idPrato" value="${prato.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/></td>
                     </tr>
                     <tr>
                         <td><label>Funcionario:</label></td>
@@ -53,23 +53,23 @@
                     </tr>                    
                     <tr>
                         <td><label for="nome">Nome:</label></td>
-                        <td><input type="text" name="txtNome" id="nome" value="${prato.nome}"/></td>
+                        <td><input type="text" name="txtNome" maxlength="45" id="nome" value="${prato.nome}"/></td>
                     </tr>
                     <tr>
                         <td><label for="descricao">Descricao:</label></td>
-                        <td><input type="text" name="txtDescricao" id="descricao" value="${prato.descricao}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                        <td><input type="text" name="txtDescricao" maxlength="60" id="descricao" value="${prato.descricao}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                     </tr>
                     <tr>
                         <td><label for="imagem">Url da Imagem:</label></td>
-                        <td><input type="text" name="txtImagemUrl" id="imagem" value="${prato.imagemUrl}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                        <td><input type="text" name="txtImagemUrl" maxlength="65535" id="imagem" value="${prato.imagemUrl}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                     </tr>
                     <tr>
                         <td><label for="preco">Preco</label></td>
-                        <td><input type="text" name="txtPreco" id="preco" value="${prato.preco}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                        <td><input type="text" name="txtPreco" maxlength="12" id="preco" value="${prato.preco}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                     </tr>
                     <tr>
                         <td><label for="dataCriacao">Data da Criação:</label></td>
-                        <td><input type="date" name="txtDataCriacao" id="dataCriacao" value="${prato.dataCriacao}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                        <td><input type="date" name="txtDataCriacao" maxlength="10" id="dataCriacao" value="${prato.dataCriacao}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                     </tr>
                     <tr>
                         <td><label>Exibir:</label></td>
