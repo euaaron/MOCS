@@ -30,7 +30,7 @@
         </ul>
         <table border = 1>
             <tr>
-                <th colspan="2">OPÇÕES</th>
+                <th colspan="3">OPÇÕES</th>
                 <th>COD</th>
                 <th>DATA</th>
                 <th>HORA</th>
@@ -41,6 +41,9 @@
             
             <c:forEach items="${comandas}" var="comanda">
                 <tr>
+                    <td>
+                        <a href="ManterPedidoController?acao=prepararOperacao&operacao=Incluir" /> Incluir Pedido</a>
+                    </td>
                     <td>
                         <a href="ManterComandaController?acao=prepararOperacao&operacao=Editar&id=<c:out value="${comanda.id}" />" > Editar</a>
                     </td>
@@ -53,13 +56,10 @@
                     <td><c:out value="${comanda.cliente.nome}"/></td>
                     <td>R$ <fmt:formatNumber type="number" minFractionDigits="2" value="${comanda.obterTotal()}"/></td>
                     <c:forEach items="${pedidos}" var="pedido">                                    
-                    <td>
-                        <c:if test="${pedido.comanda.id == comanda.id}">[${pedido.quantidade} unid.] ${pedido.prato.nome} [R$ <fmt:formatNumber type="number" minFractionDigits="2" value="${pedido.prato.preco * pedido.quantidade}"/>] </c:if>
-                    </td>
+                        <c:if test="${pedido.comanda.id == comanda.id}">
+                            <td>[${pedido.quantidade} unid.] ${pedido.prato.nome} [R$ <fmt:formatNumber type="number" minFractionDigits="2" value="${pedido.prato.preco * pedido.quantidade}"/>]</td>
+                        </c:if>                    
                     </c:forEach>
-                    <td>
-                        <a href="ManterPedidoController?acao=prepararOperacao&operacao=Incluir&id=<c:out value="${comanda.id}" />" > Incluir Pedido</a>
-                    </td>
                 </tr>
             </c:forEach>
         </table>
