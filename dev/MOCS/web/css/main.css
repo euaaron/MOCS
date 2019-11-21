@@ -1,23 +1,38 @@
 /* 
-    Created on : 24/09/2019, 11:22:29
+    Created on : 19/11/2019, 08:55:29
     Author     : Aaron
 */
-ul.breadcrumb {
-    padding: 10px 16px;
-    list-style: none;
-    background-color: #eeeeee; }
-ul.breadcrumb li {
-    display: inline;
-    font-size: 18px; }
-ul.breadcrumb li a {
-    color: #0275d8;
-    text-decoration: none; }
-ul.breadcrumb li a:hover {
-    color: #01447e;
-    text-decoration: underline; }
-ul.breadcrumb li + li:before {
-    padding: 8px;
-    color: black;
-    content: "/\00a0"; }
+@import url(breadcrumb.css);
+@import url(../vendor/fontawesome/css/all.min.css);
+.cards {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: space-between; }
+
+.card {
+  margin-bottom: 0.8vh; }
+  .card .opcoes {
+    display: inline-flex;
+    justify-content: space-evenly; }
+    .card .opcoes .opcao {
+      color: #2d2d2d; }
+      .card .opcoes .opcao a {
+        text-decoration: none !important; }
+    .card .opcoes .opcao:hover {
+      background: #efefef; }
+
+.card-subtitle-2 {
+  text-align: center;
+  color: white;
+  background: #2d2d2d; }
+
+.card-footer {
+  bottom: 0;
+  left: 0; }
+  .card-footer span {
+    font-size: smaller; }
+
+.editar {
+  color: #2d2d2d; }
 
 /*# sourceMappingURL=main.css.map */

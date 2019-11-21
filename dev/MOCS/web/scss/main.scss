@@ -1,32 +1,52 @@
 /* 
-    Created on : 24/09/2019, 11:22:29
+    Created on : 19/11/2019, 08:55:29
     Author     : Aaron
 */
 
-//Cores/
-$azul: #0275d8;
-$azul2: #01447e;
-$cinza: #eeeeee;
+@import "breadcrumb.css";
+@import "../vendor/fontawesome/css/all.min.css";
 
-ul.breadcrumb {
-    padding: 10px 16px;
-    list-style: none;
-    background-color: $cinza;
-    li {
-        display: inline;
-        font-size: 18px;
-        a {
-            color: $azul;
-            text-decoration: none;
-        }
-        a:hover {
-            color: $azul2;
-            text-decoration: underline;
-        } 
-    }
-    li+li:before {
-        padding: 8px;
-        color: black;
-        content: "/\00a0";
-    }
+$dark: #2d2d2d;
+$light: #efefef;
+
+.cards {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: space-between;
 }
+
+.card {
+  margin-bottom: 0.8vh;
+  .opcoes {
+    display: inline-flex;
+    justify-content: space-evenly;
+    .opcao {
+        color: $dark;
+        a {
+          text-decoration: none !important;
+        }
+    }
+    .opcao:hover {
+      background: $light;
+    }
+  }
+}
+
+.card-subtitle-2 {
+  text-align: center;
+  color: white;
+  background: $dark;
+}
+
+.card-footer {
+    bottom: 0;
+    left: 0;
+  span {
+    font-size: smaller;
+  }
+}
+
+.editar {
+  color: $dark;
+}
+

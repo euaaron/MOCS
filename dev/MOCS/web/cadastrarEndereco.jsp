@@ -14,13 +14,13 @@
         <title>Cadastro de Endereco</title>
 
         <%-- Estilos, scripts e dependências de terceiros --%>
-        <link rel="stylesheet" href="./css/bootstrap.min.css"/>
-        <script src="./js/jquery-3.3.1.slim.min.js"></script>
+        <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css"/>
+        <script src="vendor/jquery-3.3.1.slim.min.js"></script>
         <%-- Estilos e scripts próprios --%>
         <link rel="stylesheet" href="./css/main.css"/>
         <script src="./js/filtros.js"></script>
-        <script src="./js/popper.min.js"></script>
-        <script src="./js/bootstrap.min.js"></script>
+        <script src="vendor/popper.min.js"></script>
+        <script src="vendor/bootstrap/bootstrap.min.js"></script>
     </head>
     <body>
         <div>
