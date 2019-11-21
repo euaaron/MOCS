@@ -23,6 +23,7 @@
         <script src="vendor/popper.min.js"></script>
         <script src="vendor/bootstrap/bootstrap.min.js"></script>
         <script src="vendor/fontawesome/js/all.min.js"></script>
+        <script src="./js/tratamentoExcecao.js"></script>
     </head>
     <body>
         <header>

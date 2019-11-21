@@ -19,6 +19,9 @@ $light: #efefef;
   margin-bottom: 0.8vh;
   .opcoes {
     display: inline-flex;
+    position: relative;
+    bottom: 0;
+    left: 0;
     justify-content: space-evenly;
     .opcao {
         color: $dark;
@@ -39,6 +42,7 @@ $light: #efefef;
 }
 
 .card-footer {
+    position: relative;
     bottom: 0;
     left: 0;
   span {
