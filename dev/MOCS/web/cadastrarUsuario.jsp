@@ -38,35 +38,35 @@
                     <tbody>
                         <tr>
                             <td><label for="id">Id:</label></td>
-                            <td><input type="text" name="txtIdUsuario" id="idUsuario" value="${usuario.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/></td>
+                            <td><input type="text" name="txtIdUsuario" id="idUsuario" maxlength="10" value="${usuario.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td><label for="nome">Nome:</label></td>
-                            <td><input type="text" name="txtNome" id="nome" value="${usuario.nome}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                            <td><input type="text" name="txtNome" id="nome" maxlength="45" value="${usuario.nome}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td><label for="cpf">CPF:</label></td>
-                            <td><input type="text" name="txtCpf" id="cpf" value="${usuario.cpf}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                            <td><input type="text" name="txtCpf" id="cpf" maxlength="14" placeholder="000.000.000-00" value="${usuario.cpf}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td><label for="dataNasc">Data de Nascimento:</label></td>
-                            <td><input type="text" name="txtDataNascimento" id="dataNascimento" value="${usuario.dataNascimento}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                            <td><input type="date" name="txtDataNascimento" id="dataNascimento" value="${usuario.dataNascimento}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td><label for="email">Email:</label></td>
-                            <td><input type="text" id="email" placeholder="exemplo@email.com" name="txtEmail" value="${usuario.email}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                            <td><input type="text" id="email" maxlength="45" placeholder="exemplo@email.com" name="txtEmail" value="${usuario.email}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td><label for="telefone">Telefone:</label></td>
-                            <td><input type="text" id="telefone" placeholder="(xx) x xxxx-xxxx" name="txtTelefone" value="${usuario.telefone}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                            <td><input type="text" id="telefone" maxlength="30" placeholder="(xx) xxxx-xxxx" name="txtTelefone" value="${usuario.telefone}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td><label for="senha">Senha:</label></td>
-                            <td><input type="text" id="senha" name="txtSenha" value="${usuario.senha}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                            <td><input type="password" id="senha" name="txtSenha" maxlength="45" value="${usuario.senha}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td><label for="senha">Repita a senha:</label></td>
-                            <td><input type="text" id="confirmaSenha" name="txtSenha" value="${usuario.senha}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                            <td><input type="password" id="confirmaSenha" name="txtSenha" maxlength="45" value="${usuario.senha}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td>
