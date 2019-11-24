@@ -13,15 +13,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>${operacao} Usuário</title>
-
         <%-- Estilos, scripts e dependências de terceiros --%>
         <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css"/>
         <script src="vendor/jquery-3.3.1.slim.min.js"></script>
+        <script src="vendor/popper.min.js"></script>
+        <script src="vendor/bootstrap/bootstrap.min.js"></script>
         <%-- Estilos e scripts próprios --%>
         <link rel="stylesheet" href="./css/main.css"/>
         <script src="./js/filtros.js"></script>
-        <script src="vendor/popper.min.js"></script>
-        <script src="vendor/bootstrap/bootstrap.min.js"></script>
     </head>
     <body>
         <div>
@@ -33,12 +32,12 @@
             <li>${operacao}</li>
         </ul>
         <div>
-            <form action="ManterUsuarioController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterUsuario" method="post">
+            <form id="incluir" action="ManterUsuarioController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterUsuario" method="post">
                 <table border="1">
                     <tbody>
                         <tr>
                             <td><label for="id">Id:</label></td>
-                            <td><input type="text" name="txtIdUsuario" id="idUsuario" maxlength="10" value="${usuario.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/></td>
+                            <td><input type="text" name="txtIdUsuario" id="id" maxlength="10" value="${usuario.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td><label for="nome">Nome:</label></td>
@@ -49,7 +48,7 @@
                             <td><input type="text" name="txtCpf" id="cpf" maxlength="14" placeholder="000.000.000-00" value="${usuario.cpf}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
-                            <td><label for="dataNasc">Data de Nascimento:</label></td>
+                            <td><label for="dataNascimento">Data de Nascimento:</label></td>
                             <td><input type="date" name="txtDataNascimento" id="dataNascimento" value="${usuario.dataNascimento}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
@@ -77,5 +76,41 @@
                 </table>
             </form>
         </div>
+        <script>
+            function campoNumerico(valor)
+            {
+                var caracteresValidos = "0123456789";
+                var ehNumero = true;
+                var umCaracter;
+                for (i = 0; i < valor.length && ehNumero == true; i++)
+                {
+                    umCaracter = valor.charAt(i);
+                    if (caracteresValidos.indexOf(umCaracter) == - 1)
+                    {
+                        ehNumero = false;
+                    }
+                }
+                return ehNumero;
+            }
+
+            document.getElementById("incluir").addEventListener("submit", () =>
+            {
+                let form = document.getElementById("incluir");
+                let mensagem;
+                mensagem = "";
+                if (form.txtIdUsuario.value === "") {
+                    mensagem = mensagem + "Informe o Código do Usuário\n";
+                }
+                if (!campoNumerico(form.txtIdUsuario.value)) {
+                    mensagem = mensagem + "Código do Usuario deve ser numérico\n";
+                }
+                if (mensagem === "") {
+                    return true;
+                } else {
+                    alert(mensagem);
+                    return false;
+                }
+            });
+        </script>
     </body>
 </html>

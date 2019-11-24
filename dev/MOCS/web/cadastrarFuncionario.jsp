@@ -12,15 +12,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>${operacao} Funcionario</title>
-
         <%-- Estilos, scripts e dependências de terceiros --%>
         <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css"/>
         <script src="vendor/jquery-3.3.1.slim.min.js"></script>
+        <script src="vendor/popper.min.js"></script>
+        <script src="vendor/bootstrap/bootstrap.min.js"></script>
         <%-- Estilos e scripts próprios --%>
         <link rel="stylesheet" href="./css/main.css"/>
         <script src="./js/filtros.js"></script>
-        <script src="vendor/popper.min.js"></script>
-        <script src="vendor/bootstrap/bootstrap.min.js"></script>
     </head>
     <body>
         <div>
@@ -32,7 +31,7 @@
             </ul>
         </div>        
         <div>
-            <form action="ManterFuncionarioController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterFuncionario" method="post">
+            <form id="incluir" action="ManterFuncionarioController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterFuncionario" method="post">
                 <table border="1">
                     <tbody>
                         <tr>
@@ -50,7 +49,7 @@
                         <tr>
                             <td><label for="status">Status da Conta:</label></td>
                             <td>
-                            <select name="txtStatusConta">
+                            <select id="status" name="txtStatusConta">
                                 <option value="0">Desativada</option>
                                 <option value="1">Ativada</option>  
                             </select>
@@ -69,7 +68,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><label for="dataNasc">Data de Nascimento:</label></td>
+                            <td><label for="dataNascimento">Data de Nascimento:</label></td>
                             <td>
                                 <input type="date" name="txtDataNascimento" maxlength="10" id="dataNascimento" value="${funcionario.dataNascimento}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
                             </td>
@@ -85,7 +84,7 @@
                         <tr>
                             <td><label for="idFuncao">Função:</label></td>
                             <td>
-                            <select name="txtIdFuncao">
+                            <select id="idFuncao" name="txtIdFuncao">
                                 <option value="0" <c:if test="${funcionario.idFuncao== null}"> selected</c:if>> </option>  
                                 <c:forEach items="${funcoes}" var="funcao">                                    
                                 <option value="${funcao.id}" <c:if test="${funcionario.idFuncao == funcao.id}"> selected</c:if>>${funcao.nome}</option>
@@ -110,5 +109,53 @@
                 </table>
             </form>
         </div>
+        <script>
+            function campoNumerico(valor)
+            {
+                var caracteresValidos = "0123456789";
+                var ehNumero = true;
+                var umCaracter;
+                for (i = 0; i < valor.length && ehNumero == true; i++)
+                {
+                    umCaracter = valor.charAt(i);
+                    if (caracteresValidos.indexOf(umCaracter) == - 1)
+                    {
+                        ehNumero = false;
+                    }
+                }
+                return ehNumero;
+            }
+
+            document.getElementById("incluir").addEventListener("submit", () =>
+            {
+                let form = document.getElementById("incluir");
+                let mensagem;
+                mensagem = "";
+                if (form.txtId.value === "") {
+                    mensagem = mensagem + "Informe o Código da Comanda\n";
+                }
+                if (form.txtIdCliente.value === "") {
+                    mensagem = mensagem + "Informe o Código do Cliente\n";
+                }
+                if (form.txtDataComanda.value === "") {
+                    mensagem = mensagem + "Informe a data de abertura da comanda\n";
+                }
+                if (form.txtHoraComanda.value === "") {
+                    mensagem = mensagem + "Informe a hora de abertura da comanda\n";
+                }
+                if (!campoNumerico(form.txtId.value)) {
+                    mensagem = mensagem + "Código da Comanda deve ser numérico\n";
+                }
+                if (!campoNumerico(form.txtIdCliente.value)) {
+                    mensagem = mensagem + "Código do Cliente deve ser numérico\n";
+                }
+                if (mensagem === "") {
+                    return true;
+                } else {
+                    alert(mensagem);
+                    return false;
+                }
+            });
+        </script>
     </body>
 </html>

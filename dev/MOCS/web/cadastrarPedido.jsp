@@ -12,15 +12,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>${operacao} Pedido</title>
-
         <%-- Estilos, scripts e dependências de terceiros --%>
         <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css"/>
         <script src="vendor/jquery-3.3.1.slim.min.js"></script>
+        <script src="vendor/popper.min.js"></script>
+        <script src="vendor/bootstrap/bootstrap.min.js"></script>
         <%-- Estilos e scripts próprios --%>
         <link rel="stylesheet" href="./css/main.css"/>
         <script src="./js/filtros.js"></script>
-        <script src="vendor/popper.min.js"></script>
-        <script src="vendor/bootstrap/bootstrap.min.js"></script>
     </head>
     <body>
         <h1>${operacao} Pedido</h1>
@@ -30,7 +29,7 @@
             <li>${operacao}</li>
         </ul>
         <div>
-            <form action="ManterPedidoController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterPedido" method="post">
+            <form id="incluir" action="ManterPedidoController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterPedido" method="post">
                 <table border="1">
                     <tbody>
                         <tr>
@@ -40,7 +39,7 @@
                         <tr>
                             <td><label for="idPrato">Prato:</label></td>
                             <td>
-                                <select name="txtIdPrato" >
+                                <select id="idPrato" name="txtIdPrato" >
                                     <option value="0" <c:if test="${pedido.idPrato == null}"> selected</c:if>> </option>
                                     <c:forEach items="${pratos}" var="prato">
                                         <option value="${prato.id}" <c:if test="${pedido.idPrato == prato.id}"> selected</c:if>>${prato.nome}</option>
@@ -63,6 +62,55 @@
                         </tr>
                     </tbody>
                 </table>
+            </form>
         </div>
+        <script>
+            function campoNumerico(valor)
+            {
+                var caracteresValidos = "0123456789";
+                var ehNumero = true;
+                var umCaracter;
+                for (i = 0; i < valor.length && ehNumero == true; i++)
+                {
+                    umCaracter = valor.charAt(i);
+                    if (caracteresValidos.indexOf(umCaracter) == - 1)
+                    {
+                        ehNumero = false;
+                    }
+                }
+                return ehNumero;
+            }
+
+            document.getElementById("incluir").addEventListener("submit", () =>
+            {
+                let form = document.getElementById("incluir");
+                let mensagem;
+                mensagem = "";
+                if (form.txtId.value === "") {
+                    mensagem = mensagem + "Informe o Código da Comanda\n";
+                }
+                if (form.txtIdCliente.value === "") {
+                    mensagem = mensagem + "Informe o Código do Cliente\n";
+                }
+                if (form.txtDataComanda.value === "") {
+                    mensagem = mensagem + "Informe a data de abertura da comanda\n";
+                }
+                if (form.txtHoraComanda.value === "") {
+                    mensagem = mensagem + "Informe a hora de abertura da comanda\n";
+                }
+                if (!campoNumerico(form.txtId.value)) {
+                    mensagem = mensagem + "Código da Comanda deve ser numérico\n";
+                }
+                if (!campoNumerico(form.txtIdCliente.value)) {
+                    mensagem = mensagem + "Código do Cliente deve ser numérico\n";
+                }
+                if (mensagem === "") {
+                    return true;
+                } else {
+                    alert(mensagem);
+                    return false;
+                }
+            });
+        </script>
     </body>
 </html>

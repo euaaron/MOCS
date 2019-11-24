@@ -15,26 +15,26 @@
         <%-- Estilos, scripts e dependências de terceiros --%>
         <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css"/>
         <script src="vendor/jquery-3.3.1.slim.min.js"></script>
+        <script src="vendor/popper.min.js"></script>
+        <script src="vendor/bootstrap/bootstrap.min.js"></script>
+        <script src="vendor/fontawesome/js/all.min.js"></script>
         <%-- Estilos e scripts próprios --%>
         <link rel="stylesheet" href="./css/main.css"/>
         <script src="./js/filtros.js"></script>
-        <script src="vendor/popper.min.js"></script>
-        <script src="vendor/bootstrap/bootstrap.min.js"></script>
-        <script src="./js/tratamentoExcecao.js"></script>
     </head>
     <body>
         <h1>${operacao} Comanda</h1>
         <ul class="breadcrumb">
-                <li><a href="index.jsp">Index Admin</a></li>
-                <li><a href="PesquisarComandaController">Pesquisar</a></li>
-                <li>${operacao}</li>
-            </ul>
+            <li><a href="index.jsp">Index Admin</a></li>
+            <li><a href="PesquisarComandaController">Pesquisar</a></li>
+            <li>${operacao}</li>
+        </ul>
         <form id="incluir" action="ManterComandaController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterUsuario" method="post">
-                <table border="1">
-                    <tbody>
-                        <tr>
-                            <td><label for="idComanda">Id:</label></td>
-                            <td><input type="text" name="txtId" id="idComanda" maxlength="10" value="${comanda.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/></td>
+            <table border="1">
+                <tbody>
+                    <tr>
+                        <td><label for="idComanda">Id:</label></td>
+                        <td><input type="text" name="txtId" id="idComanda" maxlength="10" value="${comanda.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td><label for="dataComanda">Data:</label></td>
@@ -50,11 +50,58 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <input type="submit" name="btnIncluir" value="Confirmar" <c:if test="${operacao == 'Excluir'}"> onmouseenter="ask()" </c:if>>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </form>
+                                <input type="submit" name="btnIncluir" value="Confirmar" <c:if test="${operacao == 'Excluir'}"> </c:if>>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+        <script>
+            function campoNumerico(valor)
+            {
+                var caracteresValidos = "0123456789";
+                var ehNumero = true;
+                var umCaracter;
+                for (i = 0; i < valor.length && ehNumero == true; i++)
+                {
+                    umCaracter = valor.charAt(i);
+                    if (caracteresValidos.indexOf(umCaracter) == - 1)
+                    {
+                        ehNumero = false;
+                    }
+                }
+                return ehNumero;
+            }
+            document.getElementById("incluir").addEventListener("submit", () => {
+                
+                let form = document.getElementById("incluir");
+                let mensagem;
+                mensagem = "";
+                if (form.txtId.value === "") {
+                    mensagem = mensagem + "Informe o Código da Comanda\n";
+                }
+                if (form.txtIdCliente.value === "") {
+                    mensagem = mensagem + "Informe o Código do Cliente\n";
+                }
+                if (form.txtDataComanda.value === "") {
+                    mensagem = mensagem + "Informe a data de abertura da comanda\n";
+                }
+                if (form.txtHoraComanda.value === "") {
+                    mensagem = mensagem + "Informe a hora de abertura da comanda\n";
+                }
+                if (!campoNumerico(form.txtId.value)) {
+                    mensagem = mensagem + "Código da Comanda deve ser numérico\n";
+                }
+                if (!campoNumerico(form.txtIdCliente.value)) {
+                    mensagem = mensagem + "Código do Cliente deve ser numérico\n";
+                }
+                if (mensagem === "") {
+                    return true;
+                } else {
+                    alert(mensagem);
+                    return false;
+                }
+            });
+        </script>
     </body>
 </html>

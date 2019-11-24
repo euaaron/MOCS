@@ -32,13 +32,6 @@
             <li>
                 <a href="PesquisarUsuarioController">Pesquisar Usuários</a>
             </li>
-            <%--<li>Proprietarios
-                    <ul>
-                        <li><a href="PesquisarProprietarioController">Pesquisar</a></li>
-                        <li><a href="ManterProprietarioController?acao=prepararOperacao&operacao=Incluir">Cadastrar</a></li>
-                    </ul>
-                </li>
-            --%>
             <li>
                 <a href="PesquisarEstabelecimentoController">Pesquisar Estabelecimentos</a>
             </li>
