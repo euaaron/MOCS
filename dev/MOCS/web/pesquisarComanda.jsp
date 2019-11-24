@@ -23,22 +23,21 @@
         <script src="vendor/popper.min.js"></script>
         <script src="vendor/bootstrap/bootstrap.min.js"></script>
         <script src="vendor/fontawesome/js/all.min.js"></script>
-        <script src="./js/tratamentoExcecao.js"></script>
     </head>
     <body>
-        <header>
+        <header class="">
             <h1>Pesquisar Comandas</h1>
             <ul class="breadcrumb">
                 <li><a href="index.jsp">Index Admin</a></li>
                 <li>Pesquisar</li>
             </ul>
-            <div class="float-right">
+        </header>
+        <div>
+            <div class="d-flex justify-content-center margin-3">
                 <form action="ManterComandaController?acao=prepararOperacao&operacao=Incluir" method="post">
-                    <button class="btn btn-primary" type="submit" name="btnIncluir">Incluir</button>
+                    <button class="btn btn-primary btn-lg" type="submit" name="btnIncluir">Nova Comanda</button>
                 </form>
             </div>
-        </header>
-        <div class="container">
             <div class="cards">
                 <c:forEach items="${comandas}" var="comanda">
                     <div class="card card-style ">
@@ -47,7 +46,7 @@
                             <h5>Aberta dia <c:out value="${comanda.data}" /> às <c:out value="${comanda.hora}"/></h5>
                         </div>
                         <div>
-                            <h4 class="card-subtitle-2">Pedidos</h4>
+                            <h4 class="card-subtitle-invert">Pedidos</h4>
                             <ul class="list-group list-group-flush">
                                 <c:forEach items="${pedidos}" var="pedido">
                                     <c:if test="${pedido.comanda.id == comanda.id}">

@@ -20,6 +20,7 @@
         <script src="./js/filtros.js"></script>
         <script src="vendor/popper.min.js"></script>
         <script src="vendor/bootstrap/bootstrap.min.js"></script>
+        <script src="./js/tratamentoExcecao.js"></script>
     </head>
     <body>
         <h1>${operacao} Comanda</h1>
@@ -32,7 +33,7 @@
                 <table border="1">
                     <tbody>
                         <tr>
-                            <td><label for="id">Id:</label></td>
+                            <td><label for="idComanda">Id:</label></td>
                             <td><input type="text" name="txtId" id="idComanda" value="${comanda.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
@@ -49,7 +50,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <input type="submit" name="btnIncluir" value="Confirmar">
+                                <input type="submit" name="btnIncluir" value="Confirmar" <c:if test="${operacao == 'Excluir'}"> onmouseenter="ask()" </c:if>>
                             </td>
                         </tr>
                     </tbody>

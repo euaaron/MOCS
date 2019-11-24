@@ -12,7 +12,7 @@ $light: #efefef;
 .cards {
   display: flex !important;
   flex-wrap: wrap !important;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .card {
@@ -35,7 +35,7 @@ $light: #efefef;
   }
 }
 
-.card-subtitle-2 {
+.card-subtitle-invert {
   text-align: center;
   color: white;
   background: $dark;
@@ -54,3 +54,20 @@ $light: #efefef;
   color: $dark;
 }
 
+@for $i from 1 through 4 {
+  .margin-#{$i} {
+    margin: #{$i * 5}px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .card {
+    width: 28vw;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .card {
+    width: 100vw;
+  }
+}

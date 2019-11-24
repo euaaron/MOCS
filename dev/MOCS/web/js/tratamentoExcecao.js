@@ -15,13 +15,13 @@ function campoNumerico(valor)
     return ehNumero;
 }
 
-document.form.addEventListener("submit", () => {
-    let mensagem;
+document.form.addEventListener("submit", validarFormulario() => {
+    var mensagem;
     mensagem = "";
-    if (form.txtCodCurso.value === "") {
+    if (form.txtId.value === "") {
         mensagem = mensagem + "Informe o Código do Curso\n";
     }
-    if (form.txtNomeCurso.value === "") {
+    if (form.txtIdCliente.value === "") {
         mensagem = mensagem + "Informe o Nome do Curso\n";
     }
     if (form.txtTotalPeriodos.value === "") {
@@ -46,3 +46,7 @@ document.form.addEventListener("submit", () => {
         return false;
     }
 });
+
+function ask() {
+    alert("Tem certeza?\n Essa operação não pode ser desfeita.");
+}

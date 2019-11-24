@@ -7,7 +7,7 @@
 .cards {
   display: flex !important;
   flex-wrap: wrap !important;
-  justify-content: space-between; }
+  justify-content: space-evenly; }
 
 .card {
   margin-bottom: 0.8vh; }
@@ -24,7 +24,7 @@
     .card .opcoes .opcao:hover {
       background: #efefef; }
 
-.card-subtitle-2 {
+.card-subtitle-invert {
   text-align: center;
   color: white;
   background: #2d2d2d; }
@@ -38,5 +38,24 @@
 
 .editar {
   color: #2d2d2d; }
+
+.margin-1 {
+  margin: 5px; }
+
+.margin-2 {
+  margin: 10px; }
+
+.margin-3 {
+  margin: 15px; }
+
+.margin-4 {
+  margin: 20px; }
+
+@media screen and (min-width: 768px) {
+  .card {
+    width: 28vw; } }
+@media only screen and (max-width: 768px) {
+  .card {
+    width: 100vw; } }
 
 /*# sourceMappingURL=main.css.map */
