@@ -37,23 +37,23 @@
                     <tbody>
                         <tr>
                             <td><label for="idEstabelecimento">Id do Estabelecimento:</label></td>
-                            <td><input type="text" name="txtIdEstabelecimento" id="idEstabelecimento" value="${funcao.idEstabelecimento}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/></td>
+                            <td><input type="text" name="txtIdEstabelecimento" id="idEstabelecimento" maxlength="10" value="${funcao.idEstabelecimento}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td><label for="id">Id da Funcao:</label></td>
-                            <td><input type="text" name="txtIdFuncao" id="id" value="${funcao.id}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                            <td><input type="text" name="txtIdFuncao" id="id" maxlength="10" value="${funcao.id}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td><label for="nome">Nome:</label></td>
-                            <td><input type="text" name="txtNome" id="nome" value="${funcao.nome}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                            <td><input type="text" name="txtNome" id="nome" maxlength="45" value="${funcao.nome}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td><label for="descricao">Descrição:</label></td>
-                            <td><input type="text" name="txtDescricao" id="decricao" value="${funcao.descricao}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                            <td><input type="text" name="txtDescricao" id="decricao" maxlength="60" value="${funcao.descricao}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td><label for="nivelPermissao">Nível de Permissão:</label></td>
-                            <td><input type="text" name="txtNivelPermissao" id="nivelPermissao" value="${funcao.nivelPermissao}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                            <td><input type="number" name="txtNivelPermissao" id="nivelPermissao" max="5" value="${funcao.nivelPermissao}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td>
