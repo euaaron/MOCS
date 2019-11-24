@@ -174,9 +174,6 @@ public class FuncionarioDAO {
             stringSQL = "delete from funcionario where id = "
                     + usuario.getId();
             comando.execute(stringSQL);
-            stringSQL = "delete from usuario where id = "
-                    + usuario.getId();
-            comando.execute(stringSQL);
         } finally {
             fecharConexao(conexao, comando);
         }
