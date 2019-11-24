@@ -34,7 +34,7 @@
             <table>
                 <tr>
                     <td><label for="id">Id:</label></td>
-                    <td><input type="text" name="txtIdEstabelecimento" id="idEstabelecimento" value="${estabelecimento.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>></td>
+                    <td><input type="text" name="txtIdEstabelecimento" id="idEstabelecimento" maxlength="10" value="${estabelecimento.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>></td>
                 </tr>
                 <tr>
                     <td><label for="idProprietario">Proprietario:</label></td>
@@ -49,51 +49,51 @@
                 </tr>
                 <tr>
                     <td><label for="cnpj">CNPJ:</label></td> <!-- Número do CNPJ -->
-                    <td><input type="text" name="txtCnpj" id="cnpj" value="${estabelecimento.cnpj}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                    <td><input type="text" name="txtCnpj" id="cnpj" placeholder="00.000.000/0000-00" maxlength="18" value="${estabelecimento.cnpj}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                 </tr>
                 <tr>
                     <td><label for="telefone">Telefone:</label></td> <!-- Número de telefone. -->
-                    <td><input type="text" name="txtTelefone" id="telefone" value="${estabelecimento.telefone}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                    <td><input type="text" name="txtTelefone" id="telefone" maxlength="30" placeholder="(xx) xxxx-xxxx" value="${estabelecimento.telefone}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                 </tr>
                 <tr>
                     <td><label for="nomeFantasia">Nome Fantasia:</label></td> <!-- Nome Fantasia Completo da Empresa -->
-                    <td><input type="text" name="txtNomeFantasia" id="nomeFantasia" value="${estabelecimento.nomeFantasia}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                    <td><input type="text" name="txtNomeFantasia" id="nomeFantasia" maxlength="45" value="${estabelecimento.nomeFantasia}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                 </tr>
                 <tr>
                     <td><label for="inscEstadual">Inscrição Estadual:</label></td> <!-- Número da inscrição estadual da empresa -->
-                    <td><input type="text" name="txtInscEstadual" id="inscEstadual" value="${estabelecimento.inscEstadual}"  <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                    <td><input type="text" name="txtInscEstadual" id="inscEstadual" maxlength="15" placeholder="000.000.000.000" value="${estabelecimento.inscEstadual}"  <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                 </tr>
                 <tr>
                     <td><label for="idEndereco">Id do Endereco</label></td>
-                    <td><input type="text" name="txtIdEndereco" id="idEndereco" value="${endestabelecimento.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/></td>
+                    <td><input type="text" name="txtIdEndereco" id="idEndereco" maxlength="10" value="${endestabelecimento.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/></td>
                 </tr>
                 <tr>
                     <td><label for="cep">CEP:</label></td>
-                    <td><input type="text" id="cep" name="txtCEP" value="${endestabelecimento.cep}" onkeyup="filtraCEP()"<c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                    <td><input type="text" id="cep" name="txtCEP" maxlength="10" placeholder="00.000-000" value="${endestabelecimento.cep}" onkeyup="filtraCEP()"<c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                 </tr>
                 <tr>
                     <td><label for="uf">UF:</label></td>
-                    <td><input type="text" id="uf" name="txtUF" value="${endestabelecimento.uf}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                    <td><input type="text" id="uf" name="txtUF" maxlength="4" value="${endestabelecimento.uf}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                 </tr>
                 <tr>
                     <td><label for="cidade">Cidade:</label></td>
-                    <td><input type="text" id="cidade" name="txtCidade" value="${endestabelecimento.cidade}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                    <td><input type="text" id="cidade" name="txtCidade" maxlength="45" value="${endestabelecimento.cidade}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                 </tr>
                 <tr>
                     <td><label for="bairro">Bairro:</label></td>
-                    <td><input type="text" id="bairro" name="txtBairro" value="${endestabelecimento.bairro}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                    <td><input type="text" id="bairro" name="txtBairro" maxlength="45" value="${endestabelecimento.bairro}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                 </tr>
                 <tr>
                     <td><label for="logradouro">Logradouro:</label></td>
-                    <td><input type="text" id="logradouro" name="txtLogradouro" value="${endestabelecimento.logradouro}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                    <td><input type="text" id="logradouro" name="txtLogradouro" maxlength="45" value="${endestabelecimento.logradouro}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                 </tr>
                 <tr>
                     <td><label for="edificio">Numero do Edificio:</label></td>
-                    <td><input type="text" id="edificio" name="txtEdificio" value="${endestabelecimento.numEdificio}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                    <td><input type="text" id="edificio" name="txtEdificio" maxlength="9" value="${endestabelecimento.numEdificio}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                 </tr>
                 <tr>
                     <td><label for="complemento">Complemento:</label></td>
-                    <td><input type="text" id="complemento" name="txtComplemento" value="${endestabelecimento.numComplemento}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                    <td><input type="text" id="complemento" name="txtComplemento" maxlength="30" value="${endestabelecimento.numComplemento}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                 </tr>
                 <tr>
                     <td><input type="submit" name="btnIncluir" value="Confirmar"></td>
