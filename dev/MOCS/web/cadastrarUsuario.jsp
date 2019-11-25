@@ -107,6 +107,9 @@
                 if (form.txtCpf.value === "") {
                     mensagem = mensagem + "Informe o CPF do Usuário\n";
                 }
+                if (form.txtEmail.value === "") {
+                    mensagem = mensagem + "Digite o Email, ele será usado para login\n";
+                }
                 if (form.txtSenha.value == "") {
                     mensagem = mensagem + "Informe a Senha do Usuário\n";
                 }

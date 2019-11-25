@@ -117,23 +117,32 @@
                 let form = document.getElementById("incluir");
                 let mensagem;
                 mensagem = "";
+                if (form.txtIdFuncionario.value === "") {
+                    mensagem = mensagem + "Informe o Código do Funcionário\n";
+                }
+                if (form.txtIdEstabelecimento.value === "") {
+                    mensagem = mensagem + "Informe o Código do Estabelecimento\n";
+                }
                 if (form.txtId.value === "") {
-                    mensagem = mensagem + "Informe o Código da Comanda\n";
+                    mensagem = mensagem + "Informe o Código do Prato\n";
                 }
-                if (form.txtIdCliente.value === "") {
-                    mensagem = mensagem + "Informe o Código do Cliente\n";
+                if (form.txtNome.value === "") {
+                    mensagem = mensagem + "Informe o Nome do Prato\n";
                 }
-                if (form.txtDataComanda.value === "") {
-                    mensagem = mensagem + "Informe a data de abertura da comanda\n";
+                if (form.txtDescricao.value === "") {
+                    mensagem = mensagem + "Informe a Descrição do Prato\n";
                 }
-                if (form.txtHoraComanda.value === "") {
-                    mensagem = mensagem + "Informe a hora de abertura da comanda\n";
+                if (form.txtPreco.value === "") {
+                    mensagem = mensagem + "Informe o Preço do Prato\n";
+                }
+                if (form.txtDataCriacao.value === "") {
+                    mensagem = mensagem + "Informe a Data da Criação do Prato\n";
+                }
+                if (form.txtExibir.value === "") {
+                    mensagem = mensagem + "Informe se quer esse Prato exibindo no Estabelecimento\n";
                 }
                 if (!campoNumerico(form.txtId.value)) {
-                    mensagem = mensagem + "Código da Comanda deve ser numérico\n";
-                }
-                if (!campoNumerico(form.txtIdCliente.value)) {
-                    mensagem = mensagem + "Código do Cliente deve ser numérico\n";
+                    mensagem = mensagem + "Código do Prato deve ser numérico\n";
                 }
                 if (mensagem === "") {
                     return true;

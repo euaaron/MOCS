@@ -85,23 +85,26 @@
                 let form = document.getElementById("incluir");
                 let mensagem;
                 mensagem = "";
-                if (form.txtId.value === "") {
-                    mensagem = mensagem + "Informe o Código da Comanda\n";
+                if (form.txtIdEstabelecimento.value === "") {
+                    mensagem = mensagem + "Informe o Código do Estabelecimento\n";
                 }
-                if (form.txtIdCliente.value === "") {
-                    mensagem = mensagem + "Informe o Código do Cliente\n";
+                if (form.txtIdFuncao.value === "") {
+                    mensagem = mensagem + "Informe o Código da Função\n";
                 }
-                if (form.txtDataComanda.value === "") {
-                    mensagem = mensagem + "Informe a data de abertura da comanda\n";
+                if (form.txtNome.value === "") {
+                    mensagem = mensagem + "Informe o Nome da Função\n";
                 }
-                if (form.txtHoraComanda.value === "") {
-                    mensagem = mensagem + "Informe a hora de abertura da comanda\n";
+                if (form.txtDescricao.value === "") {
+                    mensagem = mensagem + "Informe a Descrição da Função\n";
                 }
-                if (!campoNumerico(form.txtId.value)) {
-                    mensagem = mensagem + "Código da Comanda deve ser numérico\n";
+                if (form.txtNivelPermissao.value === "") {
+                    mensagem = mensagem + "Informe o Nível de Permissão da Função\n";
                 }
-                if (!campoNumerico(form.txtIdCliente.value)) {
-                    mensagem = mensagem + "Código do Cliente deve ser numérico\n";
+                if (!campoNumerico(form.txtIdEstabelecimento.value)) {
+                    mensagem = mensagem + "Código do Estabelecimento deve ser numérico\n";
+                }
+                if (!campoNumerico(form.txtIdFuncao.value)) {
+                    mensagem = mensagem + "Código da Função deve ser numérico\n";
                 }
                 if (mensagem === "") {
                     return true;

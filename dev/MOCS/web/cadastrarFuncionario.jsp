@@ -98,7 +98,7 @@
                         </tr>
                         <tr>
                             <td><label for="senha">Repita a senha:</label></td>
-                            <td><input type="password" name="txtSenha" id="confirmaSenha" maxlength="45" value="${funcionario.senha}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                            <td><input type="password" name="txtReSenha" id="confirmaSenha" maxlength="45" value="${funcionario.senha}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td colspan="2">
@@ -131,23 +131,41 @@
                 let form = document.getElementById("incluir");
                 let mensagem;
                 mensagem = "";
-                if (form.txtId.value === "") {
-                    mensagem = mensagem + "Informe o Código da Comanda\n";
+                if (form.txtIdEstabelecimento.value === "") {
+                    mensagem = mensagem + "Informe o Código do Estabelecimento\n";
                 }
-                if (form.txtIdCliente.value === "") {
-                    mensagem = mensagem + "Informe o Código do Cliente\n";
+                if (form.txtIdFuncionario.value === "") {
+                    mensagem = mensagem + "Informe o Código do Funcionário\n";
                 }
-                if (form.txtDataComanda.value === "") {
-                    mensagem = mensagem + "Informe a data de abertura da comanda\n";
+                if (form.txtStatusConta.value === "") {
+                    mensagem = mensagem + "Informe o Status da Conta do Funcionário\n";
                 }
-                if (form.txtHoraComanda.value === "") {
-                    mensagem = mensagem + "Informe a hora de abertura da comanda\n";
+                if (form.txtNome.value === "") {
+                    mensagem = mensagem + "Informe o Nome do Funcionário\n";
                 }
-                if (!campoNumerico(form.txtId.value)) {
-                    mensagem = mensagem + "Código da Comanda deve ser numérico\n";
+                if (form.txtCpf.value === "") {
+                    mensagem = mensagem + "Informe o CPF do Funcionário\n";
                 }
-                if (!campoNumerico(form.txtIdCliente.value)) {
-                    mensagem = mensagem + "Código do Cliente deve ser numérico\n";
+                if (form.txtEmail.value === "") {
+                    mensagem = mensagem + "Informe o Email do Funcionário\n";
+                }
+                if (form.txtIdFuncao.value === "") {
+                    mensagem = mensagem + "Informe a Função do Funcionário\n";
+                }
+                if (form.txtSenha.value == "") {
+                    mensagem = mensagem + "Informe a Senha do Funcionário\n";
+                }
+                if (form.txtReSenha.value == "") {
+                    mensagem = mensagem + "Digite a Senha do Funcionário novamente\n";
+                }
+                if (form.txtSenha.value != form.txtReSenha.value) {
+                    mensagem = mensagem + "Campos de Senha diferentes\n";
+                }
+                if (!campoNumerico(form.txtIdEstabelecimento.value)) {
+                    mensagem = mensagem + "Código do Estabelecimento deve ser numérico\n";
+                }
+                if (!campoNumerico(form.txtIdFuncionario.value)) {
+                    mensagem = mensagem + "Código do Funcionário deve ser numérico\n";
                 }
                 if (mensagem === "") {
                     return true;

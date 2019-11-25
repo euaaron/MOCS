@@ -87,22 +87,25 @@
                 let mensagem;
                 mensagem = "";
                 if (form.txtId.value === "") {
+                    mensagem = mensagem + "Informe o Código do Pedido\n";
+                }
+                if (form.txtIdPrato.value === "") {
+                    mensagem = mensagem + "Informe o Código do Prato\n";
+                }
+                if (form.txtQuantidade.value === "") {
+                    mensagem = mensagem + "Informe a Quantidade\n";
+                }
+                if (form.txtIdComanda.value === "") {
                     mensagem = mensagem + "Informe o Código da Comanda\n";
                 }
-                if (form.txtIdCliente.value === "") {
-                    mensagem = mensagem + "Informe o Código do Cliente\n";
-                }
-                if (form.txtDataComanda.value === "") {
-                    mensagem = mensagem + "Informe a data de abertura da comanda\n";
-                }
-                if (form.txtHoraComanda.value === "") {
-                    mensagem = mensagem + "Informe a hora de abertura da comanda\n";
-                }
                 if (!campoNumerico(form.txtId.value)) {
+                    mensagem = mensagem + "Código do Pedido deve ser numérico\n";
+                }
+                if (!campoNumerico(form.txtIdComanda.value)) {
                     mensagem = mensagem + "Código da Comanda deve ser numérico\n";
                 }
-                if (!campoNumerico(form.txtIdCliente.value)) {
-                    mensagem = mensagem + "Código do Cliente deve ser numérico\n";
+                if (!campoNumerico(form.txtQuantidade.value)) {
+                    mensagem = mensagem + "A quantidade deve ser numérico e inteiro\n";
                 }
                 if (mensagem === "") {
                     return true;

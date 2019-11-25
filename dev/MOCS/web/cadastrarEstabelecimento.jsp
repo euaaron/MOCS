@@ -122,22 +122,49 @@
                 let mensagem;
                 mensagem = "";
                 if (form.txtId.value === "") {
-                    mensagem = mensagem + "Informe o Código da Comanda\n";
+                    mensagem = mensagem + "Informe o Código do Estabelecimento\n";
                 }
-                if (form.txtIdCliente.value === "") {
-                    mensagem = mensagem + "Informe o Código do Cliente\n";
+                if (form.txtIdProprietário.value === "") {
+                    mensagem = mensagem + "Informe o Código do Proprietário\n";
                 }
-                if (form.txtDataComanda.value === "") {
-                    mensagem = mensagem + "Informe a data de abertura da comanda\n";
+                if (form.txtCnpj.value === "") {
+                    mensagem = mensagem + "Informe o CNPJ do Estabelecimento\n";
                 }
-                if (form.txtHoraComanda.value === "") {
-                    mensagem = mensagem + "Informe a hora de abertura da comanda\n";
+                if (form.txtNomeFantasia.value === "") {
+                    mensagem = mensagem + "Informe o Nome do Estabelecimento\n";
+                }
+                if (form.txtInscEstadual.value === "") {
+                    mensagem = mensagem + "Informe a Inscrição Estadual do Estabelecimento\n";
+                }
+                if (form.txtTelefone.value === "") {
+                    mensagem = mensagem + "Informe o Telefone\n";
+                }
+                if (form.txtIdEndereco.value === "") {
+                    mensagem = mensagem + "Informe o Código do Endereço\n";
+                }
+                if (form.txtCEP.value === "") {
+                    mensagem = mensagem + "Informe o CEP do Estabelecimento\n";
+                }
+                if (form.txtUF.value === "") {
+                    mensagem = mensagem + "Informe a Unidade de Federação\n";
+                }
+                if (form.txtCidade.value === "") {
+                    mensagem = mensagem + "Informe a Cidade do Estabelecimento\n";
+                }
+                if (form.txtLogradouro.value === "") {
+                    mensagem = mensagem + "Informe o Logradouro do Estabelecimento\n";
+                }
+                if (form.txtBairro.value === "") {
+                    mensagem = mensagem + "Informe o Bairro do Estabelecimento\n";
+                }
+                if (form.txtEdificio.value === "") {
+                    mensagem = mensagem + "Informe o Número do Edifício\n";
                 }
                 if (!campoNumerico(form.txtId.value)) {
-                    mensagem = mensagem + "Código da Comanda deve ser numérico\n";
+                    mensagem = mensagem + "Código do Estabelecimento deve ser numérico\n";
                 }
-                if (!campoNumerico(form.txtIdCliente.value)) {
-                    mensagem = mensagem + "Código do Cliente deve ser numérico\n";
+                if (!campoNumerico(form.txtIdEndereco.value)) {
+                    mensagem = mensagem + "Código do Endereço deve ser numérico\n";
                 }
                 if (mensagem === "") {
                     return true;
