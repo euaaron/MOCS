@@ -74,8 +74,16 @@ public class ManterUsuarioController extends HttpServlet {
         String email = request.getParameter("txtEmail");
         String telefone = request.getParameter("txtTelefone");
         String senha = request.getParameter("txtSenha");
+        String reSenha = request.getParameter("txtReSenha");
         
         try {
+            
+            if(!senha.equals(reSenha) || senha == "" || reSenha == "" || senha == null || reSenha == null) {
+                RequestDispatcher view = request.getRequestDispatcher("PesquisarUsuarioController");
+                view.forward(request, response);
+                return;
+            }
+            
             Usuario usuario = new Usuario(idUsuario, nome, dataNascimento,
             email, telefone, senha, cpf);
             if (operacao.equals("Incluir")){
@@ -87,7 +95,7 @@ public class ManterUsuarioController extends HttpServlet {
             }
             
             RequestDispatcher view = request.getRequestDispatcher("PesquisarUsuarioController");
-                    view.forward(request, response);
+            view.forward(request, response);
         } catch (IOException e){
             throw new ServletException(e);
         }
