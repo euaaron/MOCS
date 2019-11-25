@@ -66,7 +66,7 @@ public class ManterComandaController extends HttpServlet {
                 comanda.excluir();
             }
             RequestDispatcher view = request.getRequestDispatcher("PesquisarComandaController");
-                    view.forward(request, response);
+            view.forward(request, response);
         } catch (IOException e){
             throw new ServletException(e);
         }

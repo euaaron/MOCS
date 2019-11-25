@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* 
     Created on : 19/11/2019, 08:55:29
     Author     : Aaron
@@ -36,9 +37,6 @@
   .card-footer span {
     font-size: smaller; }
 
-.editar {
-  color: #2d2d2d; }
-
 .margin-1 {
   margin: 5px; }
 
@@ -50,6 +48,69 @@
 
 .margin-4 {
   margin: 20px; }
+
+.margin-top-1 {
+  margin-top: 5px; }
+
+.margin-top-2 {
+  margin-top: 10px; }
+
+.margin-top-3 {
+  margin-top: 15px; }
+
+.margin-top-4 {
+  margin-top: 20px; }
+
+/*
+*	Conteúdo multi-utilizável
+*/
+.container-sm {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto; }
+
+.black {
+  color: #000; }
+
+.font-md-r {
+  font-size: 3.5vh; }
+
+.font-sm-r {
+  font-size: 2.5vh; }
+
+.line-space-sm {
+  line-height: 6vh; }
+
+.bold {
+  font-size: 12vh !important;
+  font-family: Roboto, Arial;
+  font-weight: bold !important; }
+
+.display-flex {
+  display: flex; }
+
+.absolute {
+  position: absolute; }
+
+.relative {
+  position: relative; }
+
+.full-screen {
+  width: 100vw;
+  height: 100vh; }
+
+.total-center {
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  align-items: center; }
+
+.btn-primary {
+  background-color: #43a343;
+  border-color: #43a343;
+  padding: 1vh 3vh !important; }
 
 @media screen and (min-width: 768px) {
   .card {

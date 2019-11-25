@@ -10,64 +10,130 @@ $dark: #2d2d2d;
 $light: #efefef;
 
 .cards {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  justify-content: space-evenly;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: space-evenly;
 }
 
 .card {
-  margin-bottom: 0.8vh;
-  .opcoes {
-    display: inline-flex;
-    position: relative;
-    bottom: 0;
-    left: 0;
-    justify-content: space-evenly;
-    .opcao {
-        color: $dark;
-        a {
-          text-decoration: none !important;
+    margin-bottom: 0.8vh;
+    .opcoes {
+        display: inline-flex;
+        position: relative;
+        bottom: 0;
+        left: 0;
+        justify-content: space-evenly;
+        .opcao {
+            color: $dark;
+            a {
+                text-decoration: none !important;
+            }
+        }
+        .opcao:hover {
+            background: $light;
         }
     }
-    .opcao:hover {
-      background: $light;
-    }
-  }
 }
 
 .card-subtitle-invert {
-  text-align: center;
-  color: white;
-  background: $dark;
+    text-align: center;
+    color: white;
+    background: $dark;
 }
 
 .card-footer {
     position: relative;
     bottom: 0;
     left: 0;
-  span {
-    font-size: smaller;
-  }
-}
-
-.editar {
-  color: $dark;
+    span {
+        font-size: smaller;
+    }
 }
 
 @for $i from 1 through 4 {
-  .margin-#{$i} {
-    margin: #{$i * 5}px;
-  }
+    .margin-#{$i} {
+        margin: #{$i * 5}px;
+    }
+}
+
+@for $i from 1 through 4 {
+    .margin-top-#{$i} {
+        margin-top: #{$i * 5}px;
+    }
+}
+
+/*
+*	Conteúdo multi-utilizável
+*/
+
+.container-sm {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.black {
+    color: #000;
+}
+
+.font-md-r {
+    font-size: 3.5vh;
+}
+
+.font-sm-r {
+    font-size: 2.5vh;
+}
+
+.line-space-sm {
+    line-height: 6vh;
+}
+
+.bold {
+    font-size: 12vh !important;
+    font-family: Roboto, Arial;
+    font-weight: bold !important;
+}
+
+.display-flex {
+    display: flex;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.relative {
+    position: relative;
+}
+
+.full-screen {
+    width: 100vw;
+    height: 100vh;
+}
+
+.total-center {
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.btn-primary {
+    background-color: rgb(67, 163, 67);
+    border-color: rgb(67, 163, 67);
+    padding: 1vh 3vh !important;
 }
 
 @media screen and (min-width: 768px) {
-  .card {
-    width: 28vw;
-  }
+    .card {
+        width: 28vw;
+    }
 }
 
 @media only screen and (max-width: 768px) {
-  .card {
-    width: 100vw;
-  }
+    .card {
+        width: 100vw;
+    }
 }
