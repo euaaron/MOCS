@@ -64,8 +64,8 @@
                             <td><input type="password" id="senha" name="txtSenha" maxlength="45" value="${usuario.senha}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
-                            <td><label for="senha">Repita a senha:</label></td>
-                            <td><input type="password" id="confirmaSenha" name="txtSenha" maxlength="45" value="${usuario.senha}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                            <td><label for="ReSenha">Repita a senha:</label></td>
+                            <td><input type="password" id="confirmaSenha" name="txtReSenha" maxlength="45" value="${usuario.senha}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td>
@@ -100,6 +100,21 @@
                 mensagem = "";
                 if (form.txtIdUsuario.value === "") {
                     mensagem = mensagem + "Informe o Código do Usuário\n";
+                }
+                if (form.txtIdNome.value === "") {
+                    mensagem = mensagem + "Informe o Nome do Usuário\n";
+                }
+                if (form.txtCpf.value === "") {
+                    mensagem = mensagem + "Informe o CPF do Usuário\n";
+                }
+                if (form.txtSenha.value === "") {
+                    mensagem = mensagem + "Informe a Senha do Usuário\n";
+                }
+                if (form.txtReSenha.value === "") {
+                    mensagem = mensagem + "Digite a Senha do Usuário novamente\n";
+                }
+                if (form.txtSenha.value != form.txtReSenha.value) {
+                    mensagem = mensagem + "Campos de Senha diferentes\n";
                 }
                 if (!campoNumerico(form.txtIdUsuario.value)) {
                     mensagem = mensagem + "Código do Usuario deve ser numérico\n";
