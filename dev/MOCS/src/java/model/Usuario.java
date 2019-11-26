@@ -74,6 +74,14 @@ public class Usuario {
     public static Usuario obterUsuario (int idUsuario) 
     throws ClassNotFoundException, SQLException  
     { return UsuarioDAO.obterUsuario(idUsuario); }
+
+    public static Usuario obterUsuarioCPF (String cpf)
+            throws ClassNotFoundException, SQLException
+    { return UsuarioDAO.obterUsuarioCPF(cpf); }
+
+    public static Usuario obterUsuarioEmail (String email)
+            throws ClassNotFoundException, SQLException
+    { return UsuarioDAO.obterUsuarioEmail(email); }
     
     public static List<Usuario> obterUsuarios() 
     throws ClassNotFoundException, SQLException 

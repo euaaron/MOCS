@@ -1,30 +1,38 @@
 body {
   font-family: Roboto Light;
   background-color: #91351c;
-  color: #ffffff; }
+  color: white; }
 
 #formLogin {
   margin: 0; }
   #formLogin input {
     width: 100%; }
-  #formLogin p {
-    top: 15px;
-    margin-top: 20px;
-    text-align: center;
-    font-size: large;
-    color: #FFFFFF; }
   #formLogin a {
     color: #1f1f1f; }
   #formLogin label {
     float: left;
     font-size: medium;
     margin-bottom: 0; }
-  #formLogin button {
+
+#register {
+  float: right; }
+  #register button {
     padding: 1vh 2vh;
-    float: right;
     font-size: medium; }
-  #formLogin button:first-child {
-    float: left; }
+
+#loginUser {
+  float: left;
+  padding: 1vh 2vh;
+  font-size: medium; }
+
+#loginGuest {
+  float: left;
+  width: 100%;
+  top: 15px;
+  margin-top: 20px;
+  text-align: center;
+  font-size: large;
+  color: white; }
 
 .display-flex .display-flex {
   position: relative;
@@ -34,8 +42,8 @@ body {
   display: flex;
   justify-content: space-around;
   padding: 8vh;
-  background: #1d1d1d;
-  color: #FFFFFF; }
+  background: #1f1f1f;
+  color: white; }
   .header span {
     color: #ac4022; }
 

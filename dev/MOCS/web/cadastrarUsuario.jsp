@@ -64,7 +64,7 @@
                             <td><input type="password" id="senha" name="txtSenha" minlength="6" maxlength="45" value="${usuario.senha}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
-                            <td><label for="ReSenha">Repita a senha:</label></td>
+                            <td><label for="confirmaSenha">Repita a senha:</label></td>
                             <td><input type="password" id="confirmaSenha" name="txtReSenha" minlength="6" maxlength="45" value="${usuario.senha}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>

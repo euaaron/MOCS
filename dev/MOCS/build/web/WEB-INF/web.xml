@@ -68,6 +68,10 @@
         <servlet-name>TratamentoExcecao</servlet-name>
         <servlet-class>exception.TratamentoExcecao</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoginController</servlet-name>
+        <servlet-class>controller.LoginController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>PesquisarPratoController</servlet-name>
         <url-pattern>/PesquisarPratoController</url-pattern>
@@ -135,6 +139,10 @@
     <servlet-mapping>
         <servlet-name>TratamentoExcecao</servlet-name>
         <url-pattern>/TratamentoExcecao</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginController</servlet-name>
+        <url-pattern>/inicio</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
