@@ -29,7 +29,7 @@
             <li><a href="PesquisarComandaController">Pesquisar</a></li>
             <li>${operacao}</li>
         </ul>
-        <form id="incluir" action="ManterComandaController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterUsuario" method="post">
+        <form id="incluir" action="ManterComandaController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterUsuario" method="post" onsubmit="return validarFormulario(this)">
             <table border="1">
                 <tbody>
                     <tr>
