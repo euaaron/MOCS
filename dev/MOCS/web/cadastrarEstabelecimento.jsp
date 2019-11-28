@@ -63,10 +63,6 @@
                     <td><input type="text" name="txtInscEstadual" id="inscEstadual" maxlength="15" placeholder="000.000.000.000" value="${estabelecimento.inscEstadual}"  <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                 </tr>
                 <tr>
-                    <td><label for="idEndereco">Id do Endereco</label></td>
-                    <td><input type="text" name="txtIdEndereco" id="idEndereco" maxlength="10" value="${endestabelecimento.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/></td>
-                </tr>
-                <tr>
                     <td><label for="cep">CEP:</label></td>
                     <td><input type="text" id="cep" name="txtCEP" maxlength="10" placeholder="00.000-000" value="${endestabelecimento.cep}" onkeyup="filtraCEP()"<c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                 </tr>

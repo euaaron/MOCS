@@ -37,16 +37,23 @@
                         <td><input type="text" name="txtId" id="idComanda" maxlength="10" value="${comanda.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
-                            <td><label for="dataComanda">Data:</label></td>
-                            <td><input type="date" name="txtDataComanda" id="dataComanda" value="${comanda.data}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                            <td><label for="idCliente">Cliente</label></td>
+                            <td>
+                                <select id="idCliente" name="txtIdCliente" <c:if test="${operacao == 'Excluir'}"> </c:if>>
+                                <option value="0" <c:if test="${comanda.idCliente == null}"> selected</c:if>> </option>  
+                                <c:forEach items="${clientes}" var="cliente">
+                                    <option value="${cliente.id}" <c:if test="${cliente.id == comanda.idCliente}"> selected</c:if> >${cliente.nome}</option>  
+                                </c:forEach>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="dataComanda">Data:</label></td>
+                        <td><input type="date" name="txtDataComanda" id="dataComanda" value="${comanda.data}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td><label for="horaComanda">Hora:</label></td>
                             <td><input type="time" name="txtHoraComanda" id="horaComanda" value="${comanda.hora}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
-                        </tr>
-                        <tr>
-                            <td><label for="idCliente">Id do Cliente:</label></td>
-                            <td><input type="text" id="idCliente" name="txtIdCliente" maxlength="10" value="${comanda.idCliente}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>></td>
                         </tr>
                         <tr>
                             <td colspan="2">
@@ -57,50 +64,50 @@
             </table>
         </form>
         <script>
-            function campoNumerico(valor)
-            {
-                var caracteresValidos = "0123456789";
-                var ehNumero = true;
-                var umCaracter;
-                for (i = 0; i < valor.length && ehNumero == true; i++)
-                {
-                    umCaracter = valor.charAt(i);
-                    if (caracteresValidos.indexOf(umCaracter) == - 1)
+                    function campoNumerico(valor)
                     {
-                        ehNumero = false;
+                    var caracteresValidos = "0123456789";
+                            var ehNumero = true;
+                            var umCaracter;
+                            for (i = 0; i < valor.length && ehNumero == true; i++)
+                    {
+                    umCaracter = valor.charAt(i);
+                            if (caracteresValidos.indexOf(umCaracter) == - 1)
+                    {
+                    ehNumero = false;
                     }
-                }
-                return ehNumero;
+                    }
+                    return ehNumero;
+                    }
+            document.getElementById("incluir").addEventListener("submit", () = > {
+
+            let form = document.getElementById("incluir");
+                    let mensagem;
+                    mensagem = "";
+                    if (form.txtId.value === "") {
+            mensagem = mensagem + "Informe o Código da Comanda\n";
             }
-            document.getElementById("incluir").addEventListener("submit", () => {
-                
-                let form = document.getElementById("incluir");
-                let mensagem;
-                mensagem = "";
-                if (form.txtId.value === "") {
-                    mensagem = mensagem + "Informe o Código da Comanda\n";
-                }
-                if (form.txtIdCliente.value === "") {
-                    mensagem = mensagem + "Informe o Código do Cliente\n";
-                }
-                if (form.txtDataComanda.value === "") {
-                    mensagem = mensagem + "Informe a data de abertura da comanda\n";
-                }
-                if (form.txtHoraComanda.value === "") {
-                    mensagem = mensagem + "Informe a hora de abertura da comanda\n";
-                }
-                if (!campoNumerico(form.txtId.value)) {
-                    mensagem = mensagem + "Código da Comanda deve ser numérico\n";
-                }
-                if (!campoNumerico(form.txtIdCliente.value)) {
-                    mensagem = mensagem + "Código do Cliente deve ser numérico\n";
-                }
-                if (mensagem === "") {
-                    return true;
-                } else {
-                    alert(mensagem);
+            if (form.txtIdCliente.value === "") {
+            mensagem = mensagem + "Informe o Código do Cliente\n";
+            }
+            if (form.txtDataComanda.value === "") {
+            mensagem = mensagem + "Informe a data de abertura da comanda\n";
+            }
+            if (form.txtHoraComanda.value === "") {
+            mensagem = mensagem + "Informe a hora de abertura da comanda\n";
+            }
+            if (!campoNumerico(form.txtId.value)) {
+            mensagem = mensagem + "Código da Comanda deve ser numérico\n";
+            }
+            if (!campoNumerico(form.txtIdCliente.value)) {
+            mensagem = mensagem + "Código do Cliente deve ser numérico\n";
+            }
+            if (mensagem === "") {
+            return true;
+            } else {
+            alert(mensagem);
                     return false;
-                }
+            }
             });
         </script>
     </body>

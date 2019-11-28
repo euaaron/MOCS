@@ -83,7 +83,7 @@ public class ManterEstabelecimentoController extends HttpServlet {
        String telefone = request.getParameter("txtTelefone");
        
        //Dados de Endereco
-       int idEndereco = Integer.parseInt(request.getParameter("txtIdEndereco"));//Chave estrangeira
+       int idEndereco = Integer.parseInt(request.getParameter("txtIdEstabelecimento"));//Chave estrangeira
        String cep = request.getParameter("txtCEP");
        String uf = request.getParameter("txtUF");
        String cidade = request.getParameter("txtCidade");

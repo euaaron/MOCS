@@ -35,11 +35,16 @@
                 <table border="1">
                     <tbody>
                         <tr>
-                            <td><label for="idEstabelecimento">Id do Estabelecimento:</label></td>
-                            <td>
-                                <input type="text" name="txtIdEstabelecimento" id="idEstabelecimento" maxlength="10" value="${funcionario.idEstabelecimento}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/>
-                            </td>
-                        </tr>
+                        <td><label>Estabelecimento:</label></td>
+                        <td>
+                            <select name="txtIdEstabelecimento">
+                                <option value="0" <c:if test="${funcionario.idEstabelecimento == null}"> selected</c:if>> </option>  
+                                <c:forEach items="${estabelecimentos}" var="estabelecimento">
+                                <option value="${estabelecimento.id}" <c:if test="${funcionario.idEstabelecimento == estabelecimento.id}"> selected</c:if>>${estabelecimento.nomeFantasia}</option>
+                                </c:forEach>
+                            </select>
+                        </td>
+                    </tr>    
                         <tr>
                             <td><label for="idFuncionario">Id:</label></td>
                             <td>
