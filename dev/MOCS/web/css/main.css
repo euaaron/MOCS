@@ -12,6 +12,12 @@
 
 .card {
   margin-bottom: 0.8vh; }
+  .card .card-footer {
+    position: relative;
+    bottom: 0;
+    left: 0; }
+    .card .card-footer span {
+      font-size: smaller; }
   .card .opcoes {
     display: inline-flex;
     position: relative;
@@ -29,13 +35,6 @@
   text-align: center;
   color: white;
   background: #2d2d2d; }
-
-.card-footer {
-  position: relative;
-  bottom: 0;
-  left: 0; }
-  .card-footer span {
-    font-size: smaller; }
 
 .margin-1 {
   margin: 5px; }

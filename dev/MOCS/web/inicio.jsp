@@ -9,48 +9,72 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <!DOCTYPE html>
-<html>
+
+<html lang="pt">
+    
     <head>
+        
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>MOCS - Admin</title>
 
-        <%-- Estilos, scripts e dependências de terceiros --%>
+        <!-- Estilos, scripts e dependências de terceiros -->
         <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css"/>
         <script src="vendor/jquery-3.3.1.slim.min.js"></script>
         <script src="vendor/popper.min.js"></script>
         <script src="vendor/bootstrap/bootstrap.min.js"></script>
-        
-        <%-- Estilos e scripts próprios --%>
+        <script src="vendor/fontawesome/js/all.min.js"></script>
+
+        <!-- Estilos e scripts próprios -->
         <link rel="stylesheet" href="./css/main.css"/>
         <script src="./js/filtros.js"></script>
+        
     </head>
+    
     <body>
-        <h1>MOCS</h1>
+        
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="inicio?acao=confirmarOperacao&operacao=validar&agente=${agente}<c:if test="${idUser != null && idUser != 0}" >&idUser=${idUser}</c:if>">MOCS</a>
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoMenu" aria-controls="conteudoMenu" aria-expanded="false" aria-label="Alterna navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="conteudoMenu">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="inicio?acao=confirmarOperacao&operacao=validar&agente=${agente}<c:if test="${idUser != null && idUser != 0}" >&idUser=${idUser}</c:if>">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="PesquisarUsuarioController?agente=${agente}<c:if test="${idUser != null || idUser != 0}">&idUser=${idUser}</c:if>">Pesquisar Usuários</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="PesquisarEstabelecimentoController?agente=${agente}<c:if test="${idUser != null || idUser != 0}">&idUser=${idUser}</c:if>">Pesquisar Estabelecimentos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="PesquisarFuncaoController?agente=${agente}<c:if test="${idUser != null || idUser != 0}">&idUser=${idUser}</c:if>">Pesquisar Funcões</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="PesquisarFuncionarioController?agente=${agente}<c:if test="${idUser != null || idUser != 0}">&idUser=${idUser}</c:if>">Pesquisar Funcionários</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="PesquisarPratoController?agente=${agente}<c:if test="${idUser != null || idUser != 0}">&idUser=${idUser}</c:if>">Pesquisar Pratos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="PesquisarComandaController?agente=${agente}<c:if test="${idUser != null || idUser != 0}">&idUser=${idUser}</c:if>">Pesquisar Comandas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="PesquisarPedidoController?agente=${agente}<c:if test="${idUser != null || idUser != 0}">&idUser=${idUser}</c:if>">Pesquisar Pedidos</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
         <ul class="breadcrumb">
             <li>Index Admin</li>
-        </ul>         
-        <ul>
-            <li>
-                <a href="PesquisarUsuarioController">Pesquisar Usuários</a>
-            </li>
-            <li>
-                <a href="PesquisarEstabelecimentoController">Pesquisar Estabelecimentos</a>
-            </li>
-            <li>
-                <a href="PesquisarFuncaoController">Pesquisar Funcões</a>
-            </li>
-            <li>
-                <a href="PesquisarFuncionarioController">Pesquisar Funcionários</a>
-            </li>
-            <li>
-                <a href="PesquisarPratoController">Pesquisar Pratos</a>
-            </li>
-            <li>
-                <a href="PesquisarComandaController">Pesquisar Comandas</a>
-            </li>
-            <li>
-                <a href="PesquisarPedidoController">Pesquisar Pedidos</a>
-            </li>                
-        </ul>        
+        </ul>
+        <script type="text/javascript">
+            
+        </script>
+        
     </body>
+    
 </html>

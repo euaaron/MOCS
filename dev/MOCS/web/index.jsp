@@ -40,7 +40,7 @@
                 <div class="display-flex total-center">
                     <div class="content">
                         <div class="form-group" id="formLogin">
-                            <form id="login" class="link-btn" action="inicio?acao=confirmarOperacao&agente=User" name="frmLogin" method="post">
+                            <form id="login" class="link-btn" action="inicio?acao=confirmarOperacao&operacao=logar&agente=1" name="frmLogin" method="post">
                                 <label for="txtEmail">Email</label><br />
                                 <input id="txtEmail" name="txtEmail" class="form-control" type="text" name="txtEmail">
                                 <label for="txtSenha">Senha</label><br />
@@ -50,7 +50,7 @@
                             <div>
                                 <a id="register" class="link-btn margin-top-2" href="ManterUsuarioController?acao=prepararOperacao&operacao=Incluir"><button class="btn btn-secondary btn-light btn-sm">Registre-se</button></a>
                                 <br />
-                                <p id="loginGuest">Ou <a href="inicio?acao=confirmarOperacao&agente=Convidado">entre como convidado</a>.</p>
+                                <p id="loginGuest">Ou <a href="inicio?acao=confirmarOperacao&operacao=logar&agente=0">entre como convidado</a>.</p>
                             </div>
                             <c:if test="${erro != null}"><p>${erro}</p></c:if>
                         </div>

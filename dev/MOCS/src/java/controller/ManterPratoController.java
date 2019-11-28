@@ -56,7 +56,7 @@ public class ManterPratoController extends HttpServlet {
         String dataCriacao = request.getParameter("txtDataCriacao");
         int exibir = Integer.parseInt(request.getParameter("txtExibir"));
         
-        if (imagemUrl == null) {
+        if (imagemUrl.equals("")) {
             imagemUrl = "https://via.placeholder.com/160x90";
         }        
         

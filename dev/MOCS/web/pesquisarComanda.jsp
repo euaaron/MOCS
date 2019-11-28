@@ -60,6 +60,7 @@
                                 <li class="filler list-group-item"></li>
                             </ul>
                         </div>
+
                         <div class="card-footer">
                             <div class="float-left">
                                 <span>Cliente</span>
@@ -81,6 +82,7 @@
                                 <a href="ManterComandaController?acao=prepararOperacao&operacao=Excluir&id=<c:out value="${comanda.id}" />"><i class="fas fa-trash"></i> Excluir</a>
                             </div>
                         </div>
+
                     </div>
                 </c:forEach>
             </div>

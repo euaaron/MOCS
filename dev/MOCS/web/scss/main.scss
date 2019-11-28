@@ -17,6 +17,16 @@ $light: #efefef;
 
 .card {
     margin-bottom: 0.8vh;
+
+    .card-footer {
+        position: relative;
+        bottom: 0;
+        left: 0;
+        span {
+            font-size: smaller;
+        }
+    }
+
     .opcoes {
         display: inline-flex;
         position: relative;
@@ -33,21 +43,13 @@ $light: #efefef;
             background: $light;
         }
     }
+
 }
 
 .card-subtitle-invert {
     text-align: center;
     color: white;
     background: $dark;
-}
-
-.card-footer {
-    position: relative;
-    bottom: 0;
-    left: 0;
-    span {
-        font-size: smaller;
-    }
 }
 
 @for $i from 1 through 4 {
