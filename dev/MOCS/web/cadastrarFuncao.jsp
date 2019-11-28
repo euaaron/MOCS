@@ -31,7 +31,7 @@
             </ul>
         </div>        
         <div>
-            <form id="incluir" action="ManterFuncaoController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterFuncao" method="post">
+            <form id="incluir" action="ManterFuncaoController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterFuncao" method="post" onsubmit="return validarFormulario(this)">
                 <table border="1">
                     <tbody>
                         <tr>

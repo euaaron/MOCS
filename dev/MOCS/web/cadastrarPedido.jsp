@@ -29,7 +29,7 @@
             <li>${operacao}</li>
         </ul>
         <div>
-            <form id="incluir" action="ManterPedidoController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterPedido" method="post">
+            <form id="incluir" action="ManterPedidoController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterPedido" method="post" onsubmit="return validarFormulario(this)">
                 <table border="1">
                     <tbody>
                         <tr>

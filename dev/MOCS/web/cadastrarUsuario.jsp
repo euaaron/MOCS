@@ -32,7 +32,7 @@
             <li>${operacao}</li>
         </ul>
         <div>
-            <form id="incluir" action="ManterUsuarioController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterUsuario" method="post">
+            <form id="incluir" action="ManterUsuarioController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterUsuario" method="post" onsubmit="return validarFormulario(this)">
                 <table border="1">
                     <tbody>
                         <tr>

@@ -29,7 +29,7 @@
             <li><a href="PesquisarEstabelecimentoController">Pesquisar</a></li>
             <li>${operacao}</li>
         </ul>
-        <form id="incluir" action="ManterEstabelecimentoController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterEstabelecimento" method="post">
+        <form id="incluir" action="ManterEstabelecimentoController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterEstabelecimento" method="post" onsubmit="return validarFormulario(this)">
             <table>
                 <tr>
                     <td><label for="idEstabelecimento">Id:</label></td>

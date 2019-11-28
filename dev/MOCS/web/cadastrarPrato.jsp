@@ -29,7 +29,7 @@
             <li><a href="PesquisarPratoController">Pesquisar</a></li>
             <li>${operacao}</li>
         </ul>
-        <form id="incluir" action="ManterPratoController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterPrato" method="post">
+        <form id="incluir" action="ManterPratoController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterPrato" method="post" onsubmit="return validarFormulario(this)">
             <table border="1">
                 <tbody>
                     <tr>
