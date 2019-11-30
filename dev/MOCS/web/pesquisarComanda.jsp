@@ -68,7 +68,7 @@
                             </div>
                             <div class="float-right">
                                 <span>Total</span>
-                                <p>R$<fmt:formatNumber type="number" minFractionDigits="2" value="${comanda.obterTotal()}" /></p>
+                                <p>R$<fmt:formatNumber type="number" maxFractionDigits="2" value="${comanda.obterTotal()}" /></p>
                             </div>
                         </div>
                         <div class="opcoes">

@@ -48,7 +48,7 @@
                     <td><c:out value="${prato.getFuncionario().nome}"/></td>
                     <td><c:out value="${prato.getEstabelecimento().nomeFantasia}"/></td>
                     <td><c:out value="${prato.dataCriacao}"/></td>
-                    <td><c:out value="${prato.preco}"/></td>
+                    <td>R$<c:out value="${prato.preco}"/></td>
                     <td><image src="<c:out value="${prato.imagemUrl}"/>" width="160px" heigth="90px"></td>
                     <td>
                         <c:if test="${prato.exibir == 0}">
