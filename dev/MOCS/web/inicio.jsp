@@ -64,7 +64,7 @@
                 <a class="nav-link" href="PesquisarPedidoController?agente=${agente}<c:if test="${idUser != null || idUser != 0}">&idUser=${idUser}</c:if>">Pesquisar Pedidos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="inicio">Login/Logout</a>
+                <a class="nav-link" href="/MOCS/">Login/Logout</a>
             </li>
         </ul>
     </div>
