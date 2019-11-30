@@ -25,7 +25,7 @@
     <body>
         <h1>${operacao} Estabelecimento</h1>
         <ul class="breadcrumb">
-            <li><a href="index.jsp">Index Admin</a></li>
+            <li><a href="inicio.jsp">Index Admin</a></li>
             <li><a href="PesquisarEstabelecimentoController">Pesquisar</a></li>
             <li>${operacao}</li>
         </ul>

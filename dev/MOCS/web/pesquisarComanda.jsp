@@ -27,7 +27,7 @@
         <header class="">
             <h1>Pesquisar Comandas</h1>
             <ul class="breadcrumb">
-                <li><a href="index.jsp">Index Admin</a></li>
+                <li><a href="inicio.jsp">Index Admin</a></li>
                 <li>Pesquisar</li>
             </ul>
         </header>

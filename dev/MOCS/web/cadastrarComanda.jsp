@@ -25,11 +25,11 @@
     <body>
         <h1>${operacao} Comanda</h1>
         <ul class="breadcrumb">
-            <li><a href="index.jsp">Index Admin</a></li>
+            <li><a href="inicio.jsp">Index Admin</a></li>
             <li><a href="PesquisarComandaController">Pesquisar</a></li>
             <li>${operacao}</li>
         </ul>
-        <form id="incluir" action="ManterComandaController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterUsuario" method="post" onsubmit="return validarFormulario(this)">
+        <form id="incluir" action="ManterComandaController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterUsuario" method="post">
             <table border="1">
                 <tbody>
                     <tr>
@@ -64,50 +64,53 @@
             </table>
         </form>
         <script>
-                    function campoNumerico(valor)
-                    {
-                    var caracteresValidos = "0123456789";
-                            var ehNumero = true;
-                            var umCaracter;
-                            for (i = 0; i < valor.length && ehNumero == true; i++)
-                    {
+            function campoNumerico(valor)
+            {
+                var caracteresValidos = "0123456789";
+                var ehNumero = true;
+                var umCaracter;
+                for (i = 0; i < valor.length && ehNumero == true; i++)
+                {
                     umCaracter = valor.charAt(i);
-                            if (caracteresValidos.indexOf(umCaracter) == - 1)
+                    if (caracteresValidos.indexOf(umCaracter) == - 1)
                     {
-                    ehNumero = false;
+                        ehNumero = false;
                     }
-                    }
+                }
                     return ehNumero;
-                    }
-            document.getElementById("incluir").addEventListener("submit", () = > {
+            }
 
-            let form = document.getElementById("incluir");
-                    let mensagem;
-                    mensagem = "";
-                    if (form.txtId.value === "") {
-            mensagem = mensagem + "Informe o Código da Comanda\n";
-            }
-            if (form.txtIdCliente.value === "") {
-            mensagem = mensagem + "Informe o Código do Cliente\n";
-            }
-            if (form.txtDataComanda.value === "") {
-            mensagem = mensagem + "Informe a data de abertura da comanda\n";
-            }
-            if (form.txtHoraComanda.value === "") {
-            mensagem = mensagem + "Informe a hora de abertura da comanda\n";
-            }
-            if (!campoNumerico(form.txtId.value)) {
-            mensagem = mensagem + "Código da Comanda deve ser numérico\n";
-            }
-            if (!campoNumerico(form.txtIdCliente.value)) {
-            mensagem = mensagem + "Código do Cliente deve ser numérico\n";
-            }
-            if (mensagem === "") {
-            return true;
-            } else {
-            alert(mensagem);
-                    return false;
-            }
+            document.getElementById("incluir").addEventListener("submit", function validaFormulario() {
+
+                let form = document.getElementById("incluir");
+                let mensagem;
+                mensagem = "";
+
+                if (form.txtId.value === "") {
+                    mensagem = mensagem + "Informe o Código da Comanda\n";
+                }
+                if (form.txtIdCliente.value === "") {
+                    mensagem = mensagem + "Informe o Código do Cliente\n";
+                }
+                if (form.txtDataComanda.value === "") {
+                    mensagem = mensagem + "Informe a data de abertura da comanda\n";
+                }
+                if (form.txtHoraComanda.value === "") {
+                    mensagem = mensagem + "Informe a hora de abertura da comanda\n";
+                }
+                if (!campoNumerico(form.txtId.value)) {
+                    mensagem = mensagem + "Código da Comanda deve ser numérico\n";
+                }
+                if (!campoNumerico(form.txtIdCliente.value)) {
+                    mensagem = mensagem + "Código do Cliente deve ser numérico\n";
+                }
+                if (mensagem === "") {
+                    return true;
+                }
+                else {
+                    alert(mensagem);
+                        return false;
+                }
             });
         </script>
     </body>
