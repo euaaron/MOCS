@@ -132,9 +132,16 @@
                 if (form.txtDescricao.value === "") {
                     mensagem = mensagem + "Informe a Descrição do Prato\n";
                 }
+                var antes;
+                var depois;
                 if (form.txtPreco.value === "") {
                     mensagem = mensagem + "Informe o Preço do Prato\n";
+                }else{
+                    antes = form.txtPreco.value;
+                    depois = antes.replace(",", ".");
+                    form.txtPreco.value = depois;
                 }
+                
                 if (form.txtDataCriacao.value === "") {
                     mensagem = mensagem + "Informe a Data da Criação do Prato\n";
                 }
