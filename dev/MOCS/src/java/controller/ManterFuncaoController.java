@@ -10,6 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Estabelecimento;
 import model.Funcao;
 
 /**
@@ -44,10 +45,15 @@ public class ManterFuncaoController extends HttpServlet {
         try {
             String operacao = request.getParameter("operacao");
             request.setAttribute("operacao", operacao);
+            request.setAttribute("estabelecimentos", Estabelecimento.obterEstabelecimentos());
             if (!operacao.equals("Incluir")) {
                 int id = Integer.parseInt(request.getParameter("id"));
                 Funcao funcao = Funcao.obterFuncao(id);
                 request.setAttribute("funcao", funcao);
+                
+                int idEstabelecimento = Integer.parseInt(request.getParameter("id"));
+                Estabelecimento est = Estabelecimento.obterEstabelecimento(funcao.getIdEstabelecimento());
+                request.setAttribute("estabelecimento", est);
             }
             RequestDispatcher view = request.getRequestDispatcher("/cadastrarFuncao.jsp");
             view.forward(request, response);

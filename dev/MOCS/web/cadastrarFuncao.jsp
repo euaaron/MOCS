@@ -37,7 +37,7 @@
                         <tr>
                         <td><label>Estabelecimento:</label></td>
                         <td>
-                            <select name="txtIdEstabelecimento">
+                            <select name="txtIdEstabelecimento" <c:if test="${operacao == 'Excluir'}"> disabled</c:if>>
                                 <option value="0" <c:if test="${funcao.idEstabelecimento == null}"> selected</c:if>> </option>  
                                 <c:forEach items="${estabelecimentos}" var="estabelecimento">
                                 <option value="${estabelecimento.id}" <c:if test="${funcao.idEstabelecimento == estabelecimento.id}"> selected</c:if>>${estabelecimento.nomeFantasia}</option>
