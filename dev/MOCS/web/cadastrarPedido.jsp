@@ -37,10 +37,6 @@
                             <td><input type="text" name="txtId" id="idPedido" maxlength="10" value="${pedido.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
-                            <td><label for="idComanda">Id Comanda:</label></td>
-                            <td><input type="text" maxlength="10" name="txtIdComanda" id="idComanda"  value="${pedido.idComanda}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
-                        </tr>
-                        <tr>
                             <td><label for="idPrato">Prato:</label></td>
                             <td>
                                 <select id="idPrato" name="txtIdPrato" >
@@ -95,17 +91,17 @@
             function validarFormulario(form) { 
                 var mensagem;
                 mensagem = "";
-                if (form.txtId.value === "") {
+                if (form.txtId.value == "") {
                     mensagem = mensagem + "Informe o Código do Pedido\n";
                 }
-                if (form.txtIdPrato.value === "0") {
-                    mensagem = mensagem + "Informe o Código do Prato\n";
+                if (form.txtIdPrato.value == "0") {
+                    mensagem = mensagem + "Informe o Prato\n";
                 }
-                if (form.txtQuantidade.value === "") {
+                if (form.txtQuantidade.value == "") {
                     mensagem = mensagem + "Informe a Quantidade\n";
                 }
-                if (form.txtIdComanda.value === "0") {
-                    mensagem = mensagem + "Informe o Código da Comanda\n";
+                if (form.txtIdComanda.value == "0") {
+                    mensagem = mensagem + "Informe a Comanda\n";
                 }
                 if (!campoNumerico(form.txtId.value)) {
                     mensagem = mensagem + "Código do Pedido deve ser numérico\n";
@@ -113,7 +109,7 @@
                 if (!campoNumerico(form.txtQuantidade.value)) {
                     mensagem = mensagem + "A quantidade deve ser numérico e inteiro\n";
                 }
-                if (mensagem === "") {
+                if (mensagem == "") {
                     return true;
                 } else {
                     alert(mensagem);

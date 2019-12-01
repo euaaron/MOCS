@@ -116,41 +116,41 @@
                 var mensagem;
                 mensagem = ""; 
                 
-            if (form.txtIdFuncionario.value === "0") {
-            mensagem = mensagem + "Informe o Código do Funcionário\n";
+            if (form.txtIdFuncionario.value == "0") {
+            mensagem = mensagem + "Informe o Funcionário\n";
             }
-            if (form.txtIdEstabelecimento.value === "0") {
-            mensagem = mensagem + "Informe o Código do Estabelecimento\n";
+            if (form.txtIdEstabelecimento.value == "0") {
+            mensagem = mensagem + "Informe o Estabelecimento\n";
             }
-            if (form.txtId.value === "") {
+            if (form.txtId.value == "") {
             mensagem = mensagem + "Informe o Código do Prato\n";
             }
-            if (form.txtNome.value === "") {
+            if (form.txtNome.value == "") {
             mensagem = mensagem + "Informe o Nome do Prato\n";
             }
-            if (form.txtDescricao.value === "") {
+            if (form.txtDescricao.value == "") {
             mensagem = mensagem + "Informe a Descrição do Prato\n";
             }
             var antes;
             var depois;
-            if (form.txtPreco.value === "") {
+            if (form.txtPreco.value == "") {
             mensagem = mensagem + "Informe o Preço do Prato\n";
             } else{
                 antes = form.txtPreco.value;
                 depois = antes.replace(",", ".");
                 form.txtPreco.value = depois;
             }
-            if (form.txtDataCriacao.value === "") {
+            if (form.txtDataCriacao.value == "") {
             mensagem = mensagem + "Informe a Data da Criação do Prato\n";
             }
-            if (form.txtExibir.value === "") {
+            if (form.txtExibir.value == "") {
             mensagem = mensagem + "Informe se quer esse Prato exibindo no Estabelecimento\n";
             }
             if (!campoNumerico(form.txtId.value)) {
             mensagem = mensagem + "Código do Prato deve ser numérico\n";
             }
-            if (mensagem === "") {
-            return true;
+            if (mensagem == "") {
+                return true;
             } else {
             alert(mensagem);
                return false;

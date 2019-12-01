@@ -119,46 +119,46 @@
             function validarFormulario(form) { 
                 var mensagem;
                 mensagem = "";
-                if (form.txtIdEstabelecimento.value === "") {
+                if (form.txtIdEstabelecimento.value == "") {
                     mensagem = mensagem + "Informe o Código do Estabelecimento\n";
                 }
-                if (form.txtIdProprietario.value === "0") {
-                    mensagem = mensagem + "Informe o Código do Proprietário\n";
+                if (form.txtIdProprietario.value == "0") {
+                    mensagem = mensagem + "Informe o Proprietário\n";
                 }
-                if (form.txtCnpj.value === "") {
+                if (form.txtCnpj.value == "") {
                     mensagem = mensagem + "Informe o CNPJ do Estabelecimento\n";
                 }
-                if (form.txtNomeFantasia.value === "") {
+                if (form.txtNomeFantasia.value == "") {
                     mensagem = mensagem + "Informe o Nome do Estabelecimento\n";
                 }
-                if (form.txtInscEstadual.value === "") {
+                if (form.txtInscEstadual.value == "") {
                     mensagem = mensagem + "Informe a Inscrição Estadual do Estabelecimento\n";
                 }
-                if (form.txtTelefone.value === "") {
+                if (form.txtTelefone.value == "") {
                     mensagem = mensagem + "Informe o Telefone\n";
                 }
-                if (form.txtCEP.value === "") {
+                if (form.txtCEP.value == "") {
                     mensagem = mensagem + "Informe o CEP do Estabelecimento\n";
                 }
-                if (form.txtUF.value === "") {
+                if (form.txtUF.value == "") {
                     mensagem = mensagem + "Informe a Unidade de Federação\n";
                 }
-                if (form.txtCidade.value === "") {
+                if (form.txtCidade.value == "") {
                     mensagem = mensagem + "Informe a Cidade do Estabelecimento\n";
                 }
-                if (form.txtLogradouro.value === "") {
+                if (form.txtLogradouro.value == "") {
                     mensagem = mensagem + "Informe o Logradouro do Estabelecimento\n";
                 }
-                if (form.txtBairro.value === "") {
+                if (form.txtBairro.value == "") {
                     mensagem = mensagem + "Informe o Bairro do Estabelecimento\n";
                 }
-                if (form.txtEdificio.value === "") {
+                if (form.txtEdificio.value == "") {
                     mensagem = mensagem + "Informe o Número do Edifício\n";
                 }
                 if (!campoNumerico(form.txtIdEstabelecimento.value)) {
                     mensagem = mensagem + "Código do Estabelecimento deve ser numérico\n";
                 }
-                if (mensagem === "") {
+                if (mensagem == "") {
                     return true;
                 } else {
                     alert(mensagem);

@@ -29,7 +29,7 @@
             <li><a href="PesquisarComandaController">Pesquisar</a></li>
             <li>${operacao}</li>
         </ul>
-        <form id="incluir" action="ManterComandaController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterUsuario" method="post">
+        <form id="incluir" action="ManterComandaController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterUsuario" method="post" onsubmit="return validarFormulario(this)">
             <table border="1">
                 <tbody>
                     <tr>
@@ -81,29 +81,28 @@
             function validarFormulario(form) { 
                 var mensagem;
                 mensagem = "";
-            if (form.txtId.value === "") {
+            if (form.txtId.value == "") {
             mensagem = mensagem + "Informe o Código da Comanda\n";
             }
-            if (form.txtIdCliente.value === "0") {
-            mensagem = mensagem + "Informe o Código do Cliente\n";
+            if (form.txtIdCliente.value == "0") {
+            mensagem = mensagem + "Informe o Cliente\n";
             }
-            if (form.txtDataComanda.value === "") {
+            if (form.txtDataComanda.value == "") {
             mensagem = mensagem + "Informe a data de abertura da comanda\n";
             }
-            if (form.txtHoraComanda.value === "") {
+            if (form.txtHoraComanda.value == "") {
             mensagem = mensagem + "Informe a hora de abertura da comanda\n";
             }
             if (!campoNumerico(form.txtId.value)) {
             mensagem = mensagem + "Código da Comanda deve ser numérico\n";
             }           
-            if (mensagem === "") {
+            if (mensagem == "") {
                 return true;
             } else {
             alert(mensagem);
                 return false;
             }
             }
-                return ehNumero;
         </script>
     </body>
 </html>

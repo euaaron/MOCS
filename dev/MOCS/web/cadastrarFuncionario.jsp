@@ -145,25 +145,25 @@
             function validarFormulario(form) { 
                 var mensagem;
                 mensagem = "";
-                if (form.txtIdEstabelecimento.value === "0") {
-                    mensagem = mensagem + "Informe o Código do Estabelecimento\n";
+                if (form.txtIdEstabelecimento.value == "0") {
+                    mensagem = mensagem + "Informe o Estabelecimento\n";
                 }
-                if (form.txtIdFuncionario.value === "") {
+                if (form.txtIdFuncionario.value == "") {
                     mensagem = mensagem + "Informe o Código do Funcionário\n";
                 }
-                if (form.txtStatusConta.value === "") {
+                if (form.txtStatusConta.value == "") {
                     mensagem = mensagem + "Informe o Status da Conta do Funcionário\n";
                 }
-                if (form.txtNome.value === "") {
+                if (form.txtNome.value == "") {
                     mensagem = mensagem + "Informe o Nome do Funcionário\n";
                 }
-                if (form.txtCpf.value === "") {
+                if (form.txtCpf.value == "") {
                     mensagem = mensagem + "Informe o CPF do Funcionário\n";
                 }
-                if (form.txtEmail.value === "") {
+                if (form.txtEmail.value == "") {
                     mensagem = mensagem + "Informe o Email do Funcionário\n";
                 }
-                if (form.txtIdFuncao.value === "0") {
+                if (form.txtIdFuncao.value == "0") {
                     mensagem = mensagem + "Informe a Função do Funcionário\n";
                 }
                 if (form.txtSenha.value == "0") {
@@ -178,7 +178,7 @@
                 if (!campoNumerico(form.txtIdFuncionario.value)) {
                     mensagem = mensagem + "Código do Funcionário deve ser numérico\n";
                 }
-                if (mensagem === "") {
+                if (mensagem == "") {
                     return true;
                 } else {
                     alert(mensagem);
