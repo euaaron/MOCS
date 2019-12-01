@@ -25,7 +25,7 @@
     <body>
         <h1>${operacao} Prato</h1>
         <ul class="breadcrumb">
-            <li><a href="index.jsp">Index Admin</a></li>
+            <li><a href="inicio.jsp">Index Admin</a></li>
             <li><a href="PesquisarPratoController">Pesquisar</a></li>
             <li>${operacao}</li>
         </ul>

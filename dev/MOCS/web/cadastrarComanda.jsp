@@ -25,11 +25,11 @@
     <body>
         <h1>${operacao} Comanda</h1>
         <ul class="breadcrumb">
-            <li><a href="index.jsp">Index Admin</a></li>
+            <li><a href="inicio.jsp">Index Admin</a></li>
             <li><a href="PesquisarComandaController">Pesquisar</a></li>
             <li>${operacao}</li>
         </ul>
-        <form id="incluir" action="ManterComandaController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterUsuario" method="post" onsubmit="return validarFormulario(this)">
+        <form id="incluir" action="ManterComandaController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterUsuario" method="post">
             <table border="1">
                 <tbody>
                     <tr>
@@ -64,17 +64,19 @@
             </table>
         </form>
         <script>
-            function campoNumerico(valor){
+            function campoNumerico(valor)
+            {
                 var caracteresValidos = "0123456789";
                 var ehNumero = true;
                 var umCaracter;
-                    for (i = 0; i < valor.length && ehNumero == true; i++){
-                        umCaracter = valor.charAt(i);
-                        if (caracteresValidos.indexOf(umCaracter) == - 1){
-                            ehNumero = false;
-                        }
+                for (i = 0; i < valor.length && ehNumero == true; i++)
+                {
+                    umCaracter = valor.charAt(i);
+                    if (caracteresValidos.indexOf(umCaracter) == - 1)
+                    {
+                        ehNumero = false;
                     }
-                return ehNumero;
+                }
             }
             function validarFormulario(form) { 
                 var mensagem;
@@ -101,6 +103,7 @@
                 return false;
             }
             }
+                return ehNumero;
         </script>
     </body>
 </html>

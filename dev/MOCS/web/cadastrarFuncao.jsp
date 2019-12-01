@@ -25,7 +25,7 @@
         <div>
             <h1>${operacao} Funcao</h1>
             <ul class="breadcrumb">
-                <li><a href="index.jsp">Index Admin</a></li>
+                <li><a href="inicio.jsp">Index Admin</a></li>
                 <li><a href="PesquisarFuncaoController">Pesquisar</a></li>
                 <li>${operacao}</li>
             </ul>

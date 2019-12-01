@@ -5,6 +5,9 @@
 */
 @import url(breadcrumb.css);
 @import url(../vendor/fontawesome/css/all.min.css);
+body {
+  background-color: #dcdcdc; }
+
 .cards {
   display: flex !important;
   flex-wrap: wrap !important;
@@ -12,24 +15,30 @@
 
 .card {
   margin-bottom: 0.8vh; }
-  .card .card-footer {
-    position: relative;
-    bottom: 0;
-    left: 0; }
-    .card .card-footer span {
-      font-size: smaller; }
-  .card .opcoes {
-    display: inline-flex;
-    position: relative;
-    bottom: 0;
-    left: 0;
-    justify-content: space-evenly; }
-    .card .opcoes .opcao {
-      color: #2d2d2d; }
-      .card .opcoes .opcao a {
-        text-decoration: none !important; }
-    .card .opcoes .opcao:hover {
-      background: #efefef; }
+
+.card .card-footer {
+  position: relative;
+  bottom: 0;
+  left: 0; }
+
+.card .card-footer span {
+  font-size: smaller; }
+
+.card .opcoes {
+  display: inline-flex;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  justify-content: space-evenly; }
+
+.card .opcoes .opcao {
+  color: #2d2d2d; }
+
+.card .opcoes .opcao a {
+  text-decoration: none !important; }
+
+.card .opcoes .opcao:hover {
+  background: #dcdcdc; }
 
 .card-subtitle-invert {
   text-align: center;
@@ -111,11 +120,71 @@
   border-color: #43a343;
   padding: 1vh 3vh !important; }
 
-@media screen and (min-width: 768px) {
+.top-bar {
+  width: 100%;
+  background: #2d2d2d; }
+
+.top-bar a {
+  color: #ca724a;
+  font-weight: bolder;
+  font-size: 2em; }
+
+.top-bar a:hover {
+  text-decoration: none; }
+
+.menu {
+  position: relative;
+  width: 100vw;
+  height: 80vh;
+  top: 0;
+  justify-content: space-around;
+  align-items: center;
+  color: #ac4022; }
+  .menu ul {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 60vh;
+    flex-wrap: wrap;
+    padding: 0;
+    justify-content: space-evenly; }
+    .menu ul li {
+      display: flex;
+      align-items: center;
+      margin: 0;
+      width: 30%;
+      height: 30%;
+      background-color: #2d2d2d; }
+      .menu ul li a {
+        display: flex;
+        color: white;
+        width: 100%;
+        height: 100%;
+        align-items: center; }
+      .menu ul li a:hover {
+        color: #dcdcdc; }
+    .menu ul li:hover {
+      background-color: #ac4022;
+      color: #2d2d2d;
+      box-shadow: #2d2d2d 0 0 4px; }
+
+@media screen and (min-width: 801px) {
   .card {
     width: 28vw; } }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 800px) {
   .card {
-    width: 100vw; } }
+    width: 100vw; }
+
+  .menu ul li {
+    width: 100%;
+    height: 15%;
+    background: #dcdcdc;
+    border: none;
+    box-shadow: #2d2d2d 0 0 2px; }
+    .menu ul li a {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      color: #2d2d2d; } }
 
 /*# sourceMappingURL=main.css.map */

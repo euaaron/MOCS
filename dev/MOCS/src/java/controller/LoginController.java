@@ -59,23 +59,12 @@ public class LoginController extends HttpServlet {
                 String email = request.getParameter("txtEmail");
                 String senha = request.getParameter("txtSenha");
 
-                if (senha == null || senha.equals("") && email.equals("")) {
+                if (senha == null || email == null || senha.equals("") || email.equals("")) {
                     request.setAttribute("erro", erro);
-                    RequestDispatcher view = request.getRequestDispatcher("index.jsp");
+                    RequestDispatcher view = request.getRequestDispatcher("inicio.jsp");
                     view.forward(request, response);
                 }
-
-                if (email == null || email.equals("")) {
-                    request.setAttribute("erro", erro);
-                    RequestDispatcher view = request.getRequestDispatcher("index.jsp");
-                    view.forward(request, response);
-                }
-
-                if (senha.equals("")) {
-                    request.setAttribute("erro", erro);
-                    RequestDispatcher view = request.getRequestDispatcher("index.jsp");
-                    view.forward(request, response);
-                }
+                
                 Usuario user;
 
                 if (request.getParameter("idUser") != null && Integer.parseInt(request.getParameter("idUser")) != 0) {
@@ -88,7 +77,7 @@ public class LoginController extends HttpServlet {
 
                 if (!senha.equals(user.getSenha())) {
                     request.setAttribute("erro", erro);
-                    RequestDispatcher view = request.getRequestDispatcher("index.jsp");
+                    RequestDispatcher view = request.getRequestDispatcher("inicio.jsp");
                     view.forward(request, response);
                 } else {
                     request.setAttribute("operacao", operacao);
