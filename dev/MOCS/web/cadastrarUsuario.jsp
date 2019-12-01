@@ -77,6 +77,7 @@
             </form>
         </div>
         <script>
+                 
             function campoNumerico(valor)
             {
                 var caracteresValidos = "0123456789";
@@ -93,10 +94,8 @@
                 return ehNumero;
             }
 
-            document.getElementById("incluir").addEventListener("submit", () =>
-            {
-                let form = document.getElementById("incluir");
-                let mensagem;
+            function validarFormulario(form){
+                var mensagem;
                 mensagem = "";
                 if (form.txtIdUsuario.value === "") {
                     mensagem = mensagem + "Informe o Código do Usuário\n";
@@ -128,7 +127,7 @@
                     alert(mensagem);
                     return false;
                 }
-            });
+            }
         </script>
     </body>
 </html>

@@ -131,12 +131,10 @@
                 return ehNumero;
             }
 
-            document.getElementById("incluir").addEventListener("submit", () =>
-            {
-                let form = document.getElementById("incluir");
-                let mensagem;
+            function validarFormulario(form) { 
+                var mensagem;
                 mensagem = "";
-                if (form.txtIdEstabelecimento.value === "") {
+                if (form.txtIdEstabelecimento.value === "0") {
                     mensagem = mensagem + "Informe o Código do Estabelecimento\n";
                 }
                 if (form.txtIdFuncionario.value === "") {
@@ -154,10 +152,10 @@
                 if (form.txtEmail.value === "") {
                     mensagem = mensagem + "Informe o Email do Funcionário\n";
                 }
-                if (form.txtIdFuncao.value === "") {
+                if (form.txtIdFuncao.value === "0") {
                     mensagem = mensagem + "Informe a Função do Funcionário\n";
                 }
-                if (form.txtSenha.value == "") {
+                if (form.txtSenha.value == "0") {
                     mensagem = mensagem + "Informe a Senha do Funcionário\n";
                 }
                 if (form.txtReSenha.value == "") {
@@ -165,9 +163,6 @@
                 }
                 if (form.txtSenha.value != form.txtReSenha.value) {
                     mensagem = mensagem + "Campos de Senha diferentes\n";
-                }
-                if (!campoNumerico(form.txtIdEstabelecimento.value)) {
-                    mensagem = mensagem + "Código do Estabelecimento deve ser numérico\n";
                 }
                 if (!campoNumerico(form.txtIdFuncionario.value)) {
                     mensagem = mensagem + "Código do Funcionário deve ser numérico\n";
@@ -178,7 +173,7 @@
                     alert(mensagem);
                     return false;
                 }
-            });
+            }
         </script>
     </body>
 </html>

@@ -52,8 +52,15 @@
                             <td><input type="number" name="txtQuantidade" id="quantidade" min="1" value="${pedido.quantidade}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
-                            <td><label for="idComanda">Id Comanda:</label></td>
-                            <td><input type="text" name="txtIdComanda" id="idComanda" maxlength="10" value="${pedido.idComanda}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
+                            <td><label for="idComanda">Comanda:</label></td>
+                            <td>
+                                <select id="idComanda" name="txtIdComanda" >
+                                    <option value="0" <c:if test="${pedido.idComanda == null}"> selected</c:if>> </option>
+                                    <c:forEach items="${comandas}" var="comanda">
+                                        <option value="${comanda.id}" <c:if test="${pedido.idComanda == comanda.id}"> selected</c:if>>${comanda.id}</option>
+                                    </c:forEach>
+                                </select>
+                            </td>
                         </tr>
                         <tr>
                             <td>
@@ -81,28 +88,23 @@
                 return ehNumero;
             }
 
-            document.getElementById("incluir").addEventListener("submit", () =>
-            {
-                let form = document.getElementById("incluir");
-                let mensagem;
+            function validarFormulario(form) { 
+                var mensagem;
                 mensagem = "";
                 if (form.txtId.value === "") {
                     mensagem = mensagem + "Informe o Código do Pedido\n";
                 }
-                if (form.txtIdPrato.value === "") {
+                if (form.txtIdPrato.value === "0") {
                     mensagem = mensagem + "Informe o Código do Prato\n";
                 }
                 if (form.txtQuantidade.value === "") {
                     mensagem = mensagem + "Informe a Quantidade\n";
                 }
-                if (form.txtIdComanda.value === "") {
+                if (form.txtIdComanda.value === "0") {
                     mensagem = mensagem + "Informe o Código da Comanda\n";
                 }
                 if (!campoNumerico(form.txtId.value)) {
                     mensagem = mensagem + "Código do Pedido deve ser numérico\n";
-                }
-                if (!campoNumerico(form.txtIdComanda.value)) {
-                    mensagem = mensagem + "Código da Comanda deve ser numérico\n";
                 }
                 if (!campoNumerico(form.txtQuantidade.value)) {
                     mensagem = mensagem + "A quantidade deve ser numérico e inteiro\n";
@@ -113,7 +115,7 @@
                     alert(mensagem);
                     return false;
                 }
-            });
+            }
         </script>
     </body>
 </html>

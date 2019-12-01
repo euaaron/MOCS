@@ -75,17 +75,10 @@ public class ManterFuncionarioController extends HttpServlet {
         String email = request.getParameter("txtEmail");
         String telefone = request.getParameter("txtTelefone");
         String senha = request.getParameter("txtSenha");
-        String reSenha = request.getParameter("txtReSenha");
         int statusConta = Integer.parseInt(request.getParameter("txtStatusConta"));
         int idFuncao = Integer.parseInt(request.getParameter("txtIdFuncao"));
        
         try {
-            
-            if(!senha.equals(reSenha) || senha == "" || reSenha == "" || senha == null || reSenha == null) {
-                RequestDispatcher view = request.getRequestDispatcher("PesquisarFuncionarioController");
-                view.forward(request, response);
-                return;
-            }
             
             Estabelecimento estabelecimento = null;
             if (idEstabelecimento != 0) {

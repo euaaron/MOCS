@@ -64,30 +64,25 @@
             </table>
         </form>
         <script>
-                    function campoNumerico(valor)
-                    {
-                    var caracteresValidos = "0123456789";
-                            var ehNumero = true;
-                            var umCaracter;
-                            for (i = 0; i < valor.length && ehNumero == true; i++)
-                    {
-                    umCaracter = valor.charAt(i);
-                            if (caracteresValidos.indexOf(umCaracter) == - 1)
-                    {
-                    ehNumero = false;
+            function campoNumerico(valor){
+                var caracteresValidos = "0123456789";
+                var ehNumero = true;
+                var umCaracter;
+                    for (i = 0; i < valor.length && ehNumero == true; i++){
+                        umCaracter = valor.charAt(i);
+                        if (caracteresValidos.indexOf(umCaracter) == - 1){
+                            ehNumero = false;
+                        }
                     }
-                    }
-                    return ehNumero;
-                    }
-            document.getElementById("incluir").addEventListener("submit", () = > {
-
-            let form = document.getElementById("incluir");
-                    let mensagem;
-                    mensagem = "";
-                    if (form.txtId.value === "") {
+                return ehNumero;
+            }
+            function validarFormulario(form) { 
+                var mensagem;
+                mensagem = "";
+            if (form.txtId.value === "") {
             mensagem = mensagem + "Informe o Código da Comanda\n";
             }
-            if (form.txtIdCliente.value === "") {
+            if (form.txtIdCliente.value === "0") {
             mensagem = mensagem + "Informe o Código do Cliente\n";
             }
             if (form.txtDataComanda.value === "") {
@@ -98,17 +93,14 @@
             }
             if (!campoNumerico(form.txtId.value)) {
             mensagem = mensagem + "Código da Comanda deve ser numérico\n";
-            }
-            if (!campoNumerico(form.txtIdCliente.value)) {
-            mensagem = mensagem + "Código do Cliente deve ser numérico\n";
-            }
+            }           
             if (mensagem === "") {
-            return true;
+                return true;
             } else {
             alert(mensagem);
-                    return false;
+                return false;
             }
-            });
+            }
         </script>
     </body>
 </html>

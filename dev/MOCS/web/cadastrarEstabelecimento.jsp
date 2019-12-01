@@ -112,15 +112,13 @@
                 return ehNumero;
             }
 
-            document.getElementById("incluir").addEventListener("submit", () =>
-            {
-                let form = document.getElementById("incluir");
-                let mensagem;
+            function validarFormulario(form) { 
+                var mensagem;
                 mensagem = "";
-                if (form.txtId.value === "") {
+                if (form.txtIdEstabelecimento.value === "") {
                     mensagem = mensagem + "Informe o Código do Estabelecimento\n";
                 }
-                if (form.txtIdProprietário.value === "") {
+                if (form.txtIdProprietario.value === "0") {
                     mensagem = mensagem + "Informe o Código do Proprietário\n";
                 }
                 if (form.txtCnpj.value === "") {
@@ -134,9 +132,6 @@
                 }
                 if (form.txtTelefone.value === "") {
                     mensagem = mensagem + "Informe o Telefone\n";
-                }
-                if (form.txtIdEndereco.value === "") {
-                    mensagem = mensagem + "Informe o Código do Endereço\n";
                 }
                 if (form.txtCEP.value === "") {
                     mensagem = mensagem + "Informe o CEP do Estabelecimento\n";
@@ -156,11 +151,8 @@
                 if (form.txtEdificio.value === "") {
                     mensagem = mensagem + "Informe o Número do Edifício\n";
                 }
-                if (!campoNumerico(form.txtId.value)) {
+                if (!campoNumerico(form.txtIdEstabelecimento.value)) {
                     mensagem = mensagem + "Código do Estabelecimento deve ser numérico\n";
-                }
-                if (!campoNumerico(form.txtIdEndereco.value)) {
-                    mensagem = mensagem + "Código do Endereço deve ser numérico\n";
                 }
                 if (mensagem === "") {
                     return true;
@@ -168,7 +160,7 @@
                     alert(mensagem);
                     return false;
                 }
-            });
+            }
         </script>
     </body>
 </html>

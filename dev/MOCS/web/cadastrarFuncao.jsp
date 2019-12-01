@@ -87,12 +87,10 @@
                 return ehNumero;
             }
 
-            document.getElementById("incluir").addEventListener("submit", () =>
-            {
-                let form = document.getElementById("incluir");
-                let mensagem;
+            function validarFormulario(form) { 
+                var mensagem;
                 mensagem = "";
-                if (form.txtIdEstabelecimento.value === "") {
+                if (form.txtIdEstabelecimento.value === "0") {
                     mensagem = mensagem + "Informe o Código do Estabelecimento\n";
                 }
                 if (form.txtIdFuncao.value === "") {
@@ -107,9 +105,6 @@
                 if (form.txtNivelPermissao.value === "") {
                     mensagem = mensagem + "Informe o Nível de Permissão da Função\n";
                 }
-                if (!campoNumerico(form.txtIdEstabelecimento.value)) {
-                    mensagem = mensagem + "Código do Estabelecimento deve ser numérico\n";
-                }
                 if (!campoNumerico(form.txtIdFuncao.value)) {
                     mensagem = mensagem + "Código da Função deve ser numérico\n";
                 }
@@ -119,7 +114,7 @@
                     alert(mensagem);
                     return false;
                 }
-            });
+            }
         </script>
     </body>
 </html>
