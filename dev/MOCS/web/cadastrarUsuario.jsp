@@ -28,7 +28,7 @@
         </div>
         <ul class="breadcrumb">
             <li><a href="inicio?acao=confirmarOperacao&operacao=validar&agente=${agente}<c:if test="${idUser != null && idUser != 0}" >&idUser=${idUser}</c:if>">Index Admin</a></li>
-            <li><a href="PesquisarUsuarioController&agente=${agente}<c:if test="${idUser != null && idUser != 0}" >&idUser=${idUser}</c:if>">Pesquisar</a></li>
+            <li><a href="PesquisarUsuarioController">Pesquisar</a></li>
             <li>${operacao}</li>
         </ul>
         <div>
