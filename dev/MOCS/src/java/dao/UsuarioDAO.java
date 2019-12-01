@@ -18,8 +18,44 @@ import model.Usuario;
 
 public class UsuarioDAO {
 
-    public static Usuario obterUsuario(int idUsuario)
+    public static Usuario obterUsuarioEmail(String email)
             throws ClassNotFoundException, SQLException {
+        Connection conexao = null;
+        Statement comando = null;
+        Usuario usuario = null;
+        try {
+            conexao = BD.getConexao();
+            comando = conexao.createStatement();
+            ResultSet rs = comando.executeQuery(
+                    "select * from usuario where email = '" + email + "'");
+            rs.first();
+            usuario = instanciarUsuario(rs);
+        } finally {
+            fecharConexao(conexao, comando);
+        }
+        return usuario;
+    }
+
+    public static Usuario obterUsuarioCPF(String cpf)
+            throws ClassNotFoundException, SQLException {
+        Connection conexao = null;
+        Statement comando = null;
+        Usuario usuario = null;
+        try {
+            conexao = BD.getConexao();
+            comando = conexao.createStatement();
+            ResultSet rs = comando.executeQuery(
+                    "select * from usuario where cpf = " + cpf);
+            rs.first();
+            usuario = instanciarUsuario(rs);
+        } finally {
+            fecharConexao(conexao, comando);
+        }
+        return usuario;
+    }
+    
+    public static Usuario obterUsuario(int idUsuario) 
+    throws ClassNotFoundException, SQLException {
         Connection conexao = null;
         Statement comando = null;
         Usuario usuario = null;

@@ -12,12 +12,20 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Pesquisa de Pratos</title>
-        <link rel="stylesheet" href="css/main.css"/>
+        <%-- Estilos, scripts e dependências de terceiros --%>
+        <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css"/>
+        <script src="vendor/jquery-3.3.1.slim.min.js"></script>
+        <script src="vendor/popper.min.js"></script>
+        <script src="vendor/bootstrap/bootstrap.min.js"></script>
+        <%-- Estilos e scripts próprios --%>
+        <link rel="stylesheet" href="./css/main.css"/>
+        <script src="./js/filtros.js"></script>
+
     </head>
     <body>
         <h1>Pesquisar Pratos</h1>
         <ul class="breadcrumb">
-            <li><a href="index.jsp">Index Admin</a></li>
+            <li><a href="inicio.jsp">Index Admin</a></li>
             <li>Pesquisar</li>
         </ul>
         <table border = 1>
@@ -40,7 +48,7 @@
                     <td><c:out value="${prato.nome}"/></td>
                     <td><c:out value="${prato.descricao}"/></td>
                     <td><c:out value="${prato.dataCriacao}"/></td>
-                    <td><c:out value="R$ ${prato.preco}"/></td>
+                    <td>R$<c:out value="${prato.preco}"/></td>
                     <td><image src="<c:out value="${prato.imagemUrl}"/>" width="160px" heigth="90px"></td>
                     <td>
                         <c:if test="${prato.exibir == 0}">

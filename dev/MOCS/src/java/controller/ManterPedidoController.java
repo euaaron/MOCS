@@ -47,6 +47,7 @@ public class ManterPedidoController extends HttpServlet {
         String operacao = request.getParameter("operacao");
         request.setAttribute("operacao", operacao);
         request.setAttribute("pratos", Prato.obterPratos());
+        request.setAttribute("comandas", Comanda.obterComandas());
         if (!operacao.equals("Incluir")) {
                 int id = Integer.parseInt(request.getParameter("id"));
                 Pedido obj = Pedido.obterPedido(id);

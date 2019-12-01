@@ -53,7 +53,11 @@ public class ManterEstabelecimentoController extends HttpServlet {
                 int id = Integer.parseInt(request.getParameter("id"));
                 Estabelecimento est = Estabelecimento.obterEstabelecimento(id);
                 request.setAttribute("estabelecimento", est);
-
+                
+                int idProprietario = Integer.parseInt(request.getParameter("id"));
+                Usuario proprietario = Usuario.obterUsuario(est.getProprietario().getId());
+                request.setAttribute("proprietario", proprietario);
+                
                 int idEndereco = Integer.parseInt(request.getParameter("id"));
                 EnderecoEstabelecimento end = EnderecoEstabelecimento.obterEndereco(idEndereco);
                 request.setAttribute("endestabelecimento", end);
@@ -70,51 +74,54 @@ public class ManterEstabelecimentoController extends HttpServlet {
             throw new ServletException(e);
         }
     }
-
-    public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException {
-
-        String operacao = request.getParameter("operacao");
-        //Dados de Estabelecimento
-        int id = Integer.parseInt(request.getParameter("txtIdEstabelecimento"));
-        String cnpj = request.getParameter("txtCnpj");
-        String nomeFantasia = request.getParameter("txtNomeFantasia");
-        String inscEstadual = request.getParameter("txtInscEstadual");
-        String telefone = request.getParameter("txtTelefone");
-        int idProprietario = Integer.parseInt(request.getParameter("txtIdProprietario"));//Chave estrangeira
-
-        //Dados de Endereco
-        int idEndereco = Integer.parseInt(request.getParameter("txtIdEndereco"));//Chave estrangeira
-        String cep = request.getParameter("txtCEP");
-        String uf = request.getParameter("txtUF");
-        String cidade = request.getParameter("txtCidade");
-        String logradouro = request.getParameter("txtLogradouro");
-        String bairro = request.getParameter("txtBairro");
-        String numEdificio = request.getParameter("txtEdificio");
-        String numComplemento = request.getParameter("txtComplemento");
-
-        try {
-            Usuario proprietario = null;
-            if (idProprietario != 0) {
-                proprietario = Usuario.obterUsuario(idProprietario);
-            }
-
-//            EnderecoEstabelecimento end = null;
-//            if (idEndereco != 0) {
-//                end = EnderecoEstabelecimento.obterEndereco(idEndereco);
-//            }
-            
-           EnderecoEstabelecimento end = new EnderecoEstabelecimento(idEndereco, cep, uf, cidade,
-                        logradouro, bairro, numEdificio, numComplemento);
-            Estabelecimento e = new Estabelecimento(id, cnpj, nomeFantasia, inscEstadual,
-                    telefone, proprietario, end);
-
-            if (operacao.equals("Incluir")) {
-                end.gravar();
-                e.gravar();
-            } else if (operacao.equals("Excluir")) {
-                e.excluir();
-                end.excluir();
+    
+   public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) 
+           throws ClassNotFoundException, SQLException, ServletException {
+       
+       String operacao = request.getParameter("operacao");
+       //Dados de Estabelecimento
+       int id = Integer.parseInt(request.getParameter("txtIdEstabelecimento"));
+       int idProprietario = Integer.parseInt(request.getParameter("txtIdProprietario"));//Chave estrangeira
+       String cnpj = request.getParameter("txtCnpj");
+       String nomeFantasia = request.getParameter("txtNomeFantasia");
+       String inscEstadual = request.getParameter("txtInscEstadual");
+       String telefone = request.getParameter("txtTelefone");
+       
+       //Dados de Endereco
+       int idEndereco = id;
+       String cep = request.getParameter("txtCEP");
+       String uf = request.getParameter("txtUF");
+       String cidade = request.getParameter("txtCidade");
+       String logradouro = request.getParameter("txtLogradouro");
+       String bairro = request.getParameter("txtBairro");
+       String numEdificio = request.getParameter("txtEdificio");
+       String numComplemento = request.getParameter("txtComplemento");
+       
+       try {
+           Usuario proprietario = null;
+           if (idProprietario != 0) 
+           { 
+               proprietario = Usuario.obterUsuario(idProprietario); 
+           }
+           
+           EnderecoEstabelecimento end = null;
+           if (idEndereco != 0) 
+           {                
+                //end = EnderecoEstabelecimento.obterEndereco(idEndereco);
+               
+                end = new EnderecoEstabelecimento(idEndereco, cep, uf, cidade, 
+                     logradouro, bairro, numEdificio, numComplemento);
+           } 
+           
+           Estabelecimento e = new Estabelecimento(id, cnpj, nomeFantasia, inscEstadual,
+            telefone, idProprietario, idEndereco);
+           
+           if (operacao.equals("Incluir")) {
+               end.gravar();
+               e.gravar();
+           } else if (operacao.equals("Excluir")) {
+               e.excluir();
+               end.excluir();
             } else if (operacao.equals("Editar")) {
                 e.editar();
                 end.editar();

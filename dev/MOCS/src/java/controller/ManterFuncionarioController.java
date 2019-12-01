@@ -79,6 +79,7 @@ public class ManterFuncionarioController extends HttpServlet {
         int idFuncao = Integer.parseInt(request.getParameter("txtIdFuncao"));
        
         try {
+            
             Estabelecimento estabelecimento = null;
             if (idEstabelecimento != 0) {
                 estabelecimento = Estabelecimento.obterEstabelecimento(idEstabelecimento);
