@@ -32,7 +32,7 @@
             <li>${operacao}</li>
         </ul>
         <div>
-            <form id="incluir" action="ManterUsuarioController?acao=confirmarOperacao&operacao=${operacao}&agente=${agente}<c:if test="${idUser != null && idUser != 0}" >&idUser=${idUser}</c:if>" name="frmManterUsuario" method="post">
+            <form id="incluir" name="frmManterUsuario" method="post" onsubmit="return validarFormulario(this)" action="ManterUsuarioController?acao=confirmarOperacao&operacao=${operacao}&agente=${agente}<c:if test="${idUser != null && idUser != 0}" >&idUser=${idUser}</c:if>">
                 <table border="1">
                     <tbody>
                         <tr>
@@ -97,16 +97,16 @@
             function validarFormulario(form){
                 var mensagem;
                 mensagem = "";
-                if (form.txtIdUsuario.value === "") {
+                if (form.txtIdUsuario.value == "") {
                     mensagem = mensagem + "Informe o Código do Usuário\n";
                 }
-                if (form.txtNome.value === "") {
+                if (form.txtNome.value == "") {
                     mensagem = mensagem + "Informe o Nome do Usuário\n";
                 }
-                if (form.txtCpf.value === "") {
+                if (form.txtCpf.value == "") {
                     mensagem = mensagem + "Informe o CPF do Usuário\n";
                 }
-                if (form.txtEmail.value === "") {
+                if (form.txtEmail.value == "") {
                     mensagem = mensagem + "Digite o Email, ele será usado para login\n";
                 }
                 if (form.txtSenha.value == "") {
@@ -121,7 +121,7 @@
                 if (!campoNumerico(form.txtIdUsuario.value)) {
                     mensagem = mensagem + "Código do Usuario deve ser numérico\n";
                 }
-                if (mensagem === "") {
+                if (mensagem == "") {
                     return true;
                 } else {
                     alert(mensagem);

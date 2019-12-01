@@ -90,25 +90,25 @@
             function validarFormulario(form) { 
                 var mensagem;
                 mensagem = "";
-                if (form.txtIdEstabelecimento.value === "0") {
+                if (form.txtIdEstabelecimento.value == "0") {
                     mensagem = mensagem + "Informe o Estabelecimento\n";
                 }
-                if (form.txtIdFuncao.value === "") {
+                if (form.txtIdFuncao.value == "") {
                     mensagem = mensagem + "Informe o Código da Função\n";
                 }
-                if (form.txtNome.value === "") {
+                if (form.txtNome.value == "") {
                     mensagem = mensagem + "Informe o Nome da Função\n";
                 }
-                if (form.txtDescricao.value === "") {
+                if (form.txtDescricao.value == "") {
                     mensagem = mensagem + "Informe a Descrição da Função\n";
                 }
-                if (form.txtNivelPermissao.value === "") {
+                if (form.txtNivelPermissao.value == "") {
                     mensagem = mensagem + "Informe o Nível de Permissão da Função\n";
                 }
                 if (!campoNumerico(form.txtIdFuncao.value)) {
                     mensagem = mensagem + "Código da Função deve ser numérico\n";
                 }
-                if (mensagem === "") {
+                if (mensagem == "") {
                     return true;
                 } else {
                     alert(mensagem);
