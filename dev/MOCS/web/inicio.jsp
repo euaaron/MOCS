@@ -34,34 +34,34 @@
 
     <nav class="top-bar">
         <div class="total-center">
-            <a class="navbar-brand" href="inicio?acao=confirmarOperacao&operacao=validar&agente=${agente}<c:if test="${idUser != null && idUser != 0}" >&idUser=${idUser}</c:if>">MOCS</a>
+            <a class="navbar-brand" href="#">MOCS</a>
         </div>
     </nav>
     <div class="menu display-flex">
         <ul >
             <li class="nav-item active">
-                <a class="nav-link" href="inicio?acao=confirmarOperacao&operacao=validar&agente=${agente}<c:if test="${idUser != null && idUser != 0}" >&idUser=${idUser}</c:if>">Inicio</a>
+                <a class="nav-link" href="#">Inicio</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="PesquisarUsuarioController?agente=${agente}<c:if test="${idUser != null || idUser != 0}">&idUser=${idUser}</c:if>">Pesquisar Usuários</a>
+                <a class="nav-link" href="PesquisarUsuarioController">Pesquisar Usuários</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="PesquisarEstabelecimentoController?agente=${agente}<c:if test="${idUser != null || idUser != 0}">&idUser=${idUser}</c:if>">Pesquisar Estabelecimentos</a>
+                <a class="nav-link" href="PesquisarEstabelecimentoController">Pesquisar Estabelecimentos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="PesquisarFuncaoController?agente=${agente}<c:if test="${idUser != null || idUser != 0}">&idUser=${idUser}</c:if>">Pesquisar Funcões</a>
+                <a class="nav-link" href="PesquisarFuncaoController">Pesquisar Funcões</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="PesquisarFuncionarioController?agente=${agente}<c:if test="${idUser != null || idUser != 0}">&idUser=${idUser}</c:if>">Pesquisar Funcionários</a>
+                <a class="nav-link" href="PesquisarFuncionarioController">Pesquisar Funcionários</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="PesquisarPratoController?agente=${agente}<c:if test="${idUser != null || idUser != 0}">&idUser=${idUser}</c:if>">Pesquisar Pratos</a>
+                <a class="nav-link" href="PesquisarPratoController">Pesquisar Pratos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="PesquisarComandaController?agente=${agente}<c:if test="${idUser != null || idUser != 0}">&idUser=${idUser}</c:if>">Pesquisar Comandas</a>
+                <a class="nav-link" href="PesquisarComandaController">Pesquisar Comandas</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="PesquisarPedidoController?agente=${agente}<c:if test="${idUser != null || idUser != 0}">&idUser=${idUser}</c:if>">Pesquisar Pedidos</a>
+                <a class="nav-link" href="PesquisarPedidoController">Pesquisar Pedidos</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/MOCS/">Login/Logout</a>

@@ -45,53 +45,38 @@ public class LoginController extends HttpServlet {
             throws SQLException, ClassNotFoundException, ServletException {
         String erro = "Dados incorretos.";
         try {
-            String operacao = request.getParameter("operacao");
+
             int agente = Integer.parseInt(request.getParameter("agente"));
 
-            if (operacao.equals("logar")) {
-                if (getAgente(agente).equals("convidado")) {
-                    request.setAttribute("operacao", operacao);
-                    request.setAttribute("agente", agente);
-                    RequestDispatcher view = request.getRequestDispatcher("inicio.jsp");
-                    view.forward(request, response);
-                }
-
-                String email = request.getParameter("txtEmail");
-                String senha = request.getParameter("txtSenha");
-
-                if (senha == null || email == null || senha.equals("") || email.equals("")) {
-                    request.setAttribute("erro", erro);
-                    RequestDispatcher view = request.getRequestDispatcher("inicio.jsp");
-                    view.forward(request, response);
-                }
-                
-                Usuario user;
-
-                if (request.getParameter("idUser") != null && Integer.parseInt(request.getParameter("idUser")) != 0) {
-                    int id = Integer.parseInt(request.getParameter("idUser"));
-                    user = Usuario.obterUsuario(id);
-
-                } else {
-                    user = Usuario.obterUsuarioEmail(email);
-                }
-
-                if (!senha.equals(user.getSenha())) {
-                    request.setAttribute("erro", erro);
-                    RequestDispatcher view = request.getRequestDispatcher("inicio.jsp");
-                    view.forward(request, response);
-                } else {
-                    request.setAttribute("operacao", operacao);
-                    request.setAttribute("agente", agente);
-                    request.setAttribute("idUser", user.getId());
-                    RequestDispatcher view = request.getRequestDispatcher("inicio.jsp");
-                    view.forward(request, response);
-                }
+            if (getAgente(agente).equals("convidado")) {
+                RequestDispatcher view = request.getRequestDispatcher("inicio.jsp");
+                view.forward(request, response);
             }
-            if (operacao.equals("validar")) {
-                int idUser = Integer.parseInt(request.getParameter("idUser"));
-                request.setAttribute("operacao", operacao);
-                request.setAttribute("agente", agente);
-                request.setAttribute("idUser", idUser);
+
+            String email = request.getParameter("txtEmail");
+            String senha = request.getParameter("txtSenha");
+
+            if (senha == null || email == null || senha.equals("") || email.equals("")) {
+                request.setAttribute("erro", erro);
+                RequestDispatcher view = request.getRequestDispatcher("inicio.jsp");
+                view.forward(request, response);
+            }
+
+            Usuario user;
+
+            if (request.getParameter("idUser") != null && Integer.parseInt(request.getParameter("idUser")) != 0) {
+                int id = Integer.parseInt(request.getParameter("idUser"));
+                user = Usuario.obterUsuario(id);
+
+            } else {
+                user = Usuario.obterUsuarioEmail(email);
+            }
+
+            if (!senha.equals(user.getSenha())) {
+                request.setAttribute("erro", erro);
+                RequestDispatcher view = request.getRequestDispatcher("inicio.jsp");
+                view.forward(request, response);
+            } else {
                 RequestDispatcher view = request.getRequestDispatcher("inicio.jsp");
                 view.forward(request, response);
             }
