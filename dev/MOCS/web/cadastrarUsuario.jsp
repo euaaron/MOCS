@@ -32,7 +32,7 @@
             <li>${operacao}</li>
         </ul>
         <div>
-            <form id="incluir" action="ManterUsuarioController?acao=confirmarOperacao&operacao=${operacao}&agente=${agente}<c:if test="${idUser != null && idUser != 0}" >&idUser=${idUser}</c:if>" name="frmManterUsuario" method="post">
+            <form id="incluir" action="ManterUsuarioController?acao=confirmarOperacao&operacao=${operacao}&agente=${agente}<c:if test="${idUser != null && idUser != 0}" >&idUser=${idUser}</c:if>" name="frmManterUsuario" method="post" >
                 <table border="1">
                     <tbody>
                         <tr>
