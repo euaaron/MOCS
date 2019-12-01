@@ -85,7 +85,7 @@
             mensagem = mensagem + "Informe o Código da Comanda\n";
             }
             if (form.txtIdCliente.value === "0") {
-            mensagem = mensagem + "Informe o Código do Cliente\n";
+            mensagem = mensagem + "Informe o Cliente\n";
             }
             if (form.txtDataComanda.value === "") {
             mensagem = mensagem + "Informe a data de abertura da comanda\n";

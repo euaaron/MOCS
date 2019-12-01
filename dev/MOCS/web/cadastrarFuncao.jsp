@@ -91,7 +91,7 @@
                 var mensagem;
                 mensagem = "";
                 if (form.txtIdEstabelecimento.value === "0") {
-                    mensagem = mensagem + "Informe o Código do Estabelecimento\n";
+                    mensagem = mensagem + "Informe o Estabelecimento\n";
                 }
                 if (form.txtIdFuncao.value === "") {
                     mensagem = mensagem + "Informe o Código da Função\n";

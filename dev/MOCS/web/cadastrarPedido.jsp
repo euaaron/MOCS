@@ -99,13 +99,13 @@
                     mensagem = mensagem + "Informe o Código do Pedido\n";
                 }
                 if (form.txtIdPrato.value === "0") {
-                    mensagem = mensagem + "Informe o Código do Prato\n";
+                    mensagem = mensagem + "Informe o Prato\n";
                 }
                 if (form.txtQuantidade.value === "") {
                     mensagem = mensagem + "Informe a Quantidade\n";
                 }
                 if (form.txtIdComanda.value === "0") {
-                    mensagem = mensagem + "Informe o Código da Comanda\n";
+                    mensagem = mensagem + "Informe a Comanda\n";
                 }
                 if (!campoNumerico(form.txtId.value)) {
                     mensagem = mensagem + "Código do Pedido deve ser numérico\n";

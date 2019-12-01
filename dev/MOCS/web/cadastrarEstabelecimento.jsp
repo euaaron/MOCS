@@ -123,7 +123,7 @@
                     mensagem = mensagem + "Informe o Código do Estabelecimento\n";
                 }
                 if (form.txtIdProprietario.value === "0") {
-                    mensagem = mensagem + "Informe o Código do Proprietário\n";
+                    mensagem = mensagem + "Informe o Proprietário\n";
                 }
                 if (form.txtCnpj.value === "") {
                     mensagem = mensagem + "Informe o CNPJ do Estabelecimento\n";

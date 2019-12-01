@@ -117,10 +117,10 @@
                 mensagem = ""; 
                 
             if (form.txtIdFuncionario.value === "0") {
-            mensagem = mensagem + "Informe o Código do Funcionário\n";
+            mensagem = mensagem + "Informe o Funcionário\n";
             }
             if (form.txtIdEstabelecimento.value === "0") {
-            mensagem = mensagem + "Informe o Código do Estabelecimento\n";
+            mensagem = mensagem + "Informe o Estabelecimento\n";
             }
             if (form.txtId.value === "") {
             mensagem = mensagem + "Informe o Código do Prato\n";
