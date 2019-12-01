@@ -114,7 +114,7 @@ public class ManterEstabelecimentoController extends HttpServlet {
            } 
            
            Estabelecimento e = new Estabelecimento(id, cnpj, nomeFantasia, inscEstadual,
-            telefone, idProprietario, idEndereco);
+            telefone, proprietario, end);
            
            if (operacao.equals("Incluir")) {
                end.gravar();
