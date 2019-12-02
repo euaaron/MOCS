@@ -24,13 +24,11 @@ body {
 .card {
     margin-bottom: 0.8vh;
     .card-header{
-        .prato {
-            position: absolute;
+        image.prato {
+            position: relative;
             display: flex;
             width: 100%;
-            height: 75%;
-            background-size: contain;
-            background-repeat: no-repeat;
+            height: 100px;
         }
     }
     .card-footer {

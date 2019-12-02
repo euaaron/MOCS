@@ -8,6 +8,7 @@ package model;
 import dao.ComandaDAO;
 import dao.PedidoDAO;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 

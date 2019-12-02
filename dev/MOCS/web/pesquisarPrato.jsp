@@ -41,7 +41,7 @@
         </div>
         <div class="cards"><c:forEach items="${pratos}" var="prato">
             <div class="card card-style">
-                <image class="card-img-top prato" src="<c:out value="${prato.imagemUrl}"/>">
+                <image class="card-img-top prato" src="${prato.imagemUrl}">
                 <h4 class="card-subtitle-invert">R$ ${prato.preco}</h4>
                 <div class="card-header prato">
                     <h3 class="card-subtitle"><c:out value="${prato.nome}" /></h3>
@@ -91,7 +91,5 @@
                 </div>
             </div></c:forEach>
         </div>
-        <script type="text/javascript">
-        </script>
     </body>
 </html>
