@@ -37,44 +37,43 @@
         <div>
             <form id="incluir" action="ManterPedidoController?acao=confirmarOperacao&operacao=${operacao}<c:if test="${comanda != null}">&icm=${comanda.id}</c:if>" name="frmManterPedido" method="post" onsubmit="return validarFormulario(this)">
                 <c:if test="${comanda != null}"> Comanda ${comanda.id} de ${comanda.cliente.nome} </c:if>
-                            <c:if test="${comanda == null}">
-                            <td><label for="idComanda">Comanda:</label></td>
-                            <td>
-                                <select id="idComanda" name="txtIdComanda" >
-                                    <option value="0" <c:if test="${pedido.idComanda == null}"> selected</c:if>> </option>
-                                    <c:forEach items="${comandas}" var="comanda">
+                <c:if test="${comanda == null}">
+                    <div class="form-group row">
+                    <label for="idComanda" class="col-sm-2 col-form-label">Comanda:</label>
+                        <div class="col-sm-2">
+                            <select id="idComanda" name="txtIdComanda" class="custom-select mr-sm-2">
+                                <option value="0" <c:if test="${pedido.idComanda == null}"> selected</c:if>> </option>
+                                <c:forEach items="${comandas}" var="comanda">
                                     <option value="${comanda.id}" <c:if test="${pedido.idComanda == comanda.id}"> selected</c:if>>${comanda.id} - ${comanda.cliente.nome}</option>
-                                    </c:forEach>
-                                </select>
-                            </td>
-                            </c:if>
-                        </tr>
-                        <tr>
-                            <td><label for="idPedido">Id:</label></td>
-                            <td><input type="number" name="txtId" id="idPedido" maxlength="10" value="${pedido.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/></td>
-                        </tr>
-                        <tr>
-                            <td><label for="idPrato">Prato:</label></td>
-                            <td>
-                                <select id="idPrato" name="txtIdPrato" >
-                                    <option value="0" <c:if test="${pedido.idPrato == null}"> selected</c:if>> </option>
-                                    <c:forEach items="${pratos}" var="prato">
-                                        <option value="${prato.id}" <c:if test="${pedido.idPrato == prato.id}"> selected</c:if>>${prato.nome}</option>
-                                    </c:forEach>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><label for="quantidade">Quantidade:</label></td>
-                            <td><input type="number" name="txtQuantidade" id="quantidade" min="1" value="${pedido.quantidade}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="submit" name="btnIncluir" value="Confirmar">
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                                </c:forEach>
+                            </select>
+                        </div>
+                    </div>    
+                </c:if>
+                    <div class="form-group row">
+                         <label class="col-sm-2 col-form-label" for="idPedido">Id:</label>
+                         <div class="col-sm-2">
+                              <input class="form-control" type="number" name="txtId" id="idPedido" maxlength="10" value="${pedido.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/>
+                         </div>
+                    </div>                
+                    <div class="form-group row">
+                         <label class="col-sm-2 col-form-label" for="idPedido" for="idPrato">Prato:</label>
+                         <div class="col-sm-2">
+                            <select class="custom-select mr-sm-2" id="idPrato" name="txtIdPrato">
+                                <option value="0" <c:if test="${pedido.idPrato == null}"> selected</c:if>> </option>
+                                <c:forEach items="${pratos}" var="prato">
+                                    <option value="${prato.id}" <c:if test="${pedido.idPrato == prato.id}"> selected</c:if>>${prato.nome}</option>
+                                </c:forEach>
+                            </select>
+                         </div>
+                    </div>                          
+                    <div class="form-group row">
+                         <label class="col-sm-2 col-form-label" for="quantidade">Quantidade:</label>
+                         <div class="col-sm-2">
+                              <input class="form-control" type="number" name="txtQuantidade" id="quantidade" min="1" value="${pedido.quantidade}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
+                         </div>
+                    </div>                                        
+                <button type="submit" class="btn btn-primary" name="btnIncluir" value="Confirmar">Confirmar</button>
             </form>
         </div>
         <script>

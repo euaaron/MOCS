@@ -19,55 +19,61 @@
         <script src="vendor/bootstrap/bootstrap.min.js"></script>
         <%-- Estilos e scripts próprios --%>
         <link rel="stylesheet" href="./css/main.css"/>
+        <link rel="stylesheet" href="./css/cadastro.css"/>
         <script src="./js/filtros.js"></script>
     </head>
     <body>
+        <nav class="top-bar">
+            <div class="total-center">
+                <a class="navbar-brand" href="inicio">MOCS</a>
+            </div>
+        </nav>
         <div>
-            <h1>${operacao} Funcao</h1>
             <ul class="breadcrumb">
                 <li><a href="inicio">Index Admin</a></li>
                 <li><a href="PesquisarFuncaoController">Pesquisar</a></li>
                 <li>${operacao}</li>
             </ul>
+            <h1>${operacao} Funcao</h1>
         </div>        
         <div>
             <form id="incluir" action="ManterFuncaoController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterFuncao" method="post" onsubmit="return validarFormulario(this)">
-                <table border="1">
-                    <tbody>
-                        <tr>
-                        <td><label>Estabelecimento:</label></td>
-                        <td>
-                            <select name="txtIdEstabelecimento" <c:if test="${operacao == 'Excluir'}"> disabled</c:if>>
-                                <option value="0" <c:if test="${funcao.idEstabelecimento == null}"> selected</c:if>> </option>  
-                                <c:forEach items="${estabelecimentos}" var="estabelecimento">
-                                <option value="${estabelecimento.id}" <c:if test="${funcao.idEstabelecimento == estabelecimento.id}"> selected</c:if>>${estabelecimento.nomeFantasia}</option>
-                                </c:forEach>
-                            </select>
-                        </td>
-                    </tr>   
-                        <tr>
-                            <td><label for="id">Id da Funcao:</label></td>
-                            <td><input type="text" name="txtIdFuncao" id="id" maxlength="10" value="${funcao.id}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
-                        </tr>
-                        <tr>
-                            <td><label for="nome">Nome:</label></td>
-                            <td><input type="text" name="txtNome" id="nome" maxlength="45" value="${funcao.nome}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
-                        </tr>
-                        <tr>
-                            <td><label for="descricao">Descrição:</label></td>
-                            <td><input type="text" name="txtDescricao" id="descricao" maxlength="60" value="${funcao.descricao}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
-                        </tr>
-                        <tr>
-                            <td><label for="nivelPermissao">Nível de Permissão:</label></td>
-                            <td><input type="number" name="txtNivelPermissao" id="nivelPermissao" max="5" value="${funcao.nivelPermissao}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="submit" name="btnIncluir" value="Confirmar">
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                    <div class="form-group row">
+                         <label class="col-sm-2 col-form-label">Estabelecimento:</label>
+                         <div class="col-sm-2">
+                              <select class="custom-select mr-sm-2" name="txtIdEstabelecimento" <c:if test="${operacao == 'Excluir'}"> disabled</c:if>>
+                                  <option value="0" <c:if test="${funcao.idEstabelecimento == null}"> selected</c:if>> </option>  
+                                    <c:forEach items="${estabelecimentos}" var="estabelecimento">
+                                        <option value="${estabelecimento.id}" <c:if test="${funcao.idEstabelecimento == estabelecimento.id}"> selected</c:if>>${estabelecimento.nomeFantasia}</option>
+                                    </c:forEach>
+                              </select>
+                         </div>
+                    </div>                    
+                    <div class="form-group row">
+                         <label class="col-sm-2 col-form-label" for="id">Id da Funcao:</label>
+                         <div class="col-sm-2">
+                              <input class="form-control" type="text" name="txtIdFuncao" id="id" maxlength="10" value="${funcao.id}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
+                         </div>
+                    </div>                    
+                    <div class="form-group row">
+                         <label class="col-sm-2 col-form-label" for="nome">Nome:</label>
+                         <div class="col-sm-2">
+                              <input class="form-control" type="text" name="txtNome" id="nome" maxlength="45" value="${funcao.nome}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
+                         </div>
+                    </div>                    
+                    <div class="form-group row">
+                         <label class="col-sm-2 col-form-label" for="descricao">Descrição:</label>
+                         <div class="col-sm-2">
+                              <input class="form-control" type="text" name="txtDescricao" id="descricao" maxlength="60" value="${funcao.descricao}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
+                         </div>
+                    </div>                    
+                    <div class="form-group row">
+                         <label class="col-sm-2 col-form-label" for="nivelPermissao">Nível de Permissão:</label>
+                         <div class="col-sm-2">
+                              <input class="form-control" type="number" name="txtNivelPermissao" id="nivelPermissao" max="5" value="${funcao.nivelPermissao}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
+                         </div>
+                    </div>                    
+                    <button type="submit" class="btn btn-primary" name="btnIncluir" value="Confirmar">Confirmar</button>
             </form>
         </div>
         <script>
