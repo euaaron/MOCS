@@ -34,64 +34,73 @@ public class ManterPedidoController extends HttpServlet {
         String acao = request.getParameter("acao");
         if (acao.equals("confirmarOperacao")) {
             confirmarOperacao(request, response);
-        }else{
+        } else {
             if (acao.equals("prepararOperacao")) {
                 prepararOperacao(request, response);
             }
         }
-    } 
-    
+    }
+
     public void prepararOperacao(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ClassNotFoundException, SQLException {
-    try {
-        String operacao = request.getParameter("operacao");
-        request.setAttribute("operacao", operacao);
-        request.setAttribute("pratos", Prato.obterPratos());
-        request.setAttribute("comandas", Comanda.obterComandas());
-        if (!operacao.equals("Incluir")) {
+        try {
+            String operacao = request.getParameter("operacao");
+            String idComanda = request.getParameter("icm");
+            request.setAttribute("operacao", operacao);
+            request.setAttribute("pratos", Prato.obterPratos());
+            request.setAttribute("comandas", Comanda.obterComandas());
+            if (!operacao.equals("Incluir")) {
                 int id = Integer.parseInt(request.getParameter("id"));
                 Pedido obj = Pedido.obterPedido(id);
                 request.setAttribute("pedido", obj);
             }
-        RequestDispatcher view = request.getRequestDispatcher("/cadastrarPedido.jsp");
-        view.forward(request, response);
-    }catch (ServletException e){
-        throw e;
-    }catch (IOException e){
-        throw new ServletException(e);
+            if (idComanda != null && !idComanda.equals("")) {
+                Comanda comanda = Comanda.obterComanda(Integer.parseInt(idComanda));
+                request.setAttribute("comanda", comanda);
+            }
+            RequestDispatcher view = request.getRequestDispatcher("/cadastrarPedido.jsp");
+            view.forward(request, response);
+        } catch (ServletException e) {
+            throw e;
+        } catch (IOException e) {
+            throw new ServletException(e);
+        }
     }
-    }
-    
-    public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) 
-           throws SQLException, ClassNotFoundException, ServletException {
-        
+
+    public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, ClassNotFoundException, ServletException {
+
         String operacao = request.getParameter("operacao");
-        
         int idPedido = Integer.parseInt(request.getParameter("txtId"));
-        int idComanda = Integer.parseInt(request.getParameter("txtIdComanda"));
+        int idComanda;
+        if (request.getParameter("icm") == null) {
+            idComanda = Integer.parseInt(request.getParameter("txtIdComanda"));    
+        } else {
+            idComanda = Integer.parseInt(request.getParameter("icm"));
+        }
         int idPrato = Integer.parseInt(request.getParameter("txtIdPrato"));
         int quantidade = Integer.parseInt(request.getParameter("txtQuantidade"));
-        
+
         try {
             Comanda comanda = null;
-            if(idComanda != 0){
+            if (idComanda != 0) {
                 comanda = Comanda.obterComanda(idComanda);
             }
             Prato prato = null;
-            if(idPrato != 0){
+            if (idPrato != 0) {
                 prato = Prato.obterPrato(idPrato);
             }
             Pedido pedido = new Pedido(idPedido, idPrato, quantidade, idComanda);
-            if (operacao.equals("Incluir")){
+            if (operacao.equals("Incluir")) {
                 pedido.gravar();
             } else if (operacao.equals("Excluir")) {
-               pedido.excluir();
+                pedido.excluir();
             } else if (operacao.equals("Editar")) {
-               pedido.editar();
+                pedido.editar();
             }
             RequestDispatcher view = request.getRequestDispatcher("PesquisarPedidoController");
-                    view.forward(request, response);
-        } catch (IOException e){
+            view.forward(request, response);
+        } catch (IOException e) {
             throw new ServletException(e);
         }
     }

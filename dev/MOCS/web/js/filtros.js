@@ -22,9 +22,36 @@
  * THE SOFTWARE.
  */
 
-function valida(tipo, id) {
-    var campo = id;
-    tipo = tipo.toLowerCase();
+var filtra = function filtra(type) {
+    var campo = document.getElementById(type);
+    var tipo = type.toLowerCase();
+    if (valida(tipo, id) === 1) {
+        return;
+    }
+    var filtrado = "";
+    var filtrar = String(campo.value);
+
+    for (i = 0; i <= campo.value.length; i++) {
+        if (
+            filtrar.substr(i,1).charCodeAt(0) >= 48 &&
+            filtrar.substr(i,1).charCodeAt(0) <= 57
+        )
+        {
+            filtrado += filtrar.substr(i,1);
+        }
+    }
+    if(tipo==='cep') {
+        formataCEP(campo, filtrado);
+    }
+    if(tipo==='cpf') {
+        formataCPF(campo, filtrado);
+    }
+    if(tipo==='cnpj') {
+        formataCNPJ(campo, filtrado);
+    }
+}
+
+function valida(tipo, campo) {
     var pattern;
     
     if(tipo==='cep') {
@@ -38,17 +65,19 @@ function valida(tipo, id) {
     }
     
     if(!pattern.test(campo.value)) {
-        if(tipo==='cep') cep.style.border="solid 1px red"; 
-        if(tipo==='cpf') cpf.style.border="solid 1px red";
+        campo.style.border="solid 1px red"; 
         return 0;
     } else {
-        if(tipo==='cep') cep.style.border="solid 1px lightgreen";
-        if(tipo==='cpf') cpf.style.border="solid 1px lightgreen";
+        campo.style.border="solid 1px lightgreen";
         return 1;
     }    
 }
 
-function formataCPF(filtrado) {
+/*
+ * -------- CPF
+ */
+
+function formataCPF(cpf, filtrado) {
     var formatado = "";
     var temp = filtrado;
     if (cpf.value.length <= 3)
@@ -80,8 +109,7 @@ function formataCPF(filtrado) {
         formatado += temp.substr(9,2);
     }
     if(cpf.value.length >= 14) {
-        var tipo = cpf;
-        valida('cpf', tipo);
+        valida('cpf', cpf);
     }
     if(cpf.value.length < 14) {
         cpf.style.border = "solid 1px gray";
@@ -89,68 +117,11 @@ function formataCPF(filtrado) {
     cpf.value = formatado;
 }
 
-function filtraCPF() {
-    var tipo = cpf;
-    if (valida('cpf', tipo) === 1) {
-        return;
-    }
-    var filtrado = "";
-    var filtrar = String(cpf.value);
+/*
+ * -------- CEP
+ */
 
-    for (i = 0; i <= cpf.value.length; i++) {
-        if (
-            filtrar.substr(i,1).charCodeAt(0) >= 48 &&
-            filtrar.substr(i,1).charCodeAt(0) <= 57
-        )
-        {
-            filtrado += filtrar.substr(i,1);
-        }
-    }
-    formataCPF(filtrado);
-}
-
-function formataCPF(filtrado) {
-    var formatado = "";
-    var temp = filtrado;
-    if (cpf.value.length <= 3)
-    {
-        formatado = temp;
-    }
-    if (cpf.value.length > 3 && temp.length <= 6)
-    {
-        formatado = temp.substr(0,3);
-        formatado += ".";
-        formatado += temp.substr(3,3);
-    }
-    if (cpf.value.length > 6 )
-    {
-        formatado = temp.substr(0,3);
-        formatado += ".";
-        formatado += temp.substr(3,3);
-        formatado += ".";
-        formatado += temp.substr(6,3);
-    }
-    if (cpf.value.length > 9 )
-    {
-        formatado = temp.substr(0,3);
-        formatado += ".";
-        formatado += temp.substr(3,3);
-        formatado += ".";
-        formatado += temp.substr(6,3);
-        formatado += "-";
-        formatado += temp.substr(9,2);
-    }
-    if(cpf.value.length >= 14) {
-        validaCPF();
-    }
-    if(cpf.value.length < 14) {
-        cpf.style.border = "solid 1px gray";
-        aviso.innerHTML = "";
-    }
-    cpf.value = formatado;
-}
-
-function formataCEP(filtrado) {
+function formataCEP(cep, filtrado) {
     var formatado = "";
     var temp = String(filtrado);
     if (cep.value.length <= 2)
@@ -180,48 +151,47 @@ function formataCEP(filtrado) {
     cep.value = formatado;
 }
 
-function filtraCEP() {
-    if (valida('cep', cep) === 1) {
-        return;
-    }
-    var filtrado = "";
-    var filtrar = String(cep.value);
+/*
+ * -------- CNPJ
+ */
 
-    for (i = 0; i <= cep.value.length; i++) {
-        if (
-            filtrar.substr(i,1) === "0" ||
-            filtrar.substr(i,1) === "1" ||
-            filtrar.substr(i,1) === "2" ||
-            filtrar.substr(i,1) === "3" ||
-            filtrar.substr(i,1) === "4" ||
-            filtrar.substr(i,1) === "5" ||
-            filtrar.substr(i,1) === "6" ||
-            filtrar.substr(i,1) === "7" ||
-            filtrar.substr(i,1) === "8" ||
-            filtrar.substr(i,1) === "9"
-        )
-        {
-            filtrado += filtrar.substr(i,1);
-        }
+function formataCNPJ(cnpj, filtrado) {
+    var formatado = "";
+    var temp = filtrado;
+    if (cpf.value.length <= 3)
+    {
+        formatado = temp;
     }
-    formataCEP(filtrado);
-}
-
-function filtraCPF() {
-    if (validaCPF() === 1) {
-        return;
+    if (cpf.value.length > 3 && temp.length <= 6)
+    {
+        formatado = temp.substr(0,3);
+        formatado += ".";
+        formatado += temp.substr(3,3);
     }
-    var filtrado = "";
-    var filtrar = String(cpf.value);
-
-    for (i = 0; i <= cpf.value.length; i++) {
-        if (
-            filtrar.substr(i,1).charCodeAt(0) >= 48 &&
-            filtrar.substr(i,1).charCodeAt(0) <= 57
-        )
-        {
-            filtrado += filtrar.substr(i,1);
-        }
+    if (cpf.value.length > 6 )
+    {
+        formatado = temp.substr(0,3);
+        formatado += ".";
+        formatado += temp.substr(3,3);
+        formatado += ".";
+        formatado += temp.substr(6,3);
     }
-    formataCPF(filtrado);
+    if (cpf.value.length > 9 )
+    {
+        formatado = temp.substr(0,3);
+        formatado += ".";
+        formatado += temp.substr(3,3);
+        formatado += ".";
+        formatado += temp.substr(6,3);
+        formatado += "-";
+        formatado += temp.substr(9,2);
+    }
+    if(cpf.value.length >= 14) {
+        valida('cnpj', cnpj);
+    }
+    if(cpf.value.length < 14) {
+        cpf.style.border = "solid 1px gray";
+        aviso.innerHTML = "";
+    }
+    cpf.value = formatado;
 }

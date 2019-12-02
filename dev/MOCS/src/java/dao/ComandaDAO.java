@@ -109,8 +109,8 @@ public class ComandaDAO {
         try {
             conexao = BD.getConexao();
             comando = conexao.createStatement();
-            stringSQL = "delete from comanda where id = "
-                    + e.getId();
+            stringSQL = "delete from pedido where idComanda = " + e.getId()
+            + "; delete from comanda where id = " + e.getId();
             comando.execute(stringSQL);
         } finally {
             fecharConexao(conexao, comando);

@@ -6,9 +6,11 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.persistence.TemporalType;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -51,7 +53,7 @@ public class ManterComandaController extends HttpServlet {
         String dataComanda = request.getParameter("txtDataComanda");
         String horaComanda = request.getParameter("txtHoraComanda");
         int idCliente = Integer.parseInt(request.getParameter("txtIdCliente"));
-
+        
         try {
             Usuario cliente = null;
             if(idCliente != 0){

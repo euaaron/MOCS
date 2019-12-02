@@ -80,7 +80,7 @@
                         <tr>
                             <td><label for="cpf">CPF:</label></td>
                             <td>
-                                <input type="text" name="txtCpf" id="cpf" maxlength="14" placeholder="000.000.000-00" value="${funcionario.cpf}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
+                                <input type="text" name="txtCpf" id="cpf" maxlength="14" onkeyup="filtra('cpf')" placeholder="000.000.000-00" value="${funcionario.cpf}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
                             </td>
                         </tr>
                         <tr>

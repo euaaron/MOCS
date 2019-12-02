@@ -11,7 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>${operacao} Pedido</title>
+        <title>MOCS | ${operacao} Pedido</title>
         <%-- Estilos, scripts e dependências de terceiros --%>
         <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css"/>
         <script src="vendor/jquery-3.3.1.slim.min.js"></script>
@@ -22,19 +22,40 @@
         <script src="./js/filtros.js"></script>
     </head>
     <body>
-        <h1>${operacao} Pedido</h1>
+        <nav class="top-bar">
+            <div class="total-center">
+                <a class="navbar-brand" href="inicio">MOCS</a>
+            </div>
+        </nav>
         <ul class="breadcrumb">
-            <li><a href="inicio">Index Admin</a></li>
+            <li><a href="inicio">Menu</a></li>
             <li><a href="PesquisarPedidoController">Pesquisar</a></li>
             <li>${operacao}</li>
         </ul>
+        <h1>${operacao} Pedido</h1>
         <div>
-            <form id="incluir" action="ManterPedidoController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterPedido" method="post" onsubmit="return validarFormulario(this)">
+            <form id="incluir" action="ManterPedidoController?acao=confirmarOperacao&operacao=${operacao}<c:if test="${comanda != null}">&icm=${comanda.id}</c:if>" name="frmManterPedido" method="post" onsubmit="return validarFormulario(this)">
                 <table border="1">
                     <tbody>
                         <tr>
+                            <c:if test="${comanda != null}">
+                                <td colspan="2">Comanda ${comanda.id} de ${comanda.cliente.nome}</td>
+                            </c:if>
+                            <c:if test="${comanda == null}">
+                            <td><label for="idComanda">Comanda:</label></td>
+                            <td>
+                                <select id="idComanda" name="txtIdComanda" >
+                                    <option value="0" <c:if test="${pedido.idComanda == null}"> selected</c:if>> </option>
+                                    <c:forEach items="${comandas}" var="comanda">
+                                    <option value="${comanda.id}" <c:if test="${pedido.idComanda == comanda.id}"> selected</c:if>>${comanda.id} - ${comanda.cliente.nome}</option>
+                                    </c:forEach>
+                                </select>
+                            </td>
+                            </c:if>
+                        </tr>
+                        <tr>
                             <td><label for="idPedido">Id:</label></td>
-                            <td><input type="text" name="txtId" id="idPedido" maxlength="10" value="${pedido.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/></td>
+                            <td><input type="number" name="txtId" id="idPedido" maxlength="10" value="${pedido.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td><label for="idPrato">Prato:</label></td>
@@ -50,17 +71,6 @@
                         <tr>
                             <td><label for="quantidade">Quantidade:</label></td>
                             <td><input type="number" name="txtQuantidade" id="quantidade" min="1" value="${pedido.quantidade}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
-                        </tr>
-                        <tr>
-                            <td><label for="idComanda">Comanda:</label></td>
-                            <td>
-                                <select id="idComanda" name="txtIdComanda" >
-                                    <option value="0" <c:if test="${pedido.idComanda == null}"> selected</c:if>> </option>
-                                    <c:forEach items="${comandas}" var="comanda">
-                                        <option value="${comanda.id}" <c:if test="${pedido.idComanda == comanda.id}"> selected</c:if>>${comanda.id}</option>
-                                    </c:forEach>
-                                </select>
-                            </td>
                         </tr>
                         <tr>
                             <td>

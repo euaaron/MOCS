@@ -5,7 +5,8 @@
 ul.breadcrumb {
   padding: 10px 16px;
   list-style: none;
-  background-color: #eeeeee; }
+  background-color: #eeeeee;
+  border-radius: 0 !important; }
   ul.breadcrumb li {
     display: inline;
     font-size: 18px; }
