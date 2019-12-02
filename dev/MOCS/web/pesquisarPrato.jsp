@@ -24,11 +24,36 @@
 
     </head>
     <body>
-        <h1>Pesquisar Pratos</h1>
+        <nav class="top-bar">
+            <div class="total-center">
+                <a class="navbar-brand" href="inicio">MOCS</a>
+            </div>
+        </nav>
         <ul class="breadcrumb">
-            <li><a href="inicio.jsp">Index Admin</a></li>
+            <li><a href="inicio">Menu</a></li>
             <li>Pesquisar</li>
         </ul>
+        <h1>Pesquisar Pratos</h1>
+        
+        <div class="cards"><c:forEach items="${pratos}" var="prato">
+            <div class="card card-style">
+                <div class="card-header prato">
+                    <h3 class="card-subtitle"><c:out value="${prato.nome}" /></h3>
+                    <h5>Prato <c:out value="${prato.id}" />, adicionado por ${prato.funcionario.nome} em <span class="data"><c:out value="${prato.dataCriacao}"/></span></h5>
+                </div>
+                <div>
+                    <h4 class="card-subtitle-invert">Pedidos</h4>
+                    <ul class="list-group list-group-flush">
+                            
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    
+                </div>
+            </div></c:forEach>
+        </div>
+        
+        
         <table border = 1>
             <tr>
                 <th>COD</th>

@@ -84,60 +84,6 @@
         </div>
         <script type="text/javascript">
             
-                var listaData = document.getElementsByClassName("data");            
-                
-                for(let i = 0; i < listaData.length; i++) {
-                    let date = new Date(listaData[i].innerHTML);
-                    listaData[i].innerHTML = formataData(date);
-                }
-                
-                function formataData(date) {
-                    let dia = date.getDay();
-                    let mes;
-                    let ano = date.getFullYear();
-                    switch(date.getMonth()){
-                        case 1:
-                            mes = 'JAN';
-                            break;
-                        case 2:
-                            mes = 'FEV';
-                            break;
-                        case 3:
-                            mes = 'MAR';
-                            break;
-                        case 4:
-                            mes = 'ABR';
-                            break;
-                        case 5:
-                            mes = 'MAIO';
-                            break;
-                        case 6:
-                            mes = 'JUN';
-                            break;
-                        case 7:
-                            mes = 'JUL';
-                            break;
-                        case 8:
-                            mes = 'AGO';
-                            break;
-                        case 9:
-                            mes = 'SET';
-                            break;
-                        case 10:
-                            mes = 'OUT';
-                            break;
-                        case 11:
-                            mes = 'NOV';
-                            break;
-                        case 12:
-                            mes = 'DEZ';
-                            break;
-                        default:
-                            mes = 'nulo';
-                            break;
-                    }
-                    return dia + " " + mes + " " + ano;
-                }
         </script>
     </body>
 
