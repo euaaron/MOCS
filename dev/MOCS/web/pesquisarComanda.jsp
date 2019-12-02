@@ -25,7 +25,7 @@
         <link rel="stylesheet" href="./css/main.css"/>
         <script src="./js/filtros.js"></script>
     </head>
-    <body>
+    <body onload="setDate()">
         <nav class="top-bar">
             <div class="total-center">
                 <a class="navbar-brand" href="inicio">MOCS</a>
@@ -48,7 +48,7 @@
                         <h3 class="card-subtitle">Comanda <c:out value="${comanda.id}" /></h3>
                         <h5>Aberta dia <span class="data"><c:out value="${comanda.data}" /></span> às <time><c:out value="${comanda.hora}"/></time></h5>
                     </div>
-                    <div>
+                    <div class="card-body">
                         <h4 class="card-subtitle-invert">Pedidos</h4>
                         <ul class="list-group list-group-flush"><c:forEach items="${pedidos}" var="pedido"><c:if test="${pedido.comanda.id == comanda.id}">
                             <li class="list-group-item">${pedido.quantidade}x ${pedido.prato.nome}

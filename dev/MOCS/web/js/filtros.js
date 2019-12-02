@@ -200,13 +200,15 @@ var filtra = function filtra(type) {
     /*
     * ------- DATA
     */
+   
+   function setDate(){
+       var listaData = document.getElementsByClassName("data");            
     
-    var listaData = document.getElementsByClassName("data");            
-    
-    for(let i = 0; i < listaData.length; i++) {
-        let date = new Date(listaData[i].innerHTML);
-        listaData[i].innerHTML = formataData(date);
-    }
+        for(let i = 0; i < listaData.length; i++) {
+            let date = new Date(listaData[i].innerHTML);
+            listaData[i].innerHTML = formataData(date);
+        }
+   }
     
     function formataData(date) {
         let dia = date.getDay();

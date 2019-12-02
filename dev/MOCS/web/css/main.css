@@ -17,8 +17,12 @@ body {
 .card {
   margin-bottom: 0.8vh; }
   .card .card-header .prato {
-    position: relative;
-    width: 100%; }
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 75%;
+    background-size: contain;
+    background-repeat: no-repeat; }
   .card .card-footer {
     position: relative;
     bottom: 0;
