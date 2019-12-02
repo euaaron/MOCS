@@ -4,6 +4,7 @@
     Author     : Aaron
 */
 @import url(breadcrumb.css);
+@import url(cadastro.css);
 @import url(../vendor/fontawesome/css/all.min.css);
 body {
   background-color: #dcdcdc; }
