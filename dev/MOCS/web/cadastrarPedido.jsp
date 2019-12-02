@@ -19,6 +19,7 @@
         <script src="vendor/bootstrap/bootstrap.min.js"></script>
         <%-- Estilos e scripts próprios --%>
         <link rel="stylesheet" href="./css/main.css"/>
+        <link rel="stylesheet" href="./css/cadastro.css"/>
         <script src="./js/filtros.js"></script>
     </head>
     <body>
@@ -35,12 +36,7 @@
         <h1>${operacao} Pedido</h1>
         <div>
             <form id="incluir" action="ManterPedidoController?acao=confirmarOperacao&operacao=${operacao}<c:if test="${comanda != null}">&icm=${comanda.id}</c:if>" name="frmManterPedido" method="post" onsubmit="return validarFormulario(this)">
-                <table border="1">
-                    <tbody>
-                        <tr>
-                            <c:if test="${comanda != null}">
-                                <td colspan="2">Comanda ${comanda.id} de ${comanda.cliente.nome}</td>
-                            </c:if>
+                <c:if test="${comanda != null}"> Comanda ${comanda.id} de ${comanda.cliente.nome} </c:if>
                             <c:if test="${comanda == null}">
                             <td><label for="idComanda">Comanda:</label></td>
                             <td>

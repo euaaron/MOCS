@@ -20,85 +20,99 @@
         <script src="vendor/bootstrap/bootstrap.min.js"></script>
         <%-- Estilos e scripts próprios --%>
         <link rel="stylesheet" href="./css/main.css"/>
+        <link rel="stylesheet" href="./css/cadastro.css"/>
         <script src="./js/filtros.js"></script>
     </head>
     <body>
-        <h1>${operacao} Prato</h1>
+        <nav class="top-bar">
+            <div class="total-center">
+                <a class="navbar-brand" href="inicio">MOCS</a>
+            </div>
+        </nav>
         <ul class="breadcrumb">
             <li><a href="inicio">Index Admin</a></li>
             <li><a href="PesquisarPratoController">Pesquisar</a></li>
             <li>${operacao}</li>
         </ul>
-        <form id="incluir" action="ManterPratoController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterPrato" method="post" onsubmit="return validarFormulario(this)">
-            <table border="1">
-                <tbody>
-                    <tr>
-                        <td><label for="id">Id:</label></td>
-                        <td><input type="text" name="txtId" maxlength="10" id="idPrato" value="${prato.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/></td>
-                    </tr>
-                    <tr>
-                        <td><label>Funcionario:</label></td>
-                        <td>
-                            <select name="txtIdFuncionario" <c:if test="${operacao == 'Excluir'}"> disabled</c:if>>
-                                <option value="0" <c:if test="${prato.idFuncionario == null}"> selected</c:if>> </option>  
-                                <c:forEach items="${funcionarios}" var="funcionario">                                    
-                                    <option value="${funcionario.id}" <c:if test="${prato.idFuncionario == funcionario.id}"> selected</c:if>>${funcionario.nome}</option>
-                                </c:forEach>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label>Estabelecimento:</label></td>
-                        <td>
-                            <select name="txtIdEstabelecimento">
-                                <option value="0" <c:if test="${prato.idEstabelecimento == null}"> selected</c:if>> </option>  
-                                <c:forEach items="${estabelecimentos}" var="estabelecimento">
-                                    <option value="${estabelecimento.id}" <c:if test="${prato.idEstabelecimento == estabelecimento.id}"> selected</c:if>>${estabelecimento.nomeFantasia}</option>
-                                </c:forEach>
-                            </select>
-                        </td>
-                    </tr>                    
-                    <tr>
-                        <td><label for="id">Id:</label></td>
-                        <td><input type="text" name="txtId" id="idPrato" maxlength="10" value="${prato.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/></td>
-                        </tr>
-                        <tr>
-                            <td><label for="nome">Nome:</label></td>
-                            <td><input type="text" name="txtNome" id="nome" maxlength="45" value="${prato.nome}"/></td>
-                    </tr>
-                    <tr>
-                        <td><label for="descricao">Descricao:</label></td>
-                        <td><input type="text" name="txtDescricao" id="descricao" maxlength="60" value="${prato.descricao}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
-                        </tr>
-                        <tr>
-                            <td><label for="imagem">Url da Imagem:</label></td>
-                            <td><input type="text" name="txtImagemUrl" id="imagem" value="${prato.imagemUrl}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
-                        </tr>
-                        <tr>
-                            <td><label for="preco">Preco</label></td>
-                            <td><input type="text" name="txtPreco" id="preco" maxlength="12" placeholder="00.00" value="${prato.preco}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
-                        </tr>
-                        <tr>
-                            <td><label for="dataCriacao">Data da Criação:</label></td>
-                            <td><input type="date" name="txtDataCriacao" id="dataCriacao" value="${prato.dataCriacao}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/></td>
-                        </tr>
-                        <tr>
-                            <td><label>Exibir:</label></td>
-                            <td>
-                                <select name="txtExibir">
-                                    <option value="0" <c:if test="${prato.exibir == 0}"> selected</c:if>>Não</option>
-                                <option value="1" <c:if test="${prato.exibir == 1}"> selected</c:if>>Sim</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <input type="submit" name="btnIncluir" value="Confirmar">
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </form>
+        <h1>${operacao} Prato</h1>
+        <div>
+            <form id="incluir" action="ManterPratoController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterPrato" method="post" onsubmit="return validarFormulario(this)">
+                <div class="form-group row">
+                    <label for="id" class="col-sm-2 col-form-label">Id:</label>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" name="txtId" maxlength="10" id="idPrato" value="${prato.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Funcionario:</label>
+                    <div class="col-sm-2">
+                    <select name="txtIdFuncionario" class="custom-select mr-sm-2" <c:if test="${operacao == 'Excluir'}"> disabled</c:if>>
+                        <option value="0" <c:if test="${prato.idFuncionario == null}"> selected</c:if>> </option>  
+                        <c:forEach items="${funcionarios}" var="funcionario">                                    
+                            <option value="${funcionario.id}" <c:if test="${prato.idFuncionario == funcionario.id}"> selected</c:if>>${funcionario.nome}</option>
+                        </c:forEach>
+                    </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Estabelecimento:</label>
+                    <div class="col-sm-2">
+                    <select name="txtIdEstabelecimento" class="custom-select mr-sm-2">
+                        <option value="0" <c:if test="${prato.idEstabelecimento == null}"> selected</c:if>> </option>  
+                        <c:forEach items="${estabelecimentos}" var="estabelecimento">
+                            <option value="${estabelecimento.id}" <c:if test="${prato.idEstabelecimento == estabelecimento.id}"> selected</c:if>>${estabelecimento.nomeFantasia}</option>
+                        </c:forEach>
+                    </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="id" class="col-sm-2 col-form-label">Id:</label>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" name="txtId" id="idPrato" maxlength="10" value="${prato.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="nome" class="col-sm-2 col-form-label">Nome:</label>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" name="txtNome" id="nome" maxlength="45" value="${prato.nome}"/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="descricao" class="col-sm-2 col-form-label">Descricao:</label>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" name="txtDescricao" id="descricao" maxlength="60" value="${prato.descricao}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
+                    </div>
+                </div>                
+                <div class="form-group row">
+                    <label for="imagem" class="col-sm-2 col-form-label">Url da Imagem:</label>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" name="txtImagemUrl" id="imagem" value="${prato.imagemUrl}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="preco" class="col-sm-2 col-form-label">Preco</label>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" name="txtPreco" id="preco" maxlength="12" placeholder="00.00" value="${prato.preco}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
+                    </div>
+                </div>                
+                <div class="form-group row">
+                    <label for="dataCriacao" class="col-sm-2 col-form-label">Data da Criação:</label>
+                    <div class="col-sm-2">
+                        <input type="date" class="form-control" name="txtDataCriacao" id="dataCriacao" value="${prato.dataCriacao}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
+                    </div>
+                </div>                
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Exibir:</label>
+                    <div class="col-sm-2">
+                        <select name="txtExibir" class="custom-select mr-sm-2">
+                            <option value="0" <c:if test="${prato.exibir == 0}"> selected</c:if>>Não</option>
+                            <option value="1" <c:if test="${prato.exibir == 1}"> selected</c:if>>Sim</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" name="btnIncluir" value="Confirmar">Confirmar</button>
+            </form>
+        </div>
         <script>
             function campoNumerico(valor){
                 var caracteresValidos = "0123456789";
