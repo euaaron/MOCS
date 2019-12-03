@@ -1,7 +1,9 @@
 # Projeto MOCS "Menu and Order Control System" 
-Disciplina: **Linguagem de Programação II** e **Desenvolvimento Web**
+Disciplinas:
+- **Linguagem de Programação II** (java, MySql, TSQL e jsp)
+- **Desenvolvimento Web** (HTML, CSS e Javascript)
  
-Este repositório é destinado a **armazenar** os arquivos da **documentação** do projeto (**protótipos de telas**, **diagramas de banco de dados**, **diagrama de classes**, etc.), os arquivos de **execução** (back-end java, front-end jsp/html/js).
+Este repositório é destinado a **armazenar** os arquivos da **documentação** do projeto (**protótipos de telas**, **diagramas de banco de dados**, **diagrama de classes**, etc.), os arquivos de **execução** (back-end java, front-end jsp/html/js) e os arquivos usados para testes e ideias iniciais.
 
 Para mais informações, veja a documentação em "[source/versao3/Documento de Requisitos MOCS.pdf](https://github.com/euaaron/MOCS/blob/master/source/versao3/Documento%20de%20Requisitos%20MOCS.pdf)"
 
