@@ -11,7 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>${operacao} Funcionario</title>
+        <title>MOCS | ${operacao} Funcionario</title>
         <%-- Estilos, scripts e dependências de terceiros --%>
         <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css"/>
         <script src="vendor/jquery-3.3.1.slim.min.js"></script>
@@ -52,7 +52,7 @@
                     <div class="form-group row">
                          <label class="col-sm-2 col-form-label" for="idFuncionario">Id:</label>
                          <div class="col-sm-2">
-                              <input class="form-control" type="text" name="txtIdFuncionario" id="idFuncionario" maxlength="10" value="${funcionario.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/>
+                              <input class="form-control" type="text" min="1" name="txtIdFuncionario" id="idFuncionario" maxlength="10" value="${funcionario.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/>
                          </div>
                     </div>                    
                     <div class="form-group row">

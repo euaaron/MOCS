@@ -35,9 +35,9 @@
             <li><a href="inicio">Menu</a></li>
             <li>Pesquisar</li>
         </ul>
-        <h1>Pesquisar Comandas</h1>
-        <div>
-            <div class="d-flex justify-content-center margin-3">
+        <div class="container-fluid">
+            <h1>Pesquisar Comandas</h1>
+            <div class="max-width-rel total-center margin-3">
                 <form action="ManterComandaController?acao=prepararOperacao&operacao=Incluir" method="post">
                     <button class="btn btn-primary btn-lg" type="submit" name="btnIncluir">Nova Comanda</button>
                 </form>

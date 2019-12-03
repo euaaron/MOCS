@@ -11,7 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastro de Endereco</title>
+        <title>MOCS | Cadastro de Endereco</title>
         <%-- Estilos, scripts e dependências de terceiros --%>
         <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css"/>
         <script src="vendor/jquery-3.3.1.slim.min.js"></script>
@@ -31,7 +31,7 @@
                     <tbody>
                         <tr>
                             <td><label for="id">Id:</label></td>
-                            <td><input type="text" id="id" name="txtId" maxlength="10" value="${endereco.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/></td>
+                            <td><input type="text" id="id" name="txtId" min="1" maxlength="10" value="${endereco.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/></td>
                         </tr>
                         <tr>
                             <td><label for="cep">CEP:</label></td>

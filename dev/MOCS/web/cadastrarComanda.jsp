@@ -40,7 +40,7 @@
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label" for="txtId">Id:</label>
                     <div class="col-sm-2">
-                         <input class="form-control" type="number" name="txtId" id="txtId" maxlength="10" value="${comanda.id}" <c:if test="${operacao != 'Incluir'}"> readonly </c:if> />
+                         <input class="form-control" type="number" min="1" name="txtId" id="txtId" maxlength="10" value="${comanda.id}" <c:if test="${operacao != 'Incluir'}"> readonly </c:if> />
                     </div>
                </div>
                 <div class="form-group row">
@@ -66,7 +66,7 @@
                           <input class="form-control" type="time" name="txtHoraComanda" id="horaComanda" value="${comanda.hora}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
                      </div>
                 </div>                    
-            <button type="submit" class="btn btn-primary" name="btnIncluir" value="Confirmar">Confirmar</button>
+            <button type="submit" class="btn btn-primary confirma" name="btnIncluir" value="Confirmar">Confirmar</button>
         </form>
        </div>
         <script>

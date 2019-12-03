@@ -11,7 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>${operacao} Funcao</title>
+        <title>MOCS | ${operacao} Funcao</title>
         <%-- Estilos, scripts e dependências de terceiros --%>
         <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css"/>
         <script src="vendor/jquery-3.3.1.slim.min.js"></script>
@@ -38,42 +38,42 @@
         <div class="container">
             <h1>${operacao} Funcao</h1>
             <form id="incluir" action="ManterFuncaoController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterFuncao" method="post" onsubmit="return validarFormulario(this)">
-                    <div class="form-group row">
-                         <label class="col-sm-2 col-form-label">Estabelecimento:</label>
-                         <div class="col-sm-2">
-                              <select class="custom-select mr-sm-2" name="txtIdEstabelecimento" <c:if test="${operacao == 'Excluir'}"> disabled</c:if>>
-                                  <option value="0" <c:if test="${funcao.idEstabelecimento == null}"> selected</c:if>> </option>  
-                                    <c:forEach items="${estabelecimentos}" var="estabelecimento">
-                                        <option value="${estabelecimento.id}" <c:if test="${funcao.idEstabelecimento == estabelecimento.id}"> selected</c:if>>${estabelecimento.nomeFantasia}</option>
-                                    </c:forEach>
-                              </select>
-                         </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Estabelecimento:</label>
+                    <div class="col-sm-2">
+                        <select class="custom-select mr-sm-2" name="txtIdEstabelecimento" <c:if test="${operacao == 'Excluir'}"> </c:if>>
+                            <option value="0" <c:if test="${funcao.idEstabelecimento == null}"> selected</c:if>> </option>  
+                            <c:forEach items="${estabelecimentos}" var="estabelecimento">
+                                <option value="${estabelecimento.id}" <c:if test="${funcao.idEstabelecimento == estabelecimento.id}"> selected</c:if>>${estabelecimento.nomeFantasia}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                </div>                    
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" for="id">Id da Funcao:</label>
+                    <div class="col-sm-2">
+                        <input class="form-control" type="text" min="1" name="txtIdFuncao" id="id" maxlength="10" value="${funcao.id}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
+                        </div>
                     </div>                    
                     <div class="form-group row">
-                         <label class="col-sm-2 col-form-label" for="id">Id da Funcao:</label>
-                         <div class="col-sm-2">
-                              <input class="form-control" type="text" name="txtIdFuncao" id="id" maxlength="10" value="${funcao.id}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
-                         </div>
+                        <label class="col-sm-2 col-form-label" for="nome">Nome:</label>
+                        <div class="col-sm-2">
+                            <input class="form-control" type="text" name="txtNome" id="nome" maxlength="45" value="${funcao.nome}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
+                        </div>
                     </div>                    
                     <div class="form-group row">
-                         <label class="col-sm-2 col-form-label" for="nome">Nome:</label>
-                         <div class="col-sm-2">
-                              <input class="form-control" type="text" name="txtNome" id="nome" maxlength="45" value="${funcao.nome}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
-                         </div>
+                        <label class="col-sm-2 col-form-label" for="descricao">Descrição:</label>
+                        <div class="col-sm-2">
+                            <input class="form-control" type="text" name="txtDescricao" id="descricao" maxlength="60" value="${funcao.descricao}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
+                        </div>
                     </div>                    
                     <div class="form-group row">
-                         <label class="col-sm-2 col-form-label" for="descricao">Descrição:</label>
-                         <div class="col-sm-2">
-                              <input class="form-control" type="text" name="txtDescricao" id="descricao" maxlength="60" value="${funcao.descricao}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
-                         </div>
-                    </div>                    
-                    <div class="form-group row">
-                         <label class="col-sm-2 col-form-label" for="nivelPermissao">Nível de Permissão:</label>
-                         <div class="col-sm-2">
-                              <input class="form-control" type="number" name="txtNivelPermissao" id="nivelPermissao" max="5" value="${funcao.nivelPermissao}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
-                         </div>
-                    </div>                    
-                    <button type="submit" class="btn btn-primary" name="btnIncluir" value="Confirmar">Confirmar</button>
+                        <label class="col-sm-2 col-form-label" for="nivelPermissao">Nível de Permissão:</label>
+                        <div class="col-sm-2">
+                            <input class="form-control" type="number" name="txtNivelPermissao" id="nivelPermissao" max="5" value="${funcao.nivelPermissao}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
+                    </div>
+                </div>                    
+                <button type="submit" class="btn btn-primary" name="btnIncluir" value="Confirmar">Confirmar</button>
             </form>
         </div>
         <script>
@@ -85,7 +85,7 @@
                 for (i = 0; i < valor.length && ehNumero == true; i++)
                 {
                     umCaracter = valor.charAt(i);
-                    if (caracteresValidos.indexOf(umCaracter) == - 1)
+                    if (caracteresValidos.indexOf(umCaracter) == -1)
                     {
                         ehNumero = false;
                     }
@@ -93,7 +93,7 @@
                 return ehNumero;
             }
 
-            function validarFormulario(form) { 
+            function validarFormulario(form) {
                 var mensagem;
                 mensagem = "";
                 if (form.txtIdEstabelecimento.value == "0") {

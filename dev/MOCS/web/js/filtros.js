@@ -28,6 +28,9 @@ var filtra = function filtra(type) {
         if(tipo==='telefone') {
             formataTelefone(campo, filtrado);
         }
+        if(tipo==='inscEstadual') {
+            formataInscEst(campo, filtrado);
+        }
     }
     
     function valida(tipo, campo) {
@@ -44,6 +47,9 @@ var filtra = function filtra(type) {
         }
         if(tipo==='telefone') {
             pattern = /^\(\d{2}\)\d{4,5}-\d{4}$/;
+        }
+        if(tipo==='inscEstadual') {
+            pattern = /^\d{3}.\d{3}.\d{3}.\d{3}$/;
         }
         
         if(!pattern.test(campo.value)) {
@@ -91,6 +97,48 @@ var filtra = function filtra(type) {
             formatado += temp.substr(9,2);
         }
         cpf.value = formatado;
+    }
+    
+    /*
+    * -------- Inscrição Estadual
+    */
+    
+    function formataInscEst(inscEstadual, filtrado) {
+        var formatado = "";
+        var temp = filtrado;
+        if (temp.length <= 3)
+        {
+            if(temp.legth != 0 && temp != "") {
+                formatado = temp;
+            }
+        }
+        if (temp.length > 3 && temp.length <= 6)
+        {
+            formatado = temp.substr(0,3);
+            formatado += ".";
+            formatado += temp.substr(3,3);
+        }
+        if (temp.length > 6 )
+        {
+            formatado = temp.substr(0,3);
+            formatado += ".";
+            formatado += temp.substr(3,3);
+            formatado += ".";
+            formatado += temp.substr(6,3);
+        }
+        if (temp.length > 9 )
+        {
+            formatado = temp.substr(0,3);
+            formatado += ".";
+            formatado += temp.substr(3,3);
+            formatado += ".";
+            formatado += temp.substr(6,3);
+            formatado += ".";
+            formatado += temp.substr(9,3);
+        }
+        console.log(formatado);
+        console.log(inscEstadual);
+        inscEstadual.value = formatado;
     }
     
     /*

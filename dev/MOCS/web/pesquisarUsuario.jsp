@@ -32,9 +32,10 @@
             <li><a href="inicio">Menu</a></li>
             <li>Pesquisar</li>
         </ul>
-        <h1>Pesquisar Usuarios</h1>
+        <div class="container">
+        <h1 class="page-title">Pesquisar Usuarios</h1>
         <table>
-            <tr>
+            <tr class="text-center text-light bg-dark">
                 <th>COD</th>
                 <th></th>
                 <th>NOME</th>
@@ -66,7 +67,8 @@
             </c:forEach>
         </table>
         <form action="ManterUsuarioController?acao=prepararOperacao&operacao=Incluir" method="post">
-            <input type="submit" name="btnIncluir" value="Incluir">
+            <button class="btn btn-primary" type="submit" name="btnIncluir" >Incluir</button>
         </form>
+        </div>
     </body>
 </html>

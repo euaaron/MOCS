@@ -12,7 +12,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>${operacao} Prato</title>
+        <title>MOCS | ${operacao} Prato</title>
         <%-- Estilos, scripts e dependências de terceiros --%>
         <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css"/>
         <script src="vendor/jquery-3.3.1.slim.min.js"></script>
@@ -40,13 +40,13 @@
                 <div class="form-group row">
                     <label for="id" class="col-sm-2 col-form-label">Id:</label>
                     <div class="col-sm-2">
-                        <input type="text" class="form-control" name="txtId" maxlength="10" id="idPrato" value="${prato.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/>
+                        <input type="text" class="form-control" name="txtId" maxlength="10" min="1" id="idPrato" value="${prato.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Funcionario:</label>
                     <div class="col-sm-2">
-                    <select name="txtIdFuncionario" class="custom-select mr-sm-2" <c:if test="${operacao == 'Excluir'}"> disabled</c:if>>
+                    <select name="txtIdFuncionario" class="custom-select mr-sm-2" <c:if test="${operacao == 'Excluir'}"> </c:if>>
                         <option value="0" <c:if test="${prato.idFuncionario == null}"> selected</c:if>> </option>  
                         <c:forEach items="${funcionarios}" var="funcionario">                                    
                             <option value="${funcionario.id}" <c:if test="${prato.idFuncionario == funcionario.id}"> selected</c:if>>${funcionario.nome}</option>
@@ -66,15 +66,9 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="id" class="col-sm-2 col-form-label">Id:</label>
-                    <div class="col-sm-2">
-                        <input type="text" class="form-control" name="txtId" id="idPrato" maxlength="10" value="${prato.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/>
-                    </div>
-                </div>
-                <div class="form-group row">
                     <label for="nome" class="col-sm-2 col-form-label">Nome:</label>
                     <div class="col-sm-2">
-                        <input type="text" class="form-control" name="txtNome" id="nome" maxlength="45" value="${prato.nome}"/>
+                        <input type="text" class="form-control" name="txtNome" id="nome" maxlength="45" value="${prato.nome}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
                     </div>
                 </div>
                 <div class="form-group row">

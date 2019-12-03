@@ -33,8 +33,9 @@
             <li><a href="inicio">Menu</a></li>
             <li>Pesquisar</li>
         </ul>
+        <div class="container-fluid">
         <h1>Pesquisar Pratos</h1>
-        <div class="d-flex justify-content-center margin-3">
+        <div class="max-width-rel total-center margin-1">
             <form action="ManterPratoController?acao=prepararOperacao&operacao=Incluir" method="post">
                 <button class="btn btn-primary btn-lg" type="submit" name="btnIncluir">Novo Prato</button>
             </form>
@@ -51,7 +52,7 @@
                 </div>
                 <div class="card-footer text-muted">
                     <div class="row">
-                        <div class="col">ID</div>
+                        <div class="col-sm">ID</div>
                         <div class="col">
                             Add. por
                         </div>
@@ -60,7 +61,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col">
+                        <div class="col-sm">
                             <b><c:out value="${prato.id}" /></b>
                         </div>
                         <div class="col">
@@ -71,11 +72,11 @@
                         </div>
                     </div>
                         <div class="row">
-                        <div class="col">Exibir</div>
+                        <div class="col-sm">Exibir</div>
                         <div class="col">Opções</div>
                     </div>
                         <div class="row">
-                        <div class="col">
+                        <div class="col-sm">
                             <b>
                                 <c:if test="${prato.exibir == 0}">Não</c:if>
                                 <c:if test="${prato.exibir == 1}">Sim</c:if>
@@ -90,6 +91,7 @@
                     </div>
                 </div>
             </div></c:forEach>
+        </div>
         </div>
     </body>
 </html>

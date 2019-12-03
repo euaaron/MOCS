@@ -64,7 +64,7 @@
                     </div>                    
                     <label class="col-sm col-form-label" for="inscEstadual">Inscrição Estadual:</label>
                     <div class="col-sm-2">
-                        <input class="form-control" type="text" name="txtInscEstadual" id="inscEstadual" maxlength="15" placeholder="000.000.000.000" value="${estabelecimento.inscEstadual}"  <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
+                        <input class="form-control" type="text" onkeyup="filtra('inscEstadual')" name="txtInscEstadual" id="inscEstadual" maxlength="15" placeholder="000.000.000.000" value="${estabelecimento.inscEstadual}"  <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
                     </div>
                     <label class="col-sm col-form-label" for="telefone">Telefone:</label>
                     <div class="col-sm-2">
