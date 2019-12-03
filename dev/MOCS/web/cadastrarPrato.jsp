@@ -34,8 +34,8 @@
             <li><a href="PesquisarPratoController">Pesquisar</a></li>
             <li>${operacao}</li>
         </ul>
-        <h1>${operacao} Prato</h1>
-        <div>
+        <div class="container">
+            <h1>${operacao} Prato</h1>
             <form id="incluir" action="ManterPratoController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterPrato" method="post" onsubmit="return validarFormulario(this)">
                 <div class="form-group row">
                     <label for="id" class="col-sm-2 col-form-label">Id:</label>

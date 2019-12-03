@@ -33,8 +33,8 @@
             <li><a href="PesquisarPedidoController">Pesquisar</a></li>
             <li>${operacao}</li>
         </ul>
-        <h1>${operacao} Pedido</h1>
-        <div>
+        <div class="container">
+            <h1>${operacao} Pedido</h1>
             <form id="incluir" action="ManterPedidoController?acao=confirmarOperacao&operacao=${operacao}<c:if test="${comanda != null}">&icm=${comanda.id}</c:if>" name="frmManterPedido" method="post" onsubmit="return validarFormulario(this)">
                 <c:if test="${comanda != null}"> Comanda ${comanda.id} de ${comanda.cliente.nome} </c:if>
                 <c:if test="${comanda == null}">

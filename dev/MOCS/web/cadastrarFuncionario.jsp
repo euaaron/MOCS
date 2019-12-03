@@ -34,9 +34,9 @@
                 <li><a href="PesquisarFuncionarioController">Pesquisar</a></li>
                 <li>${operacao}</li>
             </ul>
-            <h1>${operacao} Funcionario</h1>
         </div>
-        <div>
+        <div class="container">
+            <h1>${operacao} Funcionario</h1>
             <form id="incluir" action="ManterFuncionarioController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterFuncionario" method="post" onsubmit="return validarFormulario(this)">
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Estabelecimento:</label>

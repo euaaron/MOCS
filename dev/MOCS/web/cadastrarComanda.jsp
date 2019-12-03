@@ -34,6 +34,7 @@
             <li><a href="PesquisarComandaController">Pesquisar</a></li>
             <li>${operacao}</li>
         </ul>
+        <div class="container">
         <h1>${operacao} Comanda</h1>
         <form id="incluir" action="ManterComandaController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterUsuario" method="post" onsubmit="return validarFormulario()">
                 <div class="form-group row">
@@ -67,6 +68,7 @@
                 </div>                    
             <button type="submit" class="btn btn-primary" name="btnIncluir" value="Confirmar">Confirmar</button>
         </form>
+       </div>
         <script>
             
             function campoNumerico(valor)

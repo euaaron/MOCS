@@ -22,11 +22,16 @@
         <script src="./js/filtros.js"></script>
     </head>
     <body>
-        <h1>Pesquisar Funcionarios</h1>
+        <nav class="top-bar">
+            <div class="total-center">
+                <a class="navbar-brand" href="inicio">MOCS</a>
+            </div>
+        </nav>
         <ul class="breadcrumb">
-            <li><a href="inicio.jsp">Index Admin</a></li>
+            <li><a href="inicio">Menu</a></li>
             <li>Pesquisar</li>
         </ul>
+        <h1>Pesquisar Funcionarios</h1>
         <table border = 1>
             <tr>
                 <th>COD</th>
