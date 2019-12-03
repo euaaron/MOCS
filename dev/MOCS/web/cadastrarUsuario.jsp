@@ -20,7 +20,6 @@
         <script src="vendor/bootstrap/bootstrap.min.js"></script>
         <%-- Estilos e scripts próprios --%>
         <link rel="stylesheet" href="./css/main.css"/>
-        <link rel="stylesheet" href="./css/cadastro.css"/>
         <script src="./js/filtros.js"></script>
     </head>
     <body>
@@ -30,17 +29,18 @@
             </div>
         </nav>
         <ul class="breadcrumb">
-            <li><a href="inicio?acao=confirmarOperacao&operacao=validar&agente=${agente}<c:if test="${idUser != null && idUser != 0}" >&idUser=${idUser}</c:if>">Index Admin</a></li>
+            <li><a href="inicio">Menu</a></li>
             <li><a href="PesquisarUsuarioController">Pesquisar</a></li>
             <li>${operacao}</li>
         </ul>
-        <h1>${operacao} Usuário</h1>
-        <div>
+        <div class="container">
+            <h1 class="page-title">${operacao} Usuário</h1>
+            <div class="centralize">
             <form id="incluir" name="frmManterUsuario" method="post" onsubmit="return validarFormulario(this)" action="ManterUsuarioController?acao=confirmarOperacao&operacao=${operacao}&agente=${agente}<c:if test="${idUser != null && idUser != 0}" >&idUser=${idUser}</c:if>">
                 <div class="form-group row">
                     <label for="id" class="col-sm-2 col-form-label">Id:</label>
                     <div class="col-sm-2">
-                        <input type="text" class="form-control" name="txtIdUsuario" id="id" maxlength="10" value="${usuario.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/>
+                        <input type="number" min="1" class="form-control" name="txtIdUsuario" id="id" maxlength="10" value="${usuario.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>/>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -52,7 +52,7 @@
                 <div class="form-group row">
                     <label for="cpf" class="col-sm-2 col-form-label">CPF:</label>
                     <div class="col-sm-2">
-                        <input type="text" class="form-control" name="txtCpf" id="cpf" maxlength="14" placeholder="000.000.000-00" value="${usuario.cpf}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
+                        <input type="text" onkeyup="filtra('cpf')" class="form-control" name="txtCpf" id="cpf" maxlength="14" placeholder="000.000.000-00" value="${usuario.cpf}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -64,13 +64,13 @@
                 <div class="form-group row">
                     <label for="email" class="col-sm-2 col-form-label">Email:</label>
                     <div class="col-sm-2">
-                        <input type="text" class="form-control" id="email" maxlength="45" placeholder="exemplo@email.com" name="txtEmail" value="${usuario.email}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>        
+                        <input type="text" class="form-control" id="email" maxlength="45" name="txtEmail" value="${usuario.email}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>        
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="telefone" class="col-sm-2 col-form-label">Telefone:</label>
                     <div class="col-sm-2">
-                        <input type="text" class="form-control" id="telefone" maxlength="30" placeholder="(xx) xxxx-xxxx" name="txtTelefone" value="${usuario.telefone}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
+                        <input type="text" onkeyup="filtra('telefone')" class="form-control" id="telefone" maxlength="30" placeholder="(xx) xxxx-xxxx" name="txtTelefone" value="${usuario.telefone}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -85,12 +85,20 @@
                         <input type="password" class="form-control" id="confirmaSenha" name="txtReSenha" minlength="6" maxlength="45" value="${usuario.senha}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
                     </div>
                 </div>
-                 
-                <button type="submit" class="btn btn-primary" name="btnIncluir" value="Confirmar">Confirmar</button>
+                <div class="form-group row">
+                    <button type="submit" class="btn btn-primary confirma" name="btnIncluir" value="Confirmar">Confirmar</button>
+                </div>
             </form>
+            </div>
         </div>
         <script>
-                 
+            var hoje = new Date().toLocaleDateString();
+            hoje = hoje.split("/");
+            var dataHoje = hoje[2] + "-" + hoje[1] + "-" + hoje[0];
+            var inputDate = document.getElementById('dataNascimento');
+            inputDate.setAttribute('max', dataHoje);
+            
+            
             function campoNumerico(valor)
             {
                 var caracteresValidos = "0123456789";
@@ -110,6 +118,12 @@
             function validarFormulario(form){
                 var mensagem;
                 mensagem = "";
+                if (inputDate.value == "") {
+                    inputDate.value == dataHoje;
+                }
+                if (new Date(inputDate.value) > new Date(dataHoje)) {
+                    mensagem = mensagem + "Data inválida, tente novamente\n";
+                }
                 if (form.txtIdUsuario.value == "") {
                     mensagem = mensagem + "Informe o Código do Usuário\n";
                 }

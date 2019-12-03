@@ -1,31 +1,7 @@
-/* 
-* The MIT License
-*
-* Copyright 2019 @euaaron (euaaron.github.io)
-*
-* Permission is hereby granted, free of charge, to any person obtaining a copy
-* of this software and associated documentation files (the "Software"), to deal
-* in the Software without restriction, including without limitation the rights
-* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-* copies of the Software, and to permit persons to whom the Software is
-* furnished to do so, subject to the following conditions:
-*
-* The above copyright notice and this permission notice shall be included in
-* all copies or substantial portions of the Software.
-*
-* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-* THE SOFTWARE.
-*/
-
 var filtra = function filtra(type) {
     var campo = document.getElementById(type);
     var tipo = type.toLowerCase();
-    if (valida(tipo, id) === 1) {
+    if (valida(tipo, campo) === 1) {
         return;
     }
     var filtrado = "";
@@ -49,6 +25,9 @@ var filtra = function filtra(type) {
         if(tipo==='cnpj') {
             formataCNPJ(campo, filtrado);
         }
+        if(tipo==='telefone') {
+            formataTelefone(campo, filtrado);
+        }
     }
     
     function valida(tipo, campo) {
@@ -61,11 +40,14 @@ var filtra = function filtra(type) {
             pattern = /^\d{3}.\d{3}.\d{3}-\d{2}$/;
         }
         if(tipo==='cnpj') {
-            pattern = /^\d{3}.\d{3}.\d{3}-\d{2}$/;
+            pattern = /^\d{2}.\d{3}.\d{3}\/\d{4}-\d{2}$/;
+        }
+        if(tipo==='telefone') {
+            pattern = /^\(\d{2}\)\d{4,5}-\d{4}$/;
         }
         
         if(!pattern.test(campo.value)) {
-            campo.style.border="solid 1px red"; 
+            campo.style.border="solid 1px red";
             return 0;
         } else {
             campo.style.border="solid 1px lightgreen";
@@ -80,17 +62,19 @@ var filtra = function filtra(type) {
     function formataCPF(cpf, filtrado) {
         var formatado = "";
         var temp = filtrado;
-        if (cpf.value.length <= 3)
+        if (temp.length <= 3)
         {
-            formatado = temp;
+            if(temp.legth != 0 && temp != "") {
+                formatado = temp;
+            }
         }
-        if (cpf.value.length > 3 && temp.length <= 6)
+        if (temp.length > 3 && temp.length <= 6)
         {
             formatado = temp.substr(0,3);
             formatado += ".";
             formatado += temp.substr(3,3);
         }
-        if (cpf.value.length > 6 )
+        if (temp.length > 6 )
         {
             formatado = temp.substr(0,3);
             formatado += ".";
@@ -98,7 +82,7 @@ var filtra = function filtra(type) {
             formatado += ".";
             formatado += temp.substr(6,3);
         }
-        if (cpf.value.length > 9 )
+        if (temp.length > 9 )
         {
             formatado = temp.substr(0,3);
             formatado += ".";
@@ -107,12 +91,6 @@ var filtra = function filtra(type) {
             formatado += temp.substr(6,3);
             formatado += "-";
             formatado += temp.substr(9,2);
-        }
-        if(cpf.value.length >= 14) {
-            valida('cpf', cpf);
-        }
-        if(cpf.value.length < 14) {
-            cpf.style.border = "solid 1px gray";
         }
         cpf.value = formatado;
     }
@@ -124,17 +102,19 @@ var filtra = function filtra(type) {
     function formataCEP(cep, filtrado) {
         var formatado = "";
         var temp = String(filtrado);
-        if (cep.value.length <= 2)
+        if (temp.length <= 2)
         {
-            formatado = temp.substr(0,2);
+            if(temp.legth != 0 && temp != "") {
+                formatado = temp;
+            }
         }
-        if (cep.value.length > 2 && temp.length <= 5)
+        if (temp.length > 2 && temp.length <= 5)
         {
             formatado = temp.substr(0,2);
             formatado += ".";
             formatado += temp.substr(2,3);
         }
-        if (cep.value.length > 5 )
+        if (temp.length > 5 )
         {
             formatado = temp.substr(0,2);
             formatado += ".";
@@ -142,10 +122,10 @@ var filtra = function filtra(type) {
             formatado += "-";
             formatado += temp.substr(5,3);
         }
-        if(cep.value.length >= 10) {
+        if(temp.length >= 10) {
             valida('cep', cep);
         }
-        if(cep.value.length < 10) {
+        if(temp.length < 10) {
             cep.style.border = "solid 1px gray";
         }
         cep.value = formatado;
@@ -158,42 +138,90 @@ var filtra = function filtra(type) {
     function formataCNPJ(cnpj, filtrado) {
         var formatado = "";
         var temp = filtrado;
-        if (cpf.value.length <= 3)
+        if (temp.length <= 2)
         {
-            formatado = temp;
+            if(temp.legth != 0 && temp != "") {
+                formatado = temp;
+            }
         }
-        if (cpf.value.length > 3 && temp.length <= 6)
+        if (temp.length > 2 && temp.length <= 5)
         {
-            formatado = temp.substr(0,3);
+            formatado = temp.substr(0,2);
             formatado += ".";
-            formatado += temp.substr(3,3);
+            formatado += temp.substr(2,3);
         }
-        if (cpf.value.length > 6 )
+        if (temp.length > 5 && temp.length <= 8)
         {
-            formatado = temp.substr(0,3);
+            formatado = temp.substr(0,2);
             formatado += ".";
-            formatado += temp.substr(3,3);
+            formatado += temp.substr(2,3);
             formatado += ".";
-            formatado += temp.substr(6,3);
+            formatado += temp.substr(5,3);
         }
-        if (cpf.value.length > 9 )
+        if (temp.length > 8 && temp.length <= 12)
         {
-            formatado = temp.substr(0,3);
+            formatado = temp.substr(0,2);
             formatado += ".";
-            formatado += temp.substr(3,3);
+            formatado += temp.substr(2,3);
             formatado += ".";
-            formatado += temp.substr(6,3);
+            formatado += temp.substr(5,3);
+            formatado += "/";
+            formatado += temp.substr(8,4);
+        }
+        if (temp.length > 12 )
+        {
+            formatado = temp.substr(0,2);
+            formatado += ".";
+            formatado += temp.substr(2,3);
+            formatado += ".";
+            formatado += temp.substr(5,3);
+            formatado += "/";
+            formatado += temp.substr(8,4);
             formatado += "-";
-            formatado += temp.substr(9,2);
+            formatado += temp.substr(12,2);
         }
-        if(cpf.value.length >= 14) {
-            valida('cnpj', cnpj);
+        cnpj.value = formatado;
+    }
+    
+    /*
+    * -------- TELEFONE
+    */
+    
+    function formataTelefone(telefone, filtrado) {
+        var formatado = "";
+        var temp = filtrado;
+        if (temp.length <= 2)
+        {
+            if(temp.legth != 0 && temp != "") {
+                formatado = "(" + temp + ")";
+            }
         }
-        if(cpf.value.length < 14) {
-            cpf.style.border = "solid 1px gray";
-            aviso.innerHTML = "";
+        if (temp.length > 2 && temp.length <= 6)
+        {
+            formatado = "(";
+            formatado += temp.substr(0,2);
+            formatado += ")";
+            formatado += temp.substr(2,4);
         }
-        cpf.value = formatado;
+        if (temp.length > 6)
+        {
+            formatado = "(";
+            formatado += temp.substr(0,2);
+            formatado += ")";
+            formatado += temp.substr(2,4);
+            formatado += "-";
+            formatado += temp.substr(6,4);
+        }
+        if (temp.length > 9 )
+        {
+            formatado = "(";
+            formatado += temp.substr(0,2);
+            formatado += ")";
+            formatado += temp.substr(2,5);
+            formatado += "-";
+            formatado += temp.substr(7,4);
+        }
+        telefone.value = formatado;
     }
     
     

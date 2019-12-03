@@ -11,8 +11,26 @@ $dark: #2d2d2d;
 $light: #dcdcdc;
 $lighter: #efefef;
 
+form {
+    width: 100%;
+    .row {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.centralize {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 body {
     background-color: $light;
+}
+
+.page-title {
+    margin-bottom: 8vh;
 }
 
 .cards {
@@ -126,6 +144,14 @@ body {
     height: 100vh;
 }
 
+.max-width-rel {
+    width: 100%;
+}
+
+.confirma {
+    float: right;
+}
+
 .total-center {
     text-align: center;
     justify-content: center;
@@ -223,6 +249,12 @@ body {
             width: 100%;
             color: $dark;
         }
-    }  
+    }
+    .confirma {
+        width: 100%;
+        position: relative;
+        float: none;
+        margin-bottom: 10px;
+    }
 }
 

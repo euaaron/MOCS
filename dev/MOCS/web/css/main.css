@@ -6,8 +6,22 @@
 @import url(breadcrumb.css);
 @import url(cadastro.css);
 @import url(../vendor/fontawesome/css/all.min.css);
+form {
+  width: 100%; }
+  form .row {
+    display: flex;
+    justify-content: center; }
+
+.centralize {
+  width: 100%;
+  display: flex;
+  justify-content: center; }
+
 body {
   background-color: #dcdcdc; }
+
+.page-title {
+  margin-bottom: 8vh; }
 
 .cards {
   display: flex !important;
@@ -109,6 +123,12 @@ body {
   width: 100vw;
   height: 100vh; }
 
+.max-width-rel {
+  width: 100%; }
+
+.confirma {
+  float: right; }
+
 .total-center {
   text-align: center;
   justify-content: center;
@@ -185,6 +205,12 @@ body {
       display: flex;
       justify-content: center;
       width: 100%;
-      color: #2d2d2d; } }
+      color: #2d2d2d; }
+
+  .confirma {
+    width: 100%;
+    position: relative;
+    float: none;
+    margin-bottom: 10px; } }
 
 /*# sourceMappingURL=main.css.map */

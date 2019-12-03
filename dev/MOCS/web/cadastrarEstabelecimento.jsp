@@ -11,7 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>${operacao} Estabelecimento</title>
+        <title>MOCS | ${operacao} Estabelecimento</title>
         <script src="js/filtros.js"></script>
         <%-- Estilos, scripts e dependências de terceiros --%>
         <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css"/>
@@ -30,97 +30,85 @@
             </div>
         </nav>
         <ul class="breadcrumb">
-            <li><a href="inicio">Index Admin</a></li>
+            <li><a href="inicio">Menu</a></li>
             <li><a href="PesquisarEstabelecimentoController">Pesquisar</a></li>
             <li>${operacao}</li>
         </ul>
-        <h1>${operacao} Estabelecimento</h1>
-        <form id="incluir" action="ManterEstabelecimentoController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterEstabelecimento" method="post" onsubmit="return validarFormulario(this)">
+        <div class="container">
+            <h1 class="page-title">${operacao} Estabelecimento</h1>
+            <div class="centralize">
+            <form id="incluir" action="ManterEstabelecimentoController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterEstabelecimento" method="post" onsubmit="return validarFormulario(this)">
                 <div class="form-group row">
-                     <label class="col-sm-2 col-form-label" for="idEstabelecimento">Id:</label>
-                     <div class="col-sm-2">
-                          <input class="form-control" type="text" name="txtIdEstabelecimento" id="idEstabelecimento" maxlength="10" value="${estabelecimento.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>>
-                     </div>
-                </div>                
-                <div class="form-group row">
-                     <label class="col-sm-2 col-form-label" for="idProprietario">Proprietario:</label>
-                     <div class="col-sm-2">
-                          <select class="custom-select mr-sm-2" id="idProprietario" name="txtIdProprietario" <c:if test="${operacao == 'Excluir'}"> </c:if>>
-                              <option value="0" <c:if test="${estabelecimento.proprietario.id == null}"> selected</c:if>> </option>  
-                                <c:forEach items="${proprietarios}" var="proprietario">
-                                    <option value="${proprietario.id}" <c:if test="${proprietario.id == estabelecimento.proprietario.id}"> selected</c:if> >${proprietario.nome}</option>  
-                                </c:forEach>
-                          </select>
-                     </div>
-                </div>                
-                <div class="form-group row">
-                     <label class="col-sm-2 col-form-label" for="cnpj">CNPJ:</label>
-                     <div class="col-sm-2">
-                          <input class="form-control" type="text" name="txtCnpj" id="cnpj" placeholder="00.000.000/0000-00" maxlength="18" value="${estabelecimento.cnpj}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
-                     </div>
-                </div>              
-                <div class="form-group row">
-                     <label class="col-sm-2 col-form-label" for="telefone">Telefone:</label>
-                     <div class="col-sm-2">
-                          <input class="form-control" type="text" name="txtTelefone" id="telefone" maxlength="30" placeholder="(xx) xxxx-xxxx" value="${estabelecimento.telefone}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
-                     </div>
-                </div>    
-                <div class="form-group row">
-                     <label class="col-sm-2 col-form-label" for="nomeFantasia">Nome Fantasia:</label>
-                     <div class="col-sm-2">
-                          <input class="form-control" type="text" name="txtNomeFantasia" id="nomeFantasia" maxlength="45" value="${estabelecimento.nomeFantasia}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
-                     </div>
-                </div>                     
-                <div class="form-group row">
-                     <label class="col-sm-2 col-form-label" for="inscEstadual">Inscrição Estadual:</label>
-                     <div class="col-sm-2">
-                          <input class="form-control" type="text" name="txtInscEstadual" id="inscEstadual" maxlength="15" placeholder="000.000.000.000" value="${estabelecimento.inscEstadual}"  <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
-                     </div>
+                    <label class="col-sm-1 col-form-label" for="idEstabelecimento">Id:</label>
+                    <div class="col-sm-1">
+                        <input class="form-control" type="number" min="1" name="txtIdEstabelecimento" id="idEstabelecimento" maxlength="10" value="${estabelecimento.id}" <c:if test="${operacao != 'Incluir'}"> readonly</c:if>>
+                    </div>
+                    <label class="col-sm col-form-label" for="idProprietario">Proprietario:</label>
+                    <div class="col-sm-2">
+                        <select class="custom-select mr-sm-2" id="idProprietario" name="txtIdProprietario" <c:if test="${operacao == 'Excluir'}"> </c:if>>
+                        <option value="0" <c:if test="${estabelecimento.proprietario.id == null}"> selected</c:if>> </option>  
+                        <c:forEach items="${proprietarios}" var="proprietario">
+                            <option value="${proprietario.id}" <c:if test="${proprietario.id == estabelecimento.proprietario.id}"> selected</c:if> >${proprietario.nome}</option>  
+                        </c:forEach>
+                        </select>
+                    </div>
+                    <label class="col-sm col-form-label" for="nomeFantasia">Nome Fantasia:</label>
+                    <div class="col-sm-4">
+                        <input class="form-control" type="text" name="txtNomeFantasia" id="nomeFantasia" maxlength="45" value="${estabelecimento.nomeFantasia}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
+                    </div>
                 </div>
                 <div class="form-group row">
-                     <label class="col-sm-2 col-form-label" for="cep">CEP:</label>
-                     <div class="col-sm-2">
-                          <input class="form-control" type="text" id="cep" name="txtCEP" maxlength="10" placeholder="00.000-000" value="${endestabelecimento.cep}" onkeyup="filtraCEP()"<c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
-                     </div>
-                </div>               
-                <div class="form-group row">
-                     <label class="col-sm-2 col-form-label" for="uf">UF:</label>
-                     <div class="col-sm-2">
-                          <input class="form-control" type="text" id="uf" name="txtUF" maxlength="4" value="${endestabelecimento.uf}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
-                     </div>
+                    <label class="col-sm-1 col-form-label" for="cnpj">CNPJ:</label>
+                    <div class="col-sm-3">
+                        <input class="form-control" type="text" onkeyup="filtra('cnpj')" name="txtCnpj" id="cnpj" placeholder="00.000.000/0000-00" maxlength="18" value="${estabelecimento.cnpj}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
+                    </div>                    
+                    <label class="col-sm col-form-label" for="inscEstadual">Inscrição Estadual:</label>
+                    <div class="col-sm-2">
+                        <input class="form-control" type="text" name="txtInscEstadual" id="inscEstadual" maxlength="15" placeholder="000.000.000.000" value="${estabelecimento.inscEstadual}"  <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
+                    </div>
+                    <label class="col-sm col-form-label" for="telefone">Telefone:</label>
+                    <div class="col-sm-2">
+                        <input class="form-control" type="text" onkeyup="filtra('telefone')" name="txtTelefone" id="telefone" maxlength="30" placeholder="(xx) xxxx-xxxx" value="${estabelecimento.telefone}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
+                    </div>
                 </div>                    
-                <div class="form-group row">
-                     <label class="col-sm-2 col-form-label" for="cidade">Cidade:</label>
-                     <div class="col-sm-2">
-                          <input class="form-control" type="text" id="cidade" name="txtCidade" maxlength="45" value="${endestabelecimento.cidade}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
-                     </div>
-                </div>               
-                <div class="form-group row">
-                     <label class="col-sm-2 col-form-label" for="bairro">Bairro:</label>
-                     <div class="col-sm-2">
-                          <input class="form-control" type="text" id="bairro" name="txtBairro" maxlength="45" value="${endestabelecimento.bairro}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
-                     </div>
-                </div>                    
-                <div class="form-group row">
-                     <label class="col-sm-2 col-form-label" for="logradouro">Logradouro:</label>
-                     <div class="col-sm-2">
-                          <input class="form-control" type="text" id="logradouro" name="txtLogradouro" maxlength="45" value="${endestabelecimento.logradouro}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
-                     </div>
-                </div>                    
-                <div class="form-group row">
-                     <label class="col-sm-2 col-form-label" for="edificio">Numero do Edificio:</label>
-                     <div class="col-sm-2">
-                          <input class="form-control" type="text" id="edificio" name="txtEdificio" maxlength="9" value="${endestabelecimento.numEdificio}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
-                     </div>
-                </div>                    
-                <div class="form-group row">
-                     <label class="col-sm-2 col-form-label" for="complemento">Complemento:</label>
-                     <div class="col-sm-2">
-                          <input class="form-control" type="text" id="complemento" name="txtComplemento" maxlength="30" value="${endestabelecimento.numComplemento}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
-                     </div>
-                </div>           
-                <button type="submit" class="btn btn-primary" name="btnIncluir" value="Confirmar">Confirmar</button>
-        </form>
+                    <div class="form-group row">
+                        <label class="col-sm-1 col-form-label" for="cep">CEP:</label>
+                        <div class="col-sm-2">
+                            <input class="form-control" onkeyup="filtra('cep')" type="text" id="cep" name="txtCEP" maxlength="10" placeholder="00.000-000" value="${endestabelecimento.cep}" onkeyup="filtraCEP()"<c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
+                        </div>
+                        <label class="col-sm-1 col-form-label" for="uf">UF:</label>
+                        <div class="col-sm-1">
+                            <input class="form-control" type="text" id="uf" name="txtUF" maxlength="4" value="${endestabelecimento.uf}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
+                        </div>
+                        <label class="col-sm-1 col-form-label" for="cidade">Cidade:</label>
+                        <div class="col-sm-2">
+                            <input class="form-control" type="text" id="cidade" name="txtCidade" maxlength="45" value="${endestabelecimento.cidade}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
+                        </div>
+                        <label class="col-sm-1 col-form-label" for="bairro">Bairro:</label>
+                        <div class="col-sm-3">
+                            <input class="form-control" type="text" id="bairro" name="txtBairro" maxlength="45" value="${endestabelecimento.bairro}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
+                        </div>
+                    </div>                                                                
+                    <div class="form-group row">
+                        <label class="col-sm-1 col-form-label" for="logradouro">Logradouro:</label>
+                        <div class="col-sm-4">
+                            <input class="form-control" type="text" id="logradouro" name="txtLogradouro" maxlength="45" value="${endestabelecimento.logradouro}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
+                        </div>
+                        <label class="col-sm col-form-label" for="edificio">Número do Edifício:</label>
+                        <div class="col-sm-1">
+                            <input class="form-control" type="text" id="edificio" name="txtEdificio" maxlength="9" value="${endestabelecimento.numEdificio}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
+                        </div>
+                        <label class="col-sm col-form-label" for="complemento">Complemento:</label>
+                        <div class="col-sm-2">
+                            <input class="form-control" type="text" id="complemento" name="txtComplemento" maxlength="30" value="${endestabelecimento.numComplemento}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
+                        </div>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary confirma" name="btnIncluir" value="Confirmar">Confirmar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
         <script>
             function campoNumerico(valor)
             {
@@ -130,7 +118,7 @@
                 for (i = 0; i < valor.length && ehNumero == true; i++)
                 {
                     umCaracter = valor.charAt(i);
-                    if (caracteresValidos.indexOf(umCaracter) == - 1)
+                    if (caracteresValidos.indexOf(umCaracter) == -1)
                     {
                         ehNumero = false;
                     }
@@ -138,7 +126,7 @@
                 return ehNumero;
             }
 
-            function validarFormulario(form) { 
+            function validarFormulario(form) {
                 var mensagem;
                 mensagem = "";
                 if (form.txtIdEstabelecimento.value == "") {
