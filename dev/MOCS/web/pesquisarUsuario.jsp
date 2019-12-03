@@ -28,22 +28,34 @@
             <li><a href="inicio.jsp">Index Admin</a></li>
             <li>Pesquisar</li>
         </ul>
-        <table border = 1>
+        <table>
             <tr>
                 <th>COD</th>
+                <th></th>
                 <th>NOME</th>
+                <th></th>
+                <th>E-MAIL</th>
+                <th></th>
+                <th>TELEFONE</th>
+                <th></th>
                 <th colspan="2">OPÇÕES</th>
             </tr>
             
             <c:forEach items="${usuarios}" var="usuario">
                 <tr>
                     <td><c:out value="${usuario.id}"/></td>
+                    <td></td>
                     <td><c:out value="${usuario.nome}"/></td>
+                    <td></td>
+                    <td><c:out value="${usuario.email}"/></td>
+                    <td></td>
+                    <td><c:out value="${usuario.telefone}"/></td>
+                    <td></td>
                     <td>
-                        <a href="ManterUsuarioController?acao=prepararOperacao&operacao=Editar&id=<c:out value="${usuario.id}" />" > Editar</a>
+                        <a href="ManterUsuarioController?acao=prepararOperacao&operacao=Editar&id=<c:out value="${usuario.id}" />" ><i class="fas fa-edit"></i> Editar</a>
                     </td>
                     <td>
-                        <a href="ManterUsuarioController?acao=prepararOperacao&operacao=Excluir&id=<c:out value="${usuario.id}" />" > Excluir</a>
+                        <a href="ManterUsuarioController?acao=prepararOperacao&operacao=Excluir&id=<c:out value="${usuario.id}" />" ><i class="fas fa-trash"></i> Excluir</a>
                     </td>
                 </tr>
             </c:forEach>
