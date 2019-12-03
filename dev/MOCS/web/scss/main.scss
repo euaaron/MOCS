@@ -30,7 +30,7 @@ body {
 }
 
 .page-title {
-    margin-bottom: 8vh;
+    margin-bottom: 6vh;
 }
 
 .cards {
@@ -74,6 +74,10 @@ body {
             background: $light;
         }
     }
+}
+
+.text-light {
+    color: $light;
 }
 
 .card-subtitle-invert {
