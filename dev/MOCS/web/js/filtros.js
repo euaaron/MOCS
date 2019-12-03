@@ -47,10 +47,8 @@ var filtra = function filtra(type) {
         }
         
         if(!pattern.test(campo.value)) {
-            campo.style.border="solid 1px red";
             return 0;
         } else {
-            campo.style.border="solid 1px lightgreen";
             return 1;
         }    
     }

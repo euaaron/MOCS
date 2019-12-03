@@ -92,12 +92,10 @@
             </div>
         </div>
         <script>
-            var hoje = new Date().toLocaleDateString();
-            hoje = hoje.split("/");
+            var hoje = new Date().toLocaleDateString().split("/");
             var dataHoje = hoje[2] + "-" + hoje[1] + "-" + hoje[0];
             var inputDate = document.getElementById('dataNascimento');
             inputDate.setAttribute('max', dataHoje);
-            
             
             function campoNumerico(valor)
             {

@@ -21,7 +21,7 @@ body {
   background-color: #dcdcdc; }
 
 .page-title {
-  margin-bottom: 8vh; }
+  margin-bottom: 6vh; }
 
 .cards {
   display: flex !important;
@@ -53,6 +53,9 @@ body {
         text-decoration: none !important; }
     .card .opcoes .opcao:hover {
       background: #dcdcdc; }
+
+.text-light {
+  color: #dcdcdc; }
 
 .card-subtitle-invert {
   text-align: center;
