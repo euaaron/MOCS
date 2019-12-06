@@ -4,13 +4,29 @@
     Author     : Aaron
 */
 @import url(breadcrumb.css);
-@import url(cadastro.css);
 @import url(../vendor/fontawesome/css/all.min.css);
 form {
   width: 100%; }
   form .row {
     display: flex;
     justify-content: center; }
+
+.menu-item {
+  position: relative;
+  display: inline-flex;
+  width: 100%; }
+
+.btn-image {
+  width: 6vw;
+  height: 6vw;
+  margin-right: 2vw; }
+
+svg {
+  width: 6vw;
+  height: 6vw; }
+  svg image {
+    width: 6vw;
+    height: 6vw; }
 
 .centralize {
   width: 100%;
@@ -177,14 +193,16 @@ body {
       margin: 0;
       width: 30%;
       height: 30%;
-      background-color: #2d2d2d; }
+      background: #a2a2a2; }
       .menu ul li a {
         display: flex;
         color: white;
         width: 100%;
         height: 100%;
-        align-items: center; }
+        align-items: center;
+        color: #2d2d2d; }
       .menu ul li a:hover {
+        text-decoration: none;
         color: #dcdcdc; }
     .menu ul li:hover {
       background-color: #ac4022;

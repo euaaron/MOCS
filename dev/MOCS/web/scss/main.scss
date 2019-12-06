@@ -4,12 +4,24 @@
 */
 
 @import "breadcrumb.css";
-@import "cadastro.css";
 @import "../vendor/fontawesome/css/all.min.css";
 
 $dark: #2d2d2d;
 $light: #dcdcdc;
 $lighter: #efefef;
+$mainColor: #ca724a;
+$mainColorDark: rgb(172, 64, 34);
+
+// Mixins
+@mixin gradient($from, $to) {
+  
+    background: -moz-linear-gradient(top, $from 0%, $to 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$from), color-stop(100%,$to));
+    background: -webkit-linear-gradient(top, $from 0%,$to 100%);
+    background: -o-linear-gradient(top, $from 0%,$to 100%);
+}
+
+// CSS
 
 form {
     width: 100%;
@@ -17,6 +29,27 @@ form {
         display: flex;
         justify-content: center;
     }
+}
+
+.menu-item {
+    position: relative;
+    display: inline-flex;
+    width: 100%;    
+}
+
+.btn-image {
+    width: 6vw;
+    height: 6vw;
+    margin-right: 2vw;
+}
+
+svg {
+    width: 6vw;
+    height: 6vw;
+  image {
+    width: 6vw;
+    height: 6vw;
+  }
 }
 
 .centralize {
@@ -175,7 +208,7 @@ body {
 }
 
 .top-bar a {
-    color: #ca724a;
+    color: $mainColor;
     font-weight: bolder;
     font-size: 2em;
 }
@@ -191,7 +224,7 @@ body {
     top: 0;
     justify-content: space-around;
     align-items: center;
-    color: rgb(172, 64, 34);
+    color: $mainColorDark;
 
     ul {
         position: relative;
@@ -207,8 +240,7 @@ body {
             margin: 0;
             width: 30%;
             height: 30%;
-
-            background-color: #2d2d2d;
+            background: #a2a2a2;
 
             a {
                 display: flex;
@@ -216,9 +248,11 @@ body {
                 width: 100%;
                 height: 100%;
                 align-items: center;
+                color: $dark;
             }
 
             a:hover {
+                text-decoration: none;
                 color: #dcdcdc;
             }
         }
