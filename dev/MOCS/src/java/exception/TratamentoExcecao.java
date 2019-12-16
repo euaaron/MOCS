@@ -31,6 +31,7 @@ public class TratamentoExcecao extends HttpServlet {
         Integer codigoStatus = (Integer) request.getAttribute("javax.servlet.error.status_code");
         String nomeServlet = (String) request.getAttribute("javax.servlet.error.servlet_name");
         String uriRequisicao = (String) request.getAttribute("javax.servlet.error.request_uri");
+        String uriAnterior = "/MOCS/";
         if(excecao != null){
             request.setAttribute("excecao", excecao);
         }
@@ -41,8 +42,36 @@ public class TratamentoExcecao extends HttpServlet {
             request.setAttribute("codigoStatus", codigoStatus);
         }
         if(uriRequisicao != null){
+            switch (uriRequisicao) {
+                case "/MOCS/ManterUsuarioController":
+                    uriAnterior = "/MOCS/PesquisarUsuarioController";
+                    break;
+                case "/MOCS/ManterFuncionarioController":
+                    uriAnterior = "/MOCS/PesquisarFuncionarioController";
+                    break;
+                case "/MOCS/ManterComandaController":
+                    uriAnterior = "/MOCS/PesquisaComandaController";
+                    break;
+                case "/MOCS/ManterPratoController":
+                    uriAnterior = "/MOCS/PesquisarPratoController";
+                    break;
+                case "/MOCS/ManterEstabelecimentoController":
+                    uriAnterior = "/MOCS/PesquisarEstabelecimentoController";
+                    break;
+                case "/MOCS/ManterPedidoController":
+                    uriAnterior = "/MOCS/PesquisarPedidoController";
+                break;
+                case "/MOCS/ManterFuncaoController":
+                    uriAnterior = "/MOCS/PesquisarFuncaoController";
+                break;
+                default:
+                    uriAnterior = "/MOCS/";
+            }          
+
             request.setAttribute("uriRequisicao", uriRequisicao);
         }
+
+        request.setAttribute("uriAnterior", uriAnterior);
         
         RequestDispatcher view = request.getRequestDispatcher("error.jsp");
         view.forward(request, response);

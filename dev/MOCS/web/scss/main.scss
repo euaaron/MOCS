@@ -29,9 +29,13 @@ $mainColorDark: rgb(172, 64, 34);
 }
 
 code {
-    margin: 5px 0 5px 0 !important ;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 10px !important ;
+    width: 100% !important;
     padding: 1em 2em;
     background: white;
+    
 }
 
 form {

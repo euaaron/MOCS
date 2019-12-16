@@ -32,8 +32,8 @@
     <body>
         
         <div class="container">
-            <div>
-                <h1>Erro ${codigoStatus}</h1>
+            <div class="text-center">
+                <h1 class="black bold">Erro ${codigoStatus}</h1>
             </div>
             <div>
                 <h2>Informação sobre a exceção</h2>
@@ -47,6 +47,7 @@
                 <code>${uriRequisicao}</code>
                 <h5>Mensagem:</h5>
                 <code>${excecao.getMessage()}</code>
+                <a href="${uriAnterior}">Voltar à página anterior</a>.
             </div>
         </div>
         
