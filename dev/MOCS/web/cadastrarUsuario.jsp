@@ -88,10 +88,15 @@
                 <div class="form-group row">
                     <button type="submit" class="btn btn-primary confirma" name="btnIncluir" value="Confirmar">Confirmar</button>
                 </div>
+                <div class="form-group row">
+                    <div class="col">
+                    <c:if test="${errorMsg != null}"><p class="error">${errorMsg}</p></c:if>
+                    </div>
+                </div>
             </form>
             </div>
         </div>
-        <script>
+        <script>            
             var hoje = new Date().toLocaleDateString().split("/");
             var dataHoje = hoje[2] + "-" + hoje[1] + "-" + hoje[0];
             var inputDate = document.getElementById('dataNascimento');

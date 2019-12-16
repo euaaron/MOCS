@@ -5,6 +5,15 @@
 */
 @import url(breadcrumb.css);
 @import url(../vendor/fontawesome/css/all.min.css);
+.error {
+  color: red;
+  text-align: center; }
+
+code {
+  margin: 5px 0 5px 0 !important;
+  padding: 1em 2em;
+  background: white; }
+
 form {
   width: 100%; }
   form .row {

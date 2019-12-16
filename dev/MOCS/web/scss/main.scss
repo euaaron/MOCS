@@ -23,6 +23,17 @@ $mainColorDark: rgb(172, 64, 34);
 
 // CSS
 
+.error {
+    color: red;
+    text-align: center;
+}
+
+code {
+    margin: 5px 0 5px 0 !important ;
+    padding: 1em 2em;
+    background: white;
+}
+
 form {
     width: 100%;
     .row {

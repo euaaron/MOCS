@@ -32,13 +32,13 @@ public class ManterUsuarioController extends HttpServlet {
         String acao = request.getParameter("acao");
         if (acao.equals("confirmarOperacao")) {
             confirmarOperacao(request, response);
-        }else{
+        } else {
             if (acao.equals("prepararOperacao")) {
                 prepararOperacao(request, response);
             }
         }
     }
-    
+
     public void prepararOperacao(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
@@ -61,35 +61,81 @@ public class ManterUsuarioController extends HttpServlet {
             throw new ServletException(e);
         }
     }
-    
-    public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) 
-           throws SQLException, ClassNotFoundException, ServletException {
-        
+
+    public void confirmarOperacao(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, ClassNotFoundException, ServletException {
+
         String operacao = request.getParameter("operacao");
-        
-        int idUsuario = Integer.parseInt(request.getParameter("txtIdUsuario"));
-        String nome = request.getParameter("txtNome");
-        String cpf = request.getParameter("txtCpf");
-        String dataNascimento = request.getParameter("txtDataNascimento");
-        String email = request.getParameter("txtEmail");
-        String telefone = request.getParameter("txtTelefone");
-        String senha = request.getParameter("txtSenha");
-        
+
+        String errorMsg;
+
+        int idUsuario;
+        String nome = null;
+        String cpf = null;
+        String dataNascimento = null;
+        String email = null;
+        String telefone = null;
+        String senha = null;
+
+        if (operacao.equals("Incluir")) {
+            idUsuario = Integer.parseInt(request.getParameter("txtIdUsuario"));
+            nome = request.getParameter("txtNome");
+            cpf = request.getParameter("txtCpf");
+            dataNascimento = request.getParameter("txtDataNascimento");
+            email = request.getParameter("txtEmail");
+            telefone = request.getParameter("txtTelefone");
+            senha = request.getParameter("txtSenha");
+        } else {
+            idUsuario = Integer.parseInt(request.getParameter("txtIdUsuario"));
+        }
+
         try {
-            
-            Usuario usuario = new Usuario(idUsuario, nome, dataNascimento,
-            email, telefone, senha, cpf);
-            if (operacao.equals("Incluir")){
-                usuario.gravar();
-            } else if (operacao.equals("Editar")) {
-                usuario.editar();
-            } else if (operacao.equals("Excluir")) {
-                usuario.excluir();
+
+            if (operacao.equals("Incluir")) { //-------------------CADASTRAR USUARIO
+                Usuario usuario = Usuario.obterUsuario(idUsuario);
+                if (usuario != null) {
+                    errorMsg = "O usuário já existe ou o ID " + idUsuario + " já foi utilizado.";
+                    request.setAttribute("errorMsg", errorMsg);
+                    RequestDispatcher view = request
+                            .getRequestDispatcher("ManterUsuarioController?acao=prepararOperacao&operacao=Incluir");
+                    view.forward(request, response);
+                } else {
+                    usuario = new Usuario(idUsuario, nome, dataNascimento,
+                            email, telefone, senha, cpf);
+                    usuario.gravar();
+                }
+
+            } else {
+                Usuario usuario = Usuario.obterUsuario(idUsuario);
+                if (usuario == null) {
+                    errorMsg = "O usuário não existe ou foi excluído.";
+                    request.setAttribute("errorMsg", errorMsg);
+                    RequestDispatcher view = request
+                            .getRequestDispatcher("ManterUsuarioController?acao=prepararOperacao&operacao=Incluir");
+                    view.forward(request, response);
+                }
+                switch (operacao) {
+                    case "Editar":
+                        //-------------------EDITAR USUARIO
+                        usuario.editar();
+                        break;
+                    case "Excluir":
+                        //-------------------EXCLUIR USUARIO
+                        usuario.excluir();
+                        break;
+                    default:
+                        String errorCode = "400";
+                        errorMsg = "Bad Request.";
+                        request.setAttribute("errorMsg", errorMsg);
+                        request.setAttribute("errorCode", errorCode);
+                        RequestDispatcher view = request.getRequestDispatcher("TratamentoExcecao");
+                        view.forward(request, response);
+                }
             }
-            
+
             RequestDispatcher view = request.getRequestDispatcher("PesquisarUsuarioController");
             view.forward(request, response);
-        } catch (IOException e){
+        } catch (IOException e) {
             throw new ServletException(e);
         }
     }
