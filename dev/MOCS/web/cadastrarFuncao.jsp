@@ -38,6 +38,13 @@
         <div class="container">
             <h1>${operacao} Funcao</h1>
             <form id="incluir" action="ManterFuncaoController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterFuncao" method="post" onsubmit="return validarFormulario(this)">
+                <c:if test="${errorMsg != null}">
+                    <div class="form-group row">
+                        <div class="col">
+                            <p class="error">${errorMsg}</p>
+                        </div>
+                    </div>
+                </c:if>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Estabelecimento:</label>
                     <div class="col-sm-2">
@@ -117,8 +124,11 @@
                 if (mensagem == "") {
                     return true;
                 } else {
-                    alert(mensagem);
-                    return false;
+                    if("${operacao}" !== "Excluir") {
+                        alert(mensagem);
+                        return false;
+                    }
+                    return true;
                 }
             }
         </script>

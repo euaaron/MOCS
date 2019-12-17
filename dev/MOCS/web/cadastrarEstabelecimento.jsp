@@ -38,6 +38,13 @@
             <h1 class="page-title">${operacao} Estabelecimento</h1>
             <div class="centralize">
             <form id="incluir" action="ManterEstabelecimentoController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterEstabelecimento" method="post" onsubmit="return validarFormulario(this)">
+                <c:if test="${errorMsg != null}">
+                    <div class="form-group row">
+                        <div class="col">
+                            <p class="error">${errorMsg}</p>
+                        </div>
+                    </div>
+                </c:if>
                 <div class="form-group row">
                     <label class="col-sm-1 col-form-label" for="idEstabelecimento">Id:</label>
                     <div class="col-sm-1">
@@ -171,8 +178,11 @@
                 if (mensagem == "") {
                     return true;
                 } else {
-                    alert(mensagem);
-                    return false;
+                    if("${operacao}" !== "Excluir") {
+                        alert(mensagem);
+                        return false;
+                    }
+                    return true;
                 }
             }
         </script>

@@ -109,8 +109,11 @@
                 if (mensagem === "") {
                     return true;
                 } else {
-                    alert(mensagem);
-                    return false;
+                    if("${operacao}" !== "Excluir") {
+                        alert(mensagem);
+                        return false;
+                    }
+                    return true;
                 }
             });
         </script>

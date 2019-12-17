@@ -45,37 +45,56 @@ public class ManterPratoController extends HttpServlet {
            throws SQLException, ClassNotFoundException, ServletException {
         
         String operacao = request.getParameter("operacao");
+        String errorMsg;
         
-        int id = Integer.parseInt(request.getParameter("txtId"));
-        int idFuncionario = Integer.parseInt(request.getParameter("txtIdFuncionario"));
-        int idEstabelecimento = Integer.parseInt(request.getParameter("txtIdEstabelecimento"));
-        String nome = request.getParameter("txtNome");
-        String descricao = request.getParameter("txtDescricao");
-        float preco = Float.parseFloat(request.getParameter("txtPreco"));
-        String imagemUrl = request.getParameter("txtImagemUrl");
-        String dataCriacao = (String) request.getParameter("txtDataCriacao");
-        int exibir = Integer.parseInt(request.getParameter("txtExibir"));
+        int id = 0;
+        int idFuncionario = 0;
+        int idEstabelecimento = 0;
+        String nome = "";
+        String descricao = "";
+        float preco = 0;
+        String imagemUrl = "";
+        String dataCriacao = "";
+        int exibir = 0; 
+        
+        if (!operacao.equals("Excluir")) {
+            id = Integer.parseInt(request.getParameter("txtId"));
+            idFuncionario = Integer.parseInt(request.getParameter("txtIdFuncionario"));
+            idEstabelecimento = Integer.parseInt(request.getParameter("txtIdEstabelecimento"));
+            nome = request.getParameter("txtNome");
+            descricao = request.getParameter("txtDescricao");
+            preco = Float.parseFloat(request.getParameter("txtPreco"));
+            imagemUrl = request.getParameter("txtImagemUrl");
+            dataCriacao = (String) request.getParameter("txtDataCriacao");
+            exibir = Integer.parseInt(request.getParameter("txtExibir"));                    
+        } else {
+            id = Integer.parseInt(request.getParameter("txtId"));
+        }
         
         if (imagemUrl.equals("")) {
-            imagemUrl = "https://via.placeholder.com/160x90";
-        }        
+                imagemUrl = "https://via.placeholder.com/160x90";
+            }
         
         try {
-            Estabelecimento estabelecimento = null;
-            if(idEstabelecimento != 0){
-                estabelecimento = Estabelecimento.obterEstabelecimento(idEstabelecimento);
-            }
-            Funcionario funcionario = null;
-            if(idFuncionario != 0){
-                funcionario = Funcionario.obterFuncionario(idFuncionario);
-            }
-            Prato obj = new Prato(id, nome, descricao, preco, imagemUrl, dataCriacao, idFuncionario, idEstabelecimento, exibir);
-            if (operacao.equals("Incluir")){
-                obj.gravar();
-            } else if (operacao.equals("Excluir")) {
-               obj.excluir();
-            } else if (operacao.equals("Editar")) {
-               obj.editar();
+            if (operacao.equals("Excluir")) {
+                Prato obj = Prato.obterPrato(id);
+                obj.excluir();
+            } else {
+            
+                Estabelecimento estabelecimento = null;
+                if(idEstabelecimento != 0){
+                    estabelecimento = Estabelecimento.obterEstabelecimento(idEstabelecimento);
+                }
+                Funcionario funcionario = null;
+                if(idFuncionario != 0){
+                    funcionario = Funcionario.obterFuncionario(idFuncionario);
+                }
+                Prato obj = new Prato(id, nome, descricao, preco, imagemUrl, dataCriacao, idFuncionario, idEstabelecimento, exibir);
+                if (operacao.equals("Incluir")){
+                    obj.gravar();
+                } else if (operacao.equals("Editar")) {
+                    obj.editar();
+                }
             }
             RequestDispatcher view = request.getRequestDispatcher("PesquisarPratoController");
                     view.forward(request, response);

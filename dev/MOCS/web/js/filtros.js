@@ -235,37 +235,44 @@ var filtra = function filtra(type) {
     
     function formataTelefone(telefone, filtrado) {
         var formatado = "";
-        var temp = filtrado;
-        if (temp.length <= 2)
+        if (filtrado.length <= 2)
         {
-            if(temp.legth != 0 && temp != "") {
-                formatado = "(" + temp + ")";
+            if(filtrado.legth != 0 && filtrado != "") {
+                formatado = "(" + filtrado + ")";
             }
         }
-        if (temp.length > 2 && temp.length <= 6)
+        if (filtrado.length > 2 && filtrado.length <= 6)
         {
             formatado = "(";
-            formatado += temp.substr(0,2);
+            formatado += filtrado.substr(0,2);
             formatado += ")";
-            formatado += temp.substr(2,4);
+            formatado += filtrado.substr(2,4);
         }
-        if (temp.length > 6)
+        if (filtrado.length > 6)
         {
             formatado = "(";
-            formatado += temp.substr(0,2);
+            formatado += filtrado.substr(0,2);
             formatado += ")";
-            formatado += temp.substr(2,4);
+            formatado += filtrado.substr(2,4);
             formatado += "-";
-            formatado += temp.substr(6,4);
+            formatado += filtrado.substr(6,4);
         }
-        if (temp.length > 9 )
+        if (filtrado.length > 9 )
         {
             formatado = "(";
-            formatado += temp.substr(0,2);
+            formatado += filtrado.substr(0,2);
             formatado += ")";
-            formatado += temp.substr(2,5);
+            formatado += filtrado.substr(2,5);
             formatado += "-";
-            formatado += temp.substr(7,4);
+            formatado += filtrado.substr(7,4);
+        }
+        if (filtrado.length > 10 && filtrado.substr(0,2) == "08")
+        {
+            formatado = filtrado.substr(0,4);
+            formatado += "-";
+            formatado += filtrado.substr(4,3);
+            formatado += "-";
+            formatado += filtrado.substr(7,4);
         }
         telefone.value = formatado;
     }

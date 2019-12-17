@@ -66,70 +66,42 @@ public class ManterUsuarioController extends HttpServlet {
             throws SQLException, ClassNotFoundException, ServletException {
 
         String operacao = request.getParameter("operacao");
-
         String errorMsg;
 
-        int idUsuario;
-        String nome = null;
-        String cpf = null;
-        String dataNascimento = null;
-        String email = null;
-        String telefone = null;
-        String senha = null;
-
-        if (operacao.equals("Incluir")) {
-            idUsuario = Integer.parseInt(request.getParameter("txtIdUsuario"));
-            nome = request.getParameter("txtNome");
-            cpf = request.getParameter("txtCpf");
-            dataNascimento = request.getParameter("txtDataNascimento");
-            email = request.getParameter("txtEmail");
-            telefone = request.getParameter("txtTelefone");
-            senha = request.getParameter("txtSenha");
-        } else {
-            idUsuario = Integer.parseInt(request.getParameter("txtIdUsuario"));
-        }
-
         try {
+            if (!operacao.equals("Excluir")) {
+                int idUsuario = Integer.parseInt(request.getParameter("txtIdUsuario"));
+                String nome = request.getParameter("txtNome");
+                String cpf = request.getParameter("txtCpf");
+                String dataNascimento = request.getParameter("txtDataNascimento");
+                String email = request.getParameter("txtEmail");
+                String telefone = request.getParameter("txtTelefone");
+                String senha = request.getParameter("txtSenha");
 
-            if (operacao.equals("Incluir")) { //-------------------CADASTRAR USUARIO
-                Usuario usuario = Usuario.obterUsuario(idUsuario);
-                if (usuario != null) {
-                    errorMsg = "O usuário já existe ou o ID " + idUsuario + " já foi utilizado.";
-                    request.setAttribute("errorMsg", errorMsg);
-                    RequestDispatcher view = request
-                            .getRequestDispatcher("ManterUsuarioController?acao=prepararOperacao&operacao=Incluir");
-                    view.forward(request, response);
-                } else {
-                    usuario = new Usuario(idUsuario, nome, dataNascimento,
+                if (operacao.equals("Incluir")) {
+                    if (Usuario.obterUsuario(idUsuario) != null) {
+                        errorMsg = "O usuário já existe ou o ID " + idUsuario + " já foi utilizado.";
+                        request.setAttribute("errorMsg", errorMsg);
+                        RequestDispatcher view = request
+                                .getRequestDispatcher("ManterUsuarioController?acao=prepararOperacao&operacao=Incluir");
+                        view.forward(request, response);
+                    } else {
+                        Usuario usuario = new Usuario(idUsuario, nome, dataNascimento,
+                                email, telefone, senha, cpf);
+                        usuario.gravar(); //-------------------CADASTRAR USUARIO
+                    }
+                } else if (operacao.equals("Editar")) {
+                    Usuario usuario = new Usuario(idUsuario, nome, dataNascimento,
                             email, telefone, senha, cpf);
-                    usuario.gravar();
+                    usuario.editar(); //-------------------EDITAR USUARIO
                 }
 
             } else {
+                int idUsuario = Integer.parseInt(request.getParameter("txtIdUsuario"));
+
                 Usuario usuario = Usuario.obterUsuario(idUsuario);
-                if (usuario == null) {
-                    errorMsg = "O usuário não existe ou foi excluído.";
-                    request.setAttribute("errorMsg", errorMsg);
-                    RequestDispatcher view = request
-                            .getRequestDispatcher("ManterUsuarioController?acao=prepararOperacao&operacao=Incluir");
-                    view.forward(request, response);
-                }
-                switch (operacao) {
-                    case "Editar":
-                        //-------------------EDITAR USUARIO
-                        usuario.editar();
-                        break;
-                    case "Excluir":
-                        //-------------------EXCLUIR USUARIO
-                        usuario.excluir();
-                        break;
-                    default:
-                        String errorCode = "400";
-                        errorMsg = "Bad Request.";
-                        request.setAttribute("errorMsg", errorMsg);
-                        request.setAttribute("errorCode", errorCode);
-                        RequestDispatcher view = request.getRequestDispatcher("TratamentoExcecao");
-                        view.forward(request, response);
+                if (operacao.equals("Excluir")) {
+                    usuario.excluir(); //-------------------EXCLUIR USUARIO
                 }
             }
 

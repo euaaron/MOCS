@@ -64,8 +64,12 @@ public class UsuarioDAO {
             comando = conexao.createStatement();
             ResultSet rs = comando.executeQuery(
                     "select * from usuario where id = " + idUsuario);
-            rs.first();
-            usuario = instanciarUsuario(rs);
+            if(rs.next()) {
+                rs.first();
+                usuario = instanciarUsuario(rs);
+            } else {
+                usuario = null;
+            }
         } finally {
             fecharConexao(conexao, comando);
         }

@@ -37,6 +37,13 @@
             <h1 class="page-title">${operacao} Usuário</h1>
             <div class="centralize">
             <form id="incluir" name="frmManterUsuario" method="post" onsubmit="return validarFormulario(this)" action="ManterUsuarioController?acao=confirmarOperacao&operacao=${operacao}&agente=${agente}<c:if test="${idUser != null && idUser != 0}" >&idUser=${idUser}</c:if>">
+                <c:if test="${errorMsg != null}">
+                    <div class="form-group row">
+                        <div class="col">
+                            <p class="error">${errorMsg}</p>
+                        </div>
+                    </div>
+                </c:if>
                 <div class="form-group row">
                     <label for="id" class="col-sm-2 col-form-label">Id:</label>
                     <div class="col-sm-2">
@@ -87,11 +94,6 @@
                 </div>
                 <div class="form-group row">
                     <button type="submit" class="btn btn-primary confirma" name="btnIncluir" value="Confirmar">Confirmar</button>
-                </div>
-                <div class="form-group row">
-                    <div class="col">
-                    <c:if test="${errorMsg != null}"><p class="error">${errorMsg}</p></c:if>
-                    </div>
                 </div>
             </form>
             </div>
@@ -154,8 +156,11 @@
                 if (mensagem == "") {
                     return true;
                 } else {
-                    alert(mensagem);
-                    return false;
+                    if("${operacao}" !== "Excluir") {
+                        alert(mensagem);
+                        return false;
+                    }
+                    return true;
                 }
             }
         </script>

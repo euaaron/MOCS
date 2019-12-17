@@ -35,42 +35,49 @@
             <li>${operacao}</li>
         </ul>
         <div class="container">
-        <h1>${operacao} Comanda</h1>
-        <form id="incluir" action="ManterComandaController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterUsuario" method="post" onsubmit="return validarFormulario()">
+            <h1>${operacao} Comanda</h1>
+            <form id="incluir" action="ManterComandaController?acao=confirmarOperacao&operacao=${operacao}" name="frmManterUsuario" method="post" onsubmit="return validarFormulario()">
+                <c:if test="${errorMsg != null}">
+                    <div class="form-group row">
+                        <div class="col">
+                            <p class="error">${errorMsg}</p>
+                        </div>
+                    </div>
+                </c:if>    
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label" for="txtId">Id:</label>
                     <div class="col-sm-2">
-                         <input class="form-control" type="number" min="1" name="txtId" id="txtId" maxlength="10" value="${comanda.id}" <c:if test="${operacao != 'Incluir'}"> readonly </c:if> />
+                        <input class="form-control" type="number" min="1" name="txtId" id="txtId" maxlength="10" value="${comanda.id}" <c:if test="${operacao != 'Incluir'}"> readonly </c:if> />
+                        </div>
                     </div>
-               </div>
-                <div class="form-group row">
-                     <label class="col-sm-2 col-form-label" for="txtIdCliente">Cliente</label>
-                     <div class="col-sm-2">
-                          <select class="custom-select mr-sm-2" id="idCliente" name="txtIdCliente" <c:if test="${operacao == 'Excluir'}"> </c:if>>
-                             <option value="0" <c:if test="${comanda.idCliente == null}"> selected</c:if>> </option>  
-                                <c:forEach items="${clientes}" var="cliente">
-                                    <option value="${cliente.id}" <c:if test="${cliente.id == comanda.idCliente}"> selected</c:if> >${cliente.nome}</option>  
-                                </c:forEach>
-                          </select>
-                     </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" for="txtIdCliente">Cliente</label>
+                        <div class="col-sm-2">
+                            <select class="custom-select mr-sm-2" id="idCliente" name="txtIdCliente" <c:if test="${operacao == 'Excluir'}"> </c:if>>
+                            <option value="0" <c:if test="${comanda.idCliente == null}"> selected</c:if>> </option>  
+                            <c:forEach items="${clientes}" var="cliente">
+                                <option value="${cliente.id}" <c:if test="${cliente.id == comanda.idCliente}"> selected</c:if> >${cliente.nome}</option>  
+                            </c:forEach>
+                        </select>
+                    </div>
                 </div>
                 <div class="form-group row">
-                     <label class="col-sm-2 col-form-label" for="txtDataComanda">Data:</label>
-                     <div class="col-sm-2">
-                          <input class="form-control" type="date" name="txtDataComanda" id="dataComanda" value="${comanda.data}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
-                     </div>
-                </div>                
-                <div class="form-group row">
-                     <label class="col-sm-2 col-form-label" for="txtHoraComanda">Hora:</label>
-                     <div class="col-sm-2">
-                          <input class="form-control" type="time" name="txtHoraComanda" id="horaComanda" value="${comanda.hora}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
-                     </div>
+                    <label class="col-sm-2 col-form-label" for="txtDataComanda">Data:</label>
+                    <div class="col-sm-2">
+                        <input class="form-control" type="date" name="txtDataComanda" id="dataComanda" value="${comanda.data}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
+                        </div>
+                    </div>                
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" for="txtHoraComanda">Hora:</label>
+                        <div class="col-sm-2">
+                            <input class="form-control" type="time" name="txtHoraComanda" id="horaComanda" value="${comanda.hora}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
+                    </div>
                 </div>                    
-            <button type="submit" class="btn btn-primary confirma" name="btnIncluir" value="Confirmar">Confirmar</button>
-        </form>
-       </div>
+                <button type="submit" class="btn btn-primary confirma" name="btnIncluir" value="Confirmar">Confirmar</button>
+            </form>
+        </div>
         <script>
-            
+
             function campoNumerico(valor)
             {
                 var caracteresValidos = "0123456789";
@@ -85,7 +92,7 @@
                     }
                 }
             }
-            
+
             function validarFormulario() {
                 var mensagem;
                 mensagem = "";
@@ -113,8 +120,11 @@
                     enable();
                     return true;
                 } else {
-                    alert(mensagem);
-                    return false;
+                    if("${operacao}" !== "Excluir") {
+                        alert(mensagem);
+                        return false;
+                    }
+                    return true;
                 }
             }
 
