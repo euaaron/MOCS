@@ -70,5 +70,10 @@
             <button class="btn btn-primary" type="submit" name="btnIncluir" >Incluir</button>
         </form>
         </div>
+        <div>
+            <form action="RelatorioController" method="post">
+            <input type="submit" value="Gerar Relatório"/>
+            </form>
+        </div>
     </body>
 </html>
