@@ -72,6 +72,10 @@
         <servlet-name>LoginController</servlet-name>
         <servlet-class>controller.LoginController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RelatorioUsuariosController</servlet-name>
+        <servlet-class>relatorio.RelatorioUsuariosController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>PesquisarPratoController</servlet-name>
         <url-pattern>/PesquisarPratoController</url-pattern>
@@ -143,6 +147,10 @@
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/inicio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RelatorioUsuariosController</servlet-name>
+        <url-pattern>/RelatorioUsuariosController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
