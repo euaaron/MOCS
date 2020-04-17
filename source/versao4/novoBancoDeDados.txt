@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS `mocs`.`endestabelecimento` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `cep` VARCHAR(10) NOT NULL,
   `uf` VARCHAR(4) NOT NULL,
   `cidade` VARCHAR(45) NOT NULL,
@@ -7,9 +7,15 @@ CREATE TABLE IF NOT EXISTS `mocs`.`endestabelecimento` (
   `bairro` VARCHAR(45) NOT NULL,
   `numEdificio` VARCHAR(9) NOT NULL,
   `numComplemento` VARCHAR(30) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
+  `idEstabelecimento` INT(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_endestabelecimento_estabelecimento1_idx` (`idEstabelecimento` ASC),
+  CONSTRAINT `fk_endestabelecimento_estabelecimento1`
+    FOREIGN KEY (`idEstabelecimento`)
+    REFERENCES `mocs`.`estabelecimento` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB
 
 -- -----------------------------------------------------
 -- Table `mydb`.`usuario`
@@ -30,27 +36,20 @@ ENGINE = InnoDB;
 -- Table `mydb`.`estabelecimento`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mocs`.`estabelecimento` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `cnpj` VARCHAR(18) NOT NULL,
   `nomeFantasia` VARCHAR(45) NOT NULL,
   `inscEstadual` VARCHAR(15) NOT NULL,
   `telefone` VARCHAR(30) NOT NULL,
-  `idEndereco` INT NOT NULL,
-  `idProprietario` INT NOT NULL,
+  `idProprietario` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_Estabelecimento_EnderecoEstabelecimento1_idx` (`idEndereco` ASC) ,
-  INDEX `fk_Estabelecimento_Usuario1_idx` (`idProprietario` ASC) ,
-  CONSTRAINT `fk_Estabelecimento_EnderecoEstabelecimento1`
-    FOREIGN KEY (`idEndereco`)
-    REFERENCES `mocs`.`endestabelecimento` (`id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
+  INDEX `fk_Estabelecimento_Usuario1_idx` (`idProprietario` ASC),
   CONSTRAINT `fk_Estabelecimento_Usuario1`
     FOREIGN KEY (`idProprietario`)
     REFERENCES `mocs`.`usuario` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
-ENGINE = InnoDB;
+ENGINE = InnoDB
 
 
 -- -----------------------------------------------------
