@@ -1,0 +1,145 @@
+CREATE TABLE IF NOT EXISTS `mocs`.`usuario` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(45) NOT NULL,
+  `dataNascimento` VARCHAR(10) NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `telefone` VARCHAR(30) NULL,
+  `senha` VARCHAR(45) NOT NULL,
+  `cpf` VARCHAR(14) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `mocs`.`estabelecimento` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `cnpj` VARCHAR(18) NOT NULL,
+  `nomeFantasia` VARCHAR(45) NOT NULL,
+  `inscEstadual` VARCHAR(15) NOT NULL,
+  `telefone` VARCHAR(30) NOT NULL,
+  `idProprietario` INT(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_Estabelecimento_Usuario1_idx` (`idProprietario` ASC),
+  CONSTRAINT `fk_Estabelecimento_Usuario1`
+    FOREIGN KEY (`idProprietario`)
+    REFERENCES `mocs`.`usuario` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `mocs`.`endestabelecimento` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `cep` VARCHAR(10) NOT NULL,
+  `uf` VARCHAR(4) NOT NULL,
+  `cidade` VARCHAR(45) NOT NULL,
+  `logradouro` VARCHAR(45) NOT NULL,
+  `bairro` VARCHAR(45) NOT NULL,
+  `numEdificio` VARCHAR(9) NOT NULL,
+  `numComplemento` VARCHAR(30) NOT NULL,
+  `idEstabelecimento` INT(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_endestabelecimento_estabelecimento1_idx` (`idEstabelecimento` ASC),
+  CONSTRAINT `fk_endestabelecimento_estabelecimento1`
+    FOREIGN KEY (`idEstabelecimento`)
+    REFERENCES `mocs`.`estabelecimento` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `mocs`.`funcao` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(45) NOT NULL,
+  `descricao` TEXT NOT NULL,
+  `nivelPermissao` VARCHAR(11) NOT NULL,
+  `idEstabelecimento` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_Funcao_Estabelecimento1_idx` (`idEstabelecimento` ASC) ,
+  CONSTRAINT `fk_Funcao_Estabelecimento1`
+    FOREIGN KEY (`idEstabelecimento`)
+    REFERENCES `mocs`.`estabelecimento` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `mocs`.`funcionario` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `idFuncao` INT NOT NULL,
+  `cpf` VARCHAR(14) NOT NULL,
+  `statusConta` INT(1) NOT NULL,
+  `nome` VARCHAR(45) NOT NULL,
+  `dataNascimento` VARCHAR(10) NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `telefone` VARCHAR(30) NULL,
+  `senha` VARCHAR(45) NOT NULL,
+  `idEstabelecimento` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_Funcionario_Funcao1_idx` (`idFuncao` ASC) ,
+  INDEX `fk_Funcionario_Estabelecimento1_idx` (`idEstabelecimento` ASC) ,
+  CONSTRAINT `fk_Funcionario_Funcao1`
+    FOREIGN KEY (`idFuncao`)
+    REFERENCES `mocs`.`funcao` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_Funcionario_Estabelecimento1`
+    FOREIGN KEY (`idEstabelecimento`)
+    REFERENCES `mocs`.`estabelecimento` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `mocs`.`prato` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(45) NOT NULL,
+  `descricao` TEXT NOT NULL,
+  `dataCriacao` DATE NOT NULL,
+  `imagemUrl` TEXT NULL,
+  `preco` FLOAT NOT NULL,
+  `exibir` INT(1) NOT NULL,
+  `idEstabelecimento` INT NOT NULL,
+  `idFuncionario` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_Prato_Estabelecimento1_idx` (`idEstabelecimento` ASC) ,
+  INDEX `fk_Prato_Funcionario1_idx` (`idFuncionario` ASC) ,
+  CONSTRAINT `fk_Prato_Estabelecimento1`
+    FOREIGN KEY (`idEstabelecimento`)
+    REFERENCES `mocs`.`estabelecimento` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_Prato_Funcionario1`
+    FOREIGN KEY (`idFuncionario`)
+    REFERENCES `mocs`.`funcionario` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `mocs`.`comanda` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `data` DATE NOT NULL,
+  `hora` VARCHAR(5) NOT NULL,
+  `idCliente` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_Comanda_Usuario_idx` (`idCliente` ASC) ,
+  CONSTRAINT `fk_Comanda_Usuario`
+    FOREIGN KEY (`idCliente`)
+    REFERENCES `mocs`.`usuario` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `mocs`.`pedido` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `quantidade` INT NOT NULL,
+  `idComanda` INT NOT NULL,
+  `idPrato` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_Pedido_Comanda1_idx` (`idComanda` ASC) ,
+  INDEX `fk_Pedido_Prato1_idx` (`idPrato` ASC) ,
+  CONSTRAINT `fk_Pedido_Comanda1`
+    FOREIGN KEY (`idComanda`)
+    REFERENCES `mocs`.`comanda` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_Pedido_Prato1`
+    FOREIGN KEY (`idPrato`)
+    REFERENCES `mocs`.`prato` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
