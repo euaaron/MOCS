@@ -76,6 +76,10 @@
         <servlet-name>RelatorioUsuariosController</servlet-name>
         <servlet-class>relatorio.RelatorioUsuariosController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RelatorioController</servlet-name>
+        <servlet-class>relatorio.RelatorioController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>PesquisarPratoController</servlet-name>
         <url-pattern>/PesquisarPratoController</url-pattern>
@@ -151,6 +155,10 @@
     <servlet-mapping>
         <servlet-name>RelatorioUsuariosController</servlet-name>
         <url-pattern>/RelatorioUsuariosController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RelatorioController</servlet-name>
+        <url-pattern>/RelatorioController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -31,7 +31,7 @@ var filtra = function filtra(type) {
         if(tipo==='inscEstadual') {
             formataInscEst(campo, filtrado);
         }
-    }
+    };
     
     function valida(tipo, campo) {
         var pattern;
