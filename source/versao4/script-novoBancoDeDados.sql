@@ -1,21 +1,9 @@
-CREATE TABLE IF NOT EXISTS `mocs`.`endestabelecimento` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `cep` VARCHAR(10) NOT NULL,
-  `uf` VARCHAR(4) NOT NULL,
-  `cidade` VARCHAR(45) NOT NULL,
-  `logradouro` VARCHAR(45) NOT NULL,
-  `bairro` VARCHAR(45) NOT NULL,
-  `numEdificio` VARCHAR(9) NOT NULL,
-  `numComplemento` VARCHAR(30) NOT NULL,
-  `idEstabelecimento` INT(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_endestabelecimento_estabelecimento1_idx` (`idEstabelecimento` ASC),
-  CONSTRAINT `fk_endestabelecimento_estabelecimento1`
-    FOREIGN KEY (`idEstabelecimento`)
-    REFERENCES `mocs`.`estabelecimento` (`id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
-ENGINE = InnoDB
+-- -----------------------------------------------------
+-- Database mocs
+-- -----------------------------------------------------
+DROP DATABASE `mocs`;
+CREATE DATABASE `mocs`;
+USE `mocs` ;
 
 -- -----------------------------------------------------
 -- Table `mydb`.`usuario`
@@ -49,7 +37,27 @@ CREATE TABLE IF NOT EXISTS `mocs`.`estabelecimento` (
     REFERENCES `mocs`.`usuario` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
-ENGINE = InnoDB
+ENGINE = InnoDB;
+
+
+CREATE TABLE IF NOT EXISTS `mocs`.`endestabelecimento` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `cep` VARCHAR(10) NOT NULL,
+  `uf` VARCHAR(4) NOT NULL,
+  `cidade` VARCHAR(45) NOT NULL,
+  `logradouro` VARCHAR(45) NOT NULL,
+  `bairro` VARCHAR(45) NOT NULL,
+  `numEdificio` VARCHAR(9) NOT NULL,
+  `numComplemento` VARCHAR(30) NOT NULL,
+  `idEstabelecimento` INT(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_endestabelecimento_estabelecimento1_idx` (`idEstabelecimento` ASC),
+  CONSTRAINT `fk_endestabelecimento_estabelecimento1`
+    FOREIGN KEY (`idEstabelecimento`)
+    REFERENCES `mocs`.`estabelecimento` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
