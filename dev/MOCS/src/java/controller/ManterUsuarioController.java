@@ -107,7 +107,7 @@ public class ManterUsuarioController extends HttpServlet {
 
             RequestDispatcher view = request.getRequestDispatcher("PesquisarUsuarioController");
             view.forward(request, response);
-        } catch (IOException e) {
+        } catch (IOException | SQLException e) {
             throw new ServletException(e);
         }
     }

@@ -170,6 +170,8 @@ public class UsuarioDAO {
             stringSQL = "delete from usuario where id = "
                     + usuario.getId();
             comando.execute(stringSQL);
+        } catch (SQLException e) {
+            throw new SQLException(e);
         } finally {
             fecharConexao(conexao, comando);
         }

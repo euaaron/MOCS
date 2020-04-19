@@ -34,6 +34,7 @@
         </ul>
         <div class="container">
         <h1 class="page-title">Pesquisar Usuarios</h1>
+        <c:if test="${usuarios.size() != 0}">
         <table>
             <tr class="text-center text-light bg-dark">
                 <th>COD</th>
@@ -66,6 +67,7 @@
                 </tr>
             </c:forEach>
         </table>
+        </c:if>
         <form action="ManterUsuarioController?acao=prepararOperacao&operacao=Incluir" method="post">
             <button class="btn btn-primary" type="submit" name="btnIncluir" >Incluir</button>
         </form>
