@@ -30,6 +30,8 @@ public class EstabelecimentoDAO {
             ResultSet rs = comando.executeQuery("select * from estabelecimento where id = " + id);
             rs.first();
             estabelecimento = instanciarEstabelecimento(rs);
+        } catch (SQLException e) {
+            throw new SQLException(e);
         } finally {
             fecharConexao(conexao, comando);
         }
@@ -52,6 +54,8 @@ public class EstabelecimentoDAO {
                 estabelecimento = instanciarEstabelecimento(rs);
                 estabelecimentos.add(estabelecimento);
             }
+        } catch (SQLException e) {
+            throw new SQLException(e);
         } finally {
             fecharConexao(conexao, comando);
         }
@@ -123,6 +127,8 @@ public class EstabelecimentoDAO {
                 comando.setInt(7, estabelecimento.getEndereco().getId());
             }
             comando.executeUpdate();
+        } catch (SQLException e) {
+            throw new SQLException(e);
         } finally {
             fecharConexao(conexao, comando);
         }
@@ -156,7 +162,9 @@ public class EstabelecimentoDAO {
 //            }
             stringSQL = stringSQL + " where id = " + obj.getId();
             comando.execute(stringSQL);
-            } finally {
+            } catch (SQLException e) {
+            throw new SQLException(e);
+        } finally {
             fecharConexao(conexao, comando);
         }
     }
@@ -173,6 +181,8 @@ public class EstabelecimentoDAO {
             stringSQL = "delete from estabelecimento where id = "
                     + e.getId();
             comando.execute(stringSQL);
+        } catch (SQLException ex) {
+            throw new SQLException(ex);
         } finally {
             fecharConexao(conexao, comando);
         }

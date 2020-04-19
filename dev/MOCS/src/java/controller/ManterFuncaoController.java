@@ -91,9 +91,9 @@ public class ManterFuncaoController extends HttpServlet {
             
             RequestDispatcher view = request.getRequestDispatcher("PesquisarFuncaoController");
                     view.forward(request, response);
-        } catch (IOException e){
+        } catch (IOException | SQLException | ClassNotFoundException e) {
             throw new ServletException(e);
-        }
+        } 
     }
 
 

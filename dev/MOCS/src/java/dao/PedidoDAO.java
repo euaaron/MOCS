@@ -28,7 +28,9 @@ public class PedidoDAO {
                 "select * from pedido where id = " + codPedido);
                 rs.first();
                 pedido = instanciarPedido(rs);
-            } finally {
+            } catch (SQLException e) {
+            throw new SQLException(e);
+        } finally {
                 fecharConexao(conexao, comando);
             }
             return pedido;
@@ -48,7 +50,9 @@ public class PedidoDAO {
                 pedido = instanciarPedido(rs);
                 pedidos.add(pedido);                
             }
-        }finally{
+        } catch (SQLException e) {
+            throw new SQLException(e);
+        } finally{
         fecharConexao(conexao, comando);
         }
         return pedidos;
@@ -68,7 +72,9 @@ public class PedidoDAO {
                 pedido = instanciarPedido(rs);
                 pedidos.add(pedido);                
             }
-        }finally{
+        } catch (SQLException e) {
+            throw new SQLException(e);
+        } finally{
         fecharConexao(conexao, comando);
         }
         return pedidos;
@@ -115,6 +121,8 @@ public class PedidoDAO {
             comando.setInt(3, pedido.getQuantidade());
             comando.setInt(4, pedido.getIdComanda());
             comando.executeUpdate();
+        } catch (SQLException e) {
+            throw new SQLException(e);
         } finally {
             fecharConexao(conexao, comando);
         }
@@ -135,6 +143,8 @@ public class PedidoDAO {
             comando.setInt(3, pedido.getIdComanda());
             comando.setInt(4, pedido.getId());
             comando.executeUpdate();
+        } catch (SQLException e) {
+            throw new SQLException(e);
         } finally {
             fecharConexao(conexao, comando);
         }
@@ -152,6 +162,8 @@ public class PedidoDAO {
             stringSQL = "delete from pedido where id = "
                     + pedido.getId();
             comando.execute(stringSQL);
+        } catch (SQLException e) {
+            throw new SQLException(e);
         } finally {
             fecharConexao(conexao, comando);
         }

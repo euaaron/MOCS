@@ -24,7 +24,9 @@ public class FuncaoDAO {
                 "select * from funcao where id = " + id);
                 rs.first();
                 funcao = instanciarFuncao(rs);
-            } finally {
+            } catch (SQLException e) {
+            throw new SQLException(e);
+        } finally {
                 fecharConexao(conexao, comando);
             }
             return funcao;
@@ -57,7 +59,9 @@ public class FuncaoDAO {
                 obj = instanciarFuncao(rs);
                 lista.add(obj);                
             }
-        }finally{
+        } catch (SQLException e) {
+            throw new SQLException(e);
+        } finally{
         fecharConexao(conexao, comando);
         }
         return lista;
@@ -77,7 +81,9 @@ public class FuncaoDAO {
                 obj = instanciarFuncao(rs);
                 lista.add(obj);                
             }
-        }finally{
+        } catch (SQLException e) {
+            throw new SQLException(e);
+        } finally{
         fecharConexao(conexao, comando);
         }
         return lista;
@@ -98,7 +104,9 @@ public class FuncaoDAO {
             comando.setInt(4, obj.getNivelPermissao());
             comando.setInt(5, obj.getIdEstabelecimento());
             comando.executeUpdate();
-        }finally{
+        } catch (SQLException e) {
+            throw new SQLException(e);
+        } finally{
             fecharConexao(conexao, comando);
         }
     }
@@ -139,6 +147,8 @@ public class FuncaoDAO {
             stringSQL = "delete from funcao where id = "
                     + obj.getId();
             comando.execute(stringSQL);
+        } catch (SQLException e) {
+            throw new SQLException(e);
         } finally {
             fecharConexao(conexao, comando);
         }

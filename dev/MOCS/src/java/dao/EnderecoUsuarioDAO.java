@@ -37,7 +37,9 @@ public class EnderecoUsuarioDAO {
                         + " AND padrao = 1");
                 rs.first();
                 endereco = instanciarEnderecoUsuario(rs);
-            } finally {
+            } catch (SQLException ex) {
+            throw new SQLException(ex);
+        }  finally {
                 fecharConexao(conexao, comando);
             }
             return endereco;
@@ -55,7 +57,9 @@ public class EnderecoUsuarioDAO {
                 "select * from endusuario where id = " + idEndereco );
                 rs.first();
                 endereco = instanciarEnderecoUsuario(rs);
-            } finally {
+            } catch (SQLException ex) {
+            throw new SQLException(ex);
+        } finally {
                 fecharConexao(conexao, comando);
             }
             return endereco;
@@ -75,7 +79,9 @@ public class EnderecoUsuarioDAO {
                 endereco = instanciarEnderecoUsuario(rs);
                 enderecos.add(endereco);                
             }
-        }finally{
+        } catch (SQLException ex) {
+            throw new SQLException(ex);
+        }  finally{
         fecharConexao(conexao, comando);
         }
         return enderecos;
@@ -95,7 +101,9 @@ public class EnderecoUsuarioDAO {
                 endereco = instanciarEnderecoUsuario(rs);
                 enderecos.add(endereco);                
             }
-        }finally{
+        } catch (SQLException ex) {
+            throw new SQLException(ex);
+        } finally{
         fecharConexao(conexao, comando);
         }
         return enderecos;
@@ -136,6 +144,8 @@ public class EnderecoUsuarioDAO {
             comando.setString(6, endereco.getNumEdificio());
             comando.setString(7, endereco.getCidade());
             comando.executeUpdate();
+        } catch (SQLException ex) {
+            throw new SQLException(ex);
         } finally {
         fecharConexao(conexao, comando);
         }
@@ -159,6 +169,8 @@ public class EnderecoUsuarioDAO {
             comando.setString(6, endereco.getCidade());
             comando.setInt(7, endereco.getId());
             comando.executeUpdate();
+        } catch (SQLException ex) {
+            throw new SQLException(ex);
         } finally {
         fecharConexao(conexao, comando);
         }
@@ -176,6 +188,8 @@ public class EnderecoUsuarioDAO {
             stringSQL = "delete from endusuario where id = "
                     + e.getId();
             comando.execute(stringSQL);
+        } catch (SQLException ex) {
+            throw new SQLException(ex);
         } finally {
             fecharConexao(conexao, comando);
         }

@@ -46,7 +46,9 @@ public class PratoDAO {
                 prato = instanciarPrato(rs);
                 pratos.add(prato);                
             }
-        }finally{
+        } catch (SQLException e) {
+            throw new SQLException(e);
+        } finally{
         fecharConexao(conexao, comando);
         }
         return pratos;
@@ -88,6 +90,8 @@ public class PratoDAO {
             comando.setInt(8, prato.getIdEstabelecimento());
             comando.setInt(9, prato.getExibir());
             comando.executeUpdate();
+        } catch (SQLException e) {
+            throw new SQLException(e);
         } finally {
             fecharConexao(conexao, comando);
         }
@@ -115,6 +119,8 @@ public class PratoDAO {
             comando.setInt(8, prato.getExibir());
             comando.setInt(9, prato.getId());
             comando.executeUpdate();
+        } catch (SQLException e) {
+            throw new SQLException(e);
         } finally {
             fecharConexao(conexao, comando);
         }
@@ -132,6 +138,8 @@ public class PratoDAO {
             stringSQL = "DELETE FROM prato WHERE id = "
                     + prato.getId();
             comando.execute(stringSQL);
+        } catch (SQLException e) {
+            throw new SQLException(e);
         } finally {
             fecharConexao(conexao, comando);
         }

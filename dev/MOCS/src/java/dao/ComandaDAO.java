@@ -31,7 +31,9 @@ public class ComandaDAO {
                 comanda = instanciarComanda(rs);
                 comandas.add(comanda);                
             }
-        }finally{
+        } catch (SQLException ex) {
+            throw new SQLException(ex);
+        } finally{
         fecharConexao(conexao, comando);
         }
         return comandas;
@@ -47,7 +49,9 @@ public class ComandaDAO {
         ResultSet rs = comando.executeQuery("select * from comanda where id = " + idComanda);
         rs.first();
         comanda = instanciarComanda(rs);
-        }finally{
+        } catch (SQLException ex) {
+            throw new SQLException(ex);
+        }  finally{
         fecharConexao(conexao, comando);
         }
         return comanda;
@@ -77,6 +81,8 @@ public class ComandaDAO {
             comando.setString(3, comanda.getHora());
             comando.setInt(4, comanda.getIdCliente());
             comando.executeUpdate();
+        } catch (SQLException ex) {
+            throw new SQLException(ex);
         } finally {
         fecharConexao(conexao, comando);
         }
@@ -95,6 +101,8 @@ public class ComandaDAO {
             comando.setInt(3, comanda.getIdCliente());
             comando.setInt(4, comanda.getId());
             comando.executeUpdate();
+        } catch (SQLException ex) {
+            throw new SQLException(ex);
         } finally {
         fecharConexao(conexao, comando);
         }
@@ -113,6 +121,8 @@ public class ComandaDAO {
             comando.execute(stringSQL);
             stringSQL = "delete from comanda where id = " + e.getId();
             comando.execute(stringSQL);
+        } catch (SQLException ex) {
+            throw new SQLException(ex);
         } finally {
             fecharConexao(conexao, comando);
         }

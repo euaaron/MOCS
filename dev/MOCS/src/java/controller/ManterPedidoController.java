@@ -100,9 +100,9 @@ public class ManterPedidoController extends HttpServlet {
             }
             RequestDispatcher view = request.getRequestDispatcher("PesquisarPedidoController");
             view.forward(request, response);
-        } catch (IOException e) {
+        } catch (IOException | SQLException | ClassNotFoundException e) {
             throw new ServletException(e);
-        }
+        } 
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

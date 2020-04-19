@@ -50,7 +50,9 @@ public class FuncionarioDAO {
                 funcionario = instanciarFuncionario(rs);
                 funcionarios.add(funcionario);                
             }
-        }finally{
+        } catch (SQLException e) {
+            throw new SQLException(e);
+        } finally{
         fecharConexao(conexao, comando);
         }
         return funcionarios;
@@ -90,7 +92,9 @@ public class FuncionarioDAO {
             comando.setString(6, funcionario.getSenha());
             comando.setString(7, funcionario.getCpf());
             comando.executeUpdate();
-            }finally{
+            } catch (SQLException e) {
+            throw new SQLException(e);
+        } finally{
             fecharConexao(conexao, comando);
         }
         try {
@@ -110,6 +114,8 @@ public class FuncionarioDAO {
             comando.setInt(9, funcionario.getIdEstabelecimento());
             comando.setInt(10, funcionario.getIdFuncao());
             comando.executeUpdate();
+        } catch (SQLException e) {
+            throw new SQLException(e);
         } finally {
             fecharConexao(conexao, comando);
         }
@@ -174,6 +180,8 @@ public class FuncionarioDAO {
             stringSQL = "delete from funcionario where id = "
                     + usuario.getId();
             comando.execute(stringSQL);
+        } catch (SQLException e) {
+            throw new SQLException(e);
         } finally {
             fecharConexao(conexao, comando);
         }

@@ -30,6 +30,8 @@ public class UsuarioDAO {
                     "select * from usuario where email = '" + email + "'");
             rs.first();
             usuario = instanciarUsuario(rs);
+        } catch (SQLException e) {
+            throw new SQLException(e);
         } finally {
             fecharConexao(conexao, comando);
         }
@@ -48,6 +50,8 @@ public class UsuarioDAO {
                     "select * from usuario where cpf = " + cpf);
             rs.first();
             usuario = instanciarUsuario(rs);
+        } catch (SQLException e) {
+            throw new SQLException(e);
         } finally {
             fecharConexao(conexao, comando);
         }
@@ -70,6 +74,8 @@ public class UsuarioDAO {
             } else {
                 usuario = null;
             }
+        } catch (SQLException e) {
+            throw new SQLException(e);
         } finally {
             fecharConexao(conexao, comando);
         }
@@ -90,6 +96,8 @@ public class UsuarioDAO {
                 usuario = instanciarUsuario(rs);
                 usuarios.add(usuario);
             }
+        } catch (SQLException e) {
+            throw new SQLException(e);
         } finally {
             fecharConexao(conexao, comando);
         }
@@ -127,6 +135,8 @@ public class UsuarioDAO {
             comando.setString(6, usuario.getTelefone());
             comando.setString(7, usuario.getSenha());
             comando.executeUpdate();
+        } catch (SQLException e) {
+            throw new SQLException(e);
         } finally {
             fecharConexao(conexao, comando);
         }

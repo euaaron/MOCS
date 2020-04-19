@@ -128,13 +128,9 @@ public class ManterEstabelecimentoController extends HttpServlet {
             }
             RequestDispatcher view = request.getRequestDispatcher("PesquisarEstabelecimentoController");
             view.forward(request, response);
-        } catch (IOException e) {
+        } catch (IOException | SQLException | ClassNotFoundException e) {
             throw new ServletException(e);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ManterEstabelecimentoController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(ManterEstabelecimentoController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } 
 
     }
 

@@ -98,9 +98,9 @@ public class ManterPratoController extends HttpServlet {
             }
             RequestDispatcher view = request.getRequestDispatcher("PesquisarPratoController");
                     view.forward(request, response);
-        } catch (IOException e){
+        } catch (IOException | SQLException | ClassNotFoundException e) {
             throw new ServletException(e);
-        }
+        } 
     }
     
     public void prepararOperacao(HttpServletRequest request, HttpServletResponse response)

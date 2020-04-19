@@ -32,6 +32,8 @@ public class EnderecoEstabelecimentoDAO {
                 endereco = instanciarEnderecoEstabelecimento(rs);
                 enderecos.add(endereco);
             }
+        } catch (SQLException ex) {
+            throw new SQLException(ex);
         } finally {
             fecharConexao(conexao, comando);
         }
@@ -50,6 +52,8 @@ public class EnderecoEstabelecimentoDAO {
                     "SELECT * FROM endestabelecimento WHERE id = " + idEndereco);
             rs.first();
             obj = instanciarEnderecoEstabelecimento(rs);
+        } catch (SQLException ex) {
+            throw new SQLException(ex);
         } finally {
             fecharConexao(conexao, comando);
         }
@@ -91,6 +95,8 @@ public class EnderecoEstabelecimentoDAO {
             comando.setString(7, endestabelecimento.getNumEdificio());
             comando.setString(8, endestabelecimento.getNumComplemento());
             comando.executeUpdate();
+        } catch (SQLException ex) {
+            throw new SQLException(ex);
         } finally {
             fecharConexao(conexao, comando);
         }
@@ -115,6 +121,8 @@ public class EnderecoEstabelecimentoDAO {
                     + "numComplemento = '" + endestabelecimento.getNumComplemento() + "'";
                     stringSQL = stringSQL + " where id = " + endestabelecimento.getId();
                     comando.execute(stringSQL);
+        } catch (SQLException ex) {
+            throw new SQLException(ex);
         } finally {
             fecharConexao(conexao, comando);
         }
@@ -132,6 +140,8 @@ public class EnderecoEstabelecimentoDAO {
             stringSQL = "delete from endestabelecimento where id = "
                     + e.getId();
             comando.execute(stringSQL);
+        } catch (SQLException ex) {
+            throw new SQLException(ex);
         } finally {
             fecharConexao(conexao, comando);
         }

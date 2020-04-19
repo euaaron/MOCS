@@ -107,9 +107,23 @@ public class ManterUsuarioController extends HttpServlet {
 
             RequestDispatcher view = request.getRequestDispatcher("PesquisarUsuarioController");
             view.forward(request, response);
-        } catch (IOException | SQLException e) {
+        }  catch (IOException | SQLException | ClassNotFoundException e) {
+            if(e instanceof SQLException){
+                String foo = e.getMessage();
+                if(foo.contains("FOREIGN")) {
+                    RequestDispatcher view = request.getRequestDispatcher("ManterUsuarioController?acao=prepararOperacao&operacao=Excluir&id=" + Integer.parseInt(request.getParameter("txtIdUsuario")));
+                    try {
+                        request.setAttribute("errorMsg", "Não é possível excluir uma conta vinculada à um estabelecimento. Por favor, exclua ou transfira seu(s) estabelecimentos antes de prosseguir com a operação.");
+                        request.setAttribute("usuario", Usuario.obterUsuario(Integer.parseInt(request.getParameter("txtIdUsuario"))));
+                        view.forward(request, response);
+                    } catch (IOException ex) {
+                        throw new ServletException(ex);
+                    }
+                    return;
+                }                
+            }
             throw new ServletException(e);
-        }
+        } 
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
