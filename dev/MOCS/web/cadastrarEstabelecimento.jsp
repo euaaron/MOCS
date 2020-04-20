@@ -107,7 +107,7 @@
                         </div>
                         <label class="col-sm col-form-label" for="complemento">Complemento:</label>
                         <div class="col-sm-2">
-                            <input class="form-control" type="text" id="complemento" name="txtComplemento" maxlength="30" value="${endestabelecimento.numComplemento}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
+                            <input class="form-control" type="text" id="complemento" name="txtComplemento" maxlength="29" value="${endestabelecimento.numComplemento}" <c:if test="${operacao == 'Excluir'}"> readonly</c:if>/>
                         </div>
                     </div>
                     <div>
