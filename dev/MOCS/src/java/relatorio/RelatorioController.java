@@ -6,10 +6,9 @@ package relatorio;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -26,15 +25,17 @@ import net.sf.jasperreports.engine.JasperPrint;
  */
 public class RelatorioController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) {
- Connection conexao = null;
+        Connection conexao = null;
+        String tipo = request.getParameter("tipo");
+        
         try {
             Class.forName("com.mysql.jdbc.Driver");
             conexao = DriverManager.getConnection("jdbc:mysql://localhost/mocs", "root", "");
             HashMap parametros = new HashMap();
-            String relatorio = getServletContext().getRealPath("/WEB-INF/classes/relatorio")+"/usersReport.jasper";
+            String relatorio = getServletContext().getRealPath("/WEB-INF/classes/relatorio") + "/" + tipo + "Report.jasper";
             JasperPrint jp = JasperFillManager.fillReport(relatorio, parametros, conexao);
             byte[] relat = JasperExportManager.exportReportToPdf(jp);
-            response.setHeader("Content-Disposition", "attachment;filename=relatorio_" + LocalDate.now() + ".pdf");
+            response.setHeader("Content-Disposition", "attachment;filename=relatorio-" + tipo + "_" + LocalDateTime.now() + ".pdf");
             response.setContentType("application/pdf");
             response.getOutputStream().write(relat);
         } catch (SQLException ex) {
@@ -51,6 +52,7 @@ public class RelatorioController extends HttpServlet {
                     conexao.close();
                 }
             } catch (SQLException ex) {
+                ex.printStackTrace();
             }
         }
     }

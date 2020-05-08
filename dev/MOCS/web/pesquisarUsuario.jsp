@@ -73,8 +73,8 @@
         </form>
         </div>
         <div>
-            <form action="RelatorioController" method="post">
-            <input type="submit" value="Gerar Relatório"/>
+            <form action="RelatorioController?tipo=usuario" method="post">
+                <input type="submit" value="Gerar Relatório"/>
             </form>
         </div>
     </body>
