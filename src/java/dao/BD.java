@@ -15,7 +15,7 @@ public class BD {
 	        Connection conexao = null;
 	        Class.forName("com.mysql.jdbc.Driver");
 	        conexao = DriverManager.getConnection
-	        ("jdbc:mysql://sq65ur5a5bj7flas.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/j1yu29pb4v70bbwl", "sd1bz3exwd3x8dm6", "x6762w08vt0e5jwl");
+	        ("jdbc:mysql://us-cdbr-east-02.cleardb.com:3306/heroku_7a4577ab47d8311", "bca155c03404d0", "e9df31ce");
 	        return conexao;
 	}
 }
