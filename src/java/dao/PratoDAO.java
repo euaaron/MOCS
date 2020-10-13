@@ -5,7 +5,6 @@
  */
 package dao;
 
-import static dao.DAO.fecharConexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -28,7 +27,7 @@ public class PratoDAO {
         rs.first();
         prato = instanciarPrato(rs);
         }finally{
-        fecharConexao(conexao, comando);
+        BD.fecharConexao(conexao, comando);
         }
         return prato;
     }
@@ -49,7 +48,7 @@ public class PratoDAO {
         } catch (SQLException e) {
             throw new SQLException(e);
         } finally{
-        fecharConexao(conexao, comando);
+        BD.fecharConexao(conexao, comando);
         }
         return pratos;
     }
@@ -93,7 +92,7 @@ public class PratoDAO {
         } catch (SQLException e) {
             throw new SQLException(e);
         } finally {
-            fecharConexao(conexao, comando);
+            BD.fecharConexao(conexao, comando);
         }
     }
     
@@ -122,7 +121,7 @@ public class PratoDAO {
         } catch (SQLException e) {
             throw new SQLException(e);
         } finally {
-            fecharConexao(conexao, comando);
+            BD.fecharConexao(conexao, comando);
         }
     }
     
@@ -141,7 +140,7 @@ public class PratoDAO {
         } catch (SQLException e) {
             throw new SQLException(e);
         } finally {
-            fecharConexao(conexao, comando);
+            BD.fecharConexao(conexao, comando);
         }
     }
 }

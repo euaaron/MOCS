@@ -68,7 +68,7 @@ var filtra = function filtra(type) {
         var temp = filtrado;
         if (temp.length <= 3)
         {
-            if(temp.legth != 0 && temp != "") {
+            if(temp.legth !== 0 && temp !== "") {
                 formatado = temp;
             }
         }
@@ -108,7 +108,7 @@ var filtra = function filtra(type) {
         var temp = filtrado;
         if (temp.length <= 3)
         {
-            if(temp.legth != 0 && temp != "") {
+            if(temp.legth !== 0 && temp !== "") {
                 formatado = temp;
             }
         }
@@ -150,7 +150,7 @@ var filtra = function filtra(type) {
         var temp = String(filtrado);
         if (temp.length <= 2)
         {
-            if(temp.legth != 0 && temp != "") {
+            if(temp.legth !== 0 && temp !== "") {
                 formatado = temp;
             }
         }
@@ -186,7 +186,7 @@ var filtra = function filtra(type) {
         var temp = filtrado;
         if (temp.length <= 2)
         {
-            if(temp.legth != 0 && temp != "") {
+            if(temp.legth !== 0 && temp !== "") {
                 formatado = temp;
             }
         }
@@ -237,7 +237,7 @@ var filtra = function filtra(type) {
         var formatado = "";
         if (filtrado.length <= 2)
         {
-            if(filtrado.legth != 0 && filtrado != "") {
+            if(filtrado.legth !== 0 && filtrado !== "") {
                 formatado = "(" + filtrado + ")";
             }
         }
@@ -282,19 +282,19 @@ var filtra = function filtra(type) {
     * ------- DATA
     */
    
-   function setDate(){
+   var setDate = function (){
        var listaData = document.getElementsByClassName("data");            
-    
-        for(let i = 0; i < listaData.length; i++) {
-            let date = new Date(listaData[i].innerHTML);
+       
+        for(var i = 0; i < listaData.length; i++) {
+            var date = new Date(listaData[i].innerHTML);
             listaData[i].innerHTML = formataData(date);
         }
-   }
+   };
     
-    function formataData(date) {
-        let dia = date.getDay();
-        let mes;
-        let ano = date.getFullYear();
+    var formataData = function (date) {
+        var dia = date.getDay();
+        var mes;
+        var ano = date.getFullYear();
         switch(date.getMonth()){
             case 1:
             mes = 'JAN';
@@ -337,4 +337,4 @@ var filtra = function filtra(type) {
             break;
         }
         return dia + " " + mes + " " + ano;
-    }
+    };

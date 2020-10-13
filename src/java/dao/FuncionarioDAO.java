@@ -5,8 +5,6 @@
  */
 package dao;
 
-import static dao.BD.getConexao;
-import static dao.DAO.fecharConexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -31,7 +29,7 @@ public class FuncionarioDAO {
                 rs.first();
                 funcionario = instanciarFuncionario(rs);
             } finally {
-                fecharConexao(conexao, comando);
+                BD.fecharConexao(conexao, comando);
             }
             return funcionario;
     }
@@ -53,7 +51,7 @@ public class FuncionarioDAO {
         } catch (SQLException e) {
             throw new SQLException(e);
         } finally{
-        fecharConexao(conexao, comando);
+        BD.fecharConexao(conexao, comando);
         }
         return funcionarios;
     }
@@ -95,7 +93,7 @@ public class FuncionarioDAO {
             } catch (SQLException e) {
             throw new SQLException(e);
         } finally{
-            fecharConexao(conexao, comando);
+            BD.fecharConexao(conexao, comando);
         }
         try {
             conexao = BD.getConexao();            
@@ -117,7 +115,7 @@ public class FuncionarioDAO {
         } catch (SQLException e) {
             throw new SQLException(e);
         } finally {
-            fecharConexao(conexao, comando);
+            BD.fecharConexao(conexao, comando);
         }
     }
     
@@ -127,7 +125,7 @@ public class FuncionarioDAO {
         PreparedStatement comando = null;
 
         try {
-            conexao = getConexao();
+            conexao = BD.getConexao();
             String sql =
               "update usuario set nome = ?, dataNascimento = ?, email = ?,"
             + " telefone = ?, senha = ?, cpf =? WHERE id = ?";
@@ -142,7 +140,7 @@ public class FuncionarioDAO {
             comando.setInt(7, obj.getId());
             
             comando.execute();
-            fecharConexao(conexao, comando);
+            BD.fecharConexao(conexao, comando);
             
             conexao = BD.getConexao();
             comando = conexao.prepareStatement(
@@ -162,7 +160,7 @@ public class FuncionarioDAO {
             comando.setInt(10, obj.getId());
             
             comando.execute();
-            fecharConexao(conexao, comando);
+            BD.fecharConexao(conexao, comando);
         } catch (SQLException e) {
             throw e;
         }       
@@ -183,7 +181,7 @@ public class FuncionarioDAO {
         } catch (SQLException e) {
             throw new SQLException(e);
         } finally {
-            fecharConexao(conexao, comando);
+            BD.fecharConexao(conexao, comando);
         }
     }
 }

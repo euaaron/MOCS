@@ -6,7 +6,12 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -14,6 +19,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+
+import dao.BD;
 import model.Usuario;
 
 public class ManterUsuarioController extends HttpServlet {
@@ -30,11 +42,48 @@ public class ManterUsuarioController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException, ClassNotFoundException {
         String acao = request.getParameter("acao");
-        if (acao.equals("confirmarOperacao")) {
-            confirmarOperacao(request, response);
-        } else {
-            if (acao.equals("prepararOperacao")) {
+        switch (acao) {
+            case "confirmarOperacao":
+                confirmarOperacao(request, response);
+                break;
+            case "prepararOperacao":
                 prepararOperacao(request, response);
+                break;
+            case "emitir":
+                prepararOperacao(request, response);
+                break;
+        }
+    }
+    
+    public void emitir (HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException {
+        Connection conexao = null;
+        try {
+            DateFormat dateFormat = new SimpleDateFormat("ddMMyyyy_HHmmss");
+            Date date = new Date();
+            String nomeRelatorio = "Relatorio2_" + dateFormat.format(date) + ".pdf";
+
+            conexao = BD.getConexao();
+            HashMap parametros = new HashMap();
+            parametros.put("P_COD_CURSO", Integer.parseInt(request.getParameter("txtCodCurso")));
+            String relatorio = getServletContext().getRealPath("/WEB-INF") + "/Relatorio2.jasper";
+            JasperPrint jp = JasperFillManager.fillReport(relatorio, parametros, conexao);
+            byte[] relat = JasperExportManager.exportReportToPdf(jp);
+            response.setHeader("Content-Disposition", "attachment;filename=" + nomeRelatorio);
+            response.setContentType("application/pdf");
+            response.getOutputStream().write(relat);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        } catch (JRException ex) {
+            ex.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                BD.fecharConexao(conexao, null);
+            } catch (SQLException ex) {
             }
         }
     }

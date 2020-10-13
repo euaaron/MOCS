@@ -5,7 +5,6 @@
  */
 package dao;
 
-import static dao.DAO.fecharConexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -40,7 +39,7 @@ public class EnderecoUsuarioDAO {
             } catch (SQLException ex) {
             throw new SQLException(ex);
         }  finally {
-                fecharConexao(conexao, comando);
+                BD.fecharConexao(conexao, comando);
             }
             return endereco;
     }
@@ -60,7 +59,7 @@ public class EnderecoUsuarioDAO {
             } catch (SQLException ex) {
             throw new SQLException(ex);
         } finally {
-                fecharConexao(conexao, comando);
+                BD.fecharConexao(conexao, comando);
             }
             return endereco;
     }
@@ -82,7 +81,7 @@ public class EnderecoUsuarioDAO {
         } catch (SQLException ex) {
             throw new SQLException(ex);
         }  finally{
-        fecharConexao(conexao, comando);
+        BD.fecharConexao(conexao, comando);
         }
         return enderecos;
     }
@@ -104,7 +103,7 @@ public class EnderecoUsuarioDAO {
         } catch (SQLException ex) {
             throw new SQLException(ex);
         } finally{
-        fecharConexao(conexao, comando);
+        BD.fecharConexao(conexao, comando);
         }
         return enderecos;
     }
@@ -147,7 +146,7 @@ public class EnderecoUsuarioDAO {
         } catch (SQLException ex) {
             throw new SQLException(ex);
         } finally {
-        fecharConexao(conexao, comando);
+        BD.fecharConexao(conexao, comando);
         }
     }
     
@@ -172,7 +171,7 @@ public class EnderecoUsuarioDAO {
         } catch (SQLException ex) {
             throw new SQLException(ex);
         } finally {
-        fecharConexao(conexao, comando);
+        BD.fecharConexao(conexao, comando);
         }
     }
     
@@ -191,7 +190,7 @@ public class EnderecoUsuarioDAO {
         } catch (SQLException ex) {
             throw new SQLException(ex);
         } finally {
-            fecharConexao(conexao, comando);
+            BD.fecharConexao(conexao, comando);
         }
     }
     

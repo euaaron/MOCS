@@ -6,7 +6,6 @@
  */
 package dao;
 
-import static dao.DAO.fecharConexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -35,7 +34,7 @@ public class EnderecoEstabelecimentoDAO {
         } catch (SQLException ex) {
             throw new SQLException(ex);
         } finally {
-            fecharConexao(conexao, comando);
+            BD.fecharConexao(conexao, comando);
         }
         return enderecos;
     }
@@ -55,7 +54,7 @@ public class EnderecoEstabelecimentoDAO {
         } catch (SQLException ex) {
             throw new SQLException(ex);
         } finally {
-            fecharConexao(conexao, comando);
+            BD.fecharConexao(conexao, comando);
         }
         return obj;
     }
@@ -98,7 +97,7 @@ public class EnderecoEstabelecimentoDAO {
         } catch (SQLException ex) {
             throw new SQLException(ex);
         } finally {
-            fecharConexao(conexao, comando);
+            BD.fecharConexao(conexao, comando);
         }
     }
 
@@ -124,7 +123,7 @@ public class EnderecoEstabelecimentoDAO {
         } catch (SQLException ex) {
             throw new SQLException(ex);
         } finally {
-            fecharConexao(conexao, comando);
+            BD.fecharConexao(conexao, comando);
         }
     }
 
@@ -143,7 +142,7 @@ public class EnderecoEstabelecimentoDAO {
         } catch (SQLException ex) {
             throw new SQLException(ex);
         } finally {
-            fecharConexao(conexao, comando);
+            BD.fecharConexao(conexao, comando);
         }
     }
 

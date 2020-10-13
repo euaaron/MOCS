@@ -73,9 +73,7 @@
         </form>
         </div>
         <div>
-            <form action="RelatorioController?tipo=usuario" method="post">
-                <input type="submit" value="Gerar Relatório"/>
-            </form>
+            <a href="ManterUsuarioController?acao=emitir">Gerar Relatório</a>
         </div>
     </body>
 </html>

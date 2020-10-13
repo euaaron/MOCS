@@ -6,7 +6,6 @@
  */
 package dao;
 
-import static dao.DAO.fecharConexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -33,7 +32,7 @@ public class UsuarioDAO {
         } catch (SQLException e) {
             throw new SQLException(e);
         } finally {
-            fecharConexao(conexao, comando);
+            BD.fecharConexao(conexao, comando);
         }
         return usuario;
     }
@@ -53,7 +52,7 @@ public class UsuarioDAO {
         } catch (SQLException e) {
             throw new SQLException(e);
         } finally {
-            fecharConexao(conexao, comando);
+            BD.fecharConexao(conexao, comando);
         }
         return usuario;
     }
@@ -77,7 +76,7 @@ public class UsuarioDAO {
         } catch (SQLException e) {
             throw new SQLException(e);
         } finally {
-            fecharConexao(conexao, comando);
+            BD.fecharConexao(conexao, comando);
         }
         return usuario;
     }
@@ -99,7 +98,7 @@ public class UsuarioDAO {
         } catch (SQLException e) {
             throw new SQLException(e);
         } finally {
-            fecharConexao(conexao, comando);
+            BD.fecharConexao(conexao, comando);
         }
         return usuarios;
     }
@@ -138,7 +137,7 @@ public class UsuarioDAO {
         } catch (SQLException e) {
             throw new SQLException(e);
         } finally {
-            fecharConexao(conexao, comando);
+            BD.fecharConexao(conexao, comando);
         }
     }
 
@@ -162,7 +161,7 @@ public class UsuarioDAO {
             comando.setInt(7, obj.getId());
 
             comando.executeUpdate();
-            fecharConexao(conexao, comando);
+            BD.fecharConexao(conexao, comando);
         } catch (SQLException e) {
             throw e;
         }
@@ -183,7 +182,7 @@ public class UsuarioDAO {
         } catch (SQLException e) {
             throw new SQLException(e);
         } finally {
-            fecharConexao(conexao, comando);
+            BD.fecharConexao(conexao, comando);
         }
     }
 
