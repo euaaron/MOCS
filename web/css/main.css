@@ -5,6 +5,11 @@
 */
 @import url(breadcrumb.css);
 @import url(../vendor/fontawesome/css/all.min.css);
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700;900&display=swap');
+* {
+    font-family: 'Roboto', sans-serif;
+    transition: .3s;
+}
 .error {
   color: red;
   text-align: center;
@@ -139,8 +144,9 @@ body {
 
 .bold {
   font-size: 12vh !important;
-  font-family: Roboto, Arial;
-  font-weight: bold !important; }
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900 !important;
+}
 
 .display-flex {
   display: flex; }
