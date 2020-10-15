@@ -88,6 +88,10 @@
         <servlet-name>ListaFuncionariosPEstabelecimentoController</servlet-name>
         <servlet-class>controller.ListaFuncionariosPEstabelecimentoController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListaFuncionariosController</servlet-name>
+        <servlet-class>controller.ListaFuncionariosController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>PesquisarPratoController</servlet-name>
         <url-pattern>/PesquisarPratoController</url-pattern>
@@ -175,6 +179,10 @@
     <servlet-mapping>
         <servlet-name>ListaFuncionariosPEstabelecimentoController</servlet-name>
         <url-pattern>/ListaFuncionariosPEstabelecimentoController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListaFuncionariosController</servlet-name>
+        <url-pattern>/ListaFuncionariosController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
