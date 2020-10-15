@@ -32,6 +32,7 @@
             <li>Pesquisar</li>
         </ul>
         <h1>Pesquisar Pedidos</h1>
+        <a href="ListaPedidoPUsuarioController?acao=filtrar">Lista de Pedido por Usuario</a>
         <table border = 1>
             <tr>
                 <th>COD</th>
