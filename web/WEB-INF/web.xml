@@ -96,6 +96,10 @@
         <servlet-name>ListaPedidoPUsuarioController</servlet-name>
         <servlet-class>controller.ListaPedidoPUsuarioController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListaPratosPEstabelecimentoController</servlet-name>
+        <servlet-class>controller.ListaPratosPEstabelecimentoController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>PesquisarPratoController</servlet-name>
         <url-pattern>/PesquisarPratoController</url-pattern>
@@ -191,6 +195,10 @@
     <servlet-mapping>
         <servlet-name>ListaPedidoPUsuarioController</servlet-name>
         <url-pattern>/ListaPedidoPUsuarioController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListaPratosPEstabelecimentoController</servlet-name>
+        <url-pattern>/ListaPratosPEstabelecimentoController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
