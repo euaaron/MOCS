@@ -9,7 +9,9 @@ package model;
 import dao.EnderecoEstabelecimentoDAO;
 import java.sql.SQLException;
 import java.util.List;
+import javax.persistence.Entity;
 
+@Entity
 public class EnderecoEstabelecimento extends Endereco {
 
     public EnderecoEstabelecimento(int id, String cep, String uf, String cidade,
