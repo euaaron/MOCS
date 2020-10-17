@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class Cliente extends Usuario {
 
     private ArrayList<Comanda> historicoPedidos = new ArrayList<>();
