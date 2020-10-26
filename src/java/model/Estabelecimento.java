@@ -20,7 +20,7 @@ import javax.persistence.OneToOne;
 public class Estabelecimento {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
   private String cnpj;
   private String telefone;

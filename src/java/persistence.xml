@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
-<hibernate-configuration>
-  <session-factory>
-    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://us-cdbr-east-02.cleardb.com:3306/heroku_7a4577ab47d8311</property>
-    <property name="hibernate.connection.username">bca155c03404d0</property>
-    <property name="hibernate.connection.password">e9df31ce</property>
-  </session-factory>
-</hibernate-configuration>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence         http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+    <persistence-unit name="MOCSPU">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <class>model.Usuario</class>
+        <class>model.Prato</class>
+        <class>model.Pedido</class>
+        <class>model.Funcao</class>
+        <class>model.Estabelecimento</class>
+        <class>model.Comanda</class>
+        <class>model.Endereco</class>
+        <class>model.EnderecoEstabelecimento</class>
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://us-cdbr-east-02.cleardb.com:3306/heroku_7a4577ab47d8311"/>
+            <property name="javax.persistence.jdbc.user" value="bca155c03404d0"/>
+            <property name="javax.persistence.jdbc.password" value="e9df31ce"/>
+            <property name="javax.persistence.schema-generation.database.action" value="create"/>
+            <property name="eclipselink.logging.level.sql" value="FINE"/>
+            <property name="eclipselink.logging.parameters" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>

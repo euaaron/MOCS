@@ -20,7 +20,7 @@ import javax.persistence.ManyToOne;
 public class Pedido {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
   private int idComanda;
   private int idPrato;

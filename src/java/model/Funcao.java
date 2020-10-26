@@ -18,7 +18,7 @@ import javax.persistence.Id;
 public class Funcao {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
   private int idEstabelecimento;
   private String nome;
