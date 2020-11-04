@@ -24,7 +24,7 @@ public class Comanda {
   private String hora;
   @ManyToOne
   private Usuario cliente = null;
-  private int idCliente;
+  private Integer idCliente;
 
   public Comanda(Integer id, String dataComanda, String horaComanda, Integer idCliente) {
     this.data = dataComanda;       // O Marco pediu para não trabalharmos com

@@ -21,9 +21,9 @@ public class Pedido {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private int id;
-  private int idComanda;
-  private int idPrato;
+  private Integer id;
+  private Integer idComanda;
+  private Integer idPrato;
   private int quantidade;
   @ManyToMany
   private Prato prato = null;

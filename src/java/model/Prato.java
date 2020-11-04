@@ -20,16 +20,16 @@ public class Prato {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private int id;
+  private Integer id;
   private String nome;
   private String descricao;
-  private int idFuncionario;
+  private Integer idFuncionario;
   @ManyToOne
   private Funcionario funcionario;
   private String dataCriacao;
   @ManyToOne
   private Estabelecimento estabelecimento;
-  private int idEstabelecimento;
+  private Integer idEstabelecimento;
   private float preco;
   private String imagemUrl;
   private int exibir;

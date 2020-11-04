@@ -22,7 +22,7 @@ public class Usuario {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private int id;
+  private Integer id;
   private String nome;
   private String cpf;
   private String dataNascimento;
@@ -31,7 +31,7 @@ public class Usuario {
   private String senha;
   @ManyToOne
   private Endereco endereco = null;
-  private int idEndereco;
+  private Integer idEndereco;
 
   public Usuario(int id, String nome, String dataNascimento,
           String email, String telefone, String senha, String cpf) {
