@@ -13,7 +13,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 import dao.UsuarioDAO;
 import javax.persistence.ManyToMany;
@@ -30,9 +29,9 @@ public class Usuario {
   private String email;
   private String telefone;
   private String senha;
-  @ManyToMany
-  private Endereco endereco = null;
-  private Integer idEndereco;
+  //@ManyToMany
+  //private Endereco endereco = null;
+  //private Integer idEndereco;
 
   public Usuario(int id, String nome, String dataNascimento,
           String email, String telefone, String senha, String cpf) {
@@ -74,11 +73,16 @@ public class Usuario {
     this.senha = senha;
   }
 
-  public void setEndereco()
+  /* public void setEndereco()
           throws ClassNotFoundException, SQLException {
     this.endereco = obterEndereco(idEndereco);
   }
-
+  
+  public void setIdEndereco() {
+    this.idEndereco = idEndereco;
+  }
+*/
+  
 // Métodos de Recuperação (Leitura)    
   public int getId() {
     return id;
@@ -108,7 +112,7 @@ public class Usuario {
     return senha;
   }
 
-  public Endereco getEndereco()
+  /* public Endereco getEndereco()
           throws ClassNotFoundException, SQLException {
     if (endereco == null) {
       setEndereco();
@@ -116,7 +120,12 @@ public class Usuario {
     }
     return this.endereco;
   }
-
+  
+  public int getIdEndereco() {
+    return idEndereco;
+  }
+*/
+  /*
 // Endereco
   public String getCep() {
     return endereco.getCep();
@@ -141,7 +150,8 @@ public class Usuario {
   public String getNumComplemento() {
     return endereco.getNumComplemento();
   }
-
+*/
+  
 // Métodos de comunicação com a camada DAO (Banco de dados)
   public static Usuario obterUsuario(int idUsuario)
           throws ClassNotFoundException, SQLException {
@@ -163,7 +173,7 @@ public class Usuario {
     return UsuarioDAO.obterUsuarios();
   }
 
-  public Endereco obterEndereco(int idEndereco)
+  /*public Endereco obterEndereco(int idEndereco)
           throws ClassNotFoundException, SQLException {
     return EnderecoUsuario.obterEnderecoUsuario(idEndereco);
   }
@@ -177,7 +187,8 @@ public class Usuario {
           throws ClassNotFoundException, SQLException {
     return EnderecoUsuario.obterEnderecosUsuario(idUsuario);
   }
-
+*/
+  
   public void gravar()
           throws SQLException, ClassNotFoundException {
     UsuarioDAO.gravar(this);

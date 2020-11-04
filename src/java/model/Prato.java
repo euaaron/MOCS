@@ -77,10 +77,18 @@ public class Prato {
     this.idFuncionario = idFuncionario;
   }
 
+  public void setFuncionario(Funcionario funcionario) {
+    this.funcionario = funcionario;
+  }
+  
   public void setIdEstabelecimento(int idEstabelecimento) {
     this.idEstabelecimento = idEstabelecimento;
   }
 
+  public void setEstabelecimento(Estabelecimento estabelecimento) {
+    this.estabelecimento = estabelecimento;
+  }
+  
   public void setExibir(int exibir) {
     this.exibir = exibir;
   }
