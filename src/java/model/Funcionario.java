@@ -15,100 +15,101 @@ import javax.persistence.ManyToMany;
 @Entity
 public class Funcionario extends Usuario {
 
-  private int statusConta;
-  @ManyToMany
-  private Estabelecimento estabelecimento;
-  private Integer idEstabelecimento;
-  @ManyToMany
-  private Funcao funcao;
-  private Integer idFuncao;
+    private int statusConta;
+    @ManyToMany
+    private Estabelecimento estabelecimento;
+    private Integer idEstabelecimento;
+    @ManyToMany
+    private Funcao funcao;
+    private Integer idFuncao;
 
-  public Funcionario(Integer idUsuario, String nome, String dataNascimento,
-          String email, String telefone, String senha, String cpf,
-          int statusConta,
-          Integer idEstabelecimento, Integer idFuncao)
-          throws ClassNotFoundException, SQLException {
-    super(idUsuario, nome, dataNascimento, email, telefone, senha, cpf);
-    this.idEstabelecimento = idEstabelecimento;
-    this.statusConta = statusConta;
-    this.idFuncao = idFuncao;
-    this.estabelecimento = getEstabelecimento();
-    this.funcao = getFuncao();
-  }
+    public Funcionario(Integer idUsuario, String nome, String dataNascimento,
+            String email, String telefone, String senha, String cpf,
+            int statusConta,
+            Integer idEstabelecimento, Integer idFuncao)
+            throws ClassNotFoundException, SQLException {
+        super(idUsuario, nome, dataNascimento, email, telefone, senha, cpf);
+        this.idEstabelecimento = idEstabelecimento;
+        this.statusConta = statusConta;
+        this.idFuncao = idFuncao;
+        this.estabelecimento = getEstabelecimento();
+        this.funcao = getFuncao();
+    }
 
 // Métodos de inserção (Modificação)
-  public void setStatusConta(int statusConta) {
-    this.statusConta = statusConta;
-  }
+    public void setStatusConta(int statusConta) {
+        this.statusConta = statusConta;
+    }
 
-  //public void setFuncao(Funcao funcao){ this.funcao = funcao; }
+    public void setFuncao(Funcao funcao) {
+        this.funcao = funcao;
+    }
 
-  public void setIdEstabelecimento(Integer idEstabelecimento) {
-    this.idEstabelecimento = idEstabelecimento;
-  }
+    public void setIdEstabelecimento(Integer idEstabelecimento) {
+        this.idEstabelecimento = idEstabelecimento;
+    }
 
-  public void setIdFuncao(int idFuncao) {
-    this.idFuncao = idFuncao;
-  }
+    public void setIdFuncao(int idFuncao) {
+        this.idFuncao = idFuncao;
+    }
 
-  public void setEstabelecimento(Estabelecimento estabelecimento) {
-    this.estabelecimento = estabelecimento;
-  }
+    public void setEstabelecimento(Estabelecimento estabelecimento) {
+        this.estabelecimento = estabelecimento;
+    }
 
 // Métodos de Recuperação (Leitura) 
-  public int getStatusConta() {
-    return statusConta;
-  }
+    public int getStatusConta() {
+        return statusConta;
+    }
 
   //public Funcao getFuncao(){ return funcao; }
-
-  public Integer getIdEstabelecimento() {
-    return idEstabelecimento;
-  }
-
-  public Integer getIdFuncao() {
-    return idFuncao;
-  }
-
-  public Estabelecimento getEstabelecimento()
-          throws ClassNotFoundException, SQLException {
-    if ((this.idEstabelecimento != 0) && (this.estabelecimento == null)) {
-      this.estabelecimento = Estabelecimento.obterEstabelecimento(
-              this.idEstabelecimento);
+    public Integer getIdEstabelecimento() {
+        return idEstabelecimento;
     }
-    return this.estabelecimento;
-  }
 
-  public Funcao getFuncao()
-          throws ClassNotFoundException, SQLException {
-    if ((this.idFuncao != 0) && (this.funcao == null)) {
-      this.funcao = Funcao.obterFuncao(this.idFuncao);
+    public Integer getIdFuncao() {
+        return idFuncao;
     }
-    return this.funcao;
-  }
 
-  public static Funcionario obterFuncionario(Integer idUsuario)
-          throws ClassNotFoundException, SQLException {
-    return FuncionarioDAO.obterFuncionario(idUsuario);
-  }
+    public Estabelecimento getEstabelecimento()
+            throws ClassNotFoundException, SQLException {
+        if ((this.idEstabelecimento != 0) && (this.estabelecimento == null)) {
+            this.estabelecimento = Estabelecimento.obterEstabelecimento(
+                    this.idEstabelecimento);
+        }
+        return this.estabelecimento;
+    }
 
-  public static List<Funcionario> obterFuncionarios()
-          throws ClassNotFoundException, SQLException {
-    return FuncionarioDAO.obterFuncionarios();
-  }
+    public Funcao getFuncao()
+            throws ClassNotFoundException, SQLException {
+        if ((this.idFuncao != 0) && (this.funcao == null)) {
+            this.funcao = Funcao.obterFuncao(this.idFuncao);
+        }
+        return this.funcao;
+    }
 
-  public void gravar()
-          throws SQLException, ClassNotFoundException {
-    FuncionarioDAO.gravar(this);
-  }
+    public static Funcionario obterFuncionario(Integer idUsuario)
+            throws ClassNotFoundException, SQLException {
+        return FuncionarioDAO.obterFuncionario(idUsuario);
+    }
 
-  public void editar()
-          throws SQLException, ClassNotFoundException {
-    FuncionarioDAO.editar(this);
-  }
+    public static List<Funcionario> obterFuncionarios()
+            throws ClassNotFoundException, SQLException {
+        return FuncionarioDAO.obterFuncionarios();
+    }
 
-  public void excluir()
-          throws ClassNotFoundException, SQLException {
-    FuncionarioDAO.excluir(this);
-  }
+    public void gravar()
+            throws SQLException, ClassNotFoundException {
+        FuncionarioDAO.gravar(this);
+    }
+
+    public void editar()
+            throws SQLException, ClassNotFoundException {
+        FuncionarioDAO.editar(this);
+    }
+
+    public void excluir()
+            throws ClassNotFoundException, SQLException {
+        FuncionarioDAO.excluir(this);
+    }
 }
