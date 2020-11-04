@@ -62,7 +62,6 @@ public class Funcionario extends Usuario {
         return statusConta;
     }
 
-  //public Funcao getFuncao(){ return funcao; }
     public Integer getIdEstabelecimento() {
         return idEstabelecimento;
     }
