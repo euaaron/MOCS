@@ -16,6 +16,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import dao.UsuarioDAO;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Usuario {
@@ -29,7 +30,7 @@ public class Usuario {
   private String email;
   private String telefone;
   private String senha;
-  @ManyToOne
+  @ManyToMany
   private Endereco endereco = null;
   private Integer idEndereco;
 
