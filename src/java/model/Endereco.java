@@ -19,7 +19,7 @@ import javax.persistence.Id;
 public abstract class Endereco {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
   private String cep;
   private String bairro;
