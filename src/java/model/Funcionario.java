@@ -49,7 +49,7 @@ public class Funcionario extends Usuario {
         this.idEstabelecimento = idEstabelecimento;
     }
 
-    public void setIdFuncao(int idFuncao) {
+    public void setIdFuncao(Integer idFuncao) {
         this.idFuncao = idFuncao;
     }
 

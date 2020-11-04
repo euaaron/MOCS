@@ -42,7 +42,7 @@ public abstract class Endereco {
   }
 
 // Métodos de inserção (Modificação)
-  public void setId(int id) {
+  public void setId(Integer id) {
     this.id = id;
   }
 

@@ -34,9 +34,9 @@ public class Prato {
   private String imagemUrl;
   private int exibir;
 
-  public Prato(int id, String nome, String descricao, float preco,
+  public Prato(Integer id, String nome, String descricao, float preco,
           String imagemUrl, String dataCriacao,
-          int idFuncionario, int idEstabelecimento, int exibir) throws ClassNotFoundException, SQLException {
+          Integer idFuncionario, Integer idEstabelecimento, int exibir) throws ClassNotFoundException, SQLException {
     this.id = id;
     this.descricao = descricao;
     this.idFuncionario = idFuncionario;
@@ -49,7 +49,7 @@ public class Prato {
   }
 
 // Métodos de inserção (Modificação)
-  public void setId(int idPrato) {
+  public void setId(Integer idPrato) {
     this.id = idPrato;
   }
 
@@ -73,7 +73,7 @@ public class Prato {
     this.dataCriacao = dataCriacao;
   }
 
-  public void setIdFuncionario(int idFuncionario) {
+  public void setIdFuncionario(Integer idFuncionario) {
     this.idFuncionario = idFuncionario;
   }
 
@@ -81,7 +81,7 @@ public class Prato {
     this.funcionario = funcionario;
   }
   
-  public void setIdEstabelecimento(int idEstabelecimento) {
+  public void setIdEstabelecimento(Integer idEstabelecimento) {
     this.idEstabelecimento = idEstabelecimento;
   }
 
@@ -94,7 +94,7 @@ public class Prato {
   }
 
 // Métodos de Recuperação (Leitura)
-  public int getId() {
+  public Integer getId() {
     return id;
   }
 
@@ -118,11 +118,11 @@ public class Prato {
     return dataCriacao;
   }
 
-  public int getIdFuncionario() {
+  public Integer getIdFuncionario() {
     return idFuncionario;
   }
 
-  public int getIdEstabelecimento() {
+  public Integer getIdEstabelecimento() {
     return idEstabelecimento;
   }
 
@@ -148,7 +148,7 @@ public class Prato {
   }
 
 // Métodos de comunicação com a camada DAO (Banco de dados)
-  public static Prato obterPrato(int idPrato)
+  public static Prato obterPrato(Integer idPrato)
           throws ClassNotFoundException, SQLException {
     return PratoDAO.obterPrato(idPrato);
   }

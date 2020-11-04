@@ -50,7 +50,7 @@ public class Estabelecimento {
   }
 
 // Métodos do objeto
-  public void setId(int id) {
+  public void setId(Integer id) {
     this.id = id;
   }
 
@@ -91,7 +91,7 @@ public class Estabelecimento {
   }
 
 //Métodos do objeto Proprietário
-  public void setIdProprietario(int idProprietario) {
+  public void setIdProprietario(Integer idProprietario) {
     this.idProprietario = idProprietario;
   }
 
@@ -112,7 +112,7 @@ public class Estabelecimento {
   }
 
 //Métodos do objeto Endereço
-  public void setIdEndereco(int idEndereco) {
+  public void setIdEndereco(Integer idEndereco) {
     this.idEndereco = idEndereco;
   }
 
@@ -133,7 +133,7 @@ public class Estabelecimento {
   }
 
 // Métodos de comunicação com a camada DAO (Banco de dados)
-  public static Estabelecimento obterEstabelecimento(int idEstabelecimento)
+  public static Estabelecimento obterEstabelecimento(Integer idEstabelecimento)
           throws ClassNotFoundException, SQLException {
     return EstabelecimentoDAO.obterEstabelecimento(idEstabelecimento);
   }

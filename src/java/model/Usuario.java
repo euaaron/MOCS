@@ -33,7 +33,7 @@ public class Usuario {
   //private Endereco endereco = null;
   //private Integer idEndereco;
 
-  public Usuario(int id, String nome, String dataNascimento,
+  public Usuario(Integer id, String nome, String dataNascimento,
           String email, String telefone, String senha, String cpf) {
     this.id = id;
     this.nome = nome;
@@ -45,7 +45,7 @@ public class Usuario {
   }
 
 // Métodos de inserção (Modificação)
-  public void setId(int id) {
+  public void setId(Integer id) {
     this.id = id;
   }
 
@@ -84,7 +84,7 @@ public class Usuario {
 */
   
 // Métodos de Recuperação (Leitura)    
-  public int getId() {
+  public Integer getId() {
     return id;
   }
 
@@ -153,7 +153,7 @@ public class Usuario {
 */
   
 // Métodos de comunicação com a camada DAO (Banco de dados)
-  public static Usuario obterUsuario(int idUsuario)
+  public static Usuario obterUsuario(Integer idUsuario)
           throws ClassNotFoundException, SQLException {
     return UsuarioDAO.obterUsuario(idUsuario);
   }

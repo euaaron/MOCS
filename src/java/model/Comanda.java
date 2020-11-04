@@ -34,7 +34,7 @@ public class Comanda {
   }
 
 // Métodos de inserção (Modificação)
-  public void setId(int id) {
+  public void setId(Integer id) {
     this.id = id;
   }
 
@@ -50,7 +50,7 @@ public class Comanda {
     this.cliente = cliente;
   }
 
-  public void setIdCliente(int idCliente) {
+  public void setIdCliente(Integer idCliente) {
     this.idCliente = idCliente;
   }
 
@@ -80,7 +80,7 @@ public class Comanda {
   }
 
 // Métodos de comunicação com a camada DAO (Banco de dados)
-  public static Comanda obterComanda(int idComanda)
+  public static Comanda obterComanda(Integer idComanda)
           throws ClassNotFoundException, SQLException {
     return ComandaDAO.obterComanda(idComanda);
   }

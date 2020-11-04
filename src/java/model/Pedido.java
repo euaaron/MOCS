@@ -30,7 +30,7 @@ public class Pedido {
   @ManyToOne
   private Comanda comanda = null;
 
-  public Pedido(int id, int idPrato, int quantidade, int idComanda) {
+  public Pedido(Integer id, Integer idPrato, int quantidade, Integer idComanda) {
     this.id = id;
     this.idPrato = idPrato;
     this.quantidade = quantidade;
@@ -38,7 +38,7 @@ public class Pedido {
   }
 
 //Métodos de inserção (Modificação)
-  public void setId(int idPedido) {
+  public void setId(Integer idPedido) {
     this.id = idPedido;
   }
 
@@ -54,24 +54,24 @@ public class Pedido {
     this.quantidade = quantidade;
   }
 
-  public void setIdComanda(int idComanda) {
+  public void setIdComanda(Integer idComanda) {
     this.idComanda = idComanda;
   }
 
-  public void setIdPrato(int idPrato) {
+  public void setIdPrato(Integer idPrato) {
     this.idPrato = idPrato;
   }
 
 // Métodos de Recuperação (Leitura)
-  public int getId() {
+  public Integer getId() {
     return id;
   }
 
-  public int getIdPrato() {
+  public Integer getIdPrato() {
     return idPrato;
   }
 
-  public int getIdComanda() {
+  public Integer getIdComanda() {
     return idComanda;
   }
 
@@ -96,7 +96,7 @@ public class Pedido {
   }
 
 // Métodos de comunicação com a camada DAO (Banco de dados)
-  public static Pedido obterPedido(int id)
+  public static Pedido obterPedido(Integer id)
           throws ClassNotFoundException, SQLException {
     return PedidoDAO.obterPedido(id);
   }
@@ -106,17 +106,17 @@ public class Pedido {
     return PedidoDAO.obterPedidos();
   }
 
-  public static List<Pedido> obterPedidosComanda(int idComanda)
+  public static List<Pedido> obterPedidosComanda(Integer idComanda)
           throws ClassNotFoundException, SQLException {
     return PedidoDAO.obterPedidosComanda(idComanda);
   }
 
-  public Prato obterPrato(int idPrato)
+  public Prato obterPrato(Integer idPrato)
           throws ClassNotFoundException, SQLException {
     return PratoDAO.obterPrato(idPrato);
   }
 
-  public Comanda obterComanda(int idComanda)
+  public Comanda obterComanda(Integer idComanda)
           throws ClassNotFoundException, SQLException {
     return ComandaDAO.obterComanda(idComanda);
   }

@@ -39,7 +39,7 @@ public class Funcao {
     this.id = id;
   }
 
-  public void setIdEstabelecimento(int idEstabelecimento) {
+  public void setIdEstabelecimento(Integer idEstabelecimento) {
     this.idEstabelecimento = idEstabelecimento;
   }
 
@@ -77,7 +77,7 @@ public class Funcao {
   }
 
 // Métodos de comunicação com a camada DAO (Banco de dados)
-  public static Funcao obterFuncao(int id)
+  public static Funcao obterFuncao(Integer id)
           throws ClassNotFoundException, SQLException {
     return FuncaoDAO.obterFuncao(id);
   }

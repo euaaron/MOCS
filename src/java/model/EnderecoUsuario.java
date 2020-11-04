@@ -60,17 +60,17 @@ public class EnderecoUsuario extends Endereco {
   }
 
   // Métodos de comunicação com a camada DAO (Banco de dados)    
-  public static EnderecoUsuario obterEnderecoPadrao(int idUsuario)
+  public static EnderecoUsuario obterEnderecoPadrao(Integer idUsuario)
           throws ClassNotFoundException, SQLException {
     return EnderecoUsuarioDAO.obterEnderecoPadrao(idUsuario);
   }
 
-  public static EnderecoUsuario obterEnderecoUsuario(int idEndereco)
+  public static EnderecoUsuario obterEnderecoUsuario(Integer idEndereco)
           throws ClassNotFoundException, SQLException {
     return EnderecoUsuarioDAO.obterEnderecoUsuario(idEndereco);
   }
 
-  public static List<EnderecoUsuario> obterEnderecosUsuario(int idUsuario)
+  public static List<EnderecoUsuario> obterEnderecosUsuario(Integer idUsuario)
           throws ClassNotFoundException, SQLException {
     return EnderecoUsuarioDAO.obterEnderecosUsuario(idUsuario);
   }
