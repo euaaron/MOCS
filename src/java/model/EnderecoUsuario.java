@@ -17,20 +17,20 @@ public class EnderecoUsuario extends Endereco {
 
   @ManyToOne
   private Usuario usuario;
-  private int idUsuario; // Usuario responsável por este endereço
+  private Integer idUsuario; // Usuario responsável por este endereço
   private boolean padrao;
 
-  public EnderecoUsuario(int id, String cep, String bairro, String uf,
+  public EnderecoUsuario(Integer id, String cep, String bairro, String uf,
           String cidade,
           String logradouro, String numEdificio, String numComplemento,
-          int idUsuario, boolean padrao) {
+          Integer idUsuario, boolean padrao) {
     super(id, cep, bairro, uf, cidade, logradouro, numEdificio, numComplemento);
     this.idUsuario = idUsuario;
     this.padrao = padrao;
   }
 
   // Métodos de inserção (Modificação)
-  public void setIdUsuario(int idUsuario) {
+  public void setIdUsuario(Integer idUsuario) {
     this.idUsuario = idUsuario;
   }
 
@@ -43,7 +43,7 @@ public class EnderecoUsuario extends Endereco {
   }
 
   // Métodos de Recuperação (Leitura)    
-  public int getIdUsuario() {
+  public Integer getIdUsuario() {
     return this.idUsuario;
   }
 
@@ -51,7 +51,7 @@ public class EnderecoUsuario extends Endereco {
     return this.padrao;
   }
 
-  public Usuario getUsuario(int idUsuario)
+  public Usuario getUsuario(Integer idUsuario)
           throws ClassNotFoundException, SQLException {
     if (usuario != null) {
       return this.usuario;

@@ -3,6 +3,7 @@
     <persistence-unit name="MOCSPU">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <class>model.Usuario</class>
+        <class>model.Funcionario</class>
         <class>model.Prato</class>
         <class>model.Pedido</class>
         <class>model.Funcao</class>

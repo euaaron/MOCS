@@ -20,7 +20,7 @@ public abstract class Endereco {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private int id;
+  private Integer id;
   private String cep;
   private String bairro;
   private String uf;
@@ -29,7 +29,7 @@ public abstract class Endereco {
   private String numEdificio;
   private String numComplemento;
 
-  public Endereco(int id, String cep, String bairro, String uf, String cidade,
+  public Endereco(Integer id, String cep, String bairro, String uf, String cidade,
           String logradouro, String numEdificio, String numComplemento) {
     setBairro(bairro);
     setId(id);
@@ -75,7 +75,7 @@ public abstract class Endereco {
   }
 
 // Métodos de Recuperação (Leitura)    
-  public int getId() {
+  public Integer getId() {
     return id;
   }
 

@@ -19,14 +19,14 @@ public class Comanda {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private int id;
+  private Integer id;
   private String data;
   private String hora;
   @ManyToOne
   private Usuario cliente = null;
   private int idCliente;
 
-  public Comanda(int id, String dataComanda, String horaComanda, int idCliente) {
+  public Comanda(Integer id, String dataComanda, String horaComanda, Integer idCliente) {
     this.data = dataComanda;       // O Marco pediu para não trabalharmos com
     this.hora = horaComanda;       // data e hora no momento... apenas com
     this.idCliente = idCliente;           // atributos básicos, como int, string e float.
@@ -55,7 +55,7 @@ public class Comanda {
   }
 
 // Métodos de Recuperação (Leitura)    
-  public int getId() {
+  public Integer getId() {
     return id;
   }
 
@@ -67,7 +67,7 @@ public class Comanda {
     return hora;
   }
 
-  public int getIdCliente() {
+  public Integer getIdCliente() {
     return idCliente;
   }
 

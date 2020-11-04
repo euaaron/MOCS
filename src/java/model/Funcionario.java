@@ -18,15 +18,15 @@ public class Funcionario extends Usuario {
   private int statusConta;
   @ManyToMany
   private Estabelecimento estabelecimento;
-  private int idEstabelecimento;
+  private Integer idEstabelecimento;
   @ManyToMany
   private Funcao funcao;
-  private int idFuncao;
+  private Integer idFuncao;
 
-  public Funcionario(int idUsuario, String nome, String dataNascimento,
+  public Funcionario(Integer idUsuario, String nome, String dataNascimento,
           String email, String telefone, String senha, String cpf,
           int statusConta,
-          int idEstabelecimento, int idFuncao)
+          Integer idEstabelecimento, Integer idFuncao)
           throws ClassNotFoundException, SQLException {
     super(idUsuario, nome, dataNascimento, email, telefone, senha, cpf);
     this.idEstabelecimento = idEstabelecimento;
@@ -43,7 +43,7 @@ public class Funcionario extends Usuario {
 
   //public void setFuncao(Funcao funcao){ this.funcao = funcao; }
 
-  public void setIdEstabelecimento(int idEstabelecimento) {
+  public void setIdEstabelecimento(Integer idEstabelecimento) {
     this.idEstabelecimento = idEstabelecimento;
   }
 
@@ -62,11 +62,11 @@ public class Funcionario extends Usuario {
 
   //public Funcao getFuncao(){ return funcao; }
 
-  public int getIdEstabelecimento() {
+  public Integer getIdEstabelecimento() {
     return idEstabelecimento;
   }
 
-  public int getIdFuncao() {
+  public Integer getIdFuncao() {
     return idFuncao;
   }
 
@@ -87,7 +87,7 @@ public class Funcionario extends Usuario {
     return this.funcao;
   }
 
-  public static Funcionario obterFuncionario(int idUsuario)
+  public static Funcionario obterFuncionario(Integer idUsuario)
           throws ClassNotFoundException, SQLException {
     return FuncionarioDAO.obterFuncionario(idUsuario);
   }

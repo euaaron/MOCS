@@ -21,19 +21,19 @@ public class Estabelecimento {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private int id;
+  private Integer id;
   private String cnpj;
   private String telefone;
   private String nomeFantasia;
   private String inscEstadual;
-  private int idProprietario;
+  private Integer idProprietario;
   @ManyToOne
   private Usuario proprietario;
-  private int idEndereco;
+  private Integer idEndereco;
   @OneToOne
   private EnderecoEstabelecimento endereco;
 
-  public Estabelecimento(int id, String cnpj, String nomeFantasia,
+  public Estabelecimento(Integer id, String cnpj, String nomeFantasia,
           String inscEstadual,
           String telefone, Usuario proprietario,
           EnderecoEstabelecimento endereco)
@@ -54,7 +54,7 @@ public class Estabelecimento {
     this.id = id;
   }
 
-  public int getId() {
+  public Integer getId() {
     return id;
   }
 
@@ -95,7 +95,7 @@ public class Estabelecimento {
     this.idProprietario = idProprietario;
   }
 
-  public int getIdProprietario() {
+  public Integer getIdProprietario() {
     return idProprietario;
   }
 
@@ -116,7 +116,7 @@ public class Estabelecimento {
     this.idEndereco = idEndereco;
   }
 
-  public int getIdEndereco() {
+  public Integer getIdEndereco() {
     return idEndereco;
   }
 

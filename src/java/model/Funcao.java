@@ -19,13 +19,13 @@ public class Funcao {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private int id;
-  private int idEstabelecimento;
+  private Integer id;
+  private Integer idEstabelecimento;
   private String nome;
   private String descricao;
   private int nivelPermissao;
 
-  public Funcao(int id, int idEstabelecimento, String nome, String descricao,
+  public Funcao(Integer id, Integer idEstabelecimento, String nome, String descricao,
           int nivelPermissao) {
     this.id = id;
     this.idEstabelecimento = idEstabelecimento;
@@ -35,7 +35,7 @@ public class Funcao {
   }
 // Métodos de inserção de valores nas variáveis   
 
-  public void setId(int id) {
+  public void setId(Integer id) {
     this.id = id;
   }
 
@@ -56,11 +56,11 @@ public class Funcao {
   }
 
 // Métodos de leitura das variáveis
-  public int getId() {
+  public Integer getId() {
     return id;
   }
 
-  public int getIdEstabelecimento() {
+  public Integer getIdEstabelecimento() {
     return idEstabelecimento;
   }
 
@@ -87,7 +87,7 @@ public class Funcao {
     return FuncaoDAO.obterFuncoes();
   }
 
-  public Estabelecimento obterEstabelecimento(int idEstabelecimento)
+  public Estabelecimento obterEstabelecimento(Integer idEstabelecimento)
           throws ClassNotFoundException, SQLException {
     return Estabelecimento.obterEstabelecimento(idEstabelecimento);
   }
