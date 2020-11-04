@@ -13,6 +13,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Funcao {
@@ -21,11 +22,14 @@ public class Funcao {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
   private Integer idEstabelecimento;
+  @ManyToOne
+  private Estabelecimento estabelecimento;
   private String nome;
   private String descricao;
   private int nivelPermissao;
 
-  public Funcao(Integer id, Integer idEstabelecimento, String nome, String descricao,
+  public Funcao(Integer id, Integer idEstabelecimento, String nome,
+          String descricao,
           int nivelPermissao) {
     this.id = id;
     this.idEstabelecimento = idEstabelecimento;
@@ -55,6 +59,10 @@ public class Funcao {
     this.nivelPermissao = nivelPermissao;
   }
 
+  public void setEstabelecimento(Estabelecimento estabelecimento) {
+    this.estabelecimento = estabelecimento;
+  }
+
 // Métodos de leitura das variáveis
   public Integer getId() {
     return id;
@@ -74,6 +82,10 @@ public class Funcao {
 
   public int getNivelPermissao() {
     return nivelPermissao;
+  }
+
+  public Estabelecimento getEstabelecimento() {
+    return estabelecimento;
   }
 
 // Métodos de comunicação com a camada DAO (Banco de dados)
@@ -106,4 +118,5 @@ public class Funcao {
           throws ClassNotFoundException, SQLException {
     FuncaoDAO.excluir(this);
   }
+
 }
