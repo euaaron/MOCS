@@ -14,7 +14,7 @@ import javax.persistence.Persistence;
  * @author Marco
  */
 public class ConexaoFactory {
-    private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("produtoPU");
+    private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("mocsPU");
     
     public EntityManager getConexao() {
         return emf.createEntityManager();
