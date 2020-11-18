@@ -15,7 +15,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import dao.UsuarioDAO;
-import javax.persistence.ManyToMany;
 
 @Entity
 public class Usuario {
@@ -29,9 +28,6 @@ public class Usuario {
   private String email;
   private String telefone;
   private String senha;
-  //@ManyToMany
-  //private Endereco endereco = null;
-  //private Integer idEndereco;
 
   public Usuario(Integer id, String nome, String dataNascimento,
           String email, String telefone, String senha, String cpf) {
@@ -72,16 +68,6 @@ public class Usuario {
   public void setSenha(String senha) {
     this.senha = senha;
   }
-
-  /* public void setEndereco()
-          throws ClassNotFoundException, SQLException {
-    this.endereco = obterEndereco(idEndereco);
-  }
-  
-  public void setIdEndereco() {
-    this.idEndereco = idEndereco;
-  }
-*/
   
 // Métodos de Recuperação (Leitura)    
   public Integer getId() {
@@ -111,46 +97,6 @@ public class Usuario {
   public String getSenha() {
     return senha;
   }
-
-  /* public Endereco getEndereco()
-          throws ClassNotFoundException, SQLException {
-    if (endereco == null) {
-      setEndereco();
-      return this.endereco;
-    }
-    return this.endereco;
-  }
-  
-  public int getIdEndereco() {
-    return idEndereco;
-  }
-*/
-  /*
-// Endereco
-  public String getCep() {
-    return endereco.getCep();
-  }
-
-  public String getUf() {
-    return endereco.getUf();
-  }
-
-  public String getCidade() {
-    return endereco.getCidade();
-  }
-
-  public String getLogradouro() {
-    return endereco.getLogradouro();
-  }
-
-  public String getNumEdificio() {
-    return endereco.getNumEdificio();
-  }
-
-  public String getNumComplemento() {
-    return endereco.getNumComplemento();
-  }
-*/
   
 // Métodos de comunicação com a camada DAO (Banco de dados)
   public static Usuario obterUsuario(Integer idUsuario)
@@ -172,22 +118,6 @@ public class Usuario {
           throws ClassNotFoundException, SQLException {
     return UsuarioDAO.obterUsuarios();
   }
-
-  /*public Endereco obterEndereco(int idEndereco)
-          throws ClassNotFoundException, SQLException {
-    return EnderecoUsuario.obterEnderecoUsuario(idEndereco);
-  }
-
-  public Endereco obterEnderecoPadrao(int idUsuario)
-          throws ClassNotFoundException, SQLException {
-    return EnderecoUsuario.obterEnderecoPadrao(idUsuario);
-  }
-
-  public static List<EnderecoUsuario> obterEnderecosUsuario(int idUsuario)
-          throws ClassNotFoundException, SQLException {
-    return EnderecoUsuario.obterEnderecosUsuario(idUsuario);
-  }
-*/
   
   public void gravar()
           throws SQLException, ClassNotFoundException {

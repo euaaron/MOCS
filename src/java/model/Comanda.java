@@ -23,13 +23,13 @@ public class Comanda {
   private String data;
   private String hora;
   @ManyToOne
-  private Usuario cliente = null;
+  private Usuario usuario = null;
   private Integer idCliente;
 
   public Comanda(Integer id, String dataComanda, String horaComanda, Integer idCliente) {
     this.data = dataComanda;       // O Marco pediu para não trabalharmos com
     this.hora = horaComanda;       // data e hora no momento... apenas com
-    this.idCliente = idCliente;           // atributos básicos, como int, string e float.
+    this.idCliente = idCliente;    // atributos básicos, como int, string e float.
     this.id = id;
   }
 
@@ -47,7 +47,7 @@ public class Comanda {
   }
 
   public void setCliente(Usuario cliente) {
-    this.cliente = cliente;
+    this.usuario = cliente;
   }
 
   public void setIdCliente(Integer idCliente) {
@@ -73,16 +73,16 @@ public class Comanda {
 
   public Usuario getCliente()
           throws ClassNotFoundException, SQLException {
-    if ((idCliente != 0) && (cliente == null)) {
-      cliente = Usuario.obterUsuario(idCliente);
+    if ((idCliente != 0) && (usuario == null)) {
+      usuario = Usuario.obterUsuario(idCliente);
     }
-    return cliente;
+    return usuario;
   }
 
 // Métodos de comunicação com a camada DAO (Banco de dados)
   public static Comanda obterComanda(Integer idComanda)
           throws ClassNotFoundException, SQLException {
-    return ComandaDAO.obterComanda(idComanda);
+    return ComandaDAO.getInstancia().findById(idComanda);
   }
 
   public float obterTotal() throws ClassNotFoundException, SQLException {
@@ -90,7 +90,7 @@ public class Comanda {
     float total = 0;
     for (int i = 0; i < pedidos.size(); i++) {
       Pedido pedido = pedidos.get(i);
-      if (pedido.getIdComanda() == this.id) {
+      if (pedido.getIdComanda().equals(this.id)) {
         total += pedido.getQuantidade() * Prato.obterPrato(pedido.getIdPrato()).
                 getPreco();
       }
@@ -103,7 +103,7 @@ public class Comanda {
     int cont = 0;
     for (int i = 0; i < pedidos.size(); i++) {
       Pedido pedido = pedidos.get(i);
-      if (pedido.getIdComanda() == this.id) {
+      if (pedido.getIdComanda().equals(this.id)) {
         cont++;
       }
     }
@@ -112,7 +112,7 @@ public class Comanda {
 
   public static List<Comanda> obterComandas()
           throws ClassNotFoundException, SQLException {
-    return ComandaDAO.obterComandas();
+    return ComandaDAO.getInstancia().findAll();
   }
 
 // Métodos de comunicação com a camada DAO (Banco de dados)
@@ -123,16 +123,16 @@ public class Comanda {
 
   public void gravar()
           throws SQLException, ClassNotFoundException {
-    ComandaDAO.gravar(this);
+    ComandaDAO.getInstancia().save(this);
   }
 
   public void editar()
           throws SQLException, ClassNotFoundException {
-    ComandaDAO.editar(this);
+    ComandaDAO.getInstancia().save(this);
   }
 
   public void excluir()
           throws ClassNotFoundException, SQLException {
-    ComandaDAO.excluir(this);
+    ComandaDAO.getInstancia().remove(this.id);
   }
 }

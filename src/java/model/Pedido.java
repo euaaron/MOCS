@@ -13,8 +13,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Pedido {
@@ -25,7 +25,7 @@ public class Pedido {
   private Integer idComanda;
   private Integer idPrato;
   private int quantidade;
-  @ManyToMany
+  @OneToOne
   private Prato prato = null;
   @ManyToOne
   private Comanda comanda = null;
@@ -118,7 +118,7 @@ public class Pedido {
 
   public Comanda obterComanda(Integer idComanda)
           throws ClassNotFoundException, SQLException {
-    return ComandaDAO.obterComanda(idComanda);
+    return ComandaDAO.getInstancia().findById(idComanda);
   }
 
   public void gravar()

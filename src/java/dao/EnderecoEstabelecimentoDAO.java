@@ -91,8 +91,8 @@ public class EnderecoEstabelecimentoDAO {
             comando.setString(4, endestabelecimento.getCidade());
             comando.setString(5, endestabelecimento.getLogradouro());
             comando.setString(6, endestabelecimento.getBairro());
-            comando.setString(7, endestabelecimento.getNumEdificio());
-            comando.setString(8, endestabelecimento.getNumComplemento());
+            comando.setString(7, endestabelecimento.getEdificio());
+            comando.setString(8, endestabelecimento.getComplemento());
             comando.executeUpdate();
         } catch (SQLException ex) {
             throw new SQLException(ex);
@@ -116,8 +116,8 @@ public class EnderecoEstabelecimentoDAO {
                     + "cidade = '" + endestabelecimento.getCidade() + "', "
                     + "logradouro = '" + endestabelecimento.getLogradouro() + "', "
                     + "bairro = '" + endestabelecimento.getBairro() + "', "
-                    + "numEdificio = '" + endestabelecimento.getNumEdificio() + "', "
-                    + "numComplemento = '" + endestabelecimento.getNumComplemento() + "'";
+                    + "numEdificio = '" + endestabelecimento.getEdificio() + "', "
+                    + "numComplemento = '" + endestabelecimento.getComplemento() + "'";
                     stringSQL = stringSQL + " where id = " + endestabelecimento.getId();
                     comando.execute(stringSQL);
         } catch (SQLException ex) {

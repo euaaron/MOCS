@@ -140,7 +140,7 @@ public class EnderecoUsuarioDAO {
             comando.setString(3, endereco.getUf());
             comando.setString(4, endereco.getCidade());
             comando.setString(5, endereco.getLogradouro());
-            comando.setString(6, endereco.getNumEdificio());
+            comando.setString(6, endereco.getEdificio());
             comando.setString(7, endereco.getCidade());
             comando.executeUpdate();
         } catch (SQLException ex) {
@@ -164,7 +164,7 @@ public class EnderecoUsuarioDAO {
             comando.setString(2, endereco.getUf());
             comando.setString(3, endereco.getCidade());
             comando.setString(4, endereco.getLogradouro());
-            comando.setString(5, endereco.getNumEdificio());
+            comando.setString(5, endereco.getEdificio());
             comando.setString(6, endereco.getCidade());
             comando.setInt(7, endereco.getId());
             comando.executeUpdate();

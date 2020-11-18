@@ -1,129 +1,85 @@
 /**
  * Project MOCS
+ *
  * @version 0.19.7a
  * @authors Débora Lessa & Aaron Stiebler
  */
 package dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.EntityManager;
 import model.Comanda;
 
 public class ComandaDAO {
-    
-    public static List<Comanda> obterComandas()
-    throws ClassNotFoundException, SQLException{
-        Connection conexao = null;
-        Statement comando = null;
-        List<Comanda> comandas = new ArrayList<>();
-        Comanda comanda = null;
-        try{
-        conexao = BD.getConexao();
-        comando = conexao.createStatement();
-        ResultSet rs = comando.executeQuery("select * from comanda ORDER BY id ASC");
-            while (rs.next()) {
-                comanda = instanciarComanda(rs);
-                comandas.add(comanda);                
-            }
-        } catch (SQLException ex) {
-            throw new SQLException(ex);
-        } finally{
-        BD.fecharConexao(conexao, comando);
-        }
-        return comandas;
+
+  private static ComandaDAO instancia = new ComandaDAO();
+
+  private ComandaDAO() {
+  }
+
+  public static ComandaDAO getInstancia() {
+    return instancia;
+  }
+  
+  public Comanda save(Comanda comanda) {
+    EntityManager em = new ConexaoFactory().getConexao();
+    try {
+      em.getTransaction().begin();
+      if (comanda.getId() == null) {
+        em.persist(comanda);
+      } else {
+        em.merge(comanda);
+      }
+      em.getTransaction().commit();
+    } catch (Exception e) {
+      em.getTransaction().rollback();
+      System.err.println(e);
+    } finally {
+      em.close();
     }
-    
-    public static Comanda obterComanda(int idComanda) throws ClassNotFoundException, SQLException{
-        Connection conexao = null;
-        Statement comando = null;
-        Comanda comanda = null;
-        try{
-        conexao = BD.getConexao();
-        comando = conexao.createStatement();
-        ResultSet rs = comando.executeQuery("select * from comanda where id = " + idComanda);
-        rs.first();
-        comanda = instanciarComanda(rs);
-        } catch (SQLException ex) {
-            throw new SQLException(ex);
-        }  finally{
-        BD.fecharConexao(conexao, comando);
-        }
-        return comanda;
+    return comanda;
+  }
+
+  public Comanda remove(Integer id) {
+    EntityManager em = new ConexaoFactory().getConexao();
+    Comanda entity = null;
+    try {
+      entity = em.find(Comanda.class, id);
+      em.getTransaction().begin();
+      em.remove(entity);
+      em.getTransaction().commit();
+    } catch (Exception ex) {
+      em.getTransaction().rollback();
+      System.err.println(ex);
+    } finally {
+      em.close();
     }
-    
-    public static Comanda instanciarComanda(ResultSet rs) throws SQLException {
-        Comanda comanda = new Comanda(
-            rs.getInt("id"),
-            rs.getString("data"),
-            rs.getString("hora"),
-            rs.getInt("idCliente")
-        );
-        return comanda;
+    return entity;
+  }
+
+  public List<Comanda> findAll() {
+    EntityManager em = new ConexaoFactory().getConexao();
+    List<Comanda> entities = null;
+    try {
+      entities = em.createQuery("from comanda c").getResultList();
+    } catch (Exception e) {
+      System.err.println(e);
+    } finally {
+      em.close();
     }
-    
-    public static void gravar(Comanda comanda) throws ClassNotFoundException, SQLException {
-        Connection conexao = null;
-        PreparedStatement comando = null;
-        try {
-            conexao = BD.getConexao();
-            comando = conexao.prepareStatement(
-                    "insert into comanda (id, data, hora, idCliente)"
-                    + " values (?,?,?,?)"
-            );
-            comando.setInt(1, comanda.getId());
-            comando.setString(2, comanda.getData());
-            comando.setString(3, comanda.getHora());
-            comando.setInt(4, comanda.getIdCliente());
-            comando.executeUpdate();
-        } catch (SQLException ex) {
-            throw new SQLException(ex);
-        } finally {
-        BD.fecharConexao(conexao, comando);
-        }
+    return entities;
+  }
+
+  public Comanda findById(Integer id) {
+    EntityManager em = new ConexaoFactory().getConexao();
+    Comanda entity = null;
+    try {
+      entity = em.find(Comanda.class, id);
+    } catch (Exception e) {
+      System.err.println(e);
+    } finally {
+      em.close();
     }
-    
-    public static void editar(Comanda comanda) throws ClassNotFoundException, SQLException {
-        Connection conexao = null;
-        PreparedStatement comando = null;
-        try {
-            conexao = BD.getConexao();
-            comando = conexao.prepareStatement(
-                    "update comanda set data = ?, hora = ?, idCliente = ? where id = ?"
-            );
-            comando.setString(1, comanda.getData());
-            comando.setString(2, comanda.getHora());
-            comando.setInt(3, comanda.getIdCliente());
-            comando.setInt(4, comanda.getId());
-            comando.executeUpdate();
-        } catch (SQLException ex) {
-            throw new SQLException(ex);
-        } finally {
-        BD.fecharConexao(conexao, comando);
-        }
-    }
-    
-    public static void excluir(Comanda e) 
-            throws SQLException, ClassNotFoundException {
-        Connection conexao = null;
-        Statement comando = null;
-        String stringSQL;
-        
-        try {
-            conexao = BD.getConexao();
-            comando = conexao.createStatement();
-            stringSQL = "delete from pedido where idComanda = " + e.getId();
-            comando.execute(stringSQL);
-            stringSQL = "delete from comanda where id = " + e.getId();
-            comando.execute(stringSQL);
-        } catch (SQLException ex) {
-            throw new SQLException(ex);
-        } finally {
-            BD.fecharConexao(conexao, comando);
-        }
-    }
+    return entity;
+  }
 }

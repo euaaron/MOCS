@@ -26,8 +26,8 @@ public abstract class Endereco {
   private String uf;
   private String cidade;
   private String logradouro;
-  private String numEdificio;
-  private String numComplemento;
+  private String edificio;
+  private String complemento;
 
   public Endereco(Integer id, String cep, String bairro, String uf, String cidade,
           String logradouro, String numEdificio, String numComplemento) {
@@ -37,8 +37,8 @@ public abstract class Endereco {
     setUf(uf);
     setCidade(cidade);
     setLogradouro(logradouro);
-    setNumEdificio(numEdificio);
-    setNumComplemento(numComplemento);
+    setEdificio(numEdificio);
+    setComplemento(numComplemento);
   }
 
 // Métodos de inserção (Modificação)
@@ -62,12 +62,12 @@ public abstract class Endereco {
     this.logradouro = logradouro;
   }
 
-  public void setNumEdificio(String numEdificio) {
-    this.numEdificio = numEdificio;
+  public void setEdificio(String numEdificio) {
+    this.edificio = numEdificio;
   }
 
-  public void setNumComplemento(String numComplemento) {
-    this.numComplemento = numComplemento;
+  public void setComplemento(String numComplemento) {
+    this.complemento = numComplemento;
   }
 
   public void setBairro(String bairro) {
@@ -95,12 +95,12 @@ public abstract class Endereco {
     return logradouro;
   }
 
-  public String getNumEdificio() {
-    return numEdificio;
+  public String getEdificio() {
+    return edificio;
   }
 
-  public String getNumComplemento() {
-    return numComplemento;
+  public String getComplemento() {
+    return complemento;
   }
 
   public String getBairro() {

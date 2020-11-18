@@ -10,7 +10,6 @@ import dao.FuncionarioDAO;
 import java.sql.SQLException;
 import java.util.List;
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
