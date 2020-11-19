@@ -101,36 +101,36 @@ public class Usuario {
 // Métodos de comunicação com a camada DAO (Banco de dados)
   public static Usuario obterUsuario(Integer idUsuario)
           throws ClassNotFoundException, SQLException {
-    return UsuarioDAO.obterUsuario(idUsuario);
+    return UsuarioDAO.getInstancia().findById(idUsuario);
   }
 
-  public static Usuario obterUsuarioCPF(String cpf)
-          throws ClassNotFoundException, SQLException {
-    return UsuarioDAO.obterUsuarioCPF(cpf);
-  }
-
-  public static Usuario obterUsuarioEmail(String email)
-          throws ClassNotFoundException, SQLException {
-    return UsuarioDAO.obterUsuarioEmail(email);
-  }
+//  public static Usuario obterUsuarioCPF(String cpf)
+//          throws ClassNotFoundException, SQLException {
+//    return UsuarioDAO.obterUsuarioCPF(cpf);
+//  }
+//
+//  public static Usuario obterUsuarioEmail(String email)
+//          throws ClassNotFoundException, SQLException {
+//    return UsuarioDAO.obterUsuarioEmail(email);
+//  }
 
   public static List<Usuario> obterUsuarios()
           throws ClassNotFoundException, SQLException {
-    return UsuarioDAO.obterUsuarios();
+    return UsuarioDAO.getInstancia().findAll();
   }
   
   public void gravar()
           throws SQLException, ClassNotFoundException {
-    UsuarioDAO.gravar(this);
+    UsuarioDAO.getInstancia().save(this);
   }
 
   public void editar()
           throws SQLException, ClassNotFoundException {
-    UsuarioDAO.editar(this);
+    UsuarioDAO.getInstancia().save(this);
   }
 
   public void excluir()
           throws ClassNotFoundException, SQLException {
-    UsuarioDAO.excluir(this);
+    UsuarioDAO.getInstancia().remove(this.id);
   }
 }

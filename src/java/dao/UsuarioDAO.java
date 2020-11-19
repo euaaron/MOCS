@@ -6,184 +6,80 @@
  */
 package dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.EntityManager;
 import model.Usuario;
 
 public class UsuarioDAO {
 
-    public static Usuario obterUsuarioEmail(String email)
-            throws ClassNotFoundException, SQLException {
-        Connection conexao = null;
-        Statement comando = null;
-        Usuario usuario = null;
-        try {
-            conexao = BD.getConexao();
-            comando = conexao.createStatement();
-            ResultSet rs = comando.executeQuery(
-                    "select * from usuario where email = '" + email + "'");
-            rs.first();
-            usuario = instanciarUsuario(rs);
-        } catch (SQLException e) {
-            throw new SQLException(e);
-        } finally {
-            BD.fecharConexao(conexao, comando);
-        }
-        return usuario;
+    private static UsuarioDAO instancia = new UsuarioDAO();
+
+  private UsuarioDAO() {
+  }
+
+  public static UsuarioDAO getInstancia() {
+    return instancia;
+  }
+  
+  public Usuario save(Usuario entity) {
+    EntityManager em = new ConexaoFactory().getConexao();
+    try {
+      em.getTransaction().begin();
+      if (entity.getId() == null) {
+        em.persist(entity);
+      } else {
+        em.merge(entity);
+      }
+      em.getTransaction().commit();
+    } catch (Exception e) {
+      em.getTransaction().rollback();
+      System.err.println(e);
+    } finally {
+      em.close();
     }
+    return entity;
+  }
 
-    public static Usuario obterUsuarioCPF(String cpf)
-            throws ClassNotFoundException, SQLException {
-        Connection conexao = null;
-        Statement comando = null;
-        Usuario usuario = null;
-        try {
-            conexao = BD.getConexao();
-            comando = conexao.createStatement();
-            ResultSet rs = comando.executeQuery(
-                    "select * from usuario where cpf = " + cpf);
-            rs.first();
-            usuario = instanciarUsuario(rs);
-        } catch (SQLException e) {
-            throw new SQLException(e);
-        } finally {
-            BD.fecharConexao(conexao, comando);
-        }
-        return usuario;
+  public Usuario remove(Integer id) {
+    EntityManager em = new ConexaoFactory().getConexao();
+    Usuario entity = null;
+    try {
+      entity = em.find(Usuario.class, id);
+      em.getTransaction().begin();
+      em.remove(entity);
+      em.getTransaction().commit();
+    } catch (Exception ex) {
+      em.getTransaction().rollback();
+      System.err.println(ex);
+    } finally {
+      em.close();
     }
-    
-    public static Usuario obterUsuario(int idUsuario) 
-    throws ClassNotFoundException, SQLException {
-        Connection conexao = null;
-        Statement comando = null;
-        Usuario usuario = null;
-        try {
-            conexao = BD.getConexao();
-            comando = conexao.createStatement();
-            ResultSet rs = comando.executeQuery(
-                    "select * from usuario where id = " + idUsuario);
-            if(rs.next()) {
-                rs.first();
-                usuario = instanciarUsuario(rs);
-            } else {
-                usuario = null;
-            }
-        } catch (SQLException e) {
-            throw new SQLException(e);
-        } finally {
-            BD.fecharConexao(conexao, comando);
-        }
-        return usuario;
+    return entity;
+  }
+
+  public List<Usuario> findAll() {
+    EntityManager em = new ConexaoFactory().getConexao();
+    List<Usuario> entities = null;
+    try {
+      entities = em.createQuery("from Usuario c").getResultList();
+    } catch (Exception e) {
+      System.err.println(e);
+    } finally {
+      em.close();
     }
+    return entities;
+  }
 
-    public static List<Usuario> obterUsuarios()
-            throws ClassNotFoundException, SQLException {
-        Connection conexao = null;
-        Statement comando = null;
-        List<Usuario> usuarios = new ArrayList<>();
-        Usuario usuario = null;
-        try {
-            conexao = BD.getConexao();
-            comando = conexao.createStatement();
-            ResultSet rs = comando.executeQuery("SELECT * FROM usuario ORDER BY id asc");
-            while (rs.next()) {
-                usuario = instanciarUsuario(rs);
-                usuarios.add(usuario);
-            }
-        } catch (SQLException e) {
-            throw new SQLException(e);
-        } finally {
-            BD.fecharConexao(conexao, comando);
-        }
-        return usuarios;
+  public Usuario findById(Integer id) {
+    EntityManager em = new ConexaoFactory().getConexao();
+    Usuario entity = null;
+    try {
+      entity = em.find(Usuario.class, id);
+    } catch (Exception e) {
+      System.err.println(e);
+    } finally {
+      em.close();
     }
-
-    public static Usuario instanciarUsuario(ResultSet rs)
-            throws SQLException {
-        Usuario usuario = new Usuario(
-                rs.getInt("id"),
-                rs.getString("nome"),
-                rs.getString("dataNascimento"),
-                rs.getString("email"),
-                rs.getString("telefone"),
-                rs.getString("senha"),
-                rs.getString("cpf")
-        );
-        return usuario;
-    }
-
-    public static void gravar(Usuario usuario)
-            throws SQLException, ClassNotFoundException {
-        Connection conexao = null;
-        PreparedStatement comando = null;
-        try {
-            conexao = BD.getConexao();
-            comando = conexao.prepareStatement(
-                    "insert into usuario (id, nome, cpf, dataNascimento, email, telefone, senha)"
-                    + "values(?,?,?,?,?,?,?)");
-            comando.setInt(1, usuario.getId());
-            comando.setString(2, usuario.getNome());
-            comando.setString(3, usuario.getCpf());
-            comando.setString(4, usuario.getDataNascimento());
-            comando.setString(5, usuario.getEmail());
-            comando.setString(6, usuario.getTelefone());
-            comando.setString(7, usuario.getSenha());
-            comando.executeUpdate();
-        } catch (SQLException e) {
-            throw new SQLException(e);
-        } finally {
-            BD.fecharConexao(conexao, comando);
-        }
-    }
-
-    public static void editar(Usuario obj)
-            throws ClassNotFoundException, SQLException {
-        Connection conexao = null;
-        PreparedStatement comando = null;
-
-        try {
-            conexao = BD.getConexao();
-            comando = conexao.prepareStatement(
-                    "update usuario set nome = ?, dataNascimento = ?, email = ?, telefone = ?, senha = ?, cpf = ?"
-                    + " where id = ?");
-
-            comando.setString(1, obj.getNome());
-            comando.setString(2, obj.getDataNascimento());
-            comando.setString(3, obj.getEmail());
-            comando.setString(4, obj.getTelefone());
-            comando.setString(5, obj.getSenha());
-            comando.setString(6, obj.getCpf());
-            comando.setInt(7, obj.getId());
-
-            comando.executeUpdate();
-            BD.fecharConexao(conexao, comando);
-        } catch (SQLException e) {
-            throw e;
-        }
-    }
-
-    public static void excluir(Usuario usuario)
-            throws SQLException, ClassNotFoundException {
-        Connection conexao = null;
-        Statement comando = null;
-        String stringSQL;
-
-        try {
-            conexao = BD.getConexao();
-            comando = conexao.createStatement();
-            stringSQL = "delete from usuario where id = "
-                    + usuario.getId();
-            comando.execute(stringSQL);
-        } catch (SQLException e) {
-            throw new SQLException(e);
-        } finally {
-            BD.fecharConexao(conexao, comando);
-        }
-    }
-
+    return entity;
+  }
 }
