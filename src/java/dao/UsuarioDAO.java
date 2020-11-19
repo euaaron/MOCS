@@ -14,6 +14,10 @@ public class UsuarioDAO {
 
     private static UsuarioDAO instancia = new UsuarioDAO();
 
+    public static Usuario obterUsuarioEmail(String email) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
   private UsuarioDAO() {
   }
 
