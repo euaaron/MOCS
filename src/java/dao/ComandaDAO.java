@@ -21,14 +21,14 @@ public class ComandaDAO {
     return instancia;
   }
   
-  public Comanda save(Comanda comanda) {
+  public Comanda save(Comanda entity) {
     EntityManager em = new ConexaoFactory().getConexao();
     try {
       em.getTransaction().begin();
-      if (comanda.getId() == null) {
-        em.persist(comanda);
+      if (entity.getId() == null) {
+        em.persist(entity);
       } else {
-        em.merge(comanda);
+        em.merge(entity);
       }
       em.getTransaction().commit();
     } catch (Exception e) {
@@ -37,7 +37,7 @@ public class ComandaDAO {
     } finally {
       em.close();
     }
-    return comanda;
+    return entity;
   }
 
   public Comanda remove(Integer id) {
@@ -61,7 +61,7 @@ public class ComandaDAO {
     EntityManager em = new ConexaoFactory().getConexao();
     List<Comanda> entities = null;
     try {
-      entities = em.createQuery("from comanda c").getResultList();
+      entities = em.createQuery("from Comanda c").getResultList();
     } catch (Exception e) {
       System.err.println(e);
     } finally {
