@@ -89,26 +89,26 @@ public class Funcionario extends Usuario {
 
     public static Funcionario obterFuncionario(Integer idUsuario)
             throws ClassNotFoundException, SQLException {
-        return FuncionarioDAO.obterFuncionario(idUsuario);
+        return FuncionarioDAO.getInstancia().findById(idUsuario);
     }
 
     public static List<Funcionario> obterFuncionarios()
             throws ClassNotFoundException, SQLException {
-        return FuncionarioDAO.obterFuncionarios();
+        return FuncionarioDAO.getInstancia().findAll();
     }
 
     public void gravar()
             throws SQLException, ClassNotFoundException {
-        FuncionarioDAO.gravar(this);
+        FuncionarioDAO.getInstancia().save(this);
     }
 
     public void editar()
             throws SQLException, ClassNotFoundException {
-        FuncionarioDAO.editar(this);
+        FuncionarioDAO.getInstancia().save(this);
     }
 
     public void excluir()
             throws ClassNotFoundException, SQLException {
-        FuncionarioDAO.excluir(this);
+        FuncionarioDAO.getInstancia().remove(this.getId());
     }
 }
