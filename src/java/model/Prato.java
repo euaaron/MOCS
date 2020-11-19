@@ -150,27 +150,27 @@ public class Prato {
 // Métodos de comunicação com a camada DAO (Banco de dados)
   public static Prato obterPrato(Integer idPrato)
           throws ClassNotFoundException, SQLException {
-    return PratoDAO.obterPrato(idPrato);
+    return PratoDAO.getInstancia().findById(idPrato);
   }
 
   public static List<Prato> obterPratos()
           throws ClassNotFoundException, SQLException {
-    return PratoDAO.obterPratos();
+    return PratoDAO.getInstancia().findAll();
   }
 
   public void gravar()
           throws SQLException, ClassNotFoundException {
-    PratoDAO.gravar(this);
+    PratoDAO.getInstancia().save(this);
   }
 
   public void editar()
           throws ClassNotFoundException, SQLException {
-    PratoDAO.editar(this);
+    PratoDAO.getInstancia().save(this);
   }
 
   public void excluir()
           throws ClassNotFoundException, SQLException {
-    PratoDAO.excluir(this);
+    PratoDAO.getInstancia().remove(this.id);
   }
 
 }

@@ -113,7 +113,7 @@ public class Pedido {
   */
   public Prato obterPrato(Integer idPrato)
           throws ClassNotFoundException, SQLException {
-    return PratoDAO.obterPrato(idPrato);
+    return PratoDAO.getInstancia().findById(idPrato);
   }
 
   public Comanda obterComanda(Integer idComanda)
