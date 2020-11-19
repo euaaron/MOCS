@@ -49,14 +49,6 @@
         <servlet-class>controller.ManterUsuarioController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>PesquisarProprietarioController</servlet-name>
-        <servlet-class>controller.PesquisarProprietarioController</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ManterProprietarioController</servlet-name>
-        <servlet-class>controller.ManterProprietarioController</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>ManterFuncaoController</servlet-name>
         <servlet-class>controller.ManterFuncaoController</servlet-class>
     </servlet>
@@ -151,14 +143,6 @@
     <servlet-mapping>
         <servlet-name>ManterUsuarioController</servlet-name>
         <url-pattern>/ManterUsuarioController</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>PesquisarProprietarioController</servlet-name>
-        <url-pattern>/PesquisarProprietarioController</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ManterProprietarioController</servlet-name>
-        <url-pattern>/ManterProprietarioController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ManterFuncaoController</servlet-name>
