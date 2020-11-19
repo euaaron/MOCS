@@ -28,26 +28,26 @@ public class EnderecoEstabelecimento extends Endereco {
   // Métodos de comunicação com a camada DAO (Banco de dados)   
   public static EnderecoEstabelecimento obterEndereco(Integer idEndereco)
           throws ClassNotFoundException, SQLException {
-    return EnderecoEstabelecimentoDAO.obterEndereco(idEndereco);
+    return EnderecoEstabelecimentoDAO.getInstancia().findById(idEndereco);
   }
 
   public static List<EnderecoEstabelecimento> obterEnderecos()
           throws ClassNotFoundException, SQLException {
-    return EnderecoEstabelecimentoDAO.obterEnderecos();
+    return EnderecoEstabelecimentoDAO.getInstancia().findAll();
   }
 
   public void gravar()
           throws SQLException, ClassNotFoundException {
-    EnderecoEstabelecimentoDAO.gravar(this);
+    EnderecoEstabelecimentoDAO.getInstancia().save(this);
   }
 
   public void editar()
           throws SQLException, ClassNotFoundException {
-    EnderecoEstabelecimentoDAO.editar(this);
+    EnderecoEstabelecimentoDAO.getInstancia().save(this);
   }
 
   public void excluir()
           throws ClassNotFoundException, SQLException {
-    EnderecoEstabelecimentoDAO.excluir(this);
+    EnderecoEstabelecimentoDAO.getInstancia().remove(this.getId());
   }
 }
