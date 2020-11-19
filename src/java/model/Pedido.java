@@ -98,19 +98,19 @@ public class Pedido {
 // Métodos de comunicação com a camada DAO (Banco de dados)
   public static Pedido obterPedido(Integer id)
           throws ClassNotFoundException, SQLException {
-    return PedidoDAO.obterPedido(id);
+    return PedidoDAO.getInstancia().findById(id);
   }
 
   public static List<Pedido> obterPedidos()
           throws ClassNotFoundException, SQLException {
-    return PedidoDAO.obterPedidos();
+    return PedidoDAO.getInstancia().findAll();
   }
-
+  /*
   public static List<Pedido> obterPedidosComanda(Integer idComanda)
           throws ClassNotFoundException, SQLException {
     return PedidoDAO.obterPedidosComanda(idComanda);
   }
-
+  */
   public Prato obterPrato(Integer idPrato)
           throws ClassNotFoundException, SQLException {
     return PratoDAO.obterPrato(idPrato);
@@ -123,16 +123,16 @@ public class Pedido {
 
   public void gravar()
           throws SQLException, ClassNotFoundException {
-    PedidoDAO.gravar(this);
+    PedidoDAO.getInstancia().save(this);
   }
 
   public void editar()
           throws SQLException, ClassNotFoundException {
-    PedidoDAO.editar(this);
+    PedidoDAO.getInstancia().save(this);
   }
 
   public void excluir()
           throws ClassNotFoundException, SQLException {
-    PedidoDAO.excluir(this);
+    PedidoDAO.getInstancia().remove(this.id);
   }
 }
