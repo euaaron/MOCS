@@ -135,12 +135,12 @@ public class Estabelecimento {
 // Métodos de comunicação com a camada DAO (Banco de dados)
   public static Estabelecimento obterEstabelecimento(Integer idEstabelecimento)
           throws ClassNotFoundException, SQLException {
-    return EstabelecimentoDAO.obterEstabelecimento(idEstabelecimento);
+    return EstabelecimentoDAO.getInstancia().findById(idEstabelecimento);
   }
 
   public static List<Estabelecimento> obterEstabelecimentos()
           throws ClassNotFoundException, SQLException {
-    return EstabelecimentoDAO.obterEstabelecimentos();
+    return EstabelecimentoDAO.getInstancia().findAll();
   }
 
   /*public static List<Estabelecimento> obterEstabelecimentosProprietario(int idProprietario)
@@ -150,16 +150,16 @@ public class Estabelecimento {
    */
   public void gravar()
           throws SQLException, ClassNotFoundException {
-    EstabelecimentoDAO.gravar(this);
+    EstabelecimentoDAO.getInstancia().save(this);
   }
 
   public void editar()
           throws ClassNotFoundException, SQLException {
-    EstabelecimentoDAO.editar(this);
+    EstabelecimentoDAO.getInstancia().save(this);
   }
 
   public void excluir()
           throws ClassNotFoundException, SQLException {
-    EstabelecimentoDAO.excluir(this);
+    EstabelecimentoDAO.getInstancia().remove(this.id);
   }
 }
