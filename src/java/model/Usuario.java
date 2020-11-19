@@ -109,7 +109,8 @@ public class Usuario {
 //    return UsuarioDAO.obterUsuarioCPF(cpf);
 //  }
 //
- public static Usuario obterUsuarioEmail(String email)
+
+  public static Usuario obterUsuarioEmail(String email)
           throws ClassNotFoundException, SQLException {
     return UsuarioDAO.getInstancia().findByEmail(email);
   }
