@@ -69,6 +69,20 @@ public class UsuarioDAO {
     }
     return entities;
   }
+  
+  public Usuario findByEmail(String email) {
+    EntityManager em = new ConexaoFactory().getConexao();
+    Usuario entity = null;
+    try {
+      List<Usuario> entities = em.createQuery("from Usuario u where 'email' = "+ email).getResultList();
+      entity = entities.get(0);
+    } catch (Exception e) {
+      System.err.println(e);
+    } finally {
+      em.close();
+    }
+    return entity;
+  }
 
   public Usuario findById(Integer id) {
     EntityManager em = new ConexaoFactory().getConexao();
