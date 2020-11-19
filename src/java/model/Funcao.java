@@ -91,12 +91,12 @@ public class Funcao {
 // Métodos de comunicação com a camada DAO (Banco de dados)
   public static Funcao obterFuncao(Integer id)
           throws ClassNotFoundException, SQLException {
-    return FuncaoDAO.obterFuncao(id);
+    return FuncaoDAO.getInstancia().findById(id);
   }
 
   public static List<Funcao> obterFuncoes()
           throws ClassNotFoundException, SQLException {
-    return FuncaoDAO.obterFuncoes();
+    return FuncaoDAO.getInstancia().findAll();
   }
 
   public Estabelecimento obterEstabelecimento(Integer idEstabelecimento)
@@ -106,17 +106,17 @@ public class Funcao {
 
   public void gravar()
           throws SQLException, ClassNotFoundException {
-    FuncaoDAO.gravar(this);
+    FuncaoDAO.getInstancia().save(this);
   }
 
   public void editar()
           throws SQLException, ClassNotFoundException {
-    FuncaoDAO.editar(this);
+    FuncaoDAO.getInstancia().save(this);
   }
 
   public void excluir()
           throws ClassNotFoundException, SQLException {
-    FuncaoDAO.excluir(this);
+    FuncaoDAO.getInstancia().remove(this.id);
   }
 
 }
