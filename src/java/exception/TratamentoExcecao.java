@@ -32,7 +32,7 @@ public class TratamentoExcecao extends HttpServlet {
         Exception excecao = (Exception) request.getAttribute("javax.servlet.error.exception");
         Integer codigoStatus = (Integer) request.getAttribute("javax.servlet.error.status_code");
         String nomeServlet = (String) request.getAttribute("javax.servlet.error.servlet_name");
-        String uriRequisicao = (String) request.getAttribute("javax.servlet.error.request_uri");
+     // String uriRequisicao = (String) request.getAttribute("javax.servlet.error.request_uri");
         String uriAnterior = "/MOCS/";
         if (excecao != null) {
             request.setAttribute("excecao", excecao);
@@ -44,19 +44,12 @@ public class TratamentoExcecao extends HttpServlet {
             request.setAttribute("codigoStatus", codigoStatus);
         }
 
-        if (uriRequisicao != null) { //Esperado: uriRequisicao = "/MOCS/ManterAlgoController";
-            String filtro  = uriRequisicao.split("/")[2]; //Esperado: filtro = "ManterAlgoController";
-            String uriClass = filtro.split("Manter")[1]; //Esperado: uriClass = "AlgoController";
-            if(filtro.contains("Manter")) {
-                uriAnterior = uriAnterior.concat("Pesquisar" + uriClass);
-            }
-            request.setAttribute("uriRequisicao", uriRequisicao);
-        }
-
         request.setAttribute("uriAnterior", uriAnterior);
-
-        RequestDispatcher view = request.getRequestDispatcher("error.jsp");
-        view.forward(request, response);
+        if (!response.isCommitted()){
+            RequestDispatcher view = request.getRequestDispatcher("error.jsp");
+            view.forward(request, response);
+        }
+        return;
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

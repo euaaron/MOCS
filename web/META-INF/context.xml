@@ -1,2 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context antiJARLocking="true" path="/MOCS"/>
+<Context antiJARLocking="true" path="/MOCS">
+  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxActive="20" maxIdle="10" maxWait="-1" name="mocsdb" password="e9df31ce" type="javax.sql.DataSource" url="jdbc:mysql://us-cdbr-east-02.cleardb.com:3306/heroku_7a4577ab47d8311?zeroDateTimeBehavior=convertToNull" username="bca155c03404d0"/>
+</Context>
